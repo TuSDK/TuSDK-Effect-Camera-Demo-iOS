@@ -1,0 +1,8 @@
+"CFBundleDisplayName" = "涂图特效相机";
+"CFBundleName" = "涂图特效相机";
+"NSLocationWhenInUseUsageDescription" = "录制需要获取您的位置";
+"NSMicrophoneUsageDescription" = "录音需要您的麦克风权限";
+"NSCameraUsageDescription" = "录制视频需要您的摄像头权限";
+"NSPhotoLibraryAddUsageDescription" = "获取视频需要您的相册权限";
+"NSPhotoLibraryUsageDescription" = "保存视频需要您的相册权限";
+"NSLocalNetworkUsageDescription" = "涂图短视频将不会连接到网络上的设备，它只会检测与本地网关的连接";
