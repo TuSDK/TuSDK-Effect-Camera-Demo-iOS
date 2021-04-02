@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 tusdk.com. All rights reserved.
 //
 
-#import "network/TuNKDownloadAdapter.h"
+#import "TuSDKPulseCore/network/TuNKDownloadAdapter.h"
 #import "TuSDKPulseCore/core/TuFilterOption.h"
 #import "TuSDKPulseCore/core/TuFilterGroup.h"
 

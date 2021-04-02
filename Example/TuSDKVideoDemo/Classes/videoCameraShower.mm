@@ -1,6 +1,7 @@
 #import "videoCameraShower.h"
 
 #import "TuSDKPulseCore/tools/TuTSMotion.h"
+#import "TuSDKPulseCore/tools/TuTSAnimation.h"
 
 #import "TuSDKPulseCore/cx/seles/extend/SelesParameters.h"
 
@@ -51,6 +52,9 @@
     TUPFPImage* _pipeOutImage;
     NSLock *_pipeOutLock;
     
+    TuTSAnimation *_displayViewAnimation;
+    CGRect _displayViewRect;
+    
     NSMutableArray<NSNumber *> *_filterChain; // 滤镜链[滤镜执行的先后顺序, 顺序改变会影响最终的效果。建议不要更改]
     NSMutableDictionary<NSNumber*, NSObject*> *_filterPropertys;
 
@@ -60,6 +64,8 @@
 //    dispatch_queue_t _videoProcessingQueue;
 
     TUPDispatchQueue *_pipeOprationQueue;
+
+    
 }
 @end
 
@@ -151,10 +157,13 @@
     [displayView.topAnchor constraintEqualToAnchor:rootView.topAnchor].active = YES;
     [displayView.bottomAnchor constraintEqualToAnchor:rootView.bottomAnchor].active = YES;
     [rootView sendSubviewToBack:displayView];
+    
+    _displayViewRect = CGRectMake(0, 0, 1, 1);
 
     _displayView = displayView;
     [_displayView setup];
         
+    
 //    UILabel *technologyLabel = [[UILabel alloc] init];
 //    technologyLabel.font = [UIFont systemFontOfSize:10];
 //    technologyLabel.textColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
@@ -188,7 +197,7 @@
     return filterIndex;
 }
 
-- (void)setRatioType:(lsqRatioType)ratioType
+- (CGFloat)getRatioByType:(lsqRatioType)ratioType
 {
     CGFloat ratio = 1.0f;
     switch (ratioType)
@@ -221,27 +230,97 @@
             break;
     }
     
+    return ratio;
+}
+
+- (void)setRatioType:(lsqRatioType)ratioType
+{
+    CGFloat ratio = [self getRatioByType:ratioType];
+    
     if (_camera)
     {
-        CGSize outputSize = _camera.outputResolution;
-        
-        CGSize cameraResolution = _camera.outputResolution;
-        float cameraRatio = cameraResolution.width / cameraResolution.height;
-        
-        if (ratio < cameraRatio)
+        CGFloat fullScreenRatio = [self getRatioByType:lsqRatioOrgin];
+        CGSize fullScreenSize = _camera.outputResolution;
         {
-            outputSize.height = cameraResolution.height;
+            CGSize cameraResolution = _camera.outputResolution;
+            float cameraRatio = _camera.outputResolution.width / _camera.outputResolution.height;
+            
+            if (fullScreenRatio < cameraRatio)
+            {
+                fullScreenSize.height = cameraResolution.height;
+                fullScreenSize.width = fullScreenSize.height * fullScreenRatio;
+            }
+            else
+            {
+                fullScreenSize.width = cameraResolution.width;
+                fullScreenSize.height = fullScreenSize.width / fullScreenRatio;
+            }
+        }
+        
+        CGSize outputSize = fullScreenSize;
+                
+        if (ratio < fullScreenRatio)
+        {
+            outputSize.height = fullScreenSize.height;
             outputSize.width = outputSize.height * ratio;
         }
         else
         {
-            outputSize.width = cameraResolution.width;
+            outputSize.width = fullScreenSize.width;
             outputSize.height = outputSize.width / ratio;
         }
         
-        [_pipeOprationQueue runSync:^{
-            [self->_imgcvt setOutputSize:outputSize];
-        }];
+        if (_ratioType != ratioType)
+        {
+            CGFloat startRatio = [self getRatioByType:_ratioType];
+            CGFloat completeRatio = ratio;
+
+            CGSize startSize;
+            CGSize completeSize = outputSize;
+            
+            if (startRatio < fullScreenRatio)
+            {
+                startSize.height = fullScreenSize.height;
+                startSize.width = startSize.height * startRatio;
+            }
+            else
+            {
+                startSize.width = fullScreenSize.width;
+                startSize.height = startSize.width / startRatio;
+            }
+            
+            CGRect startRectNor = CGRectMake(0, 0, 1, 1);
+            startRectNor.size.height = fullScreenRatio / startRatio;
+            if (startRectNor.size.height != 1.0)
+            {
+                startRectNor.origin.y = 0.13;
+            }
+            
+            CGRect completeRectNor = CGRectMake(0, 0, 1, 1);
+            completeRectNor.size.height = fullScreenRatio / completeRatio;
+            if (completeRectNor.size.height != 1.0)
+            {
+                completeRectNor.origin.y = 0.13;
+            }
+                             
+            _displayViewAnimation = [TuTSAnimation animWithDuration:0.25 tween:[TuSDKTweenQuadEaseOut tween] block:Nil];
+            [_displayViewAnimation startWithBlock:^(TuTSAnimation *anim, NSTimeInterval step) {
+                CGFloat progress = step;
+                
+                CGFloat x = startRectNor.origin.x + (completeRectNor.origin.x - startRectNor.origin.x) * progress;
+                CGFloat y = startRectNor.origin.y + (completeRectNor.origin.y - startRectNor.origin.y) * progress;
+                CGFloat w = startRectNor.size.width + (completeRectNor.size.width - startRectNor.size.width) * progress;
+                CGFloat h = startRectNor.size.height + (completeRectNor.size.height - startRectNor.size.height) * progress;
+                
+                self->_displayViewRect = CGRectMake(x, y, w, h);
+
+                CGFloat sw = startSize.width + (completeSize.width - startSize.width) * progress;
+                CGFloat sh = startSize.height + (completeSize.height - startSize.height) * progress;
+                [self->_imgcvt setOutputSize:CGSizeMake(sw, sh)];
+            }];
+        }
+        
+        _ratioType = ratioType;
     }
 }
 
@@ -1155,7 +1234,10 @@
         
         [self->_pipeOutLock unlock];
 
-        [self->_displayView update:self->_pipeOutImage];
+        
+//        [self->_displayView update:self->_pipeOutImage];
+        [self->_displayView update:self->_pipeOutImage atRect:self->_displayViewRect];
+
     }];
 }
 
@@ -1688,18 +1770,30 @@
 {
     [_pipeOutLock lock];
     UIImage *ret = [_pipeOutImage getUIImage];
+    UIImage *outPutImage = [self drawWaterMarkToCaptureImage:ret];
+    
     [_pipeOutLock unlock];
 
-    return ret;
+    return outPutImage;
 }
 
-- (CVPixelBufferRef)getCapturePixelBuffer
+- (UIImage *)drawWaterMarkToCaptureImage:(UIImage *)captureImage
 {
-    [_pipeOutLock lock];
-    CVPixelBufferRef ret = [_pipeOutImage getCVPixelBuffer];
-    [_pipeOutLock unlock];
+    CGFloat safeBottom = 0;
+    if ([UIDevice lsqIsDeviceiPhoneX])
+    {
+        safeBottom = 44;
+    }
+    UIGraphicsBeginImageContext(captureImage.size);
+    [captureImage drawInRect:CGRectMake(0, 0, captureImage.size.width, captureImage.size.height)];
     
-    return ret;
+    UIImage *waterMarkImage = [UIImage imageNamed:@"sample_watermark"];
+    [waterMarkImage drawInRect:CGRectMake(captureImage.size.width - 220, safeBottom + 20, 200, 88)];
+    
+    UIImage *outPutImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+     
+    return outPutImage;
 }
 
 @end

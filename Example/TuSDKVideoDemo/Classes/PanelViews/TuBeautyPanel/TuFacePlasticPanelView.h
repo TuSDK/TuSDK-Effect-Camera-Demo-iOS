@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TuFacePlasticPanelView : UIView
 @property (nonatomic, weak) id<TuFacePlasticPanelViewDelegate> delegate;
+
+- (void)deselect; // 取消选中
+
 @end
 
 

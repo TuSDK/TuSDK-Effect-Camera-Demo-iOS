@@ -372,4 +372,18 @@
     }
 }
 
+- (void)removeStickers
+{
+//    if ([_lastSelectedPropsItem isKindOfClass:[TuMonsterData class]] && _lastSelectViewItem != nil)
+    if (_lastSelectViewItem != nil)
+    {
+        if ([_delegate respondsToSelector:@selector(stickerPanelView:unSelectItem:)])
+        {
+            [_delegate stickerPanelView:self unSelectItem:_lastSelectedPropsItem];
+        }
+        
+        [_currentCategoryPageView deselect];
+    }
+}
+
 @end

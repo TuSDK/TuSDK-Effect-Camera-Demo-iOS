@@ -771,6 +771,14 @@
     }
 }
 
+- (void)deselect
+{
+    if (_lastSelectSection != 0)
+    {
+        self.resetCosmetic = YES;
+    }
+}
+
 //组合item data数据
 - (NSMutableArray *)comboDateSetWithCode:(NSString *)cosmeticCode
 {

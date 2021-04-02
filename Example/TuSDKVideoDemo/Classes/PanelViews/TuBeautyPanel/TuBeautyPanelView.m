@@ -737,6 +737,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
         {
             _plasticParams = [_delegate tuBeautyPanelView:self enablePlastic:enable];
         }
+        [_plasticPanelView deselect];
     }
 }
 
@@ -748,6 +749,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
         {
             _plasticExtraParams = [_delegate tuBeautyPanelView:self enableExtraPlastic:enable];
         }
+        [_plasticPanelView deselect];
     }
 }
 
@@ -759,6 +761,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
         {
             _cosmeticParams = [_delegate tuBeautyPanelView:self enableCosmetic:enable isAskPop:NO];
         }
+        [_cosmeticPanelView deselect];
     }
 }
 

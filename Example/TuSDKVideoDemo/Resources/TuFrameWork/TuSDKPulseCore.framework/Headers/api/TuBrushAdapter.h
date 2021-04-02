@@ -6,7 +6,7 @@
 //  Copyright © 2015 tusdk.com. All rights reserved.
 //
 
-#import "network/TuNKDownloadAdapter.h"
+#import "TuSDKPulseCore/network/TuNKDownloadAdapter.h"
 #import "TuBrushGroup.h"
 
 /**

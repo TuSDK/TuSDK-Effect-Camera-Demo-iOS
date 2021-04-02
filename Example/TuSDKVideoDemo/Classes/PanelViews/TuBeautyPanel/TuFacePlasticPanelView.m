@@ -148,5 +148,19 @@
     }
 }
 
+- (void)deselect
+{
+    if (_preSeletedIndex != 0)
+    {
+        TuFacePlasticPanelViewCell *preCell = (TuFacePlasticPanelViewCell *)[self collectionView:_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preSeletedIndex inSection:0]];
+        TuFacePlasticPanelViewCellData *preCellData = _datasets[_preSeletedIndex];
+        
+        preCellData.state = TuFacePlasticPanelViewCellUnselected;
+        preCell.data = preCellData;
+        [_collectionView reloadData];
+        
+        _preSeletedIndex = 0;
+    }
+}
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 tusdk.com. All rights reserved.
 //
 
-#import "TuSDKPulseCore/tasks/TuImageViewTask.h"
+#import "tasks/TuImageViewTask.h"
 #import "TuSDKPulseCore/network/TuNKDownloadManger.h"
 
 /**

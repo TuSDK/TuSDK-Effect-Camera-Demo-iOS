@@ -1078,7 +1078,7 @@
 - (void)tuBeautyPanelView:(TuBeautyPanelView *)view plasticdidSelectCode:(NSString *)code
 {
     // 哈哈镜移除
-    [_cameraShower removeFaceMonsterFilter];
+    [_stickerPanelView removeStickers];
 }
 
 
@@ -1144,7 +1144,7 @@
 - (SelesParameters *)tuBeautyPanelView:(TuBeautyPanelView *)view enableCosmetic:(BOOL)enable isAskPop:(BOOL)isAskPop
 {
     // 哈哈镜移除
-    [_cameraShower removeFaceMonsterFilter];
+//    [_cameraShower removeFaceMonsterFilter];
 
     if (enable)
     {
@@ -1171,7 +1171,7 @@
 - (void)tuBeautyPanelView:(TuBeautyPanelView *)view cosmeticParamCode:(NSString *)code enable:(BOOL)enable
 {
     // 哈哈镜移除
-    [_cameraShower removeFaceMonsterFilter];
+//    [_stickerPanelView removeStickers];
 
     [_cameraShower updateCosmeticParam:code enable:enable];
 }
@@ -1179,7 +1179,7 @@
 - (void)tuBeautyPanelView:(TuBeautyPanelView *)view cosmeticParamCode:(NSString *)code value:(NSInteger)value
 {
     // 哈哈镜移除
-    [_cameraShower removeFaceMonsterFilter];
+//    [_stickerPanelView removeStickers];
 
     [_cameraShower updateCosmeticParam:code value:value];
 }
@@ -1188,6 +1188,9 @@
 #pragma mark - TuStickerPanelViewDelegate
 - (void)stickerPanelView:(TuStickerPanelView *)panelView didSelectItem:(__kindof TuStickerBaseData *)categoryItem;
 {
+    //哈哈镜移除
+    [_stickerPanelView removeStickers];
+
     //动态贴纸和哈哈镜不能同时存在
     if ([categoryItem isKindOfClass:[TuMonsterData class]])
     {
@@ -1197,7 +1200,7 @@
 //        [_cameraShower removeFacePlasticFilter];
 //        [_cameraShower removeFacePlasticExtraFilter];
         // 美妆移除
-        [_beautyPanelView enableCosmetic:NO];
+//        [_beautyPanelView enableCosmetic:NO];
 //        [_cameraShower removeFaceCosmeticFilter];
         //贴纸移除
         [_cameraShower removeStickerFilter];
@@ -1207,9 +1210,6 @@
     }
     else
     {
-        //哈哈镜移除
-        [_cameraShower removeFaceMonsterFilter];
-        
         TuStickerGroup *item = (TuStickerGroup *)categoryItem.item;
         if (item)
         {

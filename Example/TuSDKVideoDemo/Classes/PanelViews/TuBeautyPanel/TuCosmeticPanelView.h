@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL resetCosmetic;
 
+- (void)deselect; // 取消选中
+
 @end
 
 
