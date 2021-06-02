@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
-#import "TuSDKPulseCore/core/TuResult.h"
+@class TuResult;
 
 
 // 相机状态

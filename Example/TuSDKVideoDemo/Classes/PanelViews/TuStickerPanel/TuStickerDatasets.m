@@ -81,15 +81,15 @@
 #pragma mark - TuSDKOnlineStickerDownloaderDelegate
 - (void)onDownloadProgressChanged:(uint64_t)stickerGroupId
                          progress:(CGFloat)progress
-                    changedStatus:(lsqDownloadTaskStatus)status
+                    changedStatus:(TuDownloadTaskStatus)status
 {
     if (self.item.idt != stickerGroupId)
     {
         return;
     }
     
-    if (status == lsqDownloadTaskStatusDowned
-        || status == lsqDownloadTaskStatusDownFailed)
+    if (status == TuDownloadTaskStatusDowned
+        || status == TuDownloadTaskStatusDownFailed)
     {
         // 加载完成后从本地再次获取贴纸数据
         NSArray<TuStickerGroup *> *allLocalStickers = [[TuStickerLocalPackage package] getSmartStickerGroups];
@@ -109,7 +109,7 @@
         
         self.isDownLoading = NO;
         
-        if (status == lsqDownloadTaskStatusDowned)
+        if (status == TuDownloadTaskStatusDowned)
         {
             if (self.delegate && [self.delegate respondsToSelector:@selector(categoryItemLoadCompleted:)])
             {

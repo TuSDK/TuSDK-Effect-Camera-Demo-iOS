@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tuCosmeticPanelView:(TuCosmeticPanelView *)view paramCode:(NSString *)code enable:(BOOL)enable;
 - (void)tuCosmeticPanelView:(TuCosmeticPanelView *)view didSelectedLipStickType:(NSInteger)lipStickType stickerName:(NSString *)stickerName;
 - (void)tuCosmeticPanelView:(TuCosmeticPanelView *)view closeSliderBar:(BOOL)close;
+- (void)tuCosmeticPanelView:(TuCosmeticPanelView *)view changeCosmeticType:(NSString *)cosmeticCode;
 @end
 
 

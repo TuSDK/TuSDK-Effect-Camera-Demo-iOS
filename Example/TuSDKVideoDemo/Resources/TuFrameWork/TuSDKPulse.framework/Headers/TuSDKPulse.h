@@ -22,3 +22,4 @@
 #import <TuSDKPulse/TUPThumbnailMaker.h>
 #import <TuSDKPulse/TUPVideoPlayer.h>
 #import <TuSDKPulse/TUPTranscoder.h>
+#import <TUSDKPulse/TUPPathMarshal.h>

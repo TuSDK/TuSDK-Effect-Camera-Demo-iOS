@@ -1,7 +1,8 @@
-#import "TuSDKPulseCore/TuSDKPulseCore.h"
+#import <TuSDKPulseCore/TuSDKPulseCore.h>
 #import "TuCamera/TuCamera.h"
-#import "TuViews/TuViews.h"
-#import <TuSDKPulseFilter/TUPFPImage.h>
+#import <TuViews/TuViews.h>
+//#import <TuSDKPulseFilter/TUPFPImage.h>
+#import <TuSDKPulseFilter/TuSDKPulseFilter.h>
 
 
 NS_ASSUME_NONNULL_BEGIN

@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic) int height;
 @property(nonatomic) int rotation;
 @property(nonatomic) double framerate;
+@property(nonatomic) double keyWeight;
 @property(nonatomic) BOOL directReverse;
 
 @end

@@ -27,6 +27,6 @@
 
 //@property (nonatomic, copy) void(^showPanelView)(void);
 
-- (void)removeStickers;
+- (void)enableStickers:(BOOL)enable;
 
 @end

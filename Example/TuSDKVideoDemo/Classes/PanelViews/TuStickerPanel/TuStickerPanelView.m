@@ -354,9 +354,9 @@
 #pragma mark TuSDKOnlineStickerDownloaderDelegate
 - (void)onDownloadProgressChanged:(uint64_t)stickerGroupId
                          progress:(CGFloat)progress
-                    changedStatus:(lsqDownloadTaskStatus)status
+                    changedStatus:(TuDownloadTaskStatus)status
 {
-    if (status == lsqDownloadTaskStatusDowned || status == lsqDownloadTaskStatusDownFailed)
+    if (status == TuDownloadTaskStatusDowned || status == TuDownloadTaskStatusDownFailed)
     {
         [self reloadPanelView];
     }
@@ -372,7 +372,7 @@
     }
 }
 
-- (void)removeStickers
+- (void)enableStickers:(BOOL)enable;
 {
 //    if ([_lastSelectedPropsItem isKindOfClass:[TuMonsterData class]] && _lastSelectViewItem != nil)
     if (_lastSelectViewItem != nil)
@@ -381,7 +381,9 @@
         {
             [_delegate stickerPanelView:self unSelectItem:_lastSelectedPropsItem];
         }
-        
+    }
+    if (enable)
+    {
         [_currentCategoryPageView deselect];
     }
 }

@@ -771,8 +771,8 @@
     // 开启访问相机权限
     // 查看有没有相机访问权限
     [TuTSDeviceSettings checkAllowWithController:self
-                                            type:lsqDeviceSettingsCamera
-                                       completed:^(lsqDeviceSettingsType type, BOOL openSetting) {
+                                            type:TuDeviceSettingsCamera
+                                       completed:^(TuDeviceSettingsType type, BOOL openSetting) {
         self->_isOpenSetting = openSetting;
 
         if (openSetting)
@@ -1078,7 +1078,7 @@
 - (void)tuBeautyPanelView:(TuBeautyPanelView *)view plasticdidSelectCode:(NSString *)code
 {
     // 哈哈镜移除
-    [_stickerPanelView removeStickers];
+    [_stickerPanelView enableStickers:YES];
 }
 
 
@@ -1189,7 +1189,7 @@
 - (void)stickerPanelView:(TuStickerPanelView *)panelView didSelectItem:(__kindof TuStickerBaseData *)categoryItem;
 {
     //哈哈镜移除
-    [_stickerPanelView removeStickers];
+    [_stickerPanelView enableStickers:NO];
 
     //动态贴纸和哈哈镜不能同时存在
     if ([categoryItem isKindOfClass:[TuMonsterData class]])

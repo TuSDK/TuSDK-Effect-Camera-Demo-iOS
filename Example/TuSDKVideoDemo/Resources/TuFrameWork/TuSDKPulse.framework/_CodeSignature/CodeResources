@@ -6,7 +6,19 @@
 	<dict>
 		<key>.DS_Store</key>
 		<data>
-		1NKO2mAXquTsUem8h5+tjYIo8Ds=
+		3lbcus8zTOjl3GsV2pkbl25JTpo=
+		</data>
+		<key>Frameworks/TuSDKPulseCore.framework/Info.plist</key>
+		<data>
+		G80AOoae/iNdDC+KGuttB6eHO4M=
+		</data>
+		<key>Frameworks/TuSDKPulseCore.framework/TuSDKPulseCore</key>
+		<data>
+		4EGQUkw2dYJ7ysgCqF9gEvPXgbY=
+		</data>
+		<key>Frameworks/TuSDKPulseCore.framework/_CodeSignature/CodeResources</key>
+		<data>
+		HS/xvKhvRZhtt0ltNeFaNIw2K3E=
 		</data>
 		<key>Headers/TUPBase.h</key>
 		<data>
@@ -14,7 +26,7 @@
 		</data>
 		<key>Headers/TUPConfig.h</key>
 		<data>
-		uo6PEZl12vggdStxbqNZ0U8pHT0=
+		UamnGIFjXXEHKrOfzSfq3ZAMtfU=
 		</data>
 		<key>Headers/TUPDispatchQueue.h</key>
 		<data>
@@ -30,7 +42,11 @@
 		</data>
 		<key>Headers/TUPMediaInspector.h</key>
 		<data>
-		8+t7ldwNYqx0Tgk6PVkQ52VPVTc=
+		XvdFrdCFUJXafAeCT90GmiJc/T8=
+		</data>
+		<key>Headers/TUPPathMarshal.h</key>
+		<data>
+		xt89V74a4k1oL+7bebH2o3msXNo=
 		</data>
 		<key>Headers/TUPPermission.h</key>
 		<data>
@@ -62,7 +78,7 @@
 		</data>
 		<key>Headers/TUPUtils.h</key>
 		<data>
-		12fzm3p0mtxyoI6kSUCQ7Xy5jzE=
+		mF1eYOYqJm5C5WdJ5TAinmW4xbs=
 		</data>
 		<key>Headers/TUPVideoPlayer.h</key>
 		<data>
@@ -70,11 +86,11 @@
 		</data>
 		<key>Headers/TuSDKPulse.h</key>
 		<data>
-		b8Dnyyl12q6x4EAFK/VmP293YdE=
+		OGDYOXdZV2AO4Aswy2s21gDPeLk=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vtTIAGXrnjwrzxn9hQBQBHbR5Cs=
+		UiMZGQ7NOiMIcX3d3/cizC51KfI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -83,6 +99,39 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Frameworks/TuSDKPulseCore.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			G80AOoae/iNdDC+KGuttB6eHO4M=
+			</data>
+			<key>hash2</key>
+			<data>
+			+MOnSkAucr54iIyuYgtvqnqGBBCka07S5YQVPeoGQyo=
+			</data>
+		</dict>
+		<key>Frameworks/TuSDKPulseCore.framework/TuSDKPulseCore</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4EGQUkw2dYJ7ysgCqF9gEvPXgbY=
+			</data>
+			<key>hash2</key>
+			<data>
+			JDlMnhK9bHerjw1bfK1IYMLcIY9167xVIVrnFrNka7I=
+			</data>
+		</dict>
+		<key>Frameworks/TuSDKPulseCore.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HS/xvKhvRZhtt0ltNeFaNIw2K3E=
+			</data>
+			<key>hash2</key>
+			<data>
+			9mWioWjRuQGTcTyW8c1P+IHT5WkRSQSCqhuFUOmqlJY=
+			</data>
+		</dict>
 		<key>Headers/TUPBase.h</key>
 		<dict>
 			<key>hash</key>
@@ -98,11 +147,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uo6PEZl12vggdStxbqNZ0U8pHT0=
+			UamnGIFjXXEHKrOfzSfq3ZAMtfU=
 			</data>
 			<key>hash2</key>
 			<data>
-			NsAVMKPPoZIA8c0qXwoEJKkrXQqq7vq1mg4KPnnGjiw=
+			qtShS6q/Zk/j6vKQmhHG4Uj6WPEtWBStgStANoqKGwU=
 			</data>
 		</dict>
 		<key>Headers/TUPDispatchQueue.h</key>
@@ -142,11 +191,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8+t7ldwNYqx0Tgk6PVkQ52VPVTc=
+			XvdFrdCFUJXafAeCT90GmiJc/T8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ipmicY2aKAT4Zr7WqDtVjJqb3e5o6ZaRRPd1qhPAuNA=
+			myw55uu4VkMjtD9E/Bu6YkNxcMk1ACA3tavv8X8Omsg=
+			</data>
+		</dict>
+		<key>Headers/TUPPathMarshal.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xt89V74a4k1oL+7bebH2o3msXNo=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ir9whByrLMhmZpp10lqYOtqFxz6z9sCxaXuZMEt2PDs=
 			</data>
 		</dict>
 		<key>Headers/TUPPermission.h</key>
@@ -230,11 +290,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			12fzm3p0mtxyoI6kSUCQ7Xy5jzE=
+			mF1eYOYqJm5C5WdJ5TAinmW4xbs=
 			</data>
 			<key>hash2</key>
 			<data>
-			8I5bCBeEX7naAGsx58R4vyb1Gi9CisDG5dYkf/gJDAA=
+			q730uRqtNC04Ab9JsgbteLB2CvkRhOTNy/0er12ar+s=
 			</data>
 		</dict>
 		<key>Headers/TUPVideoPlayer.h</key>
@@ -252,11 +312,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b8Dnyyl12q6x4EAFK/VmP293YdE=
+			OGDYOXdZV2AO4Aswy2s21gDPeLk=
 			</data>
 			<key>hash2</key>
 			<data>
-			GzpHbaRM9Kyho+8IoUR6/Gx/BO7KGDClB5Ml3gRzTR4=
+			odF6ivzqEjuW+5/sK9V5mQ8MkeG+0s7jWTd8Z+VBdxg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

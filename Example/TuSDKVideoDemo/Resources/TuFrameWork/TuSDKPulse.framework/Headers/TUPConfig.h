@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (BOOL) setString:(NSString*)str forKey:(NSString*)key;
+- (BOOL) setStringWithMarshal:(NSString*)str forKey:(NSString*)key;
 - (NSString*) getString:(NSString*)key;
 - (NSString*) getString:(NSString*)key or:(NSString*)val;
 

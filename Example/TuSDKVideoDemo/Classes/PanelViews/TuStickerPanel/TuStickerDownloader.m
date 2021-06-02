@@ -76,7 +76,7 @@
  */
 - (void)onDownloadProgressChanged:(uint64_t)stickerGroupId
                          progress:(CGFloat)progress
-                    changedStatus:(lsqDownloadTaskStatus)status
+                    changedStatus:(TuDownloadTaskStatus)status
 {
     [_delegateArray enumerateObjectsUsingBlock:^(id<TuOnlineStickerDownloaderDelegate> _Nonnull delegate, NSUInteger idx, BOOL * _Nonnull stop)
     {

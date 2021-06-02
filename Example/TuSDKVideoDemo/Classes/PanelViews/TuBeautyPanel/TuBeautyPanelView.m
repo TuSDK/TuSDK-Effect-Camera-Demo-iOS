@@ -201,7 +201,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
             _skinParams = [_delegate tuBeautyPanelView:self enableSkin:YES mode:view.faceSkinType];
         }
     }
-    [self skinParamtersViewUpdata:code];
+    [self skinParamtersViewUpdate:code];
 }
 
 #pragma mark - TuFacePlasticPanelViewDelegate
@@ -233,7 +233,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
                 self->_plasticParams = [self->_delegate tuBeautyPanelView:self enablePlastic:YES];
             }
             
-            [self plasticParamtersViewUpdata:self->_curPlasticCode];
+            [self plasticParamtersViewUpdate:self->_curPlasticCode];
         }]];
 
         [alert show];
@@ -255,7 +255,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
                 }
             }
             
-            [self plasticParamtersViewUpdata:code];
+            [self plasticParamtersViewUpdate:code];
         }
         else if ([plasticExtraCodes containsObject:code])
         {
@@ -267,7 +267,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
                 }
             }
             
-            [self plasticExtraParamtersViewUpdata:code];
+            [self plasticExtraParamtersViewUpdate:code];
         }
     }
     
@@ -339,7 +339,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
         [_delegate tuBeautyPanelView:self cosmeticParamCode:paramCode enable:YES];
     }
 
-    [self cosmeticParamtersViewUpdata:_curCosmeticCode];
+    [self cosmeticParamtersViewUpdate:_curCosmeticCode];
 
 }
 
@@ -379,7 +379,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
     }
     
     _curCosmeticCode = @"lipOpacity";
-    [self cosmeticParamtersViewUpdata:_curCosmeticCode];
+    [self cosmeticParamtersViewUpdate:_curCosmeticCode];
 }
 
 - (void)tuCosmeticPanelView:(TuCosmeticPanelView *)view paramCode:(NSString *)code enable:(BOOL)enable
@@ -449,6 +449,44 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
     }
 }
 
+- (void)tuCosmeticPanelView:(TuCosmeticPanelView *)view changeCosmeticType:(NSString *)cosmeticCode
+{
+    if (_paramtersAdjustView.hidden)
+    {
+        return;
+    }
+    
+    if ([cosmeticCode isEqualToString:@"blush"])
+    {
+        _curCosmeticCode = @"blushOpacity";
+    }
+    else if ([cosmeticCode isEqualToString:@"eyebrow"])
+    {
+        _curCosmeticCode = @"browOpacity";
+    }
+    else if ([cosmeticCode isEqualToString:@"eyeshadow"])
+    {
+        _curCosmeticCode = @"eyeshadowOpacity";
+    }
+    else if ([cosmeticCode isEqualToString:@"eyeliner"])
+    {
+        _curCosmeticCode = @"eyelineOpacity";
+    }
+    else if ([cosmeticCode isEqualToString:@"eyelash"])
+    {
+        _curCosmeticCode = @"eyelashOpacity";
+    }
+    else if ([cosmeticCode isEqualToString:@"shading powder"])
+    {
+        _curCosmeticCode = @"facialOpacity";
+    }
+    else
+    {
+        _curCosmeticCode = @"lipOpacity";
+    }
+    [self cosmeticParamtersViewUpdate:_curCosmeticCode];
+}
+
 - (void)tuCosmeticPanelView:(TuCosmeticPanelView *)view closeSliderBar:(BOOL)close
 {
     _paramtersAdjustView.hidden = close;
@@ -456,7 +494,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
 
 
 #pragma mark - paramters updata
-- (void)skinParamtersViewUpdata:(NSString *)code
+- (void)skinParamtersViewUpdate:(NSString *)code
 {
     _paramtersAdjustView.hidden = NO;
 
@@ -504,7 +542,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
 
 
 
-- (void)plasticParamtersViewUpdata:(NSString *)code
+- (void)plasticParamtersViewUpdate:(NSString *)code
 {
     _paramtersAdjustView.hidden = NO;
 
@@ -564,7 +602,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
 }
 
 
-- (void)plasticExtraParamtersViewUpdata:(NSString *)code
+- (void)plasticExtraParamtersViewUpdate:(NSString *)code
 {
     _paramtersAdjustView.hidden = NO;
 
@@ -615,7 +653,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
 }
 
 
-- (void)cosmeticParamtersViewUpdata:(NSString *)code
+- (void)cosmeticParamtersViewUpdate:(NSString *)code
 {
     _paramtersAdjustView.hidden = NO;
 
@@ -738,6 +776,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
             _plasticParams = [_delegate tuBeautyPanelView:self enablePlastic:enable];
         }
         [_plasticPanelView deselect];
+        _paramtersAdjustView.hidden = !enable;
     }
 }
 
@@ -763,6 +802,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
         }
         [_cosmeticPanelView deselect];
     }
+    _paramtersAdjustView.hidden = enable;
 }
 
 

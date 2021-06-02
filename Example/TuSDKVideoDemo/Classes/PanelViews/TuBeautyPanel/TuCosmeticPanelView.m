@@ -308,6 +308,10 @@
                 //目前点击选择第一个item后会隐藏，因此无需判断是否是选中状态
                 [_collectionView reloadData];
                 [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+                if (self.delegate && [self.delegate respondsToSelector:@selector(tuCosmeticPanelView:changeCosmeticType:)])
+                {
+                    [self.delegate tuCosmeticPanelView:self changeCosmeticType:data.cosmeticCode];
+                }
             }
         }
         else if (indexPath.item == 2)
@@ -456,6 +460,10 @@
             {
                 [_collectionView reloadData];
                 [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+                if (self.delegate && [self.delegate respondsToSelector:@selector(tuCosmeticPanelView:changeCosmeticType:)])
+                {
+                    [self.delegate tuCosmeticPanelView:self changeCosmeticType:data.cosmeticCode];
+                }
             }
         }
         else if (indexPath.item == 1){}
@@ -613,6 +621,10 @@
             {
                 [_collectionView reloadData];
                 [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+                if (self.delegate && [self.delegate respondsToSelector:@selector(tuCosmeticPanelView:changeCosmeticType:)])
+                {
+                    [self.delegate tuCosmeticPanelView:self changeCosmeticType:data.cosmeticCode];
+                }
             }
         }
         else if (indexPath.item == 1){}

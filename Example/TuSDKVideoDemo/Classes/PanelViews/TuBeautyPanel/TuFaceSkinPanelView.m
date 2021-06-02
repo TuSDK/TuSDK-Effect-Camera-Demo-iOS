@@ -121,20 +121,16 @@
     }
     else
     {
-        TuFaceSkinPanelViewCell *cell = [self collectionView:_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:indexPath.item inSection:0]];
         TuFaceSkinPanelViewData *cellData = _datasets[indexPath.item];
 
         if (indexPath.item != _preSeletedIndex && _preSeletedIndex >= 0)
         {
-            TuFaceSkinPanelViewCell *preCell = (TuFaceSkinPanelViewCell *)[self collectionView:_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preSeletedIndex inSection:0]];
             TuFaceSkinPanelViewData *preData = _datasets[_preSeletedIndex];
             
             preData.beautySkinSelectType = TuBeautySkinSelectTypeUnselected;
-            preCell.data = preData;
         }
         
         cellData.beautySkinSelectType = TuBeautySkinSelectTypeSelected;
-        cell.data = cellData;
         [_collectionView reloadData];
         
         _preSeletedIndex = indexPath.item;

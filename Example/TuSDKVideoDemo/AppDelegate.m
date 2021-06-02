@@ -26,7 +26,7 @@
     [Bugly startWithAppId:@"66806f5e0e"];
     
     // 可选: 设置日志输出级别 (默认不输出)
-    [TuSDKPulseCore setLogLevel:lsqLogLevelDEBUG];
+    [TUCCore setLogLevel:TuLogLevelDEBUG];
     
     /**
      *  初始化SDK，应用密钥是您的应用在 TuSDK 的唯一标识符。每个应用的包名(Bundle Identifier)、密钥、资源包(滤镜、贴纸等)三者需要匹配，否则将会报错。
@@ -37,7 +37,7 @@
     // Attention ！！！！！！
     // ********************** 更换包名和秘钥之后，一定要去控制台打包替换资源文件 **********************
     
-    [TuSDKPulseCore initSdkWithAppKey:@"829a2f7c3672a2fa-04-ewdjn1"];
+    [TUCCore initSdkWithAppKey:@"829a2f7c3672a2fa-04-ewdjn1"];
     [TUPEngine Init:nil];
 
     

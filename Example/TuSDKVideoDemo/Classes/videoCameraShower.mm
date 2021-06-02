@@ -1,26 +1,27 @@
 #import "videoCameraShower.h"
 
-#import "TuSDKPulseCore/tools/TuTSMotion.h"
-#import "TuSDKPulseCore/tools/TuTSAnimation.h"
+//#import "TuSDKPulseCore/tools/TuTSMotion.h"
+//#import "TuSDKPulseCore/tools/TuTSAnimation.h"
+//#import "TuSDKPulseCore/cx/seles/extend/SelesParameters.h"
+#import <TuSDKPulseCore/TuSDKPulseCore.h>
 
-#import "TuSDKPulseCore/cx/seles/extend/SelesParameters.h"
-
-#import <TuSDKPulseFilter/TUPFPImage.h>
-#import <TuSDKPulseFilter/TUPFPImageCvt.h>
 #import <TuSDKPulse/TUPDispatchQueue.h>
 
-#import <TuSDKPulseFilter/TUPFPFilter.h>
-#import <TuSDKPulseFilter/TUPFilterPipe.h>
-#import <TuSDKPulseFilter/TUPFPDisplayView.h>
-#import <TuSDKPulseFilter/TUPFPCanvasResizeFilter.h>
-#import <TuSDKPulseFilter/TUPFPTusdkImageFilter.h>
-#import <TuSDKPulseFilter/TUPFPTusdkFacePlasticFilter.h>
-#import <TuSDKPulseFilter/TUPFPTusdkFaceMonsterFilter.h>
-#import <TuSDKPulseFilter/TUPFPTusdkBeautFaceV2Filter.h>
-#import <TuSDKPulseFilter/TUPFPTusdkFaceReshapeFilter.h>
-#import <TuSDKPulseFilter/TUPFPTusdkCosmeticFilter.h>
-#import <TuSDKPulseFilter/TUPFPTusdkLiveStickerFilter.h>
-#import <TuSDKPulseFilter/TUPFPFileExporter.h>
+//#import <TuSDKPulseFilter/TUPFPImage.h>
+//#import <TuSDKPulseFilter/TUPFPImageCvt.h>
+//#import <TuSDKPulseFilter/TUPFPFilter.h>
+//#import <TuSDKPulseFilter/TUPFilterPipe.h>
+//#import <TuSDKPulseFilter/TUPFPDisplayView.h>
+//#import <TuSDKPulseFilter/TUPFPCanvasResizeFilter.h>
+//#import <TuSDKPulseFilter/TUPFPTusdkImageFilter.h>
+//#import <TuSDKPulseFilter/TUPFPTusdkFacePlasticFilter.h>
+//#import <TuSDKPulseFilter/TUPFPTusdkFaceMonsterFilter.h>
+//#import <TuSDKPulseFilter/TUPFPTusdkBeautFaceV2Filter.h>
+//#import <TuSDKPulseFilter/TUPFPTusdkFaceReshapeFilter.h>
+//#import <TuSDKPulseFilter/TUPFPTusdkCosmeticFilter.h>
+//#import <TuSDKPulseFilter/TUPFPTusdkLiveStickerFilter.h>
+//#import <TuSDKPulseFilter/TUPFPFileExporter.h>
+#import <TuSDKPulseFilter/TuSDKPulseFilter.h>
 
 
 @interface RecordFragment : NSObject
@@ -303,7 +304,7 @@
                 completeRectNor.origin.y = 0.13;
             }
                              
-            _displayViewAnimation = [TuTSAnimation animWithDuration:0.25 tween:[TuSDKTweenQuadEaseOut tween] block:Nil];
+            _displayViewAnimation = [TuTSAnimation animWithDuration:0.25 tween:[TuTweenQuadEaseOut tween] block:Nil];
             [_displayViewAnimation startWithBlock:^(TuTSAnimation *anim, NSTimeInterval step) {
                 CGFloat progress = step;
                 

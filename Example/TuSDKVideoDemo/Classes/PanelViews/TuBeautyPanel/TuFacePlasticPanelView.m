@@ -111,22 +111,18 @@
     }
     else
     {
-        TuFacePlasticPanelViewCell *cell = (TuFacePlasticPanelViewCell *)[self collectionView:_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:indexPath.item inSection:0]];
         TuFacePlasticPanelViewCellData *cellData = _datasets[indexPath.row];
 
         if (indexPath.item != _preSeletedIndex)
         {
-            TuFacePlasticPanelViewCell *preCell = (TuFacePlasticPanelViewCell *)[self collectionView:_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preSeletedIndex inSection:0]];
             TuFacePlasticPanelViewCellData *preCellData = _datasets[_preSeletedIndex];
             
             preCellData.state = TuFacePlasticPanelViewCellUnselected;
-            preCell.data = preCellData;
         }
         
         if (indexPath.item != 0)
         {
             cellData.state = TuFacePlasticPanelViewCellSelected;
-            cell.data = cellData;
         }
         else
         {
@@ -152,11 +148,9 @@
 {
     if (_preSeletedIndex != 0)
     {
-        TuFacePlasticPanelViewCell *preCell = (TuFacePlasticPanelViewCell *)[self collectionView:_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preSeletedIndex inSection:0]];
         TuFacePlasticPanelViewCellData *preCellData = _datasets[_preSeletedIndex];
         
         preCellData.state = TuFacePlasticPanelViewCellUnselected;
-        preCell.data = preCellData;
         [_collectionView reloadData];
         
         _preSeletedIndex = 0;
