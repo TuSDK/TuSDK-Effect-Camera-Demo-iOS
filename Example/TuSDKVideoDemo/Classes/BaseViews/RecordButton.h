@@ -14,8 +14,8 @@
 typedef NS_ENUM(NSInteger, RecordButtonStyle)
 {
     RecordButtonStyle_PhotoCapture, // 拍照模式样式
-    RecordButtonStyle_LongPressRecord, // 长按录制模式样式（默认）
-    RecordButtonStyle_TapRecord // 单击录制模式样式
+    RecordButtonStyle_TapRecord, // 录制模式样式（默认）
+    RecordButtonStyle_JoinerRecord // 合拍
 };
 
 @protocol RecordButtonDelegate <NSObject>

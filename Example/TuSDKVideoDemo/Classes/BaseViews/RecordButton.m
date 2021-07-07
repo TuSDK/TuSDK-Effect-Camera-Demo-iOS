@@ -184,10 +184,7 @@
             self.dotColor = [UIColor whiteColor];
             break;
             
-        case RecordButtonStyle_LongPressRecord:
-           break;
-            
-        case RecordButtonStyle_TapRecord:
+        default:
         {
             UIImage *image = [UIImage imageNamed:@"video_ic_recording"];
             [self setImage:image forState:UIControlStateNormal];

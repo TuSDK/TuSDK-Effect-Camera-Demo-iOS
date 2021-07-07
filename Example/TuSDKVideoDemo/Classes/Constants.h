@@ -29,5 +29,13 @@
 #define kPlasticKeyExtraCodes @"eyelid", @"eyemazing", @"whitenTeeth", @"eyeDetail", @"removePouch", @"removeWrinkles"
 
 
+typedef NS_ENUM(NSInteger, TuJoinerDirection) {
+    TuJoinerDirectionHorizontal, //左右
+    TuJoinerDirectionVertical, // 上下
+    TuJoinerDirectionCross // 抢镜
+};
+
+
+
 
 

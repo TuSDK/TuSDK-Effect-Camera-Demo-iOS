@@ -8,9 +8,8 @@
 
 #import "VerticalMenuView.h"
 #import "TuSDKFramework.h"
-
+#import "Constants.h"
 @class CameraMoreMenuView;
-
 @protocol CameraMoreMenuViewDelegate <NSObject>
 @optional
 
@@ -46,6 +45,10 @@
  */
 - (void)moreMenu:(CameraMoreMenuView *)moreMenu didSwitchPitchType:(lsqSoundPitch)pitchType;
 
+- (void)moreMenu:(CameraMoreMenuView *)moreMenu didSwitchJoinerMode:(TuJoinerDirection)joinerDirection;
+
+- (void)moreMenu:(CameraMoreMenuView *)moreMenu didSwitchMicrophoneMode:(BOOL)enableMic;
+
 @end
 
 @interface CameraMoreMenuView : VerticalMenuView
@@ -58,8 +61,16 @@
 
 @property (nonatomic, assign) BOOL enableFlash; // 闪光灯开关
 
+@property (nonatomic, assign) BOOL ratioHidden; // 比例开关
 @property (nonatomic, assign) BOOL disableRatioSwitching; // 是否禁用比例切换
 
 @property (nonatomic, assign) BOOL pitchHidden; // 是否隐藏变声开关
+
+@property (nonatomic, assign) BOOL joinerHidden; // 是否隐藏合拍布局开关
+@property (nonatomic, assign) BOOL disableJoiner;
+@property (nonatomic, assign) TuJoinerDirection currentJoinerDirection;
+
+@property (nonatomic, assign) BOOL disableMicrophone; // 是否禁用麦克风
+@property (nonatomic, assign) BOOL microphoneHidden; 
 
 @end

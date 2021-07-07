@@ -21,6 +21,7 @@
  */
 @property (nonatomic, strong) NSMutableArray<CALayer *> *markLayers;
 
+@property (nonatomic, strong) CALayer *placeholderLayer;
 @end
 
 @implementation MarkableProgressView
@@ -54,21 +55,28 @@
  */
 - (CALayer *)addPlaceholder:(CGFloat)progress markWidth:(CGFloat)markWidth;
 {
+    if (self.placeholderLayer) {
+        [self.placeholderLayer removeFromSuperlayer];
+    }
+    self.placeholderLayer = [self addLayer:progress markWidth:markWidth];
+    return self.placeholderLayer;
+}
+
+- (CALayer *)addLayer:(CGFloat)progress markWidth:(CGFloat)markWidth;
+{
     CALayer *layer = [CALayer layer];
     layer.backgroundColor = [UIColor whiteColor].CGColor;
     CGFloat width = CGRectGetWidth(self.bounds);
-    CGFloat height = CGRectGetHeight(self.bounds);
-    layer.frame = CGRectMake(width * progress - markWidth, 0, markWidth, height);
+    layer.frame = CGRectMake(width * progress - markWidth, 0, markWidth, 4);
     [self.layer addSublayer:layer];
     
     return layer;
 }
-
 #pragma mark - public
 
 - (void)pushMark {
     [_markedProgresses addObject:@(self.progress)];
-    CALayer *layer = [self addPlaceholder:self.progress markWidth:CGRectGetHeight(self.bounds)/2];
+    CALayer *layer = [self addLayer:self.progress markWidth:CGRectGetHeight(self.bounds)/2];
     [_markLayers addObject:layer];
 }
 

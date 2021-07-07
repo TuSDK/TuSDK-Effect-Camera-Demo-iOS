@@ -15,7 +15,7 @@
 #import "TuCameraFilterPackage.h"
 #import "TuBeautyPanelConfig.h"
 #import "TextPageControl.h"
-#import "videoCameraShower.h"
+#import "VideoCameraShower.h"
 #import "TuVideoFocusTouchView.h"
 #import "SpeedSegmentView.h"
 #import "PhotoCaptureConfirmView.h"
@@ -23,6 +23,9 @@
 #import "TuFilterPanelView.h"
 #import "TuBeautyPanelView.h"
 #import "TuStickerPanelView.h"
+#import "MusicListController.h"
+#import <TZImagePickerController.h>
+
 
 
 @interface CameraViewController()<CameraMoreMenuViewDelegate,
@@ -33,7 +36,9 @@
                                     TuBeautyPanelViewDelegate,
                                     TuStickerPanelViewDelegate,
                                     RecordButtonDelegate,
-                                    UIGestureRecognizerDelegate>
+                                    UIGestureRecognizerDelegate,
+                                    TZImagePickerControllerDelegate,
+                                    MusicListDelegate>
 
 {
     TuVideoFocusTouchView *_focusTouchView;
@@ -63,23 +68,25 @@
     TextPageControl *_captureModeView; /**录制模式切换控件*/
     PhotoCaptureConfirmView *_photoCaptureConfirmView; // 拍照完成保存确认页
     
-    videoCameraShower *_cameraShower;
+    VideoCameraShower *_cameraShower;
     UIImage *_capturedPhoto;
     
+    BOOL _canSwipeFilter;
     BOOL _isOpenSetting;
     CGFloat _zoomBeganVal;
     
     lsqRatioType _ratioType;
 }
 
-@property(weak, nonatomic) IBOutlet UIView *cameraView;
+@property (weak, nonatomic) IBOutlet UIView *cameraView;
 @property (weak, nonatomic) IBOutlet MarkableProgressView *markableProgressView; // 录制进度
 @property (nonatomic, weak) IBOutlet UILabel *filterNameLabel;
 
 // 拍照模式中，确认照片视图
 @property (nonatomic, weak) UIView *currentBottomPanelView; // 当前的底部面板
 @property (nonatomic, weak) UIView *currentTopPanelView; // 当前的顶部面板
-
+@property (nonatomic, strong) UIButton *musicButton;
+@property (nonatomic, strong) UIButton *joinerEditButton;
 @end
 
 
@@ -183,11 +190,14 @@
         && _cameraShower.camera.status != TuCameraState_START
         && _cameraShower.camera.status != TuCameraState_START_PREVIEW)
     {
-        [_cameraShower.camera startPreview];
+        [self->_cameraShower.camera startPreview];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [self->_cameraShower.camera resetAudioUnit];
+        });
+        [_cameraShower reset];
     }
     
-    if ([_captureButton getRecordStyle] == RecordButtonStyle_LongPressRecord
-        || [_captureButton getRecordStyle] == RecordButtonStyle_TapRecord)
+    if ([_captureButton getRecordStyle] != RecordButtonStyle_PhotoCapture)
     {
         [_markableProgressView reset];
         [self updateRecordConfrimViewsDisplay];
@@ -266,6 +276,7 @@
     const CGFloat captureModelHeight = 55;
     const CGFloat buttonWidth = 50;
     _headerToolsBar.frame = CGRectMake(0, CGRectGetMaxY(_markableProgressView.frame), size.width, 64);
+    _musicButton.frame = CGRectMake((size.width - 120)/2, CGRectGetMaxY(_headerToolsBar.frame) + 5, 120, 32);
     _filterToolsBar.center = CGPointMake(size.width * 3 / 4 + 18, _captureButton.center.y);
     [_filterToolsBar lsqSetSize:CGSizeMake(120, 64)];
 
@@ -288,6 +299,8 @@
     self.view.backgroundColor = [UIColor blackColor];
 
     [self setNavigationBarHidden:YES animated:NO];
+    
+    _canSwipeFilter = YES;
     
     if (![UIDevice lsqIsDeviceiPhoneX])
     {
@@ -362,7 +375,7 @@
     
     //录制按钮
     _captureButton = [[RecordButton alloc] init];
-    [_captureButton switchStyle:RecordButtonStyle_LongPressRecord];
+    [_captureButton switchStyle:RecordButtonStyle_TapRecord];
     _captureButton.delegate = self;
     [self.view addSubview:_captureButton];
     
@@ -419,12 +432,38 @@
     
     // 相机模式
     _captureModeView.titles = @[NSLocalizedStringFromTable(@"tu_拍照", @"VideoDemo", @"拍照"),
-                                NSLocalizedStringFromTable(@"tu_长按拍摄", @"VideoDemo", @"长按拍摄"),
-                                NSLocalizedStringFromTable(@"tu_单击拍摄", @"VideoDemo", @"单击拍摄")];
+                                NSLocalizedStringFromTable(@"tu_录制", @"VideoDemo", @"录制"),
+                                NSLocalizedStringFromTable(@"tu_合拍", @"VideoDemo", @"合拍")];
     _captureModeView.selectedIndex = 1;
 
     // 滤镜标题
     _filterNameLabel.alpha = 0;
+    
+    // 背景音乐
+    _musicButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _musicButton.backgroundColor = [UIColor lightGrayColor];
+    _musicButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    _musicButton.layer.cornerRadius = 16;
+    _musicButton.clipsToBounds = YES;
+    [_musicButton setTitle:NSLocalizedStringFromTable(@"tu_选择音乐", @"VideoDemo", @"选择音乐") forState:UIControlStateNormal];
+    [_musicButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    [_musicButton setImage:[UIImage imageNamed:@"ic_music"] forState:UIControlStateNormal];
+    [_musicButton addTarget:self action:@selector(musicButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_musicButton];
+    UISwipeGestureRecognizer *nextFilterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(nextFilterSwipeAction:)];
+    nextFilterSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    nextFilterSwipe.delegate = self;
+    [self.view addGestureRecognizer:nextFilterSwipe];
+    
+    
+    UISwipeGestureRecognizer *lastFilterSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(lastFilterSwipeAction:)];
+    lastFilterSwipe.delegate = self;
+    lastFilterSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:lastFilterSwipe];
+    
+    
+    UIPinchGestureRecognizer *zoomPinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchAction:)];
+    [self.view addGestureRecognizer:zoomPinch];
 }
 
 
@@ -544,6 +583,7 @@
     _doneButton.hidden = YES;
     _undoButton.hidden = YES;
     _captureModeView.hidden = YES;
+    _musicButton.hidden = YES;
 }
 
 - (void)showViewsWhenPauseRecording
@@ -556,7 +596,7 @@
 
     [self updateRecordConfrimViewsDisplay];
     _filterButton.hidden = NO;
-
+    _musicButton.hidden = ([_captureButton getRecordStyle] != RecordButtonStyle_TapRecord);
     _speedSegmentView.hidden = !_speedButton.selected;
 }
 
@@ -617,6 +657,9 @@
         _beautyButton.selected = NO;
         self.currentBottomPanelView = nil;
     }
+    if (!_speedSegmentView.hidden) {
+        [self.view bringSubviewToFront:_speedSegmentView];
+    }
     sender.selected = !sender.selected;
 }
 
@@ -645,7 +688,9 @@
 
 - (void)doneButtonAction:(UIButton *)sender
 {
-    [self finishRecording];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self finishRecording];
+    });
 }
 
 - (void)undoButtonAction:(UIButton *)sender
@@ -660,58 +705,63 @@
  *  相机模式切换
  *  @param sender 选中的按钮
  */
-- (void)captureModeChangeAction:(TextPageControl *)sender
-{
-    switch (sender.selectedIndex)
-    {
-        case 0: // 拍照模式
-            [_captureButton switchStyle:RecordButtonStyle_PhotoCapture];
-            break;
-        case 1: // 长按录制模式
-            [_captureButton switchStyle:RecordButtonStyle_LongPressRecord];
-            break;
-        case 2: // 点按录制模式
-            [_captureButton switchStyle:RecordButtonStyle_TapRecord];
-            break;
+- (void)captureModeChangeAction:(TextPageControl *)sender {
+    [self captureModeChangeStyle:sender.selectedIndex];
+    if (!_moreMenuView.isHidden) {
+        [self setPanel:_moreMenuView hidden:YES fromTop:YES];
+        _moreButton.selected = NO;
     }
-    
+}
 
-    _moreMenuView.pitchHidden = sender.selectedIndex == 0 ? YES : NO;
-    
+- (void)captureModeChangeStyle:(RecordButtonStyle)style {
+    [_captureButton switchStyle:style];
+    _moreMenuView.pitchHidden = style == RecordButtonStyle_PhotoCapture;
+    _moreMenuView.joinerHidden = style != RecordButtonStyle_JoinerRecord;
+    _moreMenuView.microphoneHidden = style == RecordButtonStyle_PhotoCapture;
+    _moreMenuView.ratioHidden = style == RecordButtonStyle_JoinerRecord;
     [UIView animateWithDuration:kAnimationDuration animations:^{
-        self->_speedButton.hidden = sender.selectedIndex == 0 ? YES : NO;
+        self->_speedButton.hidden = style == RecordButtonStyle_PhotoCapture;
         self->_speedSegmentView.hidden = self->_speedButton.hidden;
-        self.markableProgressView.hidden = sender.selectedIndex == 0 ? YES : NO;
+        self.markableProgressView.hidden = style == RecordButtonStyle_PhotoCapture;
+        self.musicButton.hidden = style != RecordButtonStyle_TapRecord;
         
-        if (sender.selectedIndex == 0)
-        {
+        if (style == RecordButtonStyle_PhotoCapture) {
             self->_speedSegmentView.hidden = YES;
-        }
-        else
-        {
+        } else {
             //录制模式切换时根据按钮点击状态来判断是否隐藏
             self->_speedSegmentView.hidden = !self->_speedButton.selected;
         }
-    } completion:^(BOOL finished) {
-        
     }];
-}
+    if (style == RecordButtonStyle_JoinerRecord) {
+        if (_cameraShower.ratioType != lsqRatioOrgin) {
+            [_cameraShower setRatioType:lsqRatioOrgin];
+        }
+        
+        [self showImagePicker];
+    } else if (style == RecordButtonStyle_TapRecord) {
+        _joinerEditButton.hidden = YES;
+        NSString *musicName = self.musicButton.titleLabel.text;
+        _cameraShower.maxRecordingTime = 15;
+        if (_cameraShower) {
+            [_markableProgressView addPlaceholder:_cameraShower.minRecordingTime / _cameraShower.maxRecordingTime markWidth:4];
+        }
+        //[_markableProgressView updatePlaceholder:_cameraShower.minRecordingTime / _cameraShower.maxRecordingTime];
 
-- (IBAction)pinchAction:(UIPinchGestureRecognizer *)sender
-{
-    if (sender.state == UIGestureRecognizerStateBegan)
-    {
-        _zoomBeganVal = _cameraShower.camera.zoom;
-    }
-    else if (sender.state == UIGestureRecognizerStateChanged)
-    {
-        _cameraShower.camera.zoom = _zoomBeganVal * sender.scale;
+        [self addAudioMixer:musicName];
+        
+        [_cameraShower removeJoinerFilter];
+    } else {
+        _joinerEditButton.hidden = YES;
+        _cameraShower.mixerMode = TTAudioMixerModeNone;
+        [_cameraShower removeJoinerFilter];
     }
 }
 
 - (void)exposureSliderValueChanged:(UISlider *)slider
 {
-    if (_cameraShower.recordState == lsqRecordStateNotStart)
+    if (_cameraShower.recordState == lsqRecordStateNotStart
+        || _cameraShower.recordState == lsqRecordStateCanceled
+        || _cameraShower.recordState == lsqRecordStatePaused)
     {
         [_cameraShower.camera setExposureBias:slider.value];
     }
@@ -792,7 +842,7 @@
 
 - (void)setupCamera
 {
-    _cameraShower = [[videoCameraShower alloc] initWithRootView:_cameraView];
+    _cameraShower = [[VideoCameraShower alloc] initWithRootView:_cameraView];
     _cameraShower.delegate = self;
 
     _cameraShower.backgroundColor = [UIColor clearColor];
@@ -832,6 +882,7 @@
 - (void)startRecording
 {
     [_cameraShower startRecording];
+    [self moreJoinerDisable:YES];
 }
 
 - (void)pauseRecording
@@ -842,6 +893,7 @@
 - (void)finishRecording
 {
     [_cameraShower finishRecording];
+    [self moreJoinerDisable:NO];
 }
 
 - (void)cancelRecording
@@ -852,7 +904,10 @@
 - (void)undoLastRecordedFragment
 {
     // 删除最后一段录制的视频片段
-    [_cameraShower popMovieFragment];
+    NSUInteger count = [_cameraShower popMovieFragment];
+    if (count == 0) {
+        [self moreJoinerDisable:NO];
+    }
 }
 
 
@@ -941,16 +996,33 @@
 }
 
 #pragma mark - UISwipeGestureRecognizer
-- (IBAction)leftSwipeAction:(UISwipeGestureRecognizer *)sender
+
+- (void)nextFilterSwipeAction:(UISwipeGestureRecognizer *)sender
 {
-    
-    [_filterPanelView swipeToNextFilter];
+    if (_canSwipeFilter)
+    {
+        [_filterPanelView swipeToLastFilter];
+    }
 }
 
-- (IBAction)rightSwipeAction:(UISwipeGestureRecognizer *)sender
+- (void)lastFilterSwipeAction:(UISwipeGestureRecognizer *)sender
 {
-    
-    [_filterPanelView swipeToLastFilter];
+    if (_canSwipeFilter)
+    {
+        [_filterPanelView swipeToNextFilter];
+    }
+}
+
+- (void)pinchAction:(UIPinchGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateBegan)
+    {
+        _zoomBeganVal = _cameraShower.camera.zoom;
+    }
+    else if (sender.state == UIGestureRecognizerStateChanged)
+    {
+        _cameraShower.camera.zoom = _zoomBeganVal * sender.scale;
+    }
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -958,8 +1030,9 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     // 当美颜面板出现时则禁用左滑、右滑手势
-    if (_beautyPanelView.isHidden == NO)
+    if (_beautyPanelView.alpha == 1)
     {
+        _canSwipeFilter = NO;
         return NO;
     }
     
@@ -967,6 +1040,10 @@
     if ([_filterPanelView.layer containsPoint:[touch locationInView:_filterPanelView]])
     {
         return NO;
+    }
+    if (!_canSwipeFilter)
+    {
+        _canSwipeFilter = YES;
     }
     
     return YES;
@@ -1020,7 +1097,16 @@
     [_cameraShower setPitchMode:pitchType];
 }
 
+- (void)moreMenu:(CameraMoreMenuView *)moreMenu didSwitchJoinerMode:(TuJoinerDirection)joinerDirection {
+    
+    [_cameraShower updateJoinerFilterDirection:joinerDirection];
+    CGRect videoRect = _cameraShower.joinerBuilder.videoDstRect;
+    self.joinerEditButton.frame = CGRectMake(videoRect.origin.x * lsqScreenWidth + 8, lsqScreenHeight*(videoRect.origin.y + videoRect.size.height) - 32, 24, 24);
+}
 
+- (void)moreMenu:(CameraMoreMenuView *)moreMenu didSwitchMicrophoneMode:(BOOL)enableMic {
+    _cameraShower.disableMicrophone = !enableMic;
+}
 #pragma mark - TuFilterPanelViewDelegate
 // --------------------------------------------------
 - (SelesParameters *)tuFilterPanelView:(TuFilterPanelView *)panelView didSelectedFilterCode:(NSString *)code
@@ -1241,35 +1327,14 @@
 // --------------------------------------------------
 - (void)recordButtonDidTouchDown:(RecordButton *)sender
 {
-    switch ([_captureButton getRecordStyle])
+    RecordButtonStyle style = [_captureButton getRecordStyle];
+    switch (style)
     {
         case RecordButtonStyle_PhotoCapture:
             sender.selected = YES;
             break;
-            
-        case RecordButtonStyle_LongPressRecord:
-        {
-            if ([_cameraShower getRecordingProgress] < 1.0f)
-            {
-                sender.selected = YES;
-
-                [self startRecording];
-                [self hideViewsWhenRecording];
-
-                _moreMenuView.disableRatioSwitching = YES;
-            }
-            else
-            {
-                NSError *error = [NSError errorWithDomain:[NSString stringWithFormat:@"Recording time is more than %lu seconds", (unsigned long)[_cameraShower maxRecordingTime]]
-                                                     code:lsqRecordVideoErrorMoreMaxDuration
-                                                 userInfo:nil];
-                
-                [self recordFailedWithError:error];
-            }
-        }
-            break;
-            
-        case RecordButtonStyle_TapRecord:
+                        
+        default:
         {
             if ([_cameraShower getRecordingProgress] < 1.0f)
             {
@@ -1298,9 +1363,6 @@
                 [self recordFailedWithError:error];
             }
         }
-            break;
-            
-        default:
             break;
     }
       
@@ -1333,17 +1395,17 @@
         }
             break;
             
-        case RecordButtonStyle_LongPressRecord:
-        {
-            if ([_cameraShower getRecordingProgress] < 1.0f)
-            {
-                sender.selected = NO;
-
-                [self pauseRecording];
-                [self showViewsWhenPauseRecording];
-            }
-        }
-            break;
+//        case RecordButtonStyle_LongPressRecord:
+//        {
+//            if ([_cameraShower getRecordingProgress] < 1.0f)
+//            {
+//                sender.selected = NO;
+//
+//                [self pauseRecording];
+//                [self showViewsWhenPauseRecording];
+//            }
+//        }
+//            break;
             
         case RecordButtonStyle_TapRecord:
             break;
@@ -1386,8 +1448,8 @@
 // --------------------------------------------------
 - (void)recordStateChanged:(lsqRecordState)state
 {
-    if ([_captureButton getRecordStyle] == RecordButtonStyle_LongPressRecord
-        || [_captureButton getRecordStyle] == RecordButtonStyle_TapRecord)
+    RecordButtonStyle recordStyle = [_captureButton getRecordStyle];
+    if (recordStyle != RecordButtonStyle_PhotoCapture)
     {
         switch (state)
         {
@@ -1400,13 +1462,18 @@
 
             case lsqRecordStateCanceled:
             {
-                _moreMenuView.disableRatioSwitching = NO;
+                if (recordStyle == RecordButtonStyle_TapRecord) {
+                    _moreMenuView.disableRatioSwitching = NO;
+                }
+                
                 [self showViewsWhenPauseRecording];
             }
                 break;
 
             case lsqRecordStateSaveingCompleted:
-                _moreMenuView.disableRatioSwitching = NO;
+                if (recordStyle == RecordButtonStyle_TapRecord) {
+                    _moreMenuView.disableRatioSwitching = NO;
+                }
                 _captureButton.selected = NO;
                 break;
 
@@ -1554,6 +1621,78 @@
     // 自动保存后设置为 恢复进度条状态
     [_markableProgressView reset];
     [self updateRecordConfrimViewsDisplay];
+}
+- (void)musicButtonAction:(UIButton *)sender {
+    MusicListController *ctrl = [[MusicListController alloc] init];
+    ctrl.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.75];
+    ctrl.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    ctrl.defaultMusicName = self.musicButton.titleLabel.text;
+    ctrl.delegate = self;
+    [self presentViewController:ctrl animated:YES completion:nil];
+}
+- (void)controller:(MusicListController *)controller didSelectedAtItem:(NSString *)musicName {
+    [controller dismiss];
+    NSString *item = musicName;
+    if ([musicName isEqualToString:@"无"]) {
+        item = NSLocalizedStringFromTable(@"tu_选择音乐", @"VideoDemo", @"选择音乐");
+    }
+    [self.musicButton setTitle:item forState:UIControlStateNormal];
+    [self addAudioMixer:item];
+}
+- (void)addAudioMixer:(NSString *)musicName {
+    if ([musicName isEqualToString:NSLocalizedStringFromTable(@"tu_选择音乐", @"VideoDemo", @"选择音乐")]) {
+        _cameraShower.mixerMode = TTAudioMixerModeNone;
+        return;
+    }
+    NSString *path = [[NSBundle mainBundle] pathForResource:musicName ofType:@"mp3"];
+    [_cameraShower addAudioMixer:path];
+}
+- (void)showImagePicker {
+    TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+    imagePicker.allowPickingImage = NO;
+    imagePicker.allowPickingVideo = YES;
+    imagePicker.allowTakeVideo = NO;
+    imagePicker.allowTakePicture = NO;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(PHAsset *)asset {
+    [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:nil resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+        AVURLAsset *urlAsset = (AVURLAsset *)asset;
+        NSInteger duration = CMTimeGetSeconds(urlAsset.duration);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (duration > self->_cameraShower.maxRecordingTime) {
+                self->_cameraShower.maxRecordingTime = duration;
+                [self->_markableProgressView addPlaceholder:self->_cameraShower.minRecordingTime / self->_cameraShower.maxRecordingTime markWidth:4];
+            }
+            [self->_cameraShower addJoinerFilter:self->_moreMenuView.currentJoinerDirection path:urlAsset.URL.absoluteString];
+            self.joinerEditButton.frame = CGRectMake(self->_cameraShower.joinerBuilder.videoDstRect.origin.x * lsqScreenWidth + 8, lsqScreenHeight*(self->_cameraShower.joinerBuilder.videoDstRect.origin.y + self->_cameraShower.joinerBuilder.videoDstRect.size.height) - 32, 24, 24);
+            self.joinerEditButton.hidden = NO;
+        });
+    }];
+}
+- (void)tz_imagePickerControllerDidCancel:(TZImagePickerController *)picker {
+    if (_cameraShower.mixerMode == TTAudioMixerModeJoiner) {
+        return;
+    }
+    [_captureModeView setSelectedIndex:RecordButtonStyle_TapRecord animated:YES];
+    [self captureModeChangeStyle:RecordButtonStyle_TapRecord];
+}
+- (void)moreJoinerDisable:(BOOL)isDisable {
+    if ([_captureButton getRecordStyle] != RecordButtonStyle_JoinerRecord) {
+        return;
+    }
+    _moreMenuView.disableJoiner = isDisable;
+    _joinerEditButton.hidden = isDisable;
+}
+- (UIButton *)joinerEditButton {
+    if (!_joinerEditButton) {
+        _joinerEditButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _joinerEditButton.hidden = YES;
+        [_joinerEditButton setImage:[UIImage imageNamed:@"rhythm_ic_pic"] forState:UIControlStateNormal];
+        [_joinerEditButton addTarget:self action:@selector(showImagePicker) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_joinerEditButton];
+    }
+    return _joinerEditButton;
 }
 
 

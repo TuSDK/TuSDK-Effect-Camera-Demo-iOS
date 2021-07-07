@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,7 +32,7 @@
                             <state key="normal" image="video_ic_undo"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="滤镜名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aN-Oc-ulo" userLabel="Filter Name Label">
-                            <rect key="frame" x="173.33333333333334" y="140" width="81.666666666666657" height="24"/>
+                            <rect key="frame" x="173.33333333333334" y="150" width="81.666666666666657" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                     <constraints>
                         <constraint firstItem="ZYD-uv-E0M" firstAttribute="leading" secondItem="YzL-fr-lZx" secondAttribute="leading" id="Adj-We-Kb5"/>
                         <constraint firstAttribute="bottomMargin" secondItem="ZYD-uv-E0M" secondAttribute="bottom" constant="-8" id="HdA-Wh-CKU"/>
-                        <constraint firstItem="7aN-Oc-ulo" firstAttribute="top" secondItem="YzL-fr-lZx" secondAttribute="topMargin" constant="88" id="Hjg-hh-fms"/>
+                        <constraint firstItem="7aN-Oc-ulo" firstAttribute="top" secondItem="YzL-fr-lZx" secondAttribute="topMargin" constant="98" id="Hjg-hh-fms"/>
                         <constraint firstAttribute="bottomMargin" secondItem="qIC-DO-fWX" secondAttribute="centerY" constant="19.5" id="Oif-Lh-z4u"/>
                         <constraint firstAttribute="trailing" secondItem="ZYD-uv-E0M" secondAttribute="trailing" id="RgE-kQ-z2i"/>
                         <constraint firstItem="qIC-DO-fWX" firstAttribute="centerX" secondItem="YzL-fr-lZx" secondAttribute="centerX" id="b3p-oz-ojy"/>
@@ -100,31 +100,8 @@
                 <constraint firstItem="YzL-fr-lZx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hZF-E9-qnQ"/>
                 <constraint firstItem="YzL-fr-lZx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zZB-Po-xIv"/>
             </constraints>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="xY8-cx-fYh" appends="YES" id="EcU-bF-QdW"/>
-                <outletCollection property="gestureRecognizers" destination="9Pr-0P-BIR" appends="YES" id="E5O-XU-mvU"/>
-                <outletCollection property="gestureRecognizers" destination="x1C-UK-V4f" appends="YES" id="Xeo-ZK-SBs"/>
-            </connections>
             <point key="canvasLocation" x="-151" y="31"/>
         </view>
-        <swipeGestureRecognizer direction="right" id="xY8-cx-fYh" userLabel="右滑">
-            <connections>
-                <action selector="rightSwipeAction:" destination="-1" id="BJI-cD-cbh"/>
-                <outlet property="delegate" destination="-1" id="LYv-Gh-p6w"/>
-            </connections>
-        </swipeGestureRecognizer>
-        <swipeGestureRecognizer direction="left" id="9Pr-0P-BIR" userLabel="左滑">
-            <connections>
-                <action selector="leftSwipeAction:" destination="-1" id="8LF-qO-CQY"/>
-                <outlet property="delegate" destination="-1" id="gpP-iB-111"/>
-            </connections>
-        </swipeGestureRecognizer>
-        <pinchGestureRecognizer id="x1C-UK-V4f" userLabel="捏合">
-            <connections>
-                <action selector="pinchAction:" destination="-1" id="CgU-Wa-ZVc"/>
-                <outlet property="delegate" destination="-1" id="uob-vx-rLH"/>
-            </connections>
-        </pinchGestureRecognizer>
     </objects>
     <resources>
         <image name="video_ic_undo" width="32" height="32"/>

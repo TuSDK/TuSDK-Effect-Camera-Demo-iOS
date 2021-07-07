@@ -53,10 +53,13 @@
     UIVisualEffectView *_effectBackgroundView;
     
     NSMutableArray<TuFilterPanelViewDataset *> *_datasets;
-    NSInteger _curGroupIndex;
-    NSInteger _preFilterIndex;
+    NSInteger _curGroupIndex;      //当前选中的滤镜组序号
+    NSInteger _selectFilterIndex;  //当前选中的滤镜序号
+    NSInteger _selectGroupIndex;   //当前选中滤镜所在的滤镜组序号
 
     SelesParameters *_filterParams;
+    //是否选中正常滤镜，默认为YES
+    BOOL _selectNormalFilter;
 }
 
 @end
@@ -69,14 +72,14 @@
     if (self = [super initWithFrame:frame])
     {
         [self initWithSubViews];
+        _selectNormalFilter = YES;
     }
     return self;
 }
 
 - (void)initWithSubViews
 {
-    _curGroupIndex = 0;
-    _preFilterIndex = 0;
+    _curGroupIndex = _selectFilterIndex = _selectGroupIndex = 0;
         
     _datasets = [NSMutableArray array];
     
@@ -209,7 +212,7 @@
 {
     _paramtersAdjustView.hidden = YES;
     
-    TuFilterPanelViewCell *preCell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preFilterIndex inSection:0]];
+    TuFilterPanelViewCell *preCell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_selectFilterIndex inSection:0]];
     preCell.selected = NO;
 
     for (TuFilterPanelViewCellData *cellData in _datasets[_curGroupIndex].groupData)
@@ -221,24 +224,32 @@
     {
         [self.delegate tuFilterPanelView:self didSelectedFilterCode:@"Normal"];
     }
-    _curGroupIndex = 0;
-    _preFilterIndex = 0;
+    _curGroupIndex = _selectFilterIndex = _selectGroupIndex = _tabbar.selectedIndex = 0;
+    _selectNormalFilter = YES;
+    [_filterCollectionView reloadData];
+    [_filterCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
 }
 
 //滑动到上一组滤镜
 - (void)swipeToLastFilter
 {
+    if (_selectGroupIndex != _curGroupIndex)
+    {
+        _curGroupIndex = _selectGroupIndex;
+        _tabbar.selectedIndex = _curGroupIndex;
+        [_filterCollectionView reloadData];
+    }
     
-    TuFilterPanelViewCell *preCell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preFilterIndex inSection:0]];
+    TuFilterPanelViewCell *preCell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_selectFilterIndex inSection:0]];
     preCell.selected = NO;
     
-    TuFilterPanelViewCellData *preData = _datasets[_curGroupIndex].groupData[_preFilterIndex];
+    TuFilterPanelViewCellData *preData = _datasets[_curGroupIndex].groupData[_selectFilterIndex];
     NSInteger lastCellState = preData.state;
     preData.state = TuFilterPanelViewCellUnselected;
     
-    if (_preFilterIndex != 0)
+    if (_selectFilterIndex != 0)
     {
-        _preFilterIndex--;
+        _selectFilterIndex--;
     }
     else
     {
@@ -251,8 +262,8 @@
             _curGroupIndex = _datasets.count - 1;
         }
         NSInteger curGroupTotalCount = [_datasets[_curGroupIndex].groupData count];
-        _preFilterIndex = curGroupTotalCount - 1;
-        _tabbar.selectedIndex = _curGroupIndex;
+        _selectFilterIndex = curGroupTotalCount - 1;
+        _tabbar.selectedIndex = _selectGroupIndex = _curGroupIndex;
         [_filterCollectionView reloadData];
     }
     
@@ -261,10 +272,10 @@
         _paramtersAdjustView.hidden = YES;
     }
     
-    TuFilterPanelViewCell *cell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preFilterIndex inSection:0]];
+    TuFilterPanelViewCell *cell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_selectFilterIndex inSection:0]];
     cell.selected = YES;
     
-    TuFilterPanelViewCellData *cellData = _datasets[_curGroupIndex].groupData[_preFilterIndex];
+    TuFilterPanelViewCellData *cellData = _datasets[_curGroupIndex].groupData[_selectFilterIndex];
     
     cellData.state = lastCellState == TuFilterPanelViewCellUnselected ? TuFilterPanelViewCellSelected : lastCellState;
     
@@ -274,24 +285,43 @@
         [self AdjustFilterParamters];
     }
     
-    [_filterCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_preFilterIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    [_filterCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:_selectFilterIndex inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionRight];
+    
+    _selectNormalFilter = NO;
+    
 }
 
 //滑动到下一组滤镜
 - (void)swipeToNextFilter
 {
+    if (_selectGroupIndex != _curGroupIndex)
+    {
+        _curGroupIndex = _selectGroupIndex;
+        _tabbar.selectedIndex = _curGroupIndex;
+        [_filterCollectionView reloadData];
+    }
+    
     NSInteger curGroupTotalCount = [_datasets[_curGroupIndex].groupData count];
     
-    TuFilterPanelViewCell *preCell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preFilterIndex inSection:0]];
+    TuFilterPanelViewCell *preCell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_selectFilterIndex inSection:0]];
     preCell.selected = NO;
     
-    TuFilterPanelViewCellData *preData = _datasets[_curGroupIndex].groupData[_preFilterIndex];
+    TuFilterPanelViewCellData *preData = _datasets[_curGroupIndex].groupData[_selectFilterIndex];
     NSInteger lastCellState = preData.state;
     preData.state = TuFilterPanelViewCellUnselected;
     
-    if (_preFilterIndex != curGroupTotalCount - 1)
+    if (_selectFilterIndex != curGroupTotalCount - 1)
     {
-        _preFilterIndex++;
+        if (_selectNormalFilter)
+        {
+            _curGroupIndex = 0;
+            _selectNormalFilter = NO;
+        }
+        else
+        {
+            _selectFilterIndex++;
+        }
+        
     }
     else
     {
@@ -304,8 +334,8 @@
             _curGroupIndex = 0;
         }
         
-        _preFilterIndex = 0;
-        _tabbar.selectedIndex = _curGroupIndex;
+        _selectFilterIndex = 0;
+        _tabbar.selectedIndex = _selectGroupIndex = _curGroupIndex;
                 
         [_filterCollectionView reloadData];
     }
@@ -315,10 +345,10 @@
         _paramtersAdjustView.hidden = YES;
     }
     
-    TuFilterPanelViewCell *cell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_preFilterIndex inSection:0]];
+    TuFilterPanelViewCell *cell = (TuFilterPanelViewCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:_selectFilterIndex inSection:0]];
     cell.selected = YES;
     
-    TuFilterPanelViewCellData *cellData = _datasets[_curGroupIndex].groupData[_preFilterIndex];
+    TuFilterPanelViewCellData *cellData = _datasets[_curGroupIndex].groupData[_selectFilterIndex];
     
     cellData.state = lastCellState == TuFilterPanelViewCellUnselected ? TuFilterPanelViewCellSelected : lastCellState;
     
@@ -328,8 +358,8 @@
         [self AdjustFilterParamters];
         
     }
-    [_filterCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_preFilterIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
 
+    [_filterCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:_selectFilterIndex inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionLeft];
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
@@ -348,13 +378,19 @@
 - (void)panelBar:(TuPanelBar *)bar didSwitchFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex
 {
     _curGroupIndex = toIndex;
-    _preFilterIndex = 0;
 
-    for (TuFilterPanelViewCellData *cellData in _datasets[fromIndex].groupData)
+    NSInteger selectItem = 0;
+    /**
+     *  判断当前选中的tabbar.selectIndex是否和选中的滤镜是同一个滤镜组
+     *  YES  则 滚动到 选中滤镜 的位置
+     *  NO 则从起始位置开始
+     */
+    if (_curGroupIndex == _selectGroupIndex)
     {
-        cellData.state = TuFilterPanelViewCellUnselected;
+        selectItem = _selectFilterIndex;
     }
     
+    [_filterCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:selectItem inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionLeft];
     [_filterCollectionView reloadData];
 }
 
@@ -390,10 +426,23 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TuFilterPanelViewCell *cell = (TuFilterPanelViewCell *)[self collectionView:collectionView cellForItemAtIndexPath:indexPath];
+    
+    
+    NSInteger currentFilterGroupIndex = _curGroupIndex;
+    if (_curGroupIndex != _selectGroupIndex)
+    {
+        //选中滤镜组 和 当前滤镜组不一致，则将上一组滤镜的选中状态取消
+        currentFilterGroupIndex = _selectGroupIndex;
+    }
+    
+    TuFilterPanelViewCellData *lastCellData = _datasets[currentFilterGroupIndex].groupData[_selectFilterIndex];
+    lastCellData.state = TuFilterPanelViewCellUnselected;
+    
     TuFilterPanelViewCellData *cellData = _datasets[_curGroupIndex].groupData[indexPath.row];
     
-    if (indexPath.item == _preFilterIndex)
+    if (indexPath.item == _selectFilterIndex)
     {
+        //切换选中状态 选中 - 展示调节栏
         if (cellData.state == TuFilterPanelViewCellSelected)
         {
             cellData.state = TuFilterPanelViewCellParamAdjust;
@@ -410,22 +459,16 @@
             _paramtersAdjustView.hidden = YES;
         }
         
-        if (indexPath.item == 0)
+        if (self.delegate && [self.delegate respondsToSelector:@selector(tuFilterPanelView:didSelectedFilterCode:)])
         {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(tuFilterPanelView:didSelectedFilterCode:)])
-            {
-                _filterParams = [self.delegate tuFilterPanelView:self didSelectedFilterCode:cell.data.filterCode];
-                [self AdjustFilterParamters];
-            }
+            _filterParams = [self.delegate tuFilterPanelView:self didSelectedFilterCode:cell.data.filterCode];
+            [self AdjustFilterParamters];
         }
     }
     else
     {
         _paramtersAdjustView.hidden = YES;
 
-        TuFilterPanelViewCellData *preCellData = _datasets[_curGroupIndex].groupData[_preFilterIndex];
-
-        [preCellData setState:TuFilterPanelViewCellUnselected];
         [cellData setState:TuFilterPanelViewCellSelected];
 
         if (self.delegate && [self.delegate respondsToSelector:@selector(tuFilterPanelView:didSelectedFilterCode:)])
@@ -434,8 +477,9 @@
             [self AdjustFilterParamters];
         }
     }
-    
-    _preFilterIndex = indexPath.item;
+    _selectGroupIndex = _curGroupIndex;
+    _selectFilterIndex = indexPath.item;
+    [collectionView reloadData];
 }
 
 - (void)AdjustFilterParamters

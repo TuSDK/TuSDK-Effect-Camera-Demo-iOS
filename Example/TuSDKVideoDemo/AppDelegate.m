@@ -11,6 +11,9 @@
 #import <Bugly/Bugly.h>
 #import <TuSDKPulse/TUPEngine.h>
 #import "CameraViewController.h"
+#ifdef DEBUG
+#import <DoraemonKit/DoraemonManager.h>
+#endif
 @interface AppDelegate ()
 
 @end
@@ -65,7 +68,9 @@
     NSLog(@"TuSDK.framework 的版本号 : %@",lsqPulseSDKVersion);
     //NSLog(@"TuSDKVideo.framework 的版本号 : %@",lsqVideoVersion);
     //NSLog(@"TuSDKFace.framework 的版本号 : %@",lsqFaceVersion);
-    
+#ifdef DEBUG
+    [[DoraemonManager shareInstance] install];
+#endif
     return YES;
 }
 

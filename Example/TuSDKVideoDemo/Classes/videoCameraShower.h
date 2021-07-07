@@ -3,7 +3,7 @@
 #import <TuViews/TuViews.h>
 //#import <TuSDKPulseFilter/TUPFPImage.h>
 #import <TuSDKPulseFilter/TuSDKPulseFilter.h>
-
+#import "Constants.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +17,11 @@ typedef NS_ENUM(NSInteger, PipeThreadState)
 
     PipeThreadState_Destory,
 };
+typedef NS_ENUM(NSInteger, TTAudioMixerMode) {
+    TTAudioMixerModeNone,
+    TTAudioMixerModeMusic, // 背景音乐
+    TTAudioMixerModeJoiner, // 合拍
+};
 
 
 @protocol videoCameraShowerDelegate<NSObject>
@@ -27,17 +32,11 @@ typedef NS_ENUM(NSInteger, PipeThreadState)
 - (void)recordMarkPush;
 - (void)recordMarkPop;
 
-
 @end
 
+@interface VideoCameraShower : NSObject
 
-
-
-
-
-@interface videoCameraShower : NSObject
-
-@property(nonatomic, readonly) TuCamera *camera; // 相机接口
+@property(nonatomic, strong,readonly) TuCamera *camera; // 相机接口
 @property(nonatomic) CGRect displayRect; // 显示选区百分比
 @property(nonatomic, strong) UIColor *backgroundColor; // 视频背景区域颜色
 @property(nonatomic) lsqRatioType ratioType;
@@ -49,8 +48,9 @@ typedef NS_ENUM(NSInteger, PipeThreadState)
 @property(nonatomic, readonly) lsqRecordState recordState; // 录制状态
 
 @property(nonatomic, weak) id<videoCameraShowerDelegate> delegate;
-
-
+@property (nonatomic, assign) TTAudioMixerMode mixerMode;
+@property (nonatomic, strong, readonly) TUPFPSimultaneouslyFilter_PropertyBuilder *joinerBuilder;
+@property (nonatomic, assign) BOOL disableMicrophone;
 
 - (instancetype)initWithRootView:(UIView *)rootView;// 请求初始化
 
@@ -81,13 +81,21 @@ typedef NS_ENUM(NSInteger, PipeThreadState)
 - (void)pauseRecording;
 - (void)finishRecording;
 - (void)cancelRecording;
-- (void)popMovieFragment;
+- (NSUInteger)popMovieFragment;
 
-- (NSInteger)getRecordFragmentsCount;
+
 - (CGFloat)getRecordingProgress;
 
 - (UIImage *)getCaptureImage;
 
+// 合拍
+- (void)addJoinerFilter:(TuJoinerDirection)direction path:(NSString *)path;
+- (void)updateJoinerFilterDirection:(TuJoinerDirection)joinerDirection;
+- (void)removeJoinerFilter;
+// 混音
+- (void)addAudioMixer:(NSString *)path;
+
+- (void)reset;
 @end
 
 

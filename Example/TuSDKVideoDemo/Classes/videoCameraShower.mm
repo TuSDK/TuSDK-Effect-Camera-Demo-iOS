@@ -1,46 +1,33 @@
-#import "videoCameraShower.h"
-
-//#import "TuSDKPulseCore/tools/TuTSMotion.h"
-//#import "TuSDKPulseCore/tools/TuTSAnimation.h"
-//#import "TuSDKPulseCore/cx/seles/extend/SelesParameters.h"
+#import "VideoCameraShower.h"
 #import <TuSDKPulseCore/TuSDKPulseCore.h>
-
 #import <TuSDKPulse/TUPDispatchQueue.h>
-
-//#import <TuSDKPulseFilter/TUPFPImage.h>
-//#import <TuSDKPulseFilter/TUPFPImageCvt.h>
-//#import <TuSDKPulseFilter/TUPFPFilter.h>
-//#import <TuSDKPulseFilter/TUPFilterPipe.h>
-//#import <TuSDKPulseFilter/TUPFPDisplayView.h>
-//#import <TuSDKPulseFilter/TUPFPCanvasResizeFilter.h>
-//#import <TuSDKPulseFilter/TUPFPTusdkImageFilter.h>
-//#import <TuSDKPulseFilter/TUPFPTusdkFacePlasticFilter.h>
-//#import <TuSDKPulseFilter/TUPFPTusdkFaceMonsterFilter.h>
-//#import <TuSDKPulseFilter/TUPFPTusdkBeautFaceV2Filter.h>
-//#import <TuSDKPulseFilter/TUPFPTusdkFaceReshapeFilter.h>
-//#import <TuSDKPulseFilter/TUPFPTusdkCosmeticFilter.h>
-//#import <TuSDKPulseFilter/TUPFPTusdkLiveStickerFilter.h>
-//#import <TuSDKPulseFilter/TUPFPFileExporter.h>
 #import <TuSDKPulseFilter/TuSDKPulseFilter.h>
+#import <AVFoundation/AVFoundation.h>
 
-
+static NSInteger const kJoinerFilterIndex = 10000;
 @interface RecordFragment : NSObject
-@property(nonatomic) TUPFPFileExporter *exporter;
-@property(nonatomic) TUPFPFileExporter_Config *config;
+@property(nonatomic, strong) TUPFPFileExporter *exporter;
+@property(nonatomic, strong) TUPFPFileExporter_Config *config;
 @property(nonatomic) NSInteger videoTimeStart;
 @property(nonatomic) NSInteger audioTimeStart;
 @property(nonatomic) NSInteger timeDuration;
 @property(nonatomic) NSInteger audioTimeDuration;
-
 @property(nonatomic) bool isVideoConfiged;
 @property(nonatomic) bool isAudioConfiged;
 @end
 @implementation RecordFragment
+- (int)formatWidth:(int)width {
+    if (width % 2 != 0) {
+        return width + 1;
+    } else {
+        return width;
+    }
+}
 @end
 
 
 // Camera 接口相机渲染
-@interface videoCameraShower()<TuCameraVideoDataOutputDelegate,
+@interface VideoCameraShower()<TuCameraVideoDataOutputDelegate,
                                 TuCameraAudioDataOutputDelegate,
                                 TuSDKTSMotionDelegate,
                                 SelesParametersListener>
@@ -59,25 +46,30 @@
     NSMutableArray<NSNumber *> *_filterChain; // 滤镜链[滤镜执行的先后顺序, 顺序改变会影响最终的效果。建议不要更改]
     NSMutableDictionary<NSNumber*, NSObject*> *_filterPropertys;
 
-    NSMutableArray<RecordFragment *> *_recordFragments;
     
     dispatch_queue_t _audioProcessingQueue;
-//    dispatch_queue_t _videoProcessingQueue;
 
     TUPDispatchQueue *_pipeOprationQueue;
-
-    
+    void *_audioMixerData;
+    NSMutableArray<RecordFragment *> *_recordFragments;
 }
+@property (nonatomic, strong) TUPFPSimultaneouslyFilter_PropertyBuilder *joinerBuilder;
+@property (nonatomic, strong) TUPFPAudioMixer_Config *audioMixerConfig;
+@property (nonatomic, strong) TUPFPAudioMixer *audioMixer;
+@property (nonatomic, strong) dispatch_queue_t audioMixerQueue;
+@property (nonatomic, assign) BOOL startAudioMix;
 @end
 
 
-@implementation videoCameraShower
+@implementation VideoCameraShower
 
 - (instancetype)initWithRootView:(UIView *)rootView
 {
     self = [super init];
     if (self)
     {
+        _mixerMode = TTAudioMixerModeNone;
+        _speedMode = lsqSpeedMode_Normal; // 设置视频速率 标准
         [self setup:rootView];
     }
     return self;
@@ -93,7 +85,6 @@
             [self->_pipeline close];
             self->_pipeline = nil;
         }
-        
         self->_imgcvt = nil;
     }];
     
@@ -104,19 +95,27 @@
     }
 
     _camera = nil;
+    [_audioMixer close];
+    free(_audioMixerData);
 }
-
+- (void)reset {
+    [self removeAllFragments];
+    if (self.mixerMode == TTAudioMixerModeJoiner) {
+        [self updateJoinerPos:0];
+    }
+}
 - (void)setup:(UIView *)rootView
 {
-    _pipeOprationQueue = [[TUPDispatchQueue alloc] initWithName:@"pipeOprationQueue" ];
+    _pipeOprationQueue = [[TUPDispatchQueue alloc] initWithName:@"pipeOprationQueue"];
     
     _audioProcessingQueue = dispatch_queue_create("videorecord.audioProcessingQueue", DISPATCH_QUEUE_SERIAL);
 //    _videoProcessingQueue = dispatch_queue_create("videorecord.videoProcessingQueue", DISPATCH_QUEUE_SERIAL);
-
-    
+    AVAudioSession *asession = [AVAudioSession sharedInstance];
+    [asession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [asession setActive:YES error:nil];
     _minRecordingTime = 3;  // 最小录制时长 单位秒
     _maxRecordingTime = 15; // 最大录制时长 单位秒
-    _speedMode = lsqSpeedMode_Normal; // 设置视频速率 标准
+    
     _recordState = lsqRecordStateNotStart;
 
     _recordFragments = [[NSMutableArray alloc] init];
@@ -141,7 +140,6 @@
     _camera.videoDataOutputDelegate = self;
     _camera.audioDataOutputDelegate = self;
     
-    
     [_pipeOprationQueue runSync:^{
         self->_imgcvt = [[TUPFPImage_CMSampleBufferCvt alloc] init];
 
@@ -150,13 +148,16 @@
         }];
     
     TUPFPDisplayView* displayView = [[TUPFPDisplayView alloc] init];
-    displayView.translatesAutoresizingMaskIntoConstraints = NO;
+    //displayView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [rootView addSubview:displayView];
-    [displayView.leadingAnchor constraintEqualToAnchor:rootView.leadingAnchor].active = YES;
-    [displayView.trailingAnchor constraintEqualToAnchor:rootView.trailingAnchor].active = YES;
-    [displayView.topAnchor constraintEqualToAnchor:rootView.topAnchor].active = YES;
-    [displayView.bottomAnchor constraintEqualToAnchor:rootView.bottomAnchor].active = YES;
+    [displayView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(rootView);
+    }];
+//    [displayView.leadingAnchor constraintEqualToAnchor:rootView.leadingAnchor].active = YES;
+//    [displayView.trailingAnchor constraintEqualToAnchor:rootView.trailingAnchor].active = YES;
+//    [displayView.topAnchor constraintEqualToAnchor:rootView.topAnchor].active = YES;
+//    [displayView.bottomAnchor constraintEqualToAnchor:rootView.bottomAnchor].active = YES;
     [rootView sendSubviewToBack:displayView];
     
     _displayViewRect = CGRectMake(0, 0, 1, 1);
@@ -325,6 +326,12 @@
     }
 }
 
+- (void)setSpeedMode:(lsqSpeedMode)speedMode {
+    _speedMode = speedMode;
+    if (_mixerMode == TTAudioMixerModeJoiner) {
+        [self updateJoinerSpeed];
+    }
+}
 - (float)getSpeed
 {
     float ret = 1.0f;
@@ -353,7 +360,34 @@
     
     return ret;
 }
+- (float)getMixerSpeed
+{
+    float ret = 1.0f;
+    
+    switch (_speedMode)
+    {
+        case lsqSpeedMode_Normal:
+            ret = 1.0f;
+            break;
+        case lsqSpeedMode_Fast1:
+            ret = 1.5f;
+            break;
+        case lsqSpeedMode_Fast2:
+            ret = 2.0f;
+            break;
+        case lsqSpeedMode_Slow1:
+            ret = 0.75f;
+            break;
+        case lsqSpeedMode_Slow2:
+            ret = 0.5f;
+            break;
 
+        default:
+            break;
+    }
+    
+    return ret;
+}
 - (NSInteger)getPitch
 {
     NSInteger ret = 1;
@@ -1241,27 +1275,6 @@
 
     }];
 }
-
-- (UIImage *)processImage:(CMSampleBufferRef)sampleBuffer devicePosition:(AVCaptureDevicePosition)devicePosition
-{
-    return nil;
-}
-
-
-#pragma mark - TuCameraAudioDataOutputDelegate
-// 音频数据处理功能列表 --------------------------------------------------
-- (void)onTuCameraDidOutputAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer
-{
-    CMTime presentationTimeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
-    NSInteger timeStampMs = (1000 * presentationTimeStamp.value) / presentationTimeStamp.timescale;
-
-    dispatch_sync(_audioProcessingQueue, ^{
-        [_pipeOutLock lock];
-        [self AudioRecordProcess:sampleBuffer timeStamp:timeStampMs];
-        [_pipeOutLock unlock];
-    });
-}
-
 - (void)videoRecordProcess:(NSInteger)timeStamp
 {
     BOOL deleteAllRecordFragments = NO;
@@ -1294,13 +1307,13 @@
             }
             else
             {
+                
                 RecordFragment *fragment = [_recordFragments lastObject];
                 
-                if (fragment && fragment.exporter)
-                {
+                if (fragment && fragment.exporter) {
                     if (fragment.isVideoConfiged == NO)
                     {
-                        fragment.config.width = (int)[_pipeOutImage getWidth];
+                        fragment.config.width = [fragment formatWidth:[_pipeOutImage getWidth]];
                         fragment.config.height = (int)[_pipeOutImage getHeight];
                         fragment.config.stretch = [self getSpeed];
                         fragment.config.pitchType = (int)[self getPitch];
@@ -1312,9 +1325,7 @@
                         [fragment.exporter open:fragment.config];
                         [self setRecordState:lsqRecordStateRecording];
                     }
-                }
-                else
-                {
+                } else {
                     TUPFPFileExporter_Config *config = [[TUPFPFileExporter_Config alloc] init];
                     {
                         NSString *savePath = [NSString stringWithFormat:@"file://%@recordfragment%lu.mp4",
@@ -1335,7 +1346,7 @@
                         fragment.isVideoConfiged = NO;
                         
                         // video config
-                        fragment.config.width = (int)[_pipeOutImage getWidth];
+                        fragment.config.width = [fragment formatWidth:[_pipeOutImage getWidth]];
                         fragment.config.height = (int)[_pipeOutImage getHeight];
                         fragment.config.stretch = [self getSpeed];
                         fragment.config.pitchType = (int)[self getPitch];
@@ -1374,10 +1385,12 @@
 
                 if (totalDuration < _maxRecordingTime * 1000)
                 {
+                    
                     [fragment.exporter sendVideo:_pipeOutImage withTimestamp:fragment.timeDuration];
                 }
                 else
                 {
+                    [self pauseAudioMixer];
                     [self setRecordState:lsqRecordStatePaused];
                 }
             }
@@ -1416,6 +1429,7 @@
             
         case lsqRecordStatePaused:
         {
+
             RecordFragment *fragment = [_recordFragments lastObject];
             if (fragment && fragment.exporter)
             {
@@ -1442,6 +1456,7 @@
                 }
                     
             }
+            //[self.audioUnit resetPlay];
         }
             break;
             
@@ -1465,7 +1480,7 @@
                                   NSTemporaryDirectory(),
                                   [dateFormat stringFromDate:date]];
 
-            bool ret = [TUPFPFileExporter  mergeVideoFiles:fragmentSavedPath to:savePath];
+            bool ret = [TUPFPFileExporter mergeVideoFiles:fragmentSavedPath to:savePath];
             
             if (ret)
             {
@@ -1498,41 +1513,50 @@
             break;
     }
     
-    if (deleteAllRecordFragments)
+    if (deleteAllRecordFragments && _recordFragments.count > 0)
     {
-        for (NSInteger fragIndex = 0; fragIndex < _recordFragments.count; fragIndex++)
-        {
-            RecordFragment *fragment = [_recordFragments objectAtIndex:fragIndex];
-
-            if (fragment && fragment.exporter)
-            {
-                if (fragment.isAudioConfiged && fragment.isVideoConfiged)
-                {
-                    [fragment.exporter close];
-                }
-                fragment.exporter = nil;
-            }
-            
-            if (fragment.config.savePath)
-            {
-                NSURL *saveUrl = [NSURL URLWithString:fragment.config.savePath];
-                if (saveUrl)
-                {
-                    NSFileManager *fileManager = [NSFileManager defaultManager];
-                    if ([fileManager fileExistsAtPath:saveUrl.path])
-                    {
-                        [fileManager removeItemAtURL:[NSURL URLWithString:fragment.config.savePath] error:nil];
-                    }
-                }
-            }
-        }
+        [self removeAllFragments];
         
-        [_recordFragments removeAllObjects];
     }
 }
 
-- (void)AudioRecordProcess:(CMSampleBufferRef)sampleBuffer timeStamp:(NSInteger)timeStamp
+- (UIImage *)processImage:(CMSampleBufferRef)sampleBuffer devicePosition:(AVCaptureDevicePosition)devicePosition
 {
+    return nil;
+}
+
+
+#pragma mark - TuCameraAudioDataOutputDelegate
+// 音频数据处理功能列表 --------------------------------------------------
+- (void)onTuCameraDidOutputAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer
+{
+    CMTime presentationTimeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+    NSInteger timeStampMs = (1000 * presentationTimeStamp.value) / presentationTimeStamp.timescale;
+
+    [_pipeOprationQueue runSync:^{
+        [self->_pipeOutLock lock];
+        
+        CMAudioFormatDescriptionRef audioFormatDes = (CMAudioFormatDescriptionRef)CMSampleBufferGetFormatDescription(sampleBuffer);
+        AudioStreamBasicDescription inAudioStreamBasicDescription = *(CMAudioFormatDescriptionGetStreamBasicDescription(audioFormatDes));
+        CMBlockBufferRef blockBuffer;
+        AudioBufferList audioBufferList;
+        CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(sampleBuffer, NULL, &audioBufferList, sizeof(audioBufferList), NULL, NULL, kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment, &blockBuffer);
+        [self audioRecordProcessBufferList:audioBufferList basicDescription:inAudioStreamBasicDescription timeStamp:timeStampMs];
+        CFRelease(blockBuffer);
+        
+        [self->_pipeOutLock unlock];
+    }];
+}
+
+- (void)onTuCameraDidOutputBufferList:(AudioBufferList)bufferList basicDescription:(AudioStreamBasicDescription)basicDescription timeStamp:(NSInteger)timeStamp {
+    [_pipeOprationQueue runSync:^{
+        [self->_pipeOutLock lock];
+        [self audioRecordProcessBufferList:bufferList basicDescription:basicDescription timeStamp:timeStamp];
+        [self->_pipeOutLock unlock];
+    }];
+}
+
+- (void)audioRecordProcessBufferList:(AudioBufferList)bufferList basicDescription:(AudioStreamBasicDescription)basicDescription timeStamp:(NSInteger)timeStamp {
     switch (_recordState)
     {
         case lsqRecordStatePrepare:
@@ -1551,12 +1575,9 @@
                 {
                     if (fragment.isAudioConfiged == NO)
                     {
-                        // 获取audioformat的描述信息
-                        CMAudioFormatDescriptionRef audioFormatDes = (CMAudioFormatDescriptionRef)CMSampleBufferGetFormatDescription(sampleBuffer);
-                        AudioStreamBasicDescription inAudioStreamBasicDescription = *(CMAudioFormatDescriptionGetStreamBasicDescription(audioFormatDes));
-
-                        fragment.config.channels = inAudioStreamBasicDescription.mChannelsPerFrame;
-                        fragment.config.sampleRate = inAudioStreamBasicDescription.mSampleRate;
+                        
+                        fragment.config.channels = basicDescription.mChannelsPerFrame;
+                        fragment.config.sampleRate = basicDescription.mSampleRate;
                         
                         fragment.isAudioConfiged = YES;
                     }
@@ -1574,7 +1595,6 @@
                         NSString *savePath = [NSString stringWithFormat:@"file://%@recordfragment%lu.mp4",
                                               NSTemporaryDirectory(),
                                               _recordFragments.count + 1];
-
                         config.savePath = savePath;
                         config.watermark = [UIImage imageNamed:@"sample_watermark.png"];
                         //水印位置，默认值为 -1，右上位置
@@ -1589,11 +1609,9 @@
                         fragment.isVideoConfiged = NO;
                         
                         // audio config
-                        // 获取audioformat的描述信息
-                        CMAudioFormatDescriptionRef audioFormatDes = (CMAudioFormatDescriptionRef)CMSampleBufferGetFormatDescription(sampleBuffer);
-                        AudioStreamBasicDescription inAudioStreamBasicDescription = *(CMAudioFormatDescriptionGetStreamBasicDescription(audioFormatDes));
-                        fragment.config.channels = inAudioStreamBasicDescription.mChannelsPerFrame;
-                        fragment.config.sampleRate = inAudioStreamBasicDescription.mSampleRate;
+                        
+                        fragment.config.channels = basicDescription.mChannelsPerFrame;
+                        fragment.config.sampleRate = basicDescription.mSampleRate;
                         fragment.isAudioConfiged = YES;
                         
                         [_recordFragments addObject:fragment];
@@ -1615,12 +1633,12 @@
                     {
                         fragment.audioTimeStart = timeStamp;
                     }
-                    
+                    //fragment.audioTimeDuration = fragment.timeDuration;
                     fragment.audioTimeDuration = timeStamp - fragment.audioTimeStart;
 
-                    NSLog(@"a %ld", fragment.audioTimeDuration);
-
-                    NSInteger totalDuration = fragment.audioTimeDuration;
+                    //NSLog(@"audio duration %ld %ld %ld", timeStamp, fragment.audioTimeDuration, fragment.timeDuration);
+                    NSLog(@"a %ld", fragment.timeDuration);
+                    NSInteger totalDuration = 0;
                     for (NSInteger fragIndex = 0; fragIndex < _recordFragments.count - 1; fragIndex++)
                     {
                         totalDuration += _recordFragments[fragIndex].timeDuration * _recordFragments[fragIndex].config.stretch;
@@ -1628,15 +1646,17 @@
 
                     if (totalDuration < _maxRecordingTime * 1000)
                     {
-                        CMBlockBufferRef blockBuffer;
-
-                        AudioBufferList audioBufferList;
-                        CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(sampleBuffer, NULL, &audioBufferList, sizeof(audioBufferList), NULL, NULL, kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment, &blockBuffer);
-                        AudioBuffer audioBuffer = audioBufferList.mBuffers[0];
-
-                        [fragment.exporter sendAudio:audioBuffer.mData andSize:audioBuffer.mDataByteSize withTimestamp:fragment.audioTimeDuration];
                         
-                        CFRelease(blockBuffer);
+                        AudioBuffer audioBuffer = bufferList.mBuffers[0];
+                        if (self.mixerMode != TTAudioMixerModeNone && _audioMixer != nil) {
+                            //AudioBuffer audioBuffer = bufferList.mBuffers[0];
+                            int ret = [self.audioMixer sendPrimaryAudio:audioBuffer.mData andLength:audioBuffer.mDataByteSize];
+                            //TTLog(@"audioMixer sendPrimaryAudio %d %d",ret, audioBuffer.mDataByteSize);
+                        } else {
+                            if (!self.disableMicrophone) {
+                                [fragment.exporter sendAudio:audioBuffer.mData andSize:audioBuffer.mDataByteSize withTimestamp:fragment.audioTimeDuration];
+                            }
+                        }
                     }
             }
         }
@@ -1675,16 +1695,22 @@
 - (void)startRecording
 {
     NSLog(@"startRecording");
+    if (_mixerMode != TTAudioMixerModeNone) {
+        [_camera startAudioUnit];
+    }
     
     [_pipeOutLock lock];
     [self setRecordState:lsqRecordStatePrepare];
     [_pipeOutLock unlock];
+    [self startAudioMixerWithDuration:[self getRecordingDuration]];
+    [self updateJoinerFilterPlay:YES];
 }
 
 - (void)pauseRecording
 {
+    
     NSLog(@"pauseRecording");
-
+    [self pauseAudioMixer];
     [_pipeOutLock lock];
     [self setRecordState:lsqRecordStatePaused];
     [_pipeOutLock unlock];
@@ -1716,9 +1742,16 @@
     else
     {
         [self setRecordState:lsqRecordStateRecordingCompleted];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.mixerMode == TTAudioMixerModeJoiner) {
+                [self updateJoinerPos:0];
+            }
+        });
     }
     
     [_pipeOutLock unlock];
+    
+    
 }
 
 - (void)cancelRecording
@@ -1730,7 +1763,7 @@
     [_pipeOutLock unlock];
 }
 
-- (void)popMovieFragment
+- (NSUInteger)popMovieFragment
 {
     [_pipeOutLock lock];
 
@@ -1745,24 +1778,63 @@
         fragment.exporter = Nil;
         
         [_recordFragments removeLastObject];
+        if (_audioMixer) {
+            [_audioMixer close];
+        }
+        
     }
 
     [_pipeOutLock unlock];
-    
+    if (self.mixerMode == TTAudioMixerModeJoiner) {
+        [self updateJoinerPos:[self getRecordingDuration]];
+    }
     if (_delegate && [_delegate respondsToSelector:@selector(recordMarkPop)])
     {
         [_delegate recordMarkPop];
     }
+    return _recordFragments.count;
 }
+- (void)removeAllFragments {
+    for (NSInteger fragIndex = 0; fragIndex < _recordFragments.count; fragIndex++)
+    {
+        RecordFragment *fragment = [_recordFragments objectAtIndex:fragIndex];
 
-- (CGFloat)getRecordingProgress
-{
+        if (fragment && fragment.exporter)
+        {
+            if (fragment.isAudioConfiged && fragment.isVideoConfiged)
+            {
+                [fragment.exporter close];
+            }
+            fragment.exporter = nil;
+        }
+        
+        if (fragment.config.savePath)
+        {
+            NSURL *saveUrl = [NSURL URLWithString:fragment.config.savePath];
+            if (saveUrl)
+            {
+                NSFileManager *fileManager = [NSFileManager defaultManager];
+                if ([fileManager fileExistsAtPath:saveUrl.path])
+                {
+                    [fileManager removeItemAtURL:[NSURL URLWithString:fragment.config.savePath] error:nil];
+                }
+            }
+        }
+    }
+    
+    [_recordFragments removeAllObjects];
+}
+- (NSInteger)getRecordingDuration {
     NSInteger totalDuration = 0;
     for (NSInteger fragIndex = 0; fragIndex < _recordFragments.count; fragIndex++)
     {
         totalDuration += _recordFragments[fragIndex].timeDuration * _recordFragments[fragIndex].config.stretch;
     }
-    
+    return totalDuration;
+}
+- (CGFloat)getRecordingProgress
+{
+    NSInteger totalDuration = [self getRecordingDuration];
     return  1.0f * totalDuration / (_maxRecordingTime * 1000);
 }
 
@@ -1797,4 +1869,207 @@
     return outPutImage;
 }
 
+- (void)addJoinerFilter:(TuJoinerDirection)direction path:(NSString *)path {
+    TUPMediaInspector_Result *result = [[TUPMediaInspector shared] inspect:path];
+    CGSize videoSize = CGSizeZero;
+    for (TUPMediaInspector_Result_Item *item in result.streams) {
+        if ([item isKindOfClass:[TUPMediaInspector_Result_VideoItem classForCoder]]) {
+            TUPMediaInspector_Result_VideoItem *videoItem = (TUPMediaInspector_Result_VideoItem *)item;
+            videoSize = CGSizeMake(videoItem.width, videoItem.height);
+            if (videoItem.rotation/90 % 2 == 0) {
+                videoSize = CGSizeMake(videoItem.width, videoItem.height);
+            } else {
+                videoSize = CGSizeMake(videoItem.height, videoItem.width);
+            }
+        }
+    }
+    TUPConfig* config = [[TUPConfig alloc] init];
+    [config setString:path forKey:TUPFPSimultaneouslyFilter_CONFIG_PATH];
+    [config setDoubleNumber:[self getMixerSpeed] forKey:TUPFPSimultaneouslyFilter_CONFIG_STRETCH];
+    CGRect cameraRect = CGRectZero;
+    CGRect videoRect = CGRectZero;
+    CGSize outputSize = CGSizeMake([_pipeInImage getWidth], [_pipeInImage getHeight]);
+    if (direction == TuJoinerDirectionHorizontal) {
+        cameraRect = CGRectMake(0, 0.25, 0.5, 0.5);
+        if (videoSize.width > videoSize.height) {
+            CGFloat heightPercent = outputSize.width/2 * (videoSize.height/videoSize.width) / outputSize.height;
+            videoRect = CGRectMake(0.5, (1 - heightPercent)/2, 0.5, heightPercent);
+        } else {
+            CGFloat heightPercent = outputSize.width/2 * (videoSize.height/videoSize.width) / outputSize.height;
+            videoRect = CGRectMake(0.5, (1 - heightPercent)/2, 0.5, heightPercent);
+        }
+    } else if (direction == TuJoinerDirectionVertical) {
+        if (videoSize.width > videoSize.height) {
+            CGFloat heightPercent = outputSize.width * (videoSize.height/videoSize.width) / outputSize.height;
+            videoRect = CGRectMake(0, (0.5 - heightPercent)/2, 1, heightPercent);
+        } else {
+            CGFloat widthPercent = outputSize.height/2.0 * (videoSize.width/videoSize.height) / outputSize.width;
+            videoRect = CGRectMake((1-widthPercent)/2, 0, widthPercent, 0.5);
+        }
+        //CGFloat cameraWidthPercent = outputSize.width/outputSize.height;
+        cameraRect = CGRectMake(0.25, 0.5, 0.5, 0.5);
+    } else if (direction == TuJoinerDirectionCross) {
+        cameraRect = CGRectMake(0, 0, 1, 1);
+        if (videoSize.width > videoSize.height){
+            CGFloat width = 0.5f;
+            CGFloat height = outputSize.width * width * (videoSize.height/videoSize.width) / outputSize.height;
+            videoRect = CGRectMake(0.05, 0.15, width, height);
+        } else {
+            CGFloat height = 0.3f;
+            CGFloat width = outputSize.height * height * (videoSize.width/videoSize.height) / outputSize.width;
+            videoRect = CGRectMake(0.05, 0.15, width, height);
+        }
+    }
+    self.joinerBuilder.videoDstRect = videoRect;
+    self.joinerBuilder.cameraDstRect = cameraRect;
+    [config setNumber:@(outputSize.width) forKey:TUPFPSimultaneouslyFilter_CONFIG_WIDTH];
+    [config setNumber:@(outputSize.height) forKey:TUPFPSimultaneouslyFilter_CONFIG_HEIGHT];
+    [self addJoinerFilterWithConfig:config];
+}
+- (void)addJoinerFilterWithConfig:(TUPConfig *)config {
+    if (!config) {
+        return;
+    }
+    [_pipeOprationQueue runSync:^{
+        if ([self->_pipeline getFilter:kJoinerFilterIndex]) {
+            [self->_pipeline deleteFilterAt:kJoinerFilterIndex];
+        }
+        TUPFPFilter *filter = [[TUPFPFilter alloc] init:self->_pipeline.getContext withName:TUPFPSimultaneouslyFilter_TYPE_NAME];
+        [filter setConfig:config];
+        [self->_pipeline addFilter:filter at:kJoinerFilterIndex];
+        
+        [filter setProperty:[self.joinerBuilder makeRectProperty] forKey:TUPFPSimultaneouslyFilter_PROP_RECT_PARAM];
+        [filter setProperty:[self.joinerBuilder makeSeekProperty] forKey:TUPFPSimultaneouslyFilter_PROP_SEEK_PARAM];
+    }];
+    NSString *path = [config getString:TUPFPSimultaneouslyFilter_CONFIG_PATH];
+    [self addAudioMixer:path];
+    self.mixerMode = TTAudioMixerModeJoiner;
+}
+- (void)updateJoinerPos:(NSInteger)pos {
+    [self->_pipeOprationQueue runSync:^{
+        TUPFPFilter *filter = [self->_pipeline getFilter:kJoinerFilterIndex];
+        self.joinerBuilder.currentPos = pos;
+        [filter setProperty:[self.joinerBuilder makeSeekProperty] forKey:TUPFPSimultaneouslyFilter_PROP_SEEK_PARAM];
+    }];
+}
+- (void)updateJoinerFilterPlay:(BOOL)playing {
+    [_pipeOprationQueue runSync:^{
+        TUPFPFilter *filter = [self->_pipeline getFilter:kJoinerFilterIndex];
+        self.joinerBuilder.enable_play = playing;
+        [filter setProperty:[self.joinerBuilder makeProperty] forKey:TUPFPSimultaneouslyFilter_PROP_PARAM];
+    }];
+}
+- (void)updateJoinerFilterDirection:(TuJoinerDirection)joinerDirection {
+    [_pipeOprationQueue runSync:^{
+        TUPFPFilter *filter = [self->_pipeline getFilter:kJoinerFilterIndex];
+        TUPConfig *config = [filter getConfig];
+        NSString *path = [config getString:TUPFPSimultaneouslyFilter_CONFIG_PATH];
+        [self addJoinerFilter:joinerDirection path:path];
+    }];
+}
+- (void)updateJoinerSpeed {
+    [_pipeOprationQueue runSync:^{
+        TUPFPFilter *filter = [self->_pipeline getFilter:kJoinerFilterIndex];
+        TUPConfig *config = [filter getConfig];
+        self.joinerBuilder.currentPos = [self getRecordingDuration];
+        [config setDoubleNumber:[self getMixerSpeed] forKey:TUPFPSimultaneouslyFilter_CONFIG_STRETCH];
+        [self addJoinerFilterWithConfig:config];
+    }];
+}
+- (void)removeJoinerFilter {
+    [_pipeOprationQueue runSync:^{
+        if ([self->_pipeline getFilter:kJoinerFilterIndex]) {
+            [self->_pipeline deleteFilterAt:kJoinerFilterIndex];
+        }
+    }];
+}
+- (TUPFPSimultaneouslyFilter_PropertyBuilder *)joinerBuilder {
+    if (!_joinerBuilder) {
+        _joinerBuilder = [[TUPFPSimultaneouslyFilter_PropertyBuilder alloc] init];
+    }
+    return _joinerBuilder;
+}
+- (void)addAudioMixer:(NSString *)path {
+    self.audioMixerConfig.path = path;
+    self.mixerMode = TTAudioMixerModeMusic;
+    
+    if (!_audioMixerQueue) {
+        _audioMixerQueue = dispatch_queue_create("videorecord.audioMixerQueue", DISPATCH_QUEUE_CONCURRENT);
+    }
+    _audioMixerData = malloc(1024*4);
+    
+}
+- (void)startAudioMixerWithDuration:(NSInteger)pos {
+    if (self.mixerMode == TTAudioMixerModeNone) {
+        return;
+    }
+    if (_audioMixer) {
+        [_audioMixer close];
+    }
+    _audioMixer = [[TUPFPAudioMixer alloc] init];
+    _audioMixerConfig.startPos = pos;
+    _audioMixerConfig.stretch = [self getMixerSpeed];
+    [_audioMixer open:self.audioMixerConfig];
+    self.startAudioMix = YES;
+    [self audioMixerLoop];
+}
+- (void)onTuCameraDidOutputPlayBufferList:(AudioBufferList)bufferList {
+    AudioBuffer buffer = bufferList.mBuffers[0];
+    int ret = [self.audioMixer getPCMForPlay:buffer.mData andLength:buffer.mDataByteSize];
+    //TTLog(@"audioMixer getPCMForPlay1 %d %d",ret, buffer.mDataByteSize);
+}
+
+- (void)audioMixerLoop {
+    if (self.mixerMode == TTAudioMixerModeNone) {
+        return;
+    }
+    dispatch_async(_audioMixerQueue, ^{
+        while (1) {
+            if (!self.startAudioMix) {
+                break;
+            }
+            if (self->_recordFragments) {
+                RecordFragment *fragment = [self->_recordFragments lastObject];
+                if (fragment) {
+                    int ret = [self.audioMixer getPCMForRecord:self->_audioMixerData andLength:1024*4];
+                    //TTLog(@"audioMixer getPCMForRecord %d",ret);
+                    if (ret > 0) {
+                         [fragment.exporter sendAudio:self->_audioMixerData andSize:ret withTimestamp:fragment.audioTimeDuration];
+                        //TTLog(@"audioMixer sendAudio %d",sendRet);
+                    } else if (ret < 0) {
+                        break;
+                    }
+                }
+            }
+        };
+    });
+}
+- (void)pauseAudioMixer {
+    [self updateJoinerFilterPlay:NO];
+    self.startAudioMix = NO;
+    if (_mixerMode != TTAudioMixerModeNone) {
+        [_camera stopAudioUnit];
+    }
+}
+- (TUPFPAudioMixer_Config *)audioMixerConfig {
+    if (!_audioMixerConfig) {
+        _audioMixerConfig = [[TUPFPAudioMixer_Config alloc] init];
+        _audioMixerConfig.sampleRate = 44100;
+        _audioMixerConfig.channels = 1;
+        _audioMixerConfig.sampleCount = 1024;
+        _audioMixerConfig.fileMixWeight = 0.3;
+        _audioMixerConfig.recordMixWeight = self.disableMicrophone ? 0 : 0.5;
+    }
+    return _audioMixerConfig;
+}
+- (void)setDisableMicrophone:(BOOL)disableMicrophone {
+    _disableMicrophone = disableMicrophone;
+    if (self.mixerMode != TTAudioMixerModeNone) {
+        _audioMixerConfig.recordMixWeight = disableMicrophone ? 0 : 0.5;
+    }
+}
+- (void)setMixerMode:(TTAudioMixerMode)mixerMode {
+    _mixerMode = mixerMode;
+    [self.camera audioUnitRecord:(mixerMode != TTAudioMixerModeNone)];
+}
 @end

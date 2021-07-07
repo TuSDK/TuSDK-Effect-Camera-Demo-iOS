@@ -43,9 +43,14 @@
 }
 
 @end
-
+// 比例索引
+static const NSInteger kRatioRow = 1;
 // 变声功能组索引
 static const NSInteger kPitchRow = 4;
+// 合拍布局索引
+static const NSInteger kJoinerRow = 5;
+// 麦克风开关索引
+static const NSInteger kMicrophoneRow = 6;
 
 @interface CameraMoreMenuView ()
 
@@ -53,6 +58,8 @@ static const NSInteger kPitchRow = 4;
 @property (nonatomic, weak) UIStackView *autoFocusStackView;
 @property (nonatomic, weak) UIStackView *flashStackView;
 @property (nonatomic, weak) UIStackView *pitchStackView;
+@property (nonatomic, weak) UIStackView *joinerStackView;
+@property (nonatomic, weak) UIStackView *micStackView;
 
 @end
 
@@ -128,6 +135,40 @@ static const NSInteger kPitchRow = 4;
         optionsStackView.spacing = textOptionsSpacing;
         weakSelf.pitchStackView = optionsStackView;
     }];
+    self.currentJoinerDirection = TuJoinerDirectionHorizontal;
+    [self addCellWithTitle:@"布局" optionsConfig:^(UIStackView *optionsStackView) {
+        UIButton *horButton = [CameraMoreMenuView switchButtonWithTitle:@"左右"];
+        horButton.tag = 0;
+        [optionsStackView addArrangedSubview:horButton];
+        [horButton addTarget:weakSelf action:@selector(joinerButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        horButton.selected = YES;
+        
+        UIButton *verButton = [CameraMoreMenuView switchButtonWithTitle:@"上下"];
+        verButton.tag = 1;
+        [optionsStackView addArrangedSubview:verButton];
+        [verButton addTarget:weakSelf action:@selector(joinerButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *sizeButton = [CameraMoreMenuView switchButtonWithTitle:@"抢镜"];
+        sizeButton.tag = 2;
+        [optionsStackView addArrangedSubview:sizeButton];
+        [sizeButton addTarget:weakSelf action:@selector(joinerButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        optionsStackView.spacing = textOptionsSpacing;
+        weakSelf.joinerStackView = optionsStackView;
+    }];
+    [self addCellWithTitle:NSLocalizedStringFromTable(@"tu_麦克风", @"VideoDemo", @"麦克风") optionsConfig:^(UIStackView *optionsStackView) {
+        UIButton *onButton = [CameraMoreMenuView switchButtonWithTitle:NSLocalizedStringFromTable(@"tu_开启", @"VideoDemo", @"开启")];
+        [optionsStackView addArrangedSubview:onButton];
+        onButton.selected = YES;
+        [onButton addTarget:weakSelf action:@selector(micButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *offButton = [CameraMoreMenuView switchButtonWithTitle:NSLocalizedStringFromTable(@"tu_关闭", @"VideoDemo", @"关闭")];
+        [optionsStackView addArrangedSubview:offButton];
+        [offButton addTarget:weakSelf action:@selector(micButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        optionsStackView.spacing = textOptionsSpacing;
+        weakSelf.micStackView = optionsStackView;
+    }];
 }
 
 /**
@@ -182,7 +223,14 @@ static const NSInteger kPitchRow = 4;
     _autoFocusStackView.selectedIndex = selectIndex;
     [self autoFocusButtonAction:_autoFocusStackView.arrangedSubviews[selectIndex]];
 }
-
+- (BOOL)disableMicrophone {
+    return _micStackView.selectedIndex == 0;
+}
+- (void)setDisableMicrophone:(BOOL)disableMicrophone {
+    NSInteger selectIndex = disableMicrophone ? 0 : 1;
+    _micStackView.selectedIndex = selectIndex;
+    [self micButtonAction:_autoFocusStackView.arrangedSubviews[selectIndex]];
+}
 - (BOOL)enableFlash {
     return _flashStackView.selectedIndex == 0;
 }
@@ -205,6 +253,16 @@ static const NSInteger kPitchRow = 4;
 - (void)setDisableRatioSwitching:(BOOL)disableRatioSwitching {
     _ratioStackView.userInteractionEnabled = !disableRatioSwitching;
 }
+- (void)setRatioHidden:(BOOL)ratioHidden {
+    if (ratioHidden) {
+        [self addHiddenRow:kRatioRow];
+    } else {
+        [self removeHiddenRow:kRatioRow];
+    }
+}
+- (BOOL)ratioHidden {
+    return [self isRowHidden:kRatioRow];
+}
 
 - (BOOL)pitchHidden {
     return [self isRowHidden:kPitchRow];
@@ -217,6 +275,27 @@ static const NSInteger kPitchRow = 4;
     }
 }
 
+- (void)setJoinerHidden:(BOOL)joinerHidden {
+    _joinerHidden = joinerHidden;
+    if (joinerHidden) {
+        [self addHiddenRow:kJoinerRow];
+    } else {
+        [self removeHiddenRow:kJoinerRow];
+    }
+}
+
+- (void)setDisableJoiner:(BOOL)disableJoiner {
+    _disableJoiner = disableJoiner;
+    _joinerStackView.userInteractionEnabled = !disableJoiner;
+}
+- (void)setMicrophoneHidden:(BOOL)microphoneHidden {
+    _microphoneHidden = microphoneHidden;
+    if (microphoneHidden) {
+        [self addHiddenRow:kMicrophoneRow];
+    } else {
+        [self removeHiddenRow:kMicrophoneRow];
+    }
+}
 #pragma mark - action
 
 /**
@@ -246,7 +325,16 @@ static const NSInteger kPitchRow = 4;
         [self.delegate moreMenu:self didSelectedRatio:ratio];
     }
 }
-
+- (void)joinerButtonAction:(UIButton *)sender {
+    for (UIButton *button in _joinerStackView.arrangedSubviews) {
+        if (button.selected) button.selected = NO;
+    }
+    sender.selected = YES;
+    self.currentJoinerDirection = sender.tag;
+    if ([self.delegate respondsToSelector:@selector(moreMenu:didSwitchJoinerMode:)]) {
+        [self.delegate moreMenu:self didSwitchJoinerMode:sender.tag];
+    }
+}
 /**
  自动聚焦
 
@@ -262,6 +350,18 @@ static const NSInteger kPitchRow = 4;
     BOOL autoFocus = index == 0;
     if ([self.delegate respondsToSelector:@selector(moreMenu:didSwitchAutoFocus:)]) {
         [self.delegate moreMenu:self didSwitchAutoFocus:autoFocus];
+    }
+}
+- (void)micButtonAction:(UIButton *)sender {
+    for (UIButton *button in _micStackView.arrangedSubviews) {
+        if (button.selected) button.selected = NO;
+    }
+    sender.selected = YES;
+    
+    NSInteger index = [_micStackView.arrangedSubviews indexOfObject:sender];
+    BOOL enableMic = index == 0;
+    if ([self.delegate respondsToSelector:@selector(moreMenu:didSwitchMicrophoneMode:)]) {
+        [self.delegate moreMenu:self didSwitchMicrophoneMode:enableMic];
     }
 }
 

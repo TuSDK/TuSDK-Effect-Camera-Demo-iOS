@@ -7,20 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C8621B325C2F1B6009A234C /* videoCameraShower.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C8621B225C2F1B5009A234C /* videoCameraShower.mm */; };
+		2AA75CEA262E6CBA005469C8 /* TuSDKPulseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA75CE9262E6CBA005469C8 /* TuSDKPulseCore.framework */; };
+		2AA75CEB262E6CBA005469C8 /* TuSDKPulseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA75CE9262E6CBA005469C8 /* TuSDKPulseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2AC8214E267C43C500FC62D0 /* MusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8214D267C43C500FC62D0 /* MusicItem.m */; };
+		2AC82151267C7BF000FC62D0 /* TTAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC82150267C7BF000FC62D0 /* TTAudioQueuePlayer.m */; };
+		2AEA9C0326787F1000865D07 /* lovely_piano_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AEA9C0226787F1000865D07 /* lovely_piano_song.mp3 */; };
+		2AEFCEC526705B9900E629A7 /* MusicListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEFCEC426705B9900E629A7 /* MusicListController.m */; };
+		2AEFCEC7267067A000E629A7 /* city_sunshine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AEFCEC6267067A000E629A7 /* city_sunshine.mp3 */; };
+		2AEFCEC92671B2EB00E629A7 /* eye_of_forgiveness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AEFCEC82671B2EB00E629A7 /* eye_of_forgiveness.mp3 */; };
+		7C846F6F25EF6AE3006D6114 /* TuCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C846F6E25EF6AE3006D6114 /* TuCamera.framework */; };
+		7C846F7125EF6AEC006D6114 /* TuViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C846F7025EF6AEC006D6114 /* TuViews.framework */; };
+		7C846F7225EF6B4A006D6114 /* TuCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C846F6E25EF6AE3006D6114 /* TuCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7C846F7325EF6B50006D6114 /* TuViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C846F7025EF6AEC006D6114 /* TuViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7C8621B325C2F1B6009A234C /* VideoCameraShower.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C8621B225C2F1B5009A234C /* VideoCameraShower.mm */; };
+		7C8621B525C2F4EF009A234C /* TuSDKPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8621A925C2F091009A234C /* TuSDKPulse.framework */; };
+		7C8621B625C2F4EF009A234C /* TuSDKPulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8621A925C2F091009A234C /* TuSDKPulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7C8621B825C2F4F1009A234C /* TuSDKPulseFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8621AB25C2F096009A234C /* TuSDKPulseFilter.framework */; };
+		7C8621B925C2F4F1009A234C /* TuSDKPulseFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8621AB25C2F096009A234C /* TuSDKPulseFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7C9B775D25ECCBA4003D39AD /* TuVideoFocusRangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B775A25ECCBA4003D39AD /* TuVideoFocusRangeView.m */; };
 		7C9B775E25ECCBA4003D39AD /* TuVideoFocusTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B775B25ECCBA4003D39AD /* TuVideoFocusTouchView.m */; };
-		A694B7A526146883006FB99C /* CameraPage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A694B7A426146883006FB99C /* CameraPage.jpg */; };
-		A694B7FE26147C3F006FB99C /* TuCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F526147C33006FB99C /* TuCamera.framework */; };
-		A694B7FF26147C3F006FB99C /* TuCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F526147C33006FB99C /* TuCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A694B80026147C41006FB99C /* TuSDKPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F726147C33006FB99C /* TuSDKPulse.framework */; };
-		A694B80126147C41006FB99C /* TuSDKPulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F726147C33006FB99C /* TuSDKPulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A694B80226147C43006FB99C /* TuSDKPulseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F826147C33006FB99C /* TuSDKPulseCore.framework */; };
-		A694B80326147C43006FB99C /* TuSDKPulseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F826147C33006FB99C /* TuSDKPulseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A694B80426147C45006FB99C /* TuSDKPulseFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F626147C33006FB99C /* TuSDKPulseFilter.framework */; };
-		A694B80526147C45006FB99C /* TuSDKPulseFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F626147C33006FB99C /* TuSDKPulseFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A694B80626147C46006FB99C /* TuViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F426147C33006FB99C /* TuViews.framework */; };
-		A694B80726147C46006FB99C /* TuViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A694B7F426147C33006FB99C /* TuViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A694B7A526146883006FB99C /* CameraHomepage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A694B7A426146883006FB99C /* CameraHomepage.jpg */; };
 		B8210F90253FE78D00E17525 /* line_F.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F80253FE78D00E17525 /* line_F.jpg */; };
 		B8210F91253FE78D00E17525 /* line_G.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F81253FE78D00E17525 /* line_G.jpg */; };
 		B8210F92253FE78D00E17525 /* line_P.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F82253FE78D00E17525 /* line_P.jpg */; };
@@ -504,11 +510,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A694B80526147C45006FB99C /* TuSDKPulseFilter.framework in Embed Frameworks */,
-				A694B80126147C41006FB99C /* TuSDKPulse.framework in Embed Frameworks */,
-				A694B7FF26147C3F006FB99C /* TuCamera.framework in Embed Frameworks */,
-				A694B80726147C46006FB99C /* TuViews.framework in Embed Frameworks */,
-				A694B80326147C43006FB99C /* TuSDKPulseCore.framework in Embed Frameworks */,
+				7C846F7325EF6B50006D6114 /* TuViews.framework in Embed Frameworks */,
+				2AA75CEB262E6CBA005469C8 /* TuSDKPulseCore.framework in Embed Frameworks */,
+				7C846F7225EF6B4A006D6114 /* TuCamera.framework in Embed Frameworks */,
+				7C8621B925C2F4F1009A234C /* TuSDKPulseFilter.framework in Embed Frameworks */,
+				7C8621B625C2F4EF009A234C /* TuSDKPulse.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,18 +522,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7C8621B125C2F1B5009A234C /* videoCameraShower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoCameraShower.h; sourceTree = "<group>"; };
-		7C8621B225C2F1B5009A234C /* videoCameraShower.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = videoCameraShower.mm; sourceTree = "<group>"; };
+		2AA75CE9262E6CBA005469C8 /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AC82145267B26BE00FC62D0 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		2AC82147267B34FD00FC62D0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2AC8214C267C43C500FC62D0 /* MusicItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicItem.h; sourceTree = "<group>"; };
+		2AC8214D267C43C500FC62D0 /* MusicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicItem.m; sourceTree = "<group>"; };
+		2AC8214F267C7BF000FC62D0 /* TTAudioQueuePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAudioQueuePlayer.h; sourceTree = "<group>"; };
+		2AC82150267C7BF000FC62D0 /* TTAudioQueuePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAudioQueuePlayer.m; sourceTree = "<group>"; };
+		2AC821542681918A00FC62D0 /* 绅士.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "绅士.mp3"; path = "../../../../../../Downloads/绅士.mp3"; sourceTree = "<group>"; };
+		2AEA9C0226787F1000865D07 /* lovely_piano_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lovely_piano_song.mp3; sourceTree = "<group>"; };
+		2AEFCEC326705B9900E629A7 /* MusicListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicListController.h; sourceTree = "<group>"; };
+		2AEFCEC426705B9900E629A7 /* MusicListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicListController.m; sourceTree = "<group>"; };
+		2AEFCEC6267067A000E629A7 /* city_sunshine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = city_sunshine.mp3; sourceTree = "<group>"; };
+		2AEFCEC82671B2EB00E629A7 /* eye_of_forgiveness.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eye_of_forgiveness.mp3; sourceTree = "<group>"; };
+		7C846F6E25EF6AE3006D6114 /* TuCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C846F7025EF6AEC006D6114 /* TuViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C8621A925C2F091009A234C /* TuSDKPulse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C8621AB25C2F096009A234C /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C8621B125C2F1B5009A234C /* VideoCameraShower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCameraShower.h; sourceTree = "<group>"; };
+		7C8621B225C2F1B5009A234C /* VideoCameraShower.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoCameraShower.mm; sourceTree = "<group>"; };
 		7C9B775925ECCBA4003D39AD /* TuVideoFocusTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuVideoFocusTouchView.h; sourceTree = "<group>"; };
 		7C9B775A25ECCBA4003D39AD /* TuVideoFocusRangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuVideoFocusRangeView.m; sourceTree = "<group>"; };
 		7C9B775B25ECCBA4003D39AD /* TuVideoFocusTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuVideoFocusTouchView.m; sourceTree = "<group>"; };
 		7C9B775C25ECCBA4003D39AD /* TuVideoFocusRangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuVideoFocusRangeView.h; sourceTree = "<group>"; };
-		A694B7A426146883006FB99C /* CameraPage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CameraPage.jpg; sourceTree = "<group>"; };
-		A694B7F426147C33006FB99C /* TuViews.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuViews.framework; sourceTree = "<group>"; };
-		A694B7F526147C33006FB99C /* TuCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuCamera.framework; sourceTree = "<group>"; };
-		A694B7F626147C33006FB99C /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = "<group>"; };
-		A694B7F726147C33006FB99C /* TuSDKPulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = "<group>"; };
-		A694B7F826147C33006FB99C /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = "<group>"; };
+		A694B7A426146883006FB99C /* CameraHomepage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CameraHomepage.jpg; sourceTree = "<group>"; };
 		B8210F80253FE78D00E17525 /* line_F.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line_F.jpg; sourceTree = "<group>"; };
 		B8210F81253FE78D00E17525 /* line_G.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line_G.jpg; sourceTree = "<group>"; };
 		B8210F82253FE78D00E17525 /* line_P.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line_P.jpg; sourceTree = "<group>"; };
@@ -1032,6 +1050,7 @@
 		FBC6F50B20D3CE5500F2FBB7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBC6F50D20D3CE5D00F2FBB7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FBC6F50F20D3CE6400F2FBB7 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		FBC6F51720D3CEF300F2FBB7 /* libyuv.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libyuv.framework; path = ../TuSDK/vendor/libyuv.framework; sourceTree = "<group>"; };
 		FBC6F51B20D3CF7B00F2FBB7 /* TuSDKFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuSDKFramework.h; sourceTree = "<group>"; };
 		FBD1BEF020FF253900A92722 /* CameraMoreMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraMoreMenuView.h; sourceTree = "<group>"; };
 		FBD1BEF120FF253900A92722 /* CameraMoreMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraMoreMenuView.m; sourceTree = "<group>"; };
@@ -1047,6 +1066,7 @@
 		FBF1DED620EB1FB6009ED5EC /* MarkableProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkableProgressView.m; sourceTree = "<group>"; };
 		FBF3A8A020D3CD23008466D0 /* TuSDKPulse.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TuSDKPulse.bundle; sourceTree = "<group>"; };
 		FBF3A8AE20D3CD23008466D0 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
+		FED514CC9176D7C053C08886 /* libPods-TuSDKVideoDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TuSDKVideoDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1054,18 +1074,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A694B80626147C46006FB99C /* TuViews.framework in Frameworks */,
-				A694B80026147C41006FB99C /* TuSDKPulse.framework in Frameworks */,
+				7C846F7125EF6AEC006D6114 /* TuViews.framework in Frameworks */,
+				7C846F6F25EF6AE3006D6114 /* TuCamera.framework in Frameworks */,
+				7C8621B525C2F4EF009A234C /* TuSDKPulse.framework in Frameworks */,
+				7C8621B825C2F4F1009A234C /* TuSDKPulseFilter.framework in Frameworks */,
 				B8B787472559321E00B82F76 /* libresolv.tbd in Frameworks */,
 				F8FA849D219413B0002B24EB /* libc++.tbd in Frameworks */,
-				A694B7FE26147C3F006FB99C /* TuCamera.framework in Frameworks */,
 				FBC6F51020D3CE6400F2FBB7 /* Accelerate.framework in Frameworks */,
+				2AA75CEA262E6CBA005469C8 /* TuSDKPulseCore.framework in Frameworks */,
 				FBC6F50E20D3CE5D00F2FBB7 /* Security.framework in Frameworks */,
-				A694B80226147C43006FB99C /* TuSDKPulseCore.framework in Frameworks */,
 				FBC6F50C20D3CE5600F2FBB7 /* SystemConfiguration.framework in Frameworks */,
 				FBC6F50A20D3CE4800F2FBB7 /* libz.1.2.5.tbd in Frameworks */,
 				FBF3A8C020D3CD24008466D0 /* Bugly.framework in Frameworks */,
-				A694B80426147C45006FB99C /* TuSDKPulseFilter.framework in Frameworks */,
 				B85C249023CEFB3500C9BD96 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1073,6 +1093,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A9B8CFD26831BD5007AA868 /* common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		2AEFCEC226705B6A00E629A7 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				2AC821542681918A00FC62D0 /* 绅士.mp3 */,
+				2AEFCEC326705B9900E629A7 /* MusicListController.h */,
+				2AEFCEC426705B9900E629A7 /* MusicListController.m */,
+				2AC8214C267C43C500FC62D0 /* MusicItem.h */,
+				2AC8214D267C43C500FC62D0 /* MusicItem.m */,
+				2AC8214F267C7BF000FC62D0 /* TTAudioQueuePlayer.h */,
+				2AC82150267C7BF000FC62D0 /* TTAudioQueuePlayer.m */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		7C9B775825ECCBA4003D39AD /* FocusView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1082,18 +1123,6 @@
 				7C9B775A25ECCBA4003D39AD /* TuVideoFocusRangeView.m */,
 			);
 			path = FocusView;
-			sourceTree = "<group>";
-		};
-		A694B7F326147C33006FB99C /* TuFrameWork */ = {
-			isa = PBXGroup;
-			children = (
-				A694B7F426147C33006FB99C /* TuViews.framework */,
-				A694B7F526147C33006FB99C /* TuCamera.framework */,
-				A694B7F626147C33006FB99C /* TuSDKPulseFilter.framework */,
-				A694B7F726147C33006FB99C /* TuSDKPulse.framework */,
-				A694B7F826147C33006FB99C /* TuSDKPulseCore.framework */,
-			);
-			path = TuFrameWork;
 			sourceTree = "<group>";
 		};
 		B8210F7E253FE75D00E17525 /* TuCosmetic */ = {
@@ -1773,17 +1802,20 @@
 		FB6EBAE420D39AE900FA24F2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2A9B8CFD26831BD5007AA868 /* common */,
+				2AEFCEC226705B6A00E629A7 /* Music */,
 				B8CAA0D325C2950A00797416 /* BaseViews */,
 				7C9B775825ECCBA4003D39AD /* FocusView */,
 				B8CAA0BB25C2950A00797416 /* PanelViews */,
 				FB76498320FD8A4200A6DFA2 /* CameraViewController.h */,
 				FB76498420FD8A4200A6DFA2 /* CameraViewController.m */,
+				2AC82147267B34FD00FC62D0 /* PrefixHeader.pch */,
 				FB49D6E420FF248F00184905 /* CameraViewController.xib */,
 				FB203D7B20E47F89001A7939 /* Constants.h */,
 				FB85C65E219A66CC00D23716 /* LaunchScreen.storyboard */,
 				FB88F058219930A100BE021F /* Main.storyboard */,
-				7C8621B125C2F1B5009A234C /* videoCameraShower.h */,
-				7C8621B225C2F1B5009A234C /* videoCameraShower.mm */,
+				7C8621B125C2F1B5009A234C /* VideoCameraShower.h */,
+				7C8621B225C2F1B5009A234C /* VideoCameraShower.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1829,13 +1861,21 @@
 		FBC6F50820D3CE4800F2FBB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2AC82145267B26BE00FC62D0 /* OpenAL.framework */,
+				2AA75CE9262E6CBA005469C8 /* TuSDKPulseCore.framework */,
 				FBC6F50F20D3CE6400F2FBB7 /* Accelerate.framework */,
 				B85C248F23CEFB3500C9BD96 /* AudioToolbox.framework */,
 				F8FA849C219413B0002B24EB /* libc++.tbd */,
 				D7E350E622E7072A005166DE /* libresolv.tbd */,
+				FBC6F51720D3CEF300F2FBB7 /* libyuv.framework */,
 				FBC6F50920D3CE4800F2FBB7 /* libz.1.2.5.tbd */,
 				FBC6F50D20D3CE5D00F2FBB7 /* Security.framework */,
 				FBC6F50B20D3CE5500F2FBB7 /* SystemConfiguration.framework */,
+				7C846F6E25EF6AE3006D6114 /* TuCamera.framework */,
+				7C8621A925C2F091009A234C /* TuSDKPulse.framework */,
+				7C8621AB25C2F096009A234C /* TuSDKPulseFilter.framework */,
+				7C846F7025EF6AEC006D6114 /* TuViews.framework */,
+				FED514CC9176D7C053C08886 /* libPods-TuSDKVideoDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1843,7 +1883,9 @@
 		FBF3A89B20D3CCC0008466D0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A694B7F326147C33006FB99C /* TuFrameWork */,
+				2AEFCEC6267067A000E629A7 /* city_sunshine.mp3 */,
+				2AEFCEC82671B2EB00E629A7 /* eye_of_forgiveness.mp3 */,
+				2AEA9C0226787F1000865D07 /* lovely_piano_song.mp3 */,
 				FB88F03421992E1400BE021F /* Localized */,
 				FBA274E421AFD75C00D1B170 /* Thumbnails */,
 				FBF3A89C20D3CD23008466D0 /* Assets */,
@@ -1857,7 +1899,7 @@
 		FBF3A89C20D3CD23008466D0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				A694B7A426146883006FB99C /* CameraPage.jpg */,
+				A694B7A426146883006FB99C /* CameraHomepage.jpg */,
 				B8F7BECB2542CA120069C8A4 /* cosmeticCategories.json */,
 				D7BF7C6522BCB51C0063CDE8 /* sample_watermark.png */,
 				D72E88422181964200DD3F16 /* video_camera_focus_finish@2x.png */,
@@ -1879,6 +1921,7 @@
 				FB6EBAB920D399E000FA24F2 /* Frameworks */,
 				FB6EBABA20D399E000FA24F2 /* Resources */,
 				7C8621B725C2F4EF009A234C /* Embed Frameworks */,
+				2A152F6826350AFE0013C9BB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1935,7 +1978,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8DDE8422591911C00A5701D /* face_n.jpg in Resources */,
-				A694B7A526146883006FB99C /* CameraPage.jpg in Resources */,
+				A694B7A526146883006FB99C /* CameraHomepage.jpg in Resources */,
 				B8831D52257A13940032E2AE /* plastic_cheekNarrow_sel@2x.png in Resources */,
 				F820851721FAA7D900D398E8 /* face_monster_ic_pie@3x.png in Resources */,
 				B8B2BDB725417BEF0017611E /* 弯线灰b.jpg in Resources */,
@@ -2163,6 +2206,7 @@
 				B8B2BDBD25417BEF0017611E /* 断眉棕b.jpg in Resources */,
 				B8A72B1B24C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Grace_1.jpg in Resources */,
 				B8BF04B425FFFC420019980E /* sticker_ic_update@3x.png in Resources */,
+				2AEFCEC92671B2EB00E629A7 /* eye_of_forgiveness.mp3 in Resources */,
 				B8A72B2724C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Blue_1.jpg in Resources */,
 				B8831D12257A13940032E2AE /* plastic_cheekNarrow@3x.png in Resources */,
 				B8B2BD8525417BD80017611E /* 小桃灰a.jpg in Resources */,
@@ -2212,6 +2256,7 @@
 				B8B2BDD825417BEF0017611E /* 芭比黑b.jpg in Resources */,
 				B8B2BD1C25415CD70017611E /* lipStick_4.jpg in Resources */,
 				B8B2BDD025417BEF0017611E /* 延禧黑b.jpg in Resources */,
+				2AEFCEC7267067A000E629A7 /* city_sunshine.mp3 in Resources */,
 				B8B2BD7825417BD80017611E /* 芭比黑a.jpg in Resources */,
 				B8831D4A257A13940032E2AE /* plastic_archEyebrow_sel@2x.png in Resources */,
 				B8B2BDCD25417BEF0017611E /* 叶细棕b.jpg in Resources */,
@@ -2297,6 +2342,7 @@
 				B8A72B1E24C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Birch_1.jpg in Resources */,
 				B8852D1725C1F342007D4896 /* home_stickers_ic@2x.png in Resources */,
 				B8DDE8412591911C00A5701D /* face_b.jpg in Resources */,
+				2AEA9C0326787F1000865D07 /* lovely_piano_song.mp3 in Resources */,
 				B8A72B1F24C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Black_1.jpg in Resources */,
 				B8B2BD6C25417BD80017611E /* 标准棕a.jpg in Resources */,
 				B8A72B0E24C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Pink_1.jpg in Resources */,
@@ -2371,6 +2417,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A152F6826350AFE0013C9BB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/sh\n#\n# Copyright 2016 Bugly, Tencent. All rights reserved.\n#\n# V1.4.0\n#\n# 2016.08.03\n#\n#\n#\n######################################################\n# 1. 脚本集成到Xcode工程的Target\n######################################################\n#\n# --- Copy the SCRIPT to the Run Script of Build Phases in the Xcode project ---\n#\n# #\nBUGLY_APP_ID=\"66806f5e0e\"\n# #\nBUGLY_APP_KEY=\"e9c9fa95-d1bd-49fe-a211-627a36aedda8\"\n# #\nBUNDLE_IDENTIFIER=\"org.lasque.TuSDKDemo\"\n# #\nUPLOAD_DSYM_ONLY=1\n#\n# # 脚本默认配置的版本格式为CFBundleShortVersionString(CFBundleVersion),  如果你修改默认的版本格式, 请设置此变量, 如果不想修改, 请忽略此设置\n# CUSTOMIZED_APP_VERSION=\"\"\n#\n# # Debug模式编译是否上传，1＝上传 0＝不上传，默认不上传\n UPLOAD_DEBUG_SYMBOLS=1\n#\n# # 模拟器编译是否上传，1=上传 0=不上传，默认不上传\n# UPLOAD_SIMULATOR_SYMBOLS=0\n#\n# #只有Archive操作时上传, 1=支持Archive上传 0=所有Release模式编译都上传\n# UPLOAD_ARCHIVE_ONLY=0\n#\n# #\n# source dSYMUpload.sh\n#\n# --- END OF SCRIPT ---\n#\n#\n#\n#\n#######################################################\n# 2. 脚本根据输入参数处理\n#######################################################\n#\n# #命令行下输入应用基本信息, .dSYM文件的父目录路径, 输出文件目录即可\n#\n# sh dSYMUpload.sh <bugly_app_id> <bugly_app_key> <app_bundle_identifier> <app_version> <dSYM_src_dir> <bSYMBOL_dest_dir>\n#\n# #\n#\n# #注意:\n# # 1. dSYMUpload.sh会调用buglySymboliOS.jar进行.dSYM解析，所以依赖Java运行时环境\n# # 2. dSYMUpload.sh和buglySymboliOS.jar的文件路径需一致\n#\n#\n\n#\n# --- CONTENT OF SCRIPT ---\n#\n\n# Bugly服务域名\nBUGLY_DSYM_UPLOAD_DOMAIN=\"api.bugly.qq.com\"\n\n# 注意jar工具的路径跟dSYMUpload.sh脚本路径一致, 请务必保证jar路径的正确性\nBUGLY_SYMBOL_JAR_PATH=\"dsymtool/buglySymboliOS.jar\"\n# 查找添加到系统目录的jar工具\nif [ ! -f \"${BUGLY_SYMBOL_JAR_PATH}\" ]; then\n    BUGLY_SYMBOL_JAR_PATH=\"$HOME/bin/buglySymboliOS.jar\"\nfi\n\n# 打印错误信息\nfunction exitWithMessage(){\n    echo \"--------------------------------\"\n    echo \"${1}\"\n    echo \"--------------------------------\"\n    exit ${2}\n}\n\n# 上传bSYMBOL文件\nfunction dSYMUpload() {\n    P_APP_ID=\"$1\"\n    P_APP_KEY=\"$2\"\n    P_APP_BUNDLE_ID=\"$3\"\n    P_APP_VERSION=\"$4\"\n    P_BSYMBOL_ZIP_FILE=\"$5\"\n\n    #\n    P_BSYMBOL_ZIP_FILE_NAME=${P_BSYMBOL_ZIP_FILE##*/}\n    P_BSYMBOL_ZIP_FILE_NAME=${P_BSYMBOL_ZIP_FILE_NAME//&/_}\n    P_BSYMBOL_ZIP_FILE_NAME=\"${P_BSYMBOL_ZIP_FILE_NAME// /_}\"\n\n    DSYM_UPLOAD_URL=\"https://${BUGLY_DSYM_UPLOAD_DOMAIN}/openapi/file/upload/symbol?app_id=${P_APP_ID}&app_key=${P_APP_KEY}\"\n    echo \"dSYM upload url: ${DSYM_UPLOAD_URL}\"\n\n    echo \"-----------------------------\"\n    STATUS=$(/usr/bin/curl -k \"${DSYM_UPLOAD_URL}\" --form \"api_version=1\" --form \"app_id=${P_APP_ID}\" --form \"app_key=${P_APP_KEY}\" --form \"symbolType=2\"  --form \"bundleId=${BUNDLE_IDENTIFIER}\" --form \"productVersion=${BUGLY_APP_VERSION}\" --form \"fileName=${P_BSYMBOL_ZIP_FILE_NAME}\" --form \"file=@${P_BSYMBOL_ZIP_FILE}\" --verbose)\n    echo \"-----------------------------\"\n\n    UPLOAD_RESULT=\"FAILTURE\"\n    echo \"Bugly server response: ${STATUS}\"\n    if [ ! \"${STATUS}\" ]; then\n        echo \"Error: Failed to upload the zip archive file.\"\n    elif [[ \"${STATUS}\" == *\"{\\\"reponseCode\\\":\\\"0\\\"}\"* ]]; then\n        echo \"Success to upload the dSYM for the app [${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION}]\"\n        UPLOAD_RESULT=\"SUCCESS\"\n    else\n        echo \"Error: Failed to upload the zip archive file to Bugly.\"\n    fi\n\n    #Remove temp dSYM archive\n    #echo \"Remove temporary zip archive: ${DSYM_ZIP_FPATH}\"\n    #/bin/rm -f \"${DSYM_ZIP_FPATH}\"\n\n    if [ \"$?\" -ne 0 ]; then\n        exitWithMessage \"Error: Failed to remove temporary zip archive.\" 0\n    fi\n\n    echo \"--------------------------------\"\n    echo \"${UPLOAD_RESULT} - dSYM upload complete.\"\n\n    if [[ \"${UPLOAD_RESULT}\" == \"FAILTURE\" ]]; then\n        echo \"--------------------------------\"\n        echo \"Failed to upload the dSYM\"\n        echo \"Please check the script and try it again.\"\n    fi\n}\n\n# .dSYM解析为bSYMBOL文件\nfunction dSYMParse() {\n    DSYM_FILE=\"$1\"\n    DSYM_SYMBOL_FILE=\"$2\"\n\n    echo \"--------------------------------\"\n    echo \"Extract symbol info from .dSYM file. to ${DSYM_SYMBOL_FILE}\"\n    (/usr/bin/java -Xms512m -Xmx1024m -Dfile.encoding=UTF8 -jar \"${BUGLY_SYMBOL_JAR_PATH}\" -i \"${DSYM_FILE}\" -o \"${DSYM_SYMBOL_FILE}\" ) || exitWithMessage \"Error: Failed to extract symbols.\" 1\n    echo \"--------------------------------\"\n\n}\n\n# 执行\nfunction run() {\n\n    CONFIG_BUGLY_APP_ID=\"$1\"\n    CONFIG_BUGLY_APP_KEY=\"$2\"\n\n    CONFIG_BUGLY_APP_BUNDLE_IDENTIFIER=\"$3\"\n    CONFIG_BUGLY_APP_VERSION=\"$4\"\n    CONFIG_DSYM_SOURCE_DIR=\"$5\"\n    CONFIG_DSYM_DEST_DIR=\"$6\"\n    CONFIG_UPLOAD_DSYM_ONLY=\"$7\"\n\n    # 检查必须参数是否设置\n    if [ ! \"${CONFIG_BUGLY_APP_ID}\" ]; then\n        exitWithMessage \"Error: Bugly App ID not defined. Please set 'BUGLY_APP_ID' \" 0\n    fi\n\n    if [[ \"${CONFIG_BUGLY_APP_ID}\" == *\"App ID\"* ]]; then\n        exitWithMessage \"Error: Bugly App ID not defined.\" 0\n    fi\n\n    if [ ! \"${CONFIG_BUGLY_APP_KEY}\" ]; then\n        exitWithMessage \"Error: Bugly App Key not defined.\" 0\n    fi\n\n    if [ ! \"${CONFIG_BUGLY_APP_BUNDLE_IDENTIFIER}\" ]; then\n        exitWithMessage \"Error: Bundle Identifier not defined.\" 0\n    fi\n\n    if [ ! \"${CONFIG_BUGLY_APP_VERSION}\" ]; then\n        exitWithMessage \"Error: App Version not defined.\" 0\n    fi\n\n    if [ ! -e \"${CONFIG_DSYM_SOURCE_DIR}\" ]; then\n        exitWithMessage \"Error: Invalid dir ${CONFIG_DSYM_SOURCE_DIR}\" 0\n    fi\n\n    if [ ! \"${CONFIG_DSYM_DEST_DIR}\" ]; then\n        exitWithMessage \"Error: Invalid dir ${CONFIG_DSYM_DEST_DIR}\" 0\n    fi\n\n    if [ ! -e \"${CONFIG_DSYM_DEST_DIR}\" ]; then\n        mkdir ${CONFIG_DSYM_DEST_DIR}\n    fi\n\n    DSYM_FOLDER=\"${CONFIG_DSYM_SOURCE_DIR}\"\n    IFS=$'\\n'\n\n    echo \"Scaning dSYM FOLDER: ${DSYM_FOLDER} ...\"\n    RET=\"F\"\n    \n    #\n    for dsymFile in $(find \"$DSYM_FOLDER\" -name '*.dSYM'); do\n        RET=\"T\"\n        echo \"Found dSYM file: $dsymFile\"\n\n        DSYM_FILE_NAME=${dsymFile##*/}\n        DSYM_SYMBOL_ZIP_FILE_NAME=\"${DSYM_FILE_NAME}.zip\"\n        DSYM_SYMBOL_ZIP_FILE_NAME=\"${DSYM_SYMBOL_ZIP_FILE_NAME// /_}\"\n        DSYM_SYMBOL_ZIP_FILE=${CONFIG_DSYM_DEST_DIR}/${DSYM_SYMBOL_ZIP_FILE_NAME}\n\n        if [ $CONFIG_UPLOAD_DSYM_ONLY -eq 1 ]; then\n            if [ -e $DSYM_SYMBOL_ZIP_FILE ]; then\n                rm -f $DSYM_SYMBOL_ZIP_FILE\n            fi\n            # 如果只上传dSYM，直接压缩dSYM目录\n            zip -r -j $DSYM_SYMBOL_ZIP_FILE $dsymFile -x *.plist\n        else\n            # 使用符号表工具来生成Symbol文件\n            dSYMParse $dsymFile $DSYM_SYMBOL_ZIP_FILE\n        fi\n        \n        # 上传\n        dSYMUpload $CONFIG_BUGLY_APP_ID $CONFIG_BUGLY_APP_KEY $CONFIG_BUGLY_APP_BUNDLE_IDENTIFIER $CONFIG_BUGLY_APP_VERSION $DSYM_SYMBOL_ZIP_FILE\n    done\n\n    if [ $RET = \"F\" ]; then\n        exitWithMessage \"No .dSYM found in ${DSYM_FOLDER}\" 0\n    fi\n}\n\n# 在Xcode工程中执行\nfunction runInXcode(){\n    echo \"Uploading dSYM to Bugly in Xcode ...\"\n\n    echo \"Info.Plist : ${INFOPLIST_FILE}\"\n\n    BUNDLE_VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' \"${INFOPLIST_FILE}\")\n    BUNDLE_SHORT_VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' \"${INFOPLIST_FILE}\")\n\n    # 组装Bugly默认识别的版本信息(格式为CFBundleShortVersionString(CFBundleVersion), 例如: 1.0(1))\n    if [ ! \"${CUSTOMIZED_APP_VERSION}\" ]; then\n        BUGLY_APP_VERSION=\"${BUNDLE_SHORT_VERSION}(${BUNDLE_VERSION})\"\n    else\n        BUGLY_APP_VERSION=\"${CUSTOMIZED_APP_VERSION}\"\n    fi\n\n    echo \"--------------------------------\"\n    echo \"Prepare application information.\"\n    echo \"--------------------------------\"\n\n    echo \"Product Name: ${PRODUCT_NAME}\"\n    echo \"Bundle Identifier: ${BUNDLE_IDENTIFIER}\"\n    echo \"Version: ${BUNDLE_SHORT_VERSION}\"\n    echo \"Build: ${BUNDLE_VERSION}\"\n\n    echo \"Bugly App ID: ${BUGLY_APP_ID}\"\n    echo \"Bugly App key: ${BUGLY_APP_KEY}\"\n    echo \"Bugly App Version: ${BUGLY_APP_VERSION}\"\n\n    echo \"--------------------------------\"\n    echo \"Check the arguments ...\"\n\n    ##检查模拟器编译是否允许上传符号\n    if [ \"$EFFECTIVE_PLATFORM_NAME\" == \"-iphonesimulator\" ]; then\n    if [ $UPLOAD_SIMULATOR_SYMBOLS -eq 0 ]; then\n        exitWithMessage \"Warning: Build for simulator and skipping to upload. \\nYou can modify 'UPLOAD_SIMULATOR_SYMBOLS' to 1 in the script.\" 0\n    fi\n    fi\n\n    ##检查是否是Release模式编译\n    if [ \"${CONFIGURATION=}\" == \"Debug\" ]; then\n    if [ $UPLOAD_DEBUG_SYMBOLS -eq 0 ]; then\n        exitWithMessage \"Warning: Build for debug mode and skipping to upload. \\nYou can modify 'UPLOAD_DEBUG_SYMBOLS' to 1 in the script.\" 0\n    fi\n    fi\n\n    ##检查是否Archive操作\n    if [ $UPLOAD_ARCHIVE_ONLY -eq 1 ]; then\n    if [[ \"$TARGET_BUILD_DIR\" == *\"/Archive\"* ]]; then\n        echo \"Archive the package\"\n    else\n        exitWithMessage \"Warning: Build for NOT Archive mode and skipping to upload. \\nYou can modify 'UPLOAD_ARCHIVE_ONLY' to 0 in the script.\" 0\n    fi\n    fi\n\n    #\n    run ${BUGLY_APP_ID} ${BUGLY_APP_KEY} ${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION} ${DWARF_DSYM_FOLDER_PATH} ${BUILD_DIR}/BuglySymbolTemp ${UPLOAD_DSYM_ONLY}\n}\n\n# 根据Xcode的环境变量判断是否处于Xcode环境\nINFO_PLIST_FILE=\"${INFOPLIST_FILE}\"\n\nBuildInXcode=\"F\"\nif [ -f \"${INFO_PLIST_FILE}\" ]; then\n    BuildInXcode=\"T\"\nfi\n\nif [ $BuildInXcode = \"T\" ]; then\n    runInXcode\nelse\n    echo \"\\nUsage: dSYMUpload.sh <bugly_app_id> <bugly_app_key> <app_bundle_identifier> <app_version> <dSYM_src_dir> <bSYMBOL_dest_dir> [upload_dsym_only]\\n\"\n    # 你可以在此处直接设置BuglyAppID和BuglyAppKey，排除不常变参数的输入\n    BUGLY_APP_ID=\"$1\"\n    BUGLY_APP_KEY=\"$2\"\n    BUNDLE_IDENTIFIER=\"$3\"\n    BUGLY_APP_VERSION=\"$4\"\n    DWARF_DSYM_FOLDER_PATH=\"$5\"\n    SYMBOL_OUTPUT_PATH=\"$6\"\n    UPLOAD_DSYM_ONLY=$7\n    run ${BUGLY_APP_ID} ${BUGLY_APP_KEY} ${BUNDLE_IDENTIFIER} ${BUGLY_APP_VERSION} ${DWARF_DSYM_FOLDER_PATH} ${SYMBOL_OUTPUT_PATH} ${UPLOAD_DSYM_ONLY}\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FB6EBAB820D399E000FA24F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -2387,6 +2453,7 @@
 				FBF1DED720EB1FB6009ED5EC /* MarkableProgressView.m in Sources */,
 				B8CAA10625C2950B00797416 /* TuStickerDownloader.m in Sources */,
 				FBDB320220DA2FC4005DE82B /* TopNavigationBar.m in Sources */,
+				2AEFCEC526705B9900E629A7 /* MusicListController.m in Sources */,
 				FBEE598B20EA2FDE003D8453 /* RecordButton.m in Sources */,
 				FB6EBAC120D399E000FA24F2 /* AppDelegate.m in Sources */,
 				FBD1BEF520FF2A3A00A92722 /* VerticalMenuView.m in Sources */,
@@ -2395,13 +2462,14 @@
 				B8CAA13325C2AA1500797416 /* TuBeautyPanelConfig.m in Sources */,
 				B8CAA10B25C2950B00797416 /* TuStickerPanelView.m in Sources */,
 				B8CAA12225C2950B00797416 /* TuFilterPanelView.m in Sources */,
-				7C8621B325C2F1B6009A234C /* videoCameraShower.mm in Sources */,
+				7C8621B325C2F1B6009A234C /* VideoCameraShower.mm in Sources */,
 				B8CAA14625C2AB1900797416 /* TuBeautyPanelView.m in Sources */,
 				B8CAA10F25C2950B00797416 /* TuViewSlider.m in Sources */,
 				B8CAA14C25C2AB1900797416 /* TuFacePlasticPanelViewCell.m in Sources */,
 				7C9B775D25ECCBA4003D39AD /* TuVideoFocusRangeView.m in Sources */,
 				B8CAA10525C2950B00797416 /* TuStickerBasePanelView.m in Sources */,
 				B8CAA13225C2AA1500797416 /* TuCosmeticPanelViewCell.m in Sources */,
+				2AC82151267C7BF000FC62D0 /* TTAudioQueuePlayer.m in Sources */,
 				B8CAA10825C2950B00797416 /* TuMonsterDatasets.m in Sources */,
 				B8CAA11325C2950B00797416 /* TuParametersAdjustView.m in Sources */,
 				B8CAA13125C2AA1500797416 /* TuCosmeticPanelView.m in Sources */,
@@ -2410,6 +2478,7 @@
 				B8CAA10925C2950B00797416 /* TuStickerDatasets.m in Sources */,
 				FB76498520FD8A4200A6DFA2 /* CameraViewController.m in Sources */,
 				FBDB321120DA66C3005DE82B /* SegmentButton.m in Sources */,
+				2AC8214E267C43C500FC62D0 /* MusicItem.m in Sources */,
 				B8CAA11525C2950B00797416 /* TuCustomSlider.m in Sources */,
 				FB25C05321114E6B004718D9 /* DemoAppearance.m in Sources */,
 				B8CAA14725C2AB1900797416 /* TuFacePlasticPanelView.m in Sources */,
@@ -2583,23 +2652,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TuSDKVideoDemo/TuSDKVideoDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210601;
+				CURRENT_PROJECT_VERSION = 20210707;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/**",
-					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/TuFrameWork/**",
 				);
-				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include;
+				GCC_PREFIX_HEADER = TuSDKVideoDemo/Classes/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TuSDKVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2614,25 +2682,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TuSDKVideoDemo/TuSDKVideoDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210601;
+				CURRENT_PROJECT_VERSION = 20210707;
 				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=*]" = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/**",
-					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/TuFrameWork/**",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
-				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include;
+				GCC_PREFIX_HEADER = TuSDKVideoDemo/Classes/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TuSDKVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

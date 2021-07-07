@@ -28,4 +28,5 @@ static const NSTimeInterval kAnimationDuration = 0.25;
 
 @property (nonatomic, assign) NSInteger selectedIndex; // 选中索引
 
+- (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 @end
