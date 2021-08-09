@@ -43,7 +43,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
     
     NSString *_curPlasticCode;
     NSString *_curCosmeticCode;
-
+    BOOL _valueChange;
 }
 
 @property (nonatomic, strong) UIVisualEffectView *effectBackgroundView; // 模糊背景
@@ -528,7 +528,15 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
             NSMutableDictionary *dic = [NSMutableDictionary dictionary];
             [dic setObject:code forKey:@"code"];
             [dic setObject:paramName forKey:@"name"];
-            [dic setObject:[NSNumber numberWithFloat:paramVal] forKey:@"val"];
+            if (_valueChange)
+            {
+                [dic setObject:[NSNumber numberWithFloat:paramVal] forKey:@"val"];
+            }
+            else
+            {
+                [dic setObject:[NSNumber numberWithFloat:defaultValue] forKey:@"val"];
+            }
+            
             [dic setObject:[NSNumber numberWithFloat:defaultValue] forKey:@"defaultVal"];
             
             [params addObject:dic];
@@ -701,6 +709,7 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
     {
         case 0:
         {
+            _valueChange = YES;
             if ([[paramAdjustView params] count] - 1 < index)
             {
                 return;

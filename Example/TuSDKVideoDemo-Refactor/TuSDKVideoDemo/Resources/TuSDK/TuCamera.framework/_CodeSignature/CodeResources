@@ -4,13 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		Dkfa41bRS/vev1pCPHbcS2ctPQQ=
+		</data>
 		<key>Headers/TuCamera.h</key>
 		<data>
 		qOwo4qUcsV98AnKGIx/cOsP50X8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		g41/wqvxLw3jpF1Yp8Wbfg/5//I=
+		NmRwiSmBm5dO5Cp1JbJDByratsQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

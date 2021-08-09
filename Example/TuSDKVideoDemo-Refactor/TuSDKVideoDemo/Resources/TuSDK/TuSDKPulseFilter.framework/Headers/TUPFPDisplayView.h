@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)update:(TUPFPImage*) image;
 - (BOOL)update:(TUPFPImage*) image atRect:(CGRect) rect;
 
+- (CGRect)getInteractionRect:(CGSize)size;
 
 @end
 

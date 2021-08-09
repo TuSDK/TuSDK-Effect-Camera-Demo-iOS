@@ -848,7 +848,7 @@
     _cameraShower.backgroundColor = [UIColor clearColor];
     _cameraShower.minRecordingTime = 3;  // 最小录制时长 单位秒
     _cameraShower.maxRecordingTime = 15; // 最大录制时长 单位秒
-    _cameraShower.speedMode = lsqSpeedMode_Normal; // 设置视频速率 标准
+    //_cameraShower.speedMode = lsqSpeedMode_Normal; // 设置视频速率 标准
     
 //    _camera.waterMarkImage = [UIImage imageNamed:@"sample_watermark.png"];  // 设置水印，默认为空
 //    _camera.waterMarkPosition = lsqWaterMarkBottomRight; // 设置水印图片的位置

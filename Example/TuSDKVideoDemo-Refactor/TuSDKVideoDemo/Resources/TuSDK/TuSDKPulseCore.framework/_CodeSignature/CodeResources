@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		3os4zjt82/ZcpTOZmxSo7zcEH1s=
+		</data>
+		<key>Headers/.DS_Store</key>
+		<data>
+		QREiqj7UfOgHax9nYP0muXnvqPM=
+		</data>
 		<key>Headers/TUCCore.h</key>
 		<data>
 		rQ4Pqwnz+O5GwxXzr6Pe02StpS0=
@@ -38,7 +46,7 @@
 		</data>
 		<key>Headers/UIKit/TuRatioType.h</key>
 		<data>
-		IGJAcI1RuG1oZUVpsuJF5s7lpMk=
+		UZuSy6xYrIvy4gTwIZpdq5RH2gw=
 		</data>
 		<key>Headers/UIKit/TuRegionHandler.h</key>
 		<data>
@@ -232,6 +240,10 @@
 		<data>
 		8WINyzjzRPib1FR2b1lMNfmarSI=
 		</data>
+		<key>Headers/source/.DS_Store</key>
+		<data>
+		mm7ZV9BVfQvqhNMjsjihG4dQ1Gc=
+		</data>
 		<key>Headers/source/brush/TuBrush.h</key>
 		<data>
 		+NXOv5xzfjkAJxYbfsmvAcDZvII=
@@ -346,7 +358,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		XUODTEaQFbAcFcrnSJm5rTNxTew=
+		N3n5Aq19nZzkPoL7MLxkObaoiS4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -447,11 +459,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IGJAcI1RuG1oZUVpsuJF5s7lpMk=
+			UZuSy6xYrIvy4gTwIZpdq5RH2gw=
 			</data>
 			<key>hash2</key>
 			<data>
-			nKYgbWjaiOT9U7mjR0BUeVz/KEIVKzV9RmOdlfhn4Vs=
+			WC12V9V7dMKZLv/2E9Bj4jQRXRe/SEpq1ktfySwgQyg=
 			</data>
 		</dict>
 		<key>Headers/UIKit/TuRegionHandler.h</key>

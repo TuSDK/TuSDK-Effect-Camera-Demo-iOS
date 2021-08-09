@@ -39,18 +39,18 @@
     
     // Attention ！！！！！！
     // ********************** 更换包名和秘钥之后，一定要去控制台打包替换资源文件 **********************
-    
+    /**
+     *  指定开发模式,需要与lsq_tusdk_configs.json中masters.key匹配， 如果找不到devType将默认读取master字段
+     *  如果一个应用对应多个包名，则可以使用这种方式来进行集成调试。
+     */
+    // [TUCCore initSdkWithAppKey:@"828d700d182dd469-04-ewdjn1" devType:@"debug"];
     [TUCCore initSdkWithAppKey:@"829a2f7c3672a2fa-04-ewdjn1"];
     [TUPEngine Init:nil];
 
     
     // 设置弹框时，背景按钮不可点击
     [TuPopupProgress setDefaultMaskType:TuSDKProgressHUDMaskTypeClear];
-    /**
-     *  指定开发模式,需要与lsq_tusdk_configs.json中masters.key匹配， 如果找不到devType将默认读取master字段
-     *  如果一个应用对应多个包名，则可以使用这种方式来进行集成调试。
-     */
-    // [TuSDK initSdkWithAppKey:@"828d700d182dd469-04-ewdjn1" devType:@"debug"];
+    
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];

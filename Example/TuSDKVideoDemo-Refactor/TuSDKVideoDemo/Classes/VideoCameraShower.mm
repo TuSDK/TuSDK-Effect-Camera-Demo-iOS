@@ -5,6 +5,9 @@
 #import <AVFoundation/AVFoundation.h>
 
 static NSInteger const kJoinerFilterIndex = 10000;
+static NSInteger const kPitchProcessorIndex = 100;
+//static NSInteger const kStretchProcessorIndex = 200;
+
 @interface RecordFragment : NSObject
 @property(nonatomic, strong) TUPFPFileExporter *exporter;
 @property(nonatomic, strong) TUPFPFileExporter_Config *config;
@@ -14,7 +17,9 @@ static NSInteger const kJoinerFilterIndex = 10000;
 @property(nonatomic) NSInteger audioTimeDuration;
 @property(nonatomic) bool isVideoConfiged;
 @property(nonatomic) bool isAudioConfiged;
+
 @end
+
 @implementation RecordFragment
 - (int)formatWidth:(int)width {
     if (width % 2 != 0) {
@@ -23,6 +28,7 @@ static NSInteger const kJoinerFilterIndex = 10000;
         return width;
     }
 }
+
 @end
 
 
@@ -52,12 +58,18 @@ static NSInteger const kJoinerFilterIndex = 10000;
     TUPDispatchQueue *_pipeOprationQueue;
     void *_audioMixerData;
     NSMutableArray<RecordFragment *> *_recordFragments;
+    
+    TUPAudioPipe *_audioPipeline;
+    void *_audioPipeData;
+    void *_audioPipeQueueData;
 }
 @property (nonatomic, strong) TUPFPSimultaneouslyFilter_PropertyBuilder *joinerBuilder;
 @property (nonatomic, strong) TUPFPAudioMixer_Config *audioMixerConfig;
 @property (nonatomic, strong) TUPFPAudioMixer *audioMixer;
 @property (nonatomic, strong) dispatch_queue_t audioMixerQueue;
 @property (nonatomic, assign) BOOL startAudioMix;
+@property (nonatomic, strong) TUPAudioStretchProcessor *stretchProcessor;
+@property (nonatomic, strong) TUPAudioPitchProcessor *pitchProcessor;
 @end
 
 
@@ -86,6 +98,9 @@ static NSInteger const kJoinerFilterIndex = 10000;
             self->_pipeline = nil;
         }
         self->_imgcvt = nil;
+        if (self->_audioPipeline) {
+            [self->_audioPipeline close];
+        }
     }];
     
     if (_displayView)
@@ -97,6 +112,8 @@ static NSInteger const kJoinerFilterIndex = 10000;
     _camera = nil;
     [_audioMixer close];
     free(_audioMixerData);
+    free(_audioPipeData);
+    free(_audioPipeQueueData);
 }
 - (void)reset {
     [self removeAllFragments];
@@ -145,8 +162,11 @@ static NSInteger const kJoinerFilterIndex = 10000;
 
         self->_pipeline = [[TUPFilterPipe alloc] init];
         [self->_pipeline open];
-        }];
-    
+        self->_audioPipeline = [[TUPAudioPipe alloc] init];
+        [self->_audioPipeline open:[TUPConfig new]];
+    }];
+    _audioPipeData = malloc(1024*4);
+    _audioPipeQueueData = malloc(1024*8);
     TUPFPDisplayView* displayView = [[TUPFPDisplayView alloc] init];
     //displayView.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -172,7 +192,8 @@ static NSInteger const kJoinerFilterIndex = 10000;
 //    technologyLabel.text = @"Technology by TuSDK";
 //    technologyLabel.frame = CGRectMake(5, CGRectGetMaxY(rootView.frame) - 20, 200, 20);
 //    [rootView addSubview:technologyLabel];
-
+    _pitchProcessor = [[TUPAudioPitchProcessor alloc] init];
+    _stretchProcessor = [[TUPAudioStretchProcessor alloc] init];
 }
 
 - (void)setDisplayRect:(CGRect)displayRect
@@ -331,6 +352,17 @@ static NSInteger const kJoinerFilterIndex = 10000;
     if (_mixerMode == TTAudioMixerModeJoiner) {
         [self updateJoinerSpeed];
     }
+    
+//    [_pipeOprationQueue runSync:^{
+//        if ([self->_audioPipeline getProcessor:kStretchProcessorIndex]) {
+//            [self->_audioPipeline deleteProcessorAt:kStretchProcessorIndex];
+//        }
+//        TUPAudioProcessor *processor = [[TUPAudioProcessor alloc] init:[self->_audioPipeline getContext] withName:TUPAudioStretchProcessor_TYPE_NAME];
+//        TUPConfig *config = [processor getConfig];
+//        [config setDoubleNumber:[self getSpeed] forKey:TUPAudioStretchProcessor_CONFIG_STRETCH];
+//        [processor setConfig:config];
+//        [self->_audioPipeline add:processor atIndex:kStretchProcessorIndex];
+//    }];
 }
 - (float)getSpeed
 {
@@ -388,33 +420,35 @@ static NSInteger const kJoinerFilterIndex = 10000;
     
     return ret;
 }
-- (NSInteger)getPitch
-{
-    NSInteger ret = 1;
+- (void)setPitchMode:(lsqSoundPitch)pitchMode {
+    _pitchMode = pitchMode;
+    [_pipeOprationQueue runSync:^{
+        if ([self->_audioPipeline getProcessor:kPitchProcessorIndex]) {
+            [self->_audioPipeline deleteProcessorAt:kPitchProcessorIndex];
+        }
+        TUPAudioProcessor *processor = [[TUPAudioProcessor alloc] init:[self->_audioPipeline getContext] withName:TUPAudioPitchProcessor_TYPE_NAME];
+        TUPConfig *config = [processor getConfig];
+        [config setString:[self getPitch] forKey:TUPAudioPitchProcessor_CONFIG_TYPE];
+        [processor setConfig:config];
+        [self->_audioPipeline add:processor atIndex:kPitchProcessorIndex];
+    }];
+}
+- (NSString *)getPitch {
     
-    switch (_pitchMode)
-    {
+    switch (_pitchMode) {
         case lsqSoundPitchNormal:
-            ret = 1;
-            break;
+            return @"Normal";
         case lsqSoundPitchMonster:
-            ret = 2;
-            break;
+            return @"Monster";
         case lsqSoundPitchUncle:
-            ret = 3;
-            break;
+            return @"Uncle";
         case lsqSoundPitchGirl:
-            ret = 4;
-            break;
+            return @"Girl";
         case lsqSoundPitchLolita:
-            ret = 5;
-            break;
-
+            return @"Lolita";
         default:
-            break;
+            return @"Normal";
     }
-    
-    return ret;
 }
 
 
@@ -1313,10 +1347,10 @@ static NSInteger const kJoinerFilterIndex = 10000;
                 if (fragment && fragment.exporter) {
                     if (fragment.isVideoConfiged == NO)
                     {
-                        fragment.config.width = [fragment formatWidth:[_pipeOutImage getWidth]];
+                        fragment.config.width = [fragment formatWidth:(int)[_pipeOutImage getWidth]];
                         fragment.config.height = (int)[_pipeOutImage getHeight];
                         fragment.config.stretch = [self getSpeed];
-                        fragment.config.pitchType = (int)[self getPitch];
+                        //fragment.config.pitchType = (int)[self getPitch];
                         fragment.isVideoConfiged = YES;
                     }
                     
@@ -1346,10 +1380,10 @@ static NSInteger const kJoinerFilterIndex = 10000;
                         fragment.isVideoConfiged = NO;
                         
                         // video config
-                        fragment.config.width = [fragment formatWidth:[_pipeOutImage getWidth]];
+                        fragment.config.width = [fragment formatWidth:(int)[_pipeOutImage getWidth]];
                         fragment.config.height = (int)[_pipeOutImage getHeight];
                         fragment.config.stretch = [self getSpeed];
-                        fragment.config.pitchType = (int)[self getPitch];
+                        //fragment.config.pitchType = (int)[self getPitch];
                         fragment.isVideoConfiged = YES;
                         
                         [_recordFragments addObject:fragment];
@@ -1648,15 +1682,33 @@ static NSInteger const kJoinerFilterIndex = 10000;
                     {
                         
                         AudioBuffer audioBuffer = bufferList.mBuffers[0];
-                        if (self.mixerMode != TTAudioMixerModeNone && _audioMixer != nil) {
-                            //AudioBuffer audioBuffer = bufferList.mBuffers[0];
-                            int ret = [self.audioMixer sendPrimaryAudio:audioBuffer.mData andLength:audioBuffer.mDataByteSize];
-                            //TTLog(@"audioMixer sendPrimaryAudio %d %d",ret, audioBuffer.mDataByteSize);
-                        } else {
-                            if (!self.disableMicrophone) {
-                                [fragment.exporter sendAudio:audioBuffer.mData andSize:audioBuffer.mDataByteSize withTimestamp:fragment.audioTimeDuration];
+                        
+                        size_t nc = audioBuffer.mDataByteSize / 1 / sizeof(int16_t);
+                        [_audioPipeline enqueue:audioBuffer.mData andLength:nc];
+//                        TTLog(@"_audioPipeline receive: %d %zu",audioBuffer.mDataByteSize, [_audioPipeline getSize]);
+                        size_t bufferSize = 1024 * 1 * sizeof(int16_t);
+                        while ([_audioPipeline getSize] >= 1024) {
+                            [_audioPipeline dequeue:_audioPipeQueueData andLength:1024];
+                            
+                            [_audioPipeline send:_audioPipeQueueData andLength:bufferSize];
+                            while (true) {
+                                int ret = [_audioPipeline receive:_audioPipeData andLength:bufferSize];
+                                //TTLog(@"_audioPipeline receive:  %d %zu %zu %d ",audioBuffer.mDataByteSize, enq, [_audioPipeline getSize], ret);
+                                if (ret < 0) {
+                                    break;
+                                }
+                                if (self.mixerMode != TTAudioMixerModeNone && _audioMixer != nil) {
+                                    [self.audioMixer sendPrimaryAudio:_audioPipeData andLength:bufferSize];
+                                    //TTLog(@"audioMixer sendPrimaryAudio %d %d",ret, audioBuffer.mDataByteSize);
+                                } else {
+                                    if (!self.disableMicrophone) {
+                                        [fragment.exporter sendAudio:_audioPipeData andSize:bufferSize withTimestamp:fragment.audioTimeDuration];
+                                    }
+                                }
                             }
                         }
+
+                        
                     }
             }
         }
@@ -2015,7 +2067,7 @@ static NSInteger const kJoinerFilterIndex = 10000;
 }
 - (void)onTuCameraDidOutputPlayBufferList:(AudioBufferList)bufferList {
     AudioBuffer buffer = bufferList.mBuffers[0];
-    int ret = [self.audioMixer getPCMForPlay:buffer.mData andLength:buffer.mDataByteSize];
+    [self.audioMixer getPCMForPlay:buffer.mData andLength:buffer.mDataByteSize];
     //TTLog(@"audioMixer getPCMForPlay1 %d %d",ret, buffer.mDataByteSize);
 }
 

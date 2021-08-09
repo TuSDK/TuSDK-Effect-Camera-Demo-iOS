@@ -116,4 +116,6 @@
  *  @return ratioType 比例动作类型
  */
 + (NSInteger) componentTypeWithRatioType:(lsqRatioType)ratioType;
+
++ (NSString *)format:(lsqRatioType)ratioType;
 @end

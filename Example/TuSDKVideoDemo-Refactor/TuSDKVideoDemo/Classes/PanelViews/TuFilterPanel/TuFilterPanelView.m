@@ -433,10 +433,20 @@
     {
         //选中滤镜组 和 当前滤镜组不一致，则将上一组滤镜的选中状态取消
         currentFilterGroupIndex = _selectGroupIndex;
+        
+        TuFilterPanelViewCellData *lastCellData = _datasets[currentFilterGroupIndex].groupData[_selectFilterIndex];
+        lastCellData.state = TuFilterPanelViewCellUnselected;
+    }
+    else
+    {
+        if (_selectFilterIndex != indexPath.item)
+        {
+            TuFilterPanelViewCellData *lastCellData = _datasets[_selectGroupIndex].groupData[_selectFilterIndex];
+            lastCellData.state = TuFilterPanelViewCellUnselected;
+        }
     }
     
-    TuFilterPanelViewCellData *lastCellData = _datasets[currentFilterGroupIndex].groupData[_selectFilterIndex];
-    lastCellData.state = TuFilterPanelViewCellUnselected;
+    
     
     TuFilterPanelViewCellData *cellData = _datasets[_curGroupIndex].groupData[indexPath.row];
     

@@ -18,16 +18,16 @@
 		7C9B775D25ECCBA4003D39AD /* TuVideoFocusRangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B775A25ECCBA4003D39AD /* TuVideoFocusRangeView.m */; };
 		7C9B775E25ECCBA4003D39AD /* TuVideoFocusTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B775B25ECCBA4003D39AD /* TuVideoFocusTouchView.m */; };
 		A694B7A526146883006FB99C /* CameraHomepage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A694B7A426146883006FB99C /* CameraHomepage.jpg */; };
-		A6DA751B2695A61600CC45B1 /* TuCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA750A2695A5C200CC45B1 /* TuCamera.framework */; };
-		A6DA751C2695A61600CC45B1 /* TuCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA750A2695A5C200CC45B1 /* TuCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6DA751D2695A61600CC45B1 /* TuSDKPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA750C2695A5C200CC45B1 /* TuSDKPulse.framework */; };
-		A6DA751E2695A61600CC45B1 /* TuSDKPulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA750C2695A5C200CC45B1 /* TuSDKPulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6DA751F2695A61600CC45B1 /* TuSDKPulseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA750D2695A5C200CC45B1 /* TuSDKPulseCore.framework */; };
-		A6DA75202695A61600CC45B1 /* TuSDKPulseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA750D2695A5C200CC45B1 /* TuSDKPulseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6DA75212695A61600CC45B1 /* TuSDKPulseFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA750B2695A5C200CC45B1 /* TuSDKPulseFilter.framework */; };
-		A6DA75222695A61600CC45B1 /* TuSDKPulseFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA750B2695A5C200CC45B1 /* TuSDKPulseFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6DA75232695A61600CC45B1 /* TuViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA75092695A5C200CC45B1 /* TuViews.framework */; };
-		A6DA75242695A61600CC45B1 /* TuViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6DA75092695A5C200CC45B1 /* TuViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A69A9FFE26C0D1F2002A8CD9 /* TuCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF526C0D1D0002A8CD9 /* TuCamera.framework */; };
+		A69A9FFF26C0D1F2002A8CD9 /* TuCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF526C0D1D0002A8CD9 /* TuCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A69AA00026C0D1F2002A8CD9 /* TuSDKPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF726C0D1D0002A8CD9 /* TuSDKPulse.framework */; };
+		A69AA00126C0D1F2002A8CD9 /* TuSDKPulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF726C0D1D0002A8CD9 /* TuSDKPulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A69AA00226C0D1F2002A8CD9 /* TuSDKPulseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF826C0D1D0002A8CD9 /* TuSDKPulseCore.framework */; };
+		A69AA00326C0D1F2002A8CD9 /* TuSDKPulseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF826C0D1D0002A8CD9 /* TuSDKPulseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A69AA00426C0D1F2002A8CD9 /* TuSDKPulseFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF626C0D1D0002A8CD9 /* TuSDKPulseFilter.framework */; };
+		A69AA00526C0D1F2002A8CD9 /* TuSDKPulseFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF626C0D1D0002A8CD9 /* TuSDKPulseFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A69AA00626C0D1F2002A8CD9 /* TuViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF426C0D1D0002A8CD9 /* TuViews.framework */; };
+		A69AA00726C0D1F2002A8CD9 /* TuViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF426C0D1D0002A8CD9 /* TuViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8210F90253FE78D00E17525 /* line_F.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F80253FE78D00E17525 /* line_F.jpg */; };
 		B8210F91253FE78D00E17525 /* line_G.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F81253FE78D00E17525 /* line_G.jpg */; };
 		B8210F92253FE78D00E17525 /* line_P.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F82253FE78D00E17525 /* line_P.jpg */; };
@@ -505,17 +505,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A6DA75252695A61600CC45B1 /* Embed Frameworks */ = {
+		A69AA00826C0D1F2002A8CD9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A6DA75222695A61600CC45B1 /* TuSDKPulseFilter.framework in Embed Frameworks */,
-				A6DA751E2695A61600CC45B1 /* TuSDKPulse.framework in Embed Frameworks */,
-				A6DA751C2695A61600CC45B1 /* TuCamera.framework in Embed Frameworks */,
-				A6DA75242695A61600CC45B1 /* TuViews.framework in Embed Frameworks */,
-				A6DA75202695A61600CC45B1 /* TuSDKPulseCore.framework in Embed Frameworks */,
+				A69AA00526C0D1F2002A8CD9 /* TuSDKPulseFilter.framework in Embed Frameworks */,
+				A69AA00126C0D1F2002A8CD9 /* TuSDKPulse.framework in Embed Frameworks */,
+				A69A9FFF26C0D1F2002A8CD9 /* TuCamera.framework in Embed Frameworks */,
+				A69AA00726C0D1F2002A8CD9 /* TuViews.framework in Embed Frameworks */,
+				A69AA00326C0D1F2002A8CD9 /* TuSDKPulseCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,11 +548,11 @@
 		7C9B775B25ECCBA4003D39AD /* TuVideoFocusTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuVideoFocusTouchView.m; sourceTree = "<group>"; };
 		7C9B775C25ECCBA4003D39AD /* TuVideoFocusRangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuVideoFocusRangeView.h; sourceTree = "<group>"; };
 		A694B7A426146883006FB99C /* CameraHomepage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CameraHomepage.jpg; sourceTree = "<group>"; };
-		A6DA75092695A5C200CC45B1 /* TuViews.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuViews.framework; sourceTree = "<group>"; };
-		A6DA750A2695A5C200CC45B1 /* TuCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuCamera.framework; sourceTree = "<group>"; };
-		A6DA750B2695A5C200CC45B1 /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = "<group>"; };
-		A6DA750C2695A5C200CC45B1 /* TuSDKPulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = "<group>"; };
-		A6DA750D2695A5C200CC45B1 /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = "<group>"; };
+		A69A9FF426C0D1D0002A8CD9 /* TuViews.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuViews.framework; sourceTree = "<group>"; };
+		A69A9FF526C0D1D0002A8CD9 /* TuCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuCamera.framework; sourceTree = "<group>"; };
+		A69A9FF626C0D1D0002A8CD9 /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = "<group>"; };
+		A69A9FF726C0D1D0002A8CD9 /* TuSDKPulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = "<group>"; };
+		A69A9FF826C0D1D0002A8CD9 /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = "<group>"; };
 		A7911AA0D2F01A3F9BEB8E89 /* Pods-TuSDKVideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuSDKVideoDemo.debug.xcconfig"; path = "Target Support Files/Pods-TuSDKVideoDemo/Pods-TuSDKVideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B8210F80253FE78D00E17525 /* line_F.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line_F.jpg; sourceTree = "<group>"; };
 		B8210F81253FE78D00E17525 /* line_G.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line_G.jpg; sourceTree = "<group>"; };
@@ -1082,19 +1082,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6DA751B2695A61600CC45B1 /* TuCamera.framework in Frameworks */,
+				A69A9FFE26C0D1F2002A8CD9 /* TuCamera.framework in Frameworks */,
 				B8B787472559321E00B82F76 /* libresolv.tbd in Frameworks */,
 				F8FA849D219413B0002B24EB /* libc++.tbd in Frameworks */,
 				FBC6F51020D3CE6400F2FBB7 /* Accelerate.framework in Frameworks */,
 				FBC6F50E20D3CE5D00F2FBB7 /* Security.framework in Frameworks */,
-				A6DA751F2695A61600CC45B1 /* TuSDKPulseCore.framework in Frameworks */,
+				A69AA00226C0D1F2002A8CD9 /* TuSDKPulseCore.framework in Frameworks */,
 				FBC6F50C20D3CE5600F2FBB7 /* SystemConfiguration.framework in Frameworks */,
 				FBC6F50A20D3CE4800F2FBB7 /* libz.1.2.5.tbd in Frameworks */,
 				FBF3A8C020D3CD24008466D0 /* Bugly.framework in Frameworks */,
-				A6DA751D2695A61600CC45B1 /* TuSDKPulse.framework in Frameworks */,
-				A6DA75232695A61600CC45B1 /* TuViews.framework in Frameworks */,
+				A69AA00026C0D1F2002A8CD9 /* TuSDKPulse.framework in Frameworks */,
+				A69AA00626C0D1F2002A8CD9 /* TuViews.framework in Frameworks */,
 				B85C249023CEFB3500C9BD96 /* AudioToolbox.framework in Frameworks */,
-				A6DA75212695A61600CC45B1 /* TuSDKPulseFilter.framework in Frameworks */,
+				A69AA00426C0D1F2002A8CD9 /* TuSDKPulseFilter.framework in Frameworks */,
 				746417BBABA53F2AC7E13C99 /* libPods-TuSDKVideoDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1134,14 +1134,14 @@
 			path = FocusView;
 			sourceTree = "<group>";
 		};
-		A6DA75082695A5C200CC45B1 /* TuSDK */ = {
+		A69A9FF326C0D1D0002A8CD9 /* TuSDK */ = {
 			isa = PBXGroup;
 			children = (
-				A6DA75092695A5C200CC45B1 /* TuViews.framework */,
-				A6DA750A2695A5C200CC45B1 /* TuCamera.framework */,
-				A6DA750B2695A5C200CC45B1 /* TuSDKPulseFilter.framework */,
-				A6DA750C2695A5C200CC45B1 /* TuSDKPulse.framework */,
-				A6DA750D2695A5C200CC45B1 /* TuSDKPulseCore.framework */,
+				A69A9FF426C0D1D0002A8CD9 /* TuViews.framework */,
+				A69A9FF526C0D1D0002A8CD9 /* TuCamera.framework */,
+				A69A9FF626C0D1D0002A8CD9 /* TuSDKPulseFilter.framework */,
+				A69A9FF726C0D1D0002A8CD9 /* TuSDKPulse.framework */,
+				A69A9FF826C0D1D0002A8CD9 /* TuSDKPulseCore.framework */,
 			);
 			path = TuSDK;
 			sourceTree = "<group>";
@@ -1905,7 +1905,7 @@
 		FBF3A89B20D3CCC0008466D0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A6DA75082695A5C200CC45B1 /* TuSDK */,
+				A69A9FF326C0D1D0002A8CD9 /* TuSDK */,
 				2AEFCEC6267067A000E629A7 /* city_sunshine.mp3 */,
 				2AEFCEC82671B2EB00E629A7 /* eye_of_forgiveness.mp3 */,
 				2AEA9C0226787F1000865D07 /* lovely_piano_song.mp3 */,
@@ -1956,7 +1956,7 @@
 				FB6EBABA20D399E000FA24F2 /* Resources */,
 				2A152F6826350AFE0013C9BB /* ShellScript */,
 				1A217053036A1519DD808995 /* [CP] Copy Pods Resources */,
-				A6DA75252695A61600CC45B1 /* Embed Frameworks */,
+				A69AA00826C0D1F2002A8CD9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2460,10 +2460,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TuSDKVideoDemo/Pods-TuSDKVideoDemo-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/DoraemonKit-iOS9.0/DoraemonKit.bundle",
+				"${PODS_ROOT}/GCDWebServer/GCDWebUploader/GCDWebUploader.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DoraemonKit.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GCDWebUploader.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2730,7 +2734,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuSDKVideoDemo/TuSDKVideoDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210331;
+				CURRENT_PROJECT_VERSION = 20210806;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				ENABLE_BITCODE = NO;
@@ -2744,7 +2748,7 @@
 				INFOPLIST_FILE = TuSDKVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.5;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2762,7 +2766,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuSDKVideoDemo/TuSDKVideoDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210331;
+				CURRENT_PROJECT_VERSION = 20210806;
 				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=*]" = armv7;
@@ -2778,7 +2782,7 @@
 				INFOPLIST_FILE = TuSDKVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.5;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
