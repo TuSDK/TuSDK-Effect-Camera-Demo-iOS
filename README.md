@@ -451,31 +451,6 @@
 	</tbody>
 </table>
 
-### 网易
-
-<table cellpadding="0" cellspacing="0"  style="width:700px;border-collapse: collapse;">
-    <thead>
-      <tr>
-        <th  width="150">第三方产品</th>
-	<th  width="150">平台</th>
-        <th  width="200">第三方 SDK 版本</th>
-	<th  width="200">涂图 SDK 版本</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr >
-            <td rowspan="2">实时音视频</td>
-            <td>iOS</td>
-	    	<td>7.0.0(+)</td>
-	    	<td>3.5.4(+)</td>
-        </tr>
-        <tr >
-            <td>Android</td>
-            <td>-</td>
-	    <td>-</td>
-        </tr>
-    </tbody>
-</table>
 
 ### 即构
 
