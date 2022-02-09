@@ -1,7 +1,7 @@
 #import "VideoCameraShower.h"
-#import <TuSDKPulseCore/TuSDKPulseCore.h>
-#import <TuSDKPulse/TUPDispatchQueue.h>
-#import <TuSDKPulseFilter/TuSDKPulseFilter.h>
+#import "TuSDKPulseCore.h"
+#import "TuSDKPulse.h"
+#import "TuSDKPulseFilter.h"
 #import <AVFoundation/AVFoundation.h>
 
 static NSInteger const kJoinerFilterIndex = 10000;

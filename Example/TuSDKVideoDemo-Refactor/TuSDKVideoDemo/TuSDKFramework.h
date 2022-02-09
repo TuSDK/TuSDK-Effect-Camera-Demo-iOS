@@ -9,9 +9,9 @@
 //#import "TuSDK.h"
 //#import "TuSDKVideo.h"
 //#import "TuSDKFace.h"
-#import <TuSDKPulseCore/TuSDKPulseCore.h>
-#import <TuViews/TuViews.h>
-#import <TuCamera/TuCamera.h>
+#import "TuSDKPulseCore.h"
+#import "TuViews.h"
+#import "TuCamera.h"
 
 
 //#import <TuSDKVideo/TuSDKVideo.h>

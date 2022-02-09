@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "TuSDKFramework.h"
 #import <Bugly/Bugly.h>
-#import <TuSDKPulse/TUPEngine.h>
+#import "TuSDKPulse.h"
 #import "CameraViewController.h"
 //#ifdef DEBUG
 //#import <DoraemonKit/DoraemonManager.h>
