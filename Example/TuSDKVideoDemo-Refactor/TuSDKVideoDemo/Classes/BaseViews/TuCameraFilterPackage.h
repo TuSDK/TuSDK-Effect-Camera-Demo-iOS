@@ -8,7 +8,7 @@
 
 
 #import <Foundation/Foundation.h>
-
+#import "TuSDKFramework.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TuCameraFilterPackage : NSObject
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSArray *)titleGroupsWithComics:(BOOL)isComics;
 
-- (NSArray *)filterGroups;
+- (NSArray<TuFilterGroup *> *)filterGroups;
 /**
  *  获取滤镜组
  *  @return group 滤镜列表

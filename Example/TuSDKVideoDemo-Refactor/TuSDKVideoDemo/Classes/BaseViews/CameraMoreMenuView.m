@@ -124,18 +124,18 @@ static const NSInteger kMicrophoneRow = 6;
         weakSelf.flashStackView = optionsStackView;
     }];
     [self addCellWithTitle:NSLocalizedStringFromTable(@"tu_变声", @"VideoDemo", @"变声") optionsConfig:^(UIStackView *optionsStackView) {
-        for (int i = TuSDKSoundPitchNormal; i < 5; i++) {
+        for (int i = TTVideoSoundPitchType_Normal; i < 5; i++) {
             UIButton *pitchButton = [CameraMoreMenuView switchButtonWithTitle:[CameraMoreMenuView descriptionWithTuSDKSoundPitchType:i]];
             [optionsStackView addArrangedSubview:pitchButton];
             [pitchButton addTarget:weakSelf action:@selector(pitchButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-            if (i == TuSDKSoundPitchNormal) {
+            if (i == TTVideoSoundPitchType_Normal) {
                 pitchButton.selected = YES;
             }
         }
         optionsStackView.spacing = textOptionsSpacing;
         weakSelf.pitchStackView = optionsStackView;
     }];
-    self.currentJoinerDirection = TuJoinerDirectionHorizontal;
+    self.currentJoinerDirection = TTJoinerDirectionHorizontal;
     [self addCellWithTitle:@"布局" optionsConfig:^(UIStackView *optionsStackView) {
         UIButton *horButton = [CameraMoreMenuView switchButtonWithTitle:@"左右"];
         horButton.tag = 0;
@@ -177,21 +177,21 @@ static const NSInteger kMicrophoneRow = 6;
  @param pitchType 变声类型
  @return 对应变声类型的名称
  */
-+ (NSString *)descriptionWithTuSDKSoundPitchType:(lsqSoundPitch)pitchType {
++ (NSString *)descriptionWithTuSDKSoundPitchType:(TTVideoSoundPitchType)pitchType {
     switch (pitchType) {
-        case lsqSoundPitchNormal:{
+        case TTVideoSoundPitchType_Normal:{
             return NSLocalizedStringFromTable(@"tu_正常", @"VideoDemo", @"正常");
         } break;
-        case lsqSoundPitchMonster:{
+        case TTVideoSoundPitchType_Monster:{
             return NSLocalizedStringFromTable(@"tu_怪兽", @"VideoDemo", @"怪兽");
         } break;
-        case lsqSoundPitchUncle:{
+        case TTVideoSoundPitchType_Uncle:{
             return NSLocalizedStringFromTable(@"tu_大叔", @"VideoDemo", @"大叔");
         } break;
-        case lsqSoundPitchGirl:{
+        case TTVideoSoundPitchType_Girl:{
             return NSLocalizedStringFromTable(@"tu_女生", @"VideoDemo", @"女生");
         } break;
-        case lsqSoundPitchLolita:{
+        case TTVideoSoundPitchType_Lolita:{
             return NSLocalizedStringFromTable(@"tu_萝莉", @"VideoDemo", @"萝莉");
         } break;
     }
@@ -322,7 +322,8 @@ static const NSInteger kMicrophoneRow = 6;
         } break;
     }
     if ([self.delegate respondsToSelector:@selector(moreMenu:didSelectedRatio:)]) {
-        [self.delegate moreMenu:self didSelectedRatio:ratio];
+        // !!!: refactor
+        [self.delegate moreMenu:self didSelectedRatio:index];
     }
 }
 - (void)joinerButtonAction:(UIButton *)sender {

@@ -7,7 +7,7 @@
 *********************************************************/
 
 #import "TuCameraFilterPackage.h"
-#import "TuSDKFramework.h"
+
 
 @implementation TuCameraFilterPackage
 
@@ -55,7 +55,7 @@
  *
  *  @return 短视频滤镜组
  */
-- (NSArray *)filterGroups;
+- (NSArray<TuFilterGroup *> *)filterGroups;
 {
     NSMutableArray *list = [NSMutableArray array];
 

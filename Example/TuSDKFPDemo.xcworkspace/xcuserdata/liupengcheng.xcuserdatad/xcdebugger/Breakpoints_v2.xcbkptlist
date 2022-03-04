@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "A1A6CA6A-D049-4381-B22F-3F8ADE894E87"
+   uuid = "8768DE62-CEA5-4BD1-92AA-1E5813A40FC9"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "AA537D58-CA75-456E-9CD1-3E27C6DC8F37"
+            uuid = "5A07FDFA-84AD-41CD-B87B-8A07571CE831"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -19,128 +19,128 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "266CFDD7-46BF-45A7-B065-9F466E180562"
+            uuid = "11EBB622-F17A-4CA9-8546-9E5857D06045"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../pulse-av/ios/TuSDKPulseCore/TuSDKPulseCore/tools/TuTSVolumeButton.m"
+            filePath = "TuViews/TuViews/widgets/filters/TuEditFilterGroupViewBase.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-_startListenVolumeButtonEvents"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-setFilterParams:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3FE16415-DF73-4AA9-983F-D53E9E848F93"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../pulse-av/ios/src/filter/TUPFPDisplayView.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "-glkView:drawInRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "78AC5FED-E73F-43F4-B08A-373271FF24A2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TuViews/TuViews/shower/TuCameraShowerImpl.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "-setDisplayBackgroundColor:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "186C9EF9-32D8-4FD0-BFF2-FDD11A1E6277"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../pulse-av/ios/TuSDKPulseCore/TuSDKPulseCore/components/widgets/TuRegionHandler.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-setRatio:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0E187F3F-B57E-4AB7-B50C-663FAA428754"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../pulse-av/ios/TuSDKPulseCore/TuSDKPulseCore/components/widgets/TuRegionHandler.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-setWrapSize:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ECEA3F05-96C5-4453-A8F1-BD1465048B48"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../pulse-av/ios/TuSDKPulseCore/TuSDKPulseCore/components/widgets/TuRegionHandler.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-centerRectPercent"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "533EBF35-A87B-4FBE-B73D-C4ABEEA04222"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../pulse-av/ios/TuSDKPulseCore/TuSDKPulseCore/components/widgets/TuRegionHandler.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-rectPercent"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "538FE39D-F30F-42F2-9268-F94105D1611C"
+            uuid = "FB4869A8-912C-4428-851A-DA0283257D82"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TuCamera/TuCamera/TuCamera.m"
+            filePath = "TuSDKGeeV1/framework/Source/Components/TuSDKPFEditFilterGroupView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
-            landmarkName = "-shotPhotoCompleted:buffer:error:"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "-onTuSDKCPParameterConfig:valueWithIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C8AB1C1C-6838-452F-8EE0-46B95B83531F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuSDKGeeV1/framework/Source/Components/TuSDKPFEditFilterGroupView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "-onTuSDKCPParameterConfig:resetWithIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03FD61A4-A552-4557-A340-E6769106D053"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuViews/TuViews/shower/TuImageShowerImpl.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1469"
+            endingLineNumber = "1469"
+            landmarkName = "+filterImage:code:params:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEF040D0-992D-4905-8B37-B1E6D01E8796"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuViews/TuViews/widgets/TuFilterResultController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "-onTuSDKCPParameterConfig:valueWithKey:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E69F3CDA-C14D-468B-9E08-DEAA54D288C9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuViews/TuViews/widgets/TuFilterResultController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "-onTuSDKCPParameterConfig:changeWithIndex:progress:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDEEEB75-A9EC-4CA6-92AF-DE88747050DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuSDKVideoDemo-Refactor/TuSDKVideoDemo/Pro/View/Beauty/TTBeautyPanelView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
+            landmarkName = "-cosmeticPanelView:code:value:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EC283D3-E41E-412E-8959-F3DE43BA7814"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuSDKVideoDemo-Refactor/TuSDKVideoDemo/Pro/View/TTCameraView.m"
+            startingColumnNumber = "9"
+            endingColumnNumber = "9"
+            startingLineNumber = "1388"
+            endingLineNumber = "1388"
+            landmarkName = "-addAudioMixer:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

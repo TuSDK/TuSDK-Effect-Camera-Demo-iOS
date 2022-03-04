@@ -123,6 +123,12 @@ typedef NS_ENUM(NSInteger, TuLogLevel)
 /** 检查资源初始化是否完成 */
 + (BOOL)checkResourceLoaded;
 
+/**
+ * 检查权限是否到期
+ * @return 返回权限是否到期值
+ */
++ (BOOL)checkServiceExpire;
+
 /** 打印权限列表 */
 + (void)logAuthors;
 

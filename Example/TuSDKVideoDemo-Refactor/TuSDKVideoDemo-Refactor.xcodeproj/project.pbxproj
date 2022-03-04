@@ -3,31 +3,58 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A3CF3E127708BCE00CB80EB /* TTPreviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3CF3E027708BCE00CB80EB /* TTPreviewManager.m */; };
+		2A3CF3E42772CB3D00CB80EB /* TTEffectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3CF3E32772CB3D00CB80EB /* TTEffectFactory.m */; };
+		2A6024E627799A02008DDF18 /* TTPipeMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6024E527799A02008DDF18 /* TTPipeMediator.m */; };
+		2A6024E927799A10008DDF18 /* TTImageConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6024E827799A10008DDF18 /* TTImageConvert.m */; };
+		2A6024EC27799A1F008DDF18 /* TTAudioConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6024EB27799A1F008DDF18 /* TTAudioConvert.m */; };
+		2A6D37E42786C35D0013ED83 /* TTRenderDef.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D37E32786C35D0013ED83 /* TTRenderDef.m */; };
 		2AC8214E267C43C500FC62D0 /* MusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8214D267C43C500FC62D0 /* MusicItem.m */; };
 		2AC82151267C7BF000FC62D0 /* TTAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC82150267C7BF000FC62D0 /* TTAudioQueuePlayer.m */; };
 		2AEA9C0326787F1000865D07 /* lovely_piano_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AEA9C0226787F1000865D07 /* lovely_piano_song.mp3 */; };
 		2AEFCEC526705B9900E629A7 /* MusicListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEFCEC426705B9900E629A7 /* MusicListController.m */; };
 		2AEFCEC7267067A000E629A7 /* city_sunshine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AEFCEC6267067A000E629A7 /* city_sunshine.mp3 */; };
 		2AEFCEC92671B2EB00E629A7 /* eye_of_forgiveness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AEFCEC82671B2EB00E629A7 /* eye_of_forgiveness.mp3 */; };
+		2AF609E827686F6300ECD502 /* TTRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF609E727686F6300ECD502 /* TTRecordManager.m */; };
+		2AF609EB27686FEF00ECD502 /* TTBeautyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF609EA27686FEF00ECD502 /* TTBeautyManager.m */; };
+		2AF609EE2768713B00ECD502 /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF609ED2768713B00ECD502 /* TTViewController.m */; };
+		2AF609F32768730D00ECD502 /* TTBeautyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF609F22768730D00ECD502 /* TTBeautyView.m */; };
+		2AF609FC2768807C00ECD502 /* TTBeautyProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF609FB2768807C00ECD502 /* TTBeautyProxy.m */; };
 		746417BBABA53F2AC7E13C99 /* libPods-TuSDKVideoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FED514CC9176D7C053C08886 /* libPods-TuSDKVideoDemo.a */; };
-		7C8621B325C2F1B6009A234C /* VideoCameraShower.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C8621B225C2F1B5009A234C /* VideoCameraShower.mm */; };
 		7C9B775D25ECCBA4003D39AD /* TuVideoFocusRangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B775A25ECCBA4003D39AD /* TuVideoFocusRangeView.m */; };
 		7C9B775E25ECCBA4003D39AD /* TuVideoFocusTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B775B25ECCBA4003D39AD /* TuVideoFocusTouchView.m */; };
+		A68EACA427D20C37007E3E4D /* TuCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9B27D20BE1007E3E4D /* TuCamera.framework */; platformFilter = ios; };
+		A68EACA527D20C37007E3E4D /* TuCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9B27D20BE1007E3E4D /* TuCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A68EACA627D20C37007E3E4D /* TuSDKPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9D27D20BE1007E3E4D /* TuSDKPulse.framework */; platformFilter = ios; };
+		A68EACA727D20C37007E3E4D /* TuSDKPulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9D27D20BE1007E3E4D /* TuSDKPulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A68EACA827D20C37007E3E4D /* TuSDKPulseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9E27D20BE1007E3E4D /* TuSDKPulseCore.framework */; platformFilter = ios; };
+		A68EACA927D20C37007E3E4D /* TuSDKPulseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9E27D20BE1007E3E4D /* TuSDKPulseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A68EACAA27D20C37007E3E4D /* TuSDKPulseFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9C27D20BE1007E3E4D /* TuSDKPulseFilter.framework */; platformFilter = ios; };
+		A68EACAB27D20C37007E3E4D /* TuSDKPulseFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9C27D20BE1007E3E4D /* TuSDKPulseFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A68EACAC27D20C37007E3E4D /* TuViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9A27D20BE1007E3E4D /* TuViews.framework */; platformFilter = ios; };
+		A68EACAD27D20C37007E3E4D /* TuViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9A27D20BE1007E3E4D /* TuViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A694B7A526146883006FB99C /* CameraHomepage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A694B7A426146883006FB99C /* CameraHomepage.jpg */; };
-		A69A9FFE26C0D1F2002A8CD9 /* TuCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF526C0D1D0002A8CD9 /* TuCamera.framework */; };
-		A69A9FFF26C0D1F2002A8CD9 /* TuCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF526C0D1D0002A8CD9 /* TuCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A69AA00026C0D1F2002A8CD9 /* TuSDKPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF726C0D1D0002A8CD9 /* TuSDKPulse.framework */; };
-		A69AA00126C0D1F2002A8CD9 /* TuSDKPulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF726C0D1D0002A8CD9 /* TuSDKPulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A69AA00226C0D1F2002A8CD9 /* TuSDKPulseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF826C0D1D0002A8CD9 /* TuSDKPulseCore.framework */; };
-		A69AA00326C0D1F2002A8CD9 /* TuSDKPulseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF826C0D1D0002A8CD9 /* TuSDKPulseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A69AA00426C0D1F2002A8CD9 /* TuSDKPulseFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF626C0D1D0002A8CD9 /* TuSDKPulseFilter.framework */; };
-		A69AA00526C0D1F2002A8CD9 /* TuSDKPulseFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF626C0D1D0002A8CD9 /* TuSDKPulseFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A69AA00626C0D1F2002A8CD9 /* TuViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF426C0D1D0002A8CD9 /* TuViews.framework */; };
-		A69AA00726C0D1F2002A8CD9 /* TuViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A69A9FF426C0D1D0002A8CD9 /* TuViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6A1E9E32791121800D70EF4 /* TTFacePlasticPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A1E9E22791121800D70EF4 /* TTFacePlasticPanelViewCell.m */; };
+		A6A1E9E62791154E00D70EF4 /* TTFacePlasticModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A1E9E52791154E00D70EF4 /* TTFacePlasticModel.m */; };
+		A6A597CB2783F83C00954ABF /* TTCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597CA2783F83C00954ABF /* TTCameraView.m */; };
+		A6A597CF2785488600954ABF /* TTBeautyGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597CE2785488600954ABF /* TTBeautyGroup.m */; };
+		A6A597D22785496600954ABF /* TTFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597D12785496600954ABF /* TTFilterModel.m */; };
+		A6A597D8278594B800954ABF /* TTFilterPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597D7278594B800954ABF /* TTFilterPanelView.m */; };
+		A6A597DB2785A7D600954ABF /* TTFilterPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597DA2785A7D600954ABF /* TTFilterPanelViewCell.m */; };
+		A6A597DE2786922A00954ABF /* TTBeautyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597DD2786922A00954ABF /* TTBeautyItem.m */; };
+		A6C82DD527C7253F00A66F98 /* TTStickerPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DD427C7253F00A66F98 /* TTStickerPanelView.m */; };
+		A6C82DD827C7732000A66F98 /* TTFaceSkinPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DD727C7732000A66F98 /* TTFaceSkinPanelView.m */; };
+		A6C82DDB27C7744600A66F98 /* TTFaceSkinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DDA27C7744600A66F98 /* TTFaceSkinModel.m */; };
+		A6C82DDE27C7823F00A66F98 /* TTFaceSkinPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DDD27C7823F00A66F98 /* TTFaceSkinPanelViewCell.m */; };
+		A6C82DE127C8886700A66F98 /* TTCosmeticPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DE027C8886700A66F98 /* TTCosmeticPanelView.m */; };
+		A6C82DE727C8BD3D00A66F98 /* TTCosmeticGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DE627C8BD3D00A66F98 /* TTCosmeticGroup.m */; };
+		A6CCB953279550B20046D0D3 /* TTBeautyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CCB952279550B20046D0D3 /* TTBeautyModel.m */; };
+		A6D6F84627901878007E4FC6 /* TTBeautyPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D6F84527901878007E4FC6 /* TTBeautyPanelView.m */; };
+		A6D6F84A27902646007E4FC6 /* TTFacePlasticPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D6F84927902646007E4FC6 /* TTFacePlasticPanelView.m */; };
 		B8210F90253FE78D00E17525 /* line_F.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F80253FE78D00E17525 /* line_F.jpg */; };
 		B8210F91253FE78D00E17525 /* line_G.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F81253FE78D00E17525 /* line_G.jpg */; };
 		B8210F92253FE78D00E17525 /* line_P.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8210F82253FE78D00E17525 /* line_P.jpg */; };
@@ -428,22 +455,13 @@
 		B8CAA10825C2950B00797416 /* TuMonsterDatasets.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0C225C2950A00797416 /* TuMonsterDatasets.m */; };
 		B8CAA10925C2950B00797416 /* TuStickerDatasets.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0C625C2950A00797416 /* TuStickerDatasets.m */; };
 		B8CAA10A25C2950B00797416 /* TuStickerBaseDatasets.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0CA25C2950A00797416 /* TuStickerBaseDatasets.m */; };
-		B8CAA10B25C2950B00797416 /* TuStickerPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0CB25C2950A00797416 /* TuStickerPanelView.m */; };
 		B8CAA10F25C2950B00797416 /* TuViewSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0D425C2950A00797416 /* TuViewSlider.m */; };
 		B8CAA11125C2950B00797416 /* TuCameraFilterPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0D925C2950A00797416 /* TuCameraFilterPackage.m */; };
 		B8CAA11225C2950B00797416 /* TuPanelBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0DA25C2950A00797416 /* TuPanelBar.m */; };
 		B8CAA11325C2950B00797416 /* TuParametersAdjustView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0DC25C2950A00797416 /* TuParametersAdjustView.m */; };
 		B8CAA11525C2950B00797416 /* TuCustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA0DF25C2950A00797416 /* TuCustomSlider.m */; };
-		B8CAA12225C2950B00797416 /* TuFilterPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA10025C2950A00797416 /* TuFilterPanelView.m */; };
-		B8CAA12325C2950B00797416 /* TuFilterPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA10125C2950A00797416 /* TuFilterPanelViewCell.m */; };
-		B8CAA13125C2AA1500797416 /* TuCosmeticPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA12925C2AA1500797416 /* TuCosmeticPanelView.m */; };
 		B8CAA13225C2AA1500797416 /* TuCosmeticPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA12A25C2AA1500797416 /* TuCosmeticPanelViewCell.m */; };
 		B8CAA13325C2AA1500797416 /* TuBeautyPanelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA12B25C2AA1500797416 /* TuBeautyPanelConfig.m */; };
-		B8CAA14625C2AB1900797416 /* TuBeautyPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA13625C2AB1900797416 /* TuBeautyPanelView.m */; };
-		B8CAA14725C2AB1900797416 /* TuFacePlasticPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA13725C2AB1900797416 /* TuFacePlasticPanelView.m */; };
-		B8CAA14B25C2AB1900797416 /* TuFaceSkinPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA13F25C2AB1900797416 /* TuFaceSkinPanelViewCell.m */; };
-		B8CAA14C25C2AB1900797416 /* TuFacePlasticPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA14425C2AB1900797416 /* TuFacePlasticPanelViewCell.m */; };
-		B8CAA14D25C2AB1900797416 /* TuFaceSkinPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAA14525C2AB1900797416 /* TuFaceSkinPanelView.m */; };
 		B8DDE8412591911C00A5701D /* face_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8DDE8352591911B00A5701D /* face_b.jpg */; };
 		B8DDE8422591911C00A5701D /* face_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8DDE8362591911B00A5701D /* face_n.jpg */; };
 		B8DDE8432591911C00A5701D /* face_d.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8DDE8372591911B00A5701D /* face_d.jpg */; };
@@ -467,22 +485,18 @@
 		F820851721FAA7D900D398E8 /* face_monster_ic_pie@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F820851021FAA7D900D398E8 /* face_monster_ic_pie@3x.png */; };
 		F820851821FAA7D900D398E8 /* face_monster_ic_snake@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F820851121FAA7D900D398E8 /* face_monster_ic_snake@3x.png */; };
 		F820851921FAA7D900D398E8 /* face_monster_ic_bignose@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F820851221FAA7D900D398E8 /* face_monster_ic_bignose@3x.png */; };
-		F8FA849D219413B0002B24EB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FA849C219413B0002B24EB /* libc++.tbd */; };
 		FB25AD4620EE21D0007551F7 /* edit_ic_colorbar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FB25AD4520EE21CF007551F7 /* edit_ic_colorbar.jpg */; };
 		FB25C05321114E6B004718D9 /* DemoAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = FB25C05221114E6B004718D9 /* DemoAppearance.m */; };
-		FB49D6E520FF249000184905 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB49D6E420FF248F00184905 /* CameraViewController.xib */; };
 		FB526E9121081A85005A377F /* PhotoCaptureConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB526E9021081A85005A377F /* PhotoCaptureConfirmView.m */; };
 		FB6EBAC120D399E000FA24F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6EBAC020D399E000FA24F2 /* AppDelegate.m */; };
 		FB6EBAC920D399E200FA24F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB6EBAC820D399E200FA24F2 /* Assets.xcassets */; };
 		FB6EBACF20D399E200FA24F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6EBACE20D399E200FA24F2 /* main.m */; };
 		FB7469CF2106F9130008EF73 /* SpeedSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7469CE2106F9130008EF73 /* SpeedSegmentView.m */; };
-		FB76498520FD8A4200A6DFA2 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB76498420FD8A4200A6DFA2 /* CameraViewController.m */; };
 		FB76498A20FDC04800A6DFA2 /* TextPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FB76498820FDC04600A6DFA2 /* TextPageControl.m */; };
 		FB85C65C219A66CC00D23716 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB85C65E219A66CC00D23716 /* LaunchScreen.storyboard */; };
 		FB88F04521992E1500BE021F /* VideoDemo.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB88F03521992E1400BE021F /* VideoDemo.strings */; };
 		FB88F04721992E1500BE021F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB88F03921992E1400BE021F /* InfoPlist.strings */; };
 		FB88F04821992E1500BE021F /* TuSDKConstants.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB88F03B21992E1400BE021F /* TuSDKConstants.strings */; };
-		FB88F05A219930A100BE021F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB88F058219930A100BE021F /* Main.storyboard */; };
 		FBA2755421AFD75D00D1B170 /* lsq_filter_thumb_CHComics_Video.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FBA2751D21AFD75D00D1B170 /* lsq_filter_thumb_CHComics_Video.jpg */; };
 		FBA2755521AFD75D00D1B170 /* lsq_filter_thumb_Lightcolor_Video.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FBA2751E21AFD75D00D1B170 /* lsq_filter_thumb_Lightcolor_Video.jpg */; };
 		FBA2755621AFD75D00D1B170 /* lsq_filter_thumb_JPComics_Video.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FBA2751F21AFD75D00D1B170 /* lsq_filter_thumb_JPComics_Video.jpg */; };
@@ -490,7 +504,6 @@
 		FBA2755821AFD75D00D1B170 /* lsq_filter_thumb_Ink_Video.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FBA2752121AFD75D00D1B170 /* lsq_filter_thumb_Ink_Video.jpg */; };
 		FBA2755921AFD75D00D1B170 /* lsq_filter_thumb_USComics_Video.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FBA2752221AFD75D00D1B170 /* lsq_filter_thumb_USComics_Video.jpg */; };
 		FBB73E97210AF34B00DCBDCF /* customStickerCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = FBB73E96210AF34B00DCBDCF /* customStickerCategories.json */; };
-		FBC6F50A20D3CE4800F2FBB7 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC6F50920D3CE4800F2FBB7 /* libz.1.2.5.tbd */; };
 		FBC6F50C20D3CE5600F2FBB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC6F50B20D3CE5500F2FBB7 /* SystemConfiguration.framework */; };
 		FBC6F50E20D3CE5D00F2FBB7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC6F50D20D3CE5D00F2FBB7 /* Security.framework */; };
 		FBC6F51020D3CE6400F2FBB7 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC6F50F20D3CE6400F2FBB7 /* Accelerate.framework */; };
@@ -505,17 +518,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A69AA00826C0D1F2002A8CD9 /* Embed Frameworks */ = {
+		A68EACAE27D20C37007E3E4D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A69AA00526C0D1F2002A8CD9 /* TuSDKPulseFilter.framework in Embed Frameworks */,
-				A69AA00126C0D1F2002A8CD9 /* TuSDKPulse.framework in Embed Frameworks */,
-				A69A9FFF26C0D1F2002A8CD9 /* TuCamera.framework in Embed Frameworks */,
-				A69AA00726C0D1F2002A8CD9 /* TuViews.framework in Embed Frameworks */,
-				A69AA00326C0D1F2002A8CD9 /* TuSDKPulseCore.framework in Embed Frameworks */,
+				A68EACAB27D20C37007E3E4D /* TuSDKPulseFilter.framework in Embed Frameworks */,
+				A68EACA727D20C37007E3E4D /* TuSDKPulse.framework in Embed Frameworks */,
+				A68EACA527D20C37007E3E4D /* TuCamera.framework in Embed Frameworks */,
+				A68EACAD27D20C37007E3E4D /* TuViews.framework in Embed Frameworks */,
+				A68EACA927D20C37007E3E4D /* TuSDKPulseCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +537,18 @@
 
 /* Begin PBXFileReference section */
 		124F9D9619589B064448B1D8 /* Pods-TuSDKVideoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuSDKVideoDemo.release.xcconfig"; path = "Target Support Files/Pods-TuSDKVideoDemo/Pods-TuSDKVideoDemo.release.xcconfig"; sourceTree = "<group>"; };
+		2A3CF3DF27708BCE00CB80EB /* TTPreviewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTPreviewManager.h; sourceTree = "<group>"; };
+		2A3CF3E027708BCE00CB80EB /* TTPreviewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPreviewManager.m; sourceTree = "<group>"; };
+		2A3CF3E22772CB3D00CB80EB /* TTEffectFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTEffectFactory.h; sourceTree = "<group>"; };
+		2A3CF3E32772CB3D00CB80EB /* TTEffectFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTEffectFactory.m; sourceTree = "<group>"; };
+		2A6024E427799A02008DDF18 /* TTPipeMediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTPipeMediator.h; sourceTree = "<group>"; };
+		2A6024E527799A02008DDF18 /* TTPipeMediator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPipeMediator.m; sourceTree = "<group>"; };
+		2A6024E727799A10008DDF18 /* TTImageConvert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTImageConvert.h; sourceTree = "<group>"; };
+		2A6024E827799A10008DDF18 /* TTImageConvert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTImageConvert.m; sourceTree = "<group>"; };
+		2A6024EA27799A1F008DDF18 /* TTAudioConvert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAudioConvert.h; sourceTree = "<group>"; };
+		2A6024EB27799A1F008DDF18 /* TTAudioConvert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAudioConvert.m; sourceTree = "<group>"; };
+		2A6D37E22786C35D0013ED83 /* TTRenderDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTRenderDef.h; sourceTree = "<group>"; };
+		2A6D37E32786C35D0013ED83 /* TTRenderDef.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTRenderDef.m; sourceTree = "<group>"; };
 		2AA75CE9262E6CBA005469C8 /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC82145267B26BE00FC62D0 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		2AC82147267B34FD00FC62D0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -537,22 +562,64 @@
 		2AEFCEC426705B9900E629A7 /* MusicListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicListController.m; sourceTree = "<group>"; };
 		2AEFCEC6267067A000E629A7 /* city_sunshine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = city_sunshine.mp3; sourceTree = "<group>"; };
 		2AEFCEC82671B2EB00E629A7 /* eye_of_forgiveness.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eye_of_forgiveness.mp3; sourceTree = "<group>"; };
+		2AF609E627686F6300ECD502 /* TTRecordManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTRecordManager.h; sourceTree = "<group>"; };
+		2AF609E727686F6300ECD502 /* TTRecordManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTRecordManager.m; sourceTree = "<group>"; };
+		2AF609E927686FEF00ECD502 /* TTBeautyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTBeautyManager.h; sourceTree = "<group>"; };
+		2AF609EA27686FEF00ECD502 /* TTBeautyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTBeautyManager.m; sourceTree = "<group>"; };
+		2AF609EC2768713B00ECD502 /* TTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTViewController.h; sourceTree = "<group>"; };
+		2AF609ED2768713B00ECD502 /* TTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
+		2AF609F12768730D00ECD502 /* TTBeautyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTBeautyView.h; sourceTree = "<group>"; };
+		2AF609F22768730D00ECD502 /* TTBeautyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTBeautyView.m; sourceTree = "<group>"; };
+		2AF609FA2768807C00ECD502 /* TTBeautyProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTBeautyProxy.h; sourceTree = "<group>"; };
+		2AF609FB2768807C00ECD502 /* TTBeautyProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTBeautyProxy.m; sourceTree = "<group>"; };
 		7C846F6E25EF6AE3006D6114 /* TuCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C846F7025EF6AEC006D6114 /* TuViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8621A925C2F091009A234C /* TuSDKPulse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8621AB25C2F096009A234C /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C8621B125C2F1B5009A234C /* VideoCameraShower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCameraShower.h; sourceTree = "<group>"; };
-		7C8621B225C2F1B5009A234C /* VideoCameraShower.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoCameraShower.mm; sourceTree = "<group>"; };
 		7C9B775925ECCBA4003D39AD /* TuVideoFocusTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuVideoFocusTouchView.h; sourceTree = "<group>"; };
 		7C9B775A25ECCBA4003D39AD /* TuVideoFocusRangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuVideoFocusRangeView.m; sourceTree = "<group>"; };
 		7C9B775B25ECCBA4003D39AD /* TuVideoFocusTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuVideoFocusTouchView.m; sourceTree = "<group>"; };
 		7C9B775C25ECCBA4003D39AD /* TuVideoFocusRangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuVideoFocusRangeView.h; sourceTree = "<group>"; };
+		A68EAC9A27D20BE1007E3E4D /* TuViews.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuViews.framework; sourceTree = "<group>"; };
+		A68EAC9B27D20BE1007E3E4D /* TuCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuCamera.framework; sourceTree = "<group>"; };
+		A68EAC9C27D20BE1007E3E4D /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = "<group>"; };
+		A68EAC9D27D20BE1007E3E4D /* TuSDKPulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = "<group>"; };
+		A68EAC9E27D20BE1007E3E4D /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = "<group>"; };
 		A694B7A426146883006FB99C /* CameraHomepage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CameraHomepage.jpg; sourceTree = "<group>"; };
-		A69A9FF426C0D1D0002A8CD9 /* TuViews.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuViews.framework; sourceTree = "<group>"; };
-		A69A9FF526C0D1D0002A8CD9 /* TuCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuCamera.framework; sourceTree = "<group>"; };
-		A69A9FF626C0D1D0002A8CD9 /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = "<group>"; };
-		A69A9FF726C0D1D0002A8CD9 /* TuSDKPulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = "<group>"; };
-		A69A9FF826C0D1D0002A8CD9 /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = "<group>"; };
+		A6A1E9E12791121800D70EF4 /* TTFacePlasticPanelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFacePlasticPanelViewCell.h; sourceTree = "<group>"; };
+		A6A1E9E22791121800D70EF4 /* TTFacePlasticPanelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFacePlasticPanelViewCell.m; sourceTree = "<group>"; };
+		A6A1E9E42791154E00D70EF4 /* TTFacePlasticModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFacePlasticModel.h; sourceTree = "<group>"; };
+		A6A1E9E52791154E00D70EF4 /* TTFacePlasticModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFacePlasticModel.m; sourceTree = "<group>"; };
+		A6A597C92783F83C00954ABF /* TTCameraView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCameraView.h; sourceTree = "<group>"; };
+		A6A597CA2783F83C00954ABF /* TTCameraView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCameraView.m; sourceTree = "<group>"; };
+		A6A597CD2785488600954ABF /* TTBeautyGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTBeautyGroup.h; sourceTree = "<group>"; };
+		A6A597CE2785488600954ABF /* TTBeautyGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTBeautyGroup.m; sourceTree = "<group>"; };
+		A6A597D02785496600954ABF /* TTFilterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFilterModel.h; sourceTree = "<group>"; };
+		A6A597D12785496600954ABF /* TTFilterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFilterModel.m; sourceTree = "<group>"; };
+		A6A597D6278594B800954ABF /* TTFilterPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFilterPanelView.h; sourceTree = "<group>"; };
+		A6A597D7278594B800954ABF /* TTFilterPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFilterPanelView.m; sourceTree = "<group>"; };
+		A6A597D92785A7D600954ABF /* TTFilterPanelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFilterPanelViewCell.h; sourceTree = "<group>"; };
+		A6A597DA2785A7D600954ABF /* TTFilterPanelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFilterPanelViewCell.m; sourceTree = "<group>"; };
+		A6A597DC2786922A00954ABF /* TTBeautyItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTBeautyItem.h; sourceTree = "<group>"; };
+		A6A597DD2786922A00954ABF /* TTBeautyItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTBeautyItem.m; sourceTree = "<group>"; };
+		A6C82DD327C7253F00A66F98 /* TTStickerPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTStickerPanelView.h; sourceTree = "<group>"; };
+		A6C82DD427C7253F00A66F98 /* TTStickerPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTStickerPanelView.m; sourceTree = "<group>"; };
+		A6C82DD627C7732000A66F98 /* TTFaceSkinPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFaceSkinPanelView.h; sourceTree = "<group>"; };
+		A6C82DD727C7732000A66F98 /* TTFaceSkinPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFaceSkinPanelView.m; sourceTree = "<group>"; };
+		A6C82DD927C7744600A66F98 /* TTFaceSkinModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFaceSkinModel.h; sourceTree = "<group>"; };
+		A6C82DDA27C7744600A66F98 /* TTFaceSkinModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFaceSkinModel.m; sourceTree = "<group>"; };
+		A6C82DDC27C7823F00A66F98 /* TTFaceSkinPanelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFaceSkinPanelViewCell.h; sourceTree = "<group>"; };
+		A6C82DDD27C7823F00A66F98 /* TTFaceSkinPanelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFaceSkinPanelViewCell.m; sourceTree = "<group>"; };
+		A6C82DDF27C8886700A66F98 /* TTCosmeticPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCosmeticPanelView.h; sourceTree = "<group>"; };
+		A6C82DE027C8886700A66F98 /* TTCosmeticPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCosmeticPanelView.m; sourceTree = "<group>"; };
+		A6C82DE527C8BD3D00A66F98 /* TTCosmeticGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCosmeticGroup.h; sourceTree = "<group>"; };
+		A6C82DE627C8BD3D00A66F98 /* TTCosmeticGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCosmeticGroup.m; sourceTree = "<group>"; };
+		A6CCB951279550B20046D0D3 /* TTBeautyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTBeautyModel.h; sourceTree = "<group>"; };
+		A6CCB952279550B20046D0D3 /* TTBeautyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTBeautyModel.m; sourceTree = "<group>"; };
+		A6D6F84427901878007E4FC6 /* TTBeautyPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTBeautyPanelView.h; sourceTree = "<group>"; };
+		A6D6F84527901878007E4FC6 /* TTBeautyPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTBeautyPanelView.m; sourceTree = "<group>"; };
+		A6D6F84827902646007E4FC6 /* TTFacePlasticPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFacePlasticPanelView.h; sourceTree = "<group>"; };
+		A6D6F84927902646007E4FC6 /* TTFacePlasticPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFacePlasticPanelView.m; sourceTree = "<group>"; };
 		A7911AA0D2F01A3F9BEB8E89 /* Pods-TuSDKVideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuSDKVideoDemo.debug.xcconfig"; path = "Target Support Files/Pods-TuSDKVideoDemo/Pods-TuSDKVideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B8210F80253FE78D00E17525 /* line_F.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line_F.jpg; sourceTree = "<group>"; };
 		B8210F81253FE78D00E17525 /* line_G.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = line_G.jpg; sourceTree = "<group>"; };
@@ -952,7 +1019,6 @@
 		B8CAA0C025C2950A00797416 /* TuStickerDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuStickerDownloader.m; sourceTree = "<group>"; };
 		B8CAA0C125C2950A00797416 /* TuOnlineSticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuOnlineSticker.m; sourceTree = "<group>"; };
 		B8CAA0C225C2950A00797416 /* TuMonsterDatasets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuMonsterDatasets.m; sourceTree = "<group>"; };
-		B8CAA0C325C2950A00797416 /* TuStickerPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuStickerPanelView.h; sourceTree = "<group>"; };
 		B8CAA0C425C2950A00797416 /* TuStickerBaseDatasets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuStickerBaseDatasets.h; sourceTree = "<group>"; };
 		B8CAA0C525C2950A00797416 /* TuStickerBasePanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuStickerBasePanelView.h; sourceTree = "<group>"; };
 		B8CAA0C625C2950A00797416 /* TuStickerDatasets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuStickerDatasets.m; sourceTree = "<group>"; };
@@ -960,7 +1026,6 @@
 		B8CAA0C825C2950A00797416 /* TuStickerDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuStickerDownloader.h; sourceTree = "<group>"; };
 		B8CAA0C925C2950A00797416 /* TuMonsterDatasets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuMonsterDatasets.h; sourceTree = "<group>"; };
 		B8CAA0CA25C2950A00797416 /* TuStickerBaseDatasets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuStickerBaseDatasets.m; sourceTree = "<group>"; };
-		B8CAA0CB25C2950A00797416 /* TuStickerPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuStickerPanelView.m; sourceTree = "<group>"; };
 		B8CAA0D425C2950A00797416 /* TuViewSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuViewSlider.m; sourceTree = "<group>"; };
 		B8CAA0D525C2950A00797416 /* TuParametersAdjustView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuParametersAdjustView.h; sourceTree = "<group>"; };
 		B8CAA0D825C2950A00797416 /* TuCustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuCustomSlider.h; sourceTree = "<group>"; };
@@ -971,26 +1036,10 @@
 		B8CAA0DF25C2950A00797416 /* TuCustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuCustomSlider.m; sourceTree = "<group>"; };
 		B8CAA0E025C2950A00797416 /* TuPanelBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuPanelBar.h; sourceTree = "<group>"; };
 		B8CAA0E125C2950A00797416 /* TuCameraFilterPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuCameraFilterPackage.h; sourceTree = "<group>"; };
-		B8CAA0FB25C2950A00797416 /* TuFilterPanelViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuFilterPanelViewCell.h; sourceTree = "<group>"; };
-		B8CAA0FC25C2950A00797416 /* TuFilterPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuFilterPanelView.h; sourceTree = "<group>"; };
-		B8CAA10025C2950A00797416 /* TuFilterPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuFilterPanelView.m; sourceTree = "<group>"; };
-		B8CAA10125C2950A00797416 /* TuFilterPanelViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuFilterPanelViewCell.m; sourceTree = "<group>"; };
-		B8CAA12925C2AA1500797416 /* TuCosmeticPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuCosmeticPanelView.m; sourceTree = "<group>"; };
 		B8CAA12A25C2AA1500797416 /* TuCosmeticPanelViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuCosmeticPanelViewCell.m; sourceTree = "<group>"; };
 		B8CAA12B25C2AA1500797416 /* TuBeautyPanelConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuBeautyPanelConfig.m; sourceTree = "<group>"; };
-		B8CAA12D25C2AA1500797416 /* TuCosmeticPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuCosmeticPanelView.h; sourceTree = "<group>"; };
 		B8CAA12E25C2AA1500797416 /* TuBeautyPanelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuBeautyPanelConfig.h; sourceTree = "<group>"; };
 		B8CAA12F25C2AA1500797416 /* TuCosmeticPanelViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuCosmeticPanelViewCell.h; sourceTree = "<group>"; };
-		B8CAA13625C2AB1900797416 /* TuBeautyPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuBeautyPanelView.m; sourceTree = "<group>"; };
-		B8CAA13725C2AB1900797416 /* TuFacePlasticPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuFacePlasticPanelView.m; sourceTree = "<group>"; };
-		B8CAA13925C2AB1900797416 /* TuFaceSkinPanelViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuFaceSkinPanelViewCell.h; sourceTree = "<group>"; };
-		B8CAA13A25C2AB1900797416 /* TuFaceSkinPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuFaceSkinPanelView.h; sourceTree = "<group>"; };
-		B8CAA13B25C2AB1900797416 /* TuFacePlasticPanelViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuFacePlasticPanelViewCell.h; sourceTree = "<group>"; };
-		B8CAA13E25C2AB1900797416 /* TuBeautyPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuBeautyPanelView.h; sourceTree = "<group>"; };
-		B8CAA13F25C2AB1900797416 /* TuFaceSkinPanelViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuFaceSkinPanelViewCell.m; sourceTree = "<group>"; };
-		B8CAA14125C2AB1900797416 /* TuFacePlasticPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuFacePlasticPanelView.h; sourceTree = "<group>"; };
-		B8CAA14425C2AB1900797416 /* TuFacePlasticPanelViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuFacePlasticPanelViewCell.m; sourceTree = "<group>"; };
-		B8CAA14525C2AB1900797416 /* TuFaceSkinPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuFaceSkinPanelView.m; sourceTree = "<group>"; };
 		B8DDE8352591911B00A5701D /* face_b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = face_b.jpg; sourceTree = "<group>"; };
 		B8DDE8362591911B00A5701D /* face_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = face_n.jpg; sourceTree = "<group>"; };
 		B8DDE8372591911B00A5701D /* face_d.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = face_d.jpg; sourceTree = "<group>"; };
@@ -1021,7 +1070,6 @@
 		FB25AD4520EE21CF007551F7 /* edit_ic_colorbar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = edit_ic_colorbar.jpg; sourceTree = "<group>"; };
 		FB25C05121114E6B004718D9 /* DemoAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoAppearance.h; sourceTree = "<group>"; };
 		FB25C05221114E6B004718D9 /* DemoAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoAppearance.m; sourceTree = "<group>"; };
-		FB49D6E420FF248F00184905 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		FB526E8F21081A85005A377F /* PhotoCaptureConfirmView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoCaptureConfirmView.h; sourceTree = "<group>"; };
 		FB526E9021081A85005A377F /* PhotoCaptureConfirmView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCaptureConfirmView.m; sourceTree = "<group>"; };
 		FB6EBABC20D399E000FA24F2 /* TuSDKVideoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuSDKVideoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1032,11 +1080,8 @@
 		FB6EBACE20D399E200FA24F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FB7469CD2106F9130008EF73 /* SpeedSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeedSegmentView.h; sourceTree = "<group>"; };
 		FB7469CE2106F9130008EF73 /* SpeedSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeedSegmentView.m; sourceTree = "<group>"; };
-		FB76498320FD8A4200A6DFA2 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		FB76498420FD8A4200A6DFA2 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		FB76498820FDC04600A6DFA2 /* TextPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPageControl.m; sourceTree = "<group>"; };
 		FB76498920FDC04700A6DFA2 /* TextPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPageControl.h; sourceTree = "<group>"; };
-		FB80D47C21B0CF3100B3C465 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB80D47D21B0CF3100B3C465 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB88F03621992E1400BE021F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VideoDemo.strings"; sourceTree = "<group>"; };
 		FB88F03A21992E1400BE021F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -1082,19 +1127,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A69A9FFE26C0D1F2002A8CD9 /* TuCamera.framework in Frameworks */,
+				A68EACA427D20C37007E3E4D /* TuCamera.framework in Frameworks */,
+				A68EACA827D20C37007E3E4D /* TuSDKPulseCore.framework in Frameworks */,
 				B8B787472559321E00B82F76 /* libresolv.tbd in Frameworks */,
-				F8FA849D219413B0002B24EB /* libc++.tbd in Frameworks */,
 				FBC6F51020D3CE6400F2FBB7 /* Accelerate.framework in Frameworks */,
 				FBC6F50E20D3CE5D00F2FBB7 /* Security.framework in Frameworks */,
-				A69AA00226C0D1F2002A8CD9 /* TuSDKPulseCore.framework in Frameworks */,
 				FBC6F50C20D3CE5600F2FBB7 /* SystemConfiguration.framework in Frameworks */,
-				FBC6F50A20D3CE4800F2FBB7 /* libz.1.2.5.tbd in Frameworks */,
 				FBF3A8C020D3CD24008466D0 /* Bugly.framework in Frameworks */,
-				A69AA00026C0D1F2002A8CD9 /* TuSDKPulse.framework in Frameworks */,
-				A69AA00626C0D1F2002A8CD9 /* TuViews.framework in Frameworks */,
 				B85C249023CEFB3500C9BD96 /* AudioToolbox.framework in Frameworks */,
-				A69AA00426C0D1F2002A8CD9 /* TuSDKPulseFilter.framework in Frameworks */,
+				A68EACAC27D20C37007E3E4D /* TuViews.framework in Frameworks */,
+				A68EACAA27D20C37007E3E4D /* TuSDKPulseFilter.framework in Frameworks */,
+				A68EACA627D20C37007E3E4D /* TuSDKPulse.framework in Frameworks */,
 				746417BBABA53F2AC7E13C99 /* libPods-TuSDKVideoDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1102,11 +1145,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A9B8CFD26831BD5007AA868 /* common */ = {
+		2A3CF3E52773225400CB80EB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2AF609FA2768807C00ECD502 /* TTBeautyProxy.h */,
+				2AF609FB2768807C00ECD502 /* TTBeautyProxy.m */,
+				2A3CF3E22772CB3D00CB80EB /* TTEffectFactory.h */,
+				2A3CF3E32772CB3D00CB80EB /* TTEffectFactory.m */,
 			);
-			path = common;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		2AEFCEC226705B6A00E629A7 /* Music */ = {
@@ -1123,6 +1170,75 @@
 			path = Music;
 			sourceTree = "<group>";
 		};
+		2AF609BD2766FB1A00ECD502 /* Pro */ = {
+			isa = PBXGroup;
+			children = (
+				2AF609F0276872DE00ECD502 /* Model */,
+				2AF609EF276872C900ECD502 /* View */,
+				2AF609C8276729F800ECD502 /* Mediator */,
+				2AF609EC2768713B00ECD502 /* TTViewController.h */,
+				2AF609ED2768713B00ECD502 /* TTViewController.m */,
+			);
+			path = Pro;
+			sourceTree = "<group>";
+		};
+		2AF609C8276729F800ECD502 /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				2A3CF3E52773225400CB80EB /* Common */,
+				2A6024E427799A02008DDF18 /* TTPipeMediator.h */,
+				2A6024E527799A02008DDF18 /* TTPipeMediator.m */,
+				2A6024E727799A10008DDF18 /* TTImageConvert.h */,
+				2A6024E827799A10008DDF18 /* TTImageConvert.m */,
+				2A6024EA27799A1F008DDF18 /* TTAudioConvert.h */,
+				2A6024EB27799A1F008DDF18 /* TTAudioConvert.m */,
+				2AF609E927686FEF00ECD502 /* TTBeautyManager.h */,
+				2AF609EA27686FEF00ECD502 /* TTBeautyManager.m */,
+				2A3CF3DF27708BCE00CB80EB /* TTPreviewManager.h */,
+				2A3CF3E027708BCE00CB80EB /* TTPreviewManager.m */,
+				2AF609E627686F6300ECD502 /* TTRecordManager.h */,
+				2AF609E727686F6300ECD502 /* TTRecordManager.m */,
+				2A6D37E22786C35D0013ED83 /* TTRenderDef.h */,
+				2A6D37E32786C35D0013ED83 /* TTRenderDef.m */,
+			);
+			path = Mediator;
+			sourceTree = "<group>";
+		};
+		2AF609EF276872C900ECD502 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A6C82DD227C7252100A66F98 /* Sticker */,
+				A6D6F847279020FD007E4FC6 /* Beauty */,
+				A6A597CC2785424300954ABF /* Filter */,
+				2AF609F12768730D00ECD502 /* TTBeautyView.h */,
+				2AF609F22768730D00ECD502 /* TTBeautyView.m */,
+				A6A597C92783F83C00954ABF /* TTCameraView.h */,
+				A6A597CA2783F83C00954ABF /* TTCameraView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2AF609F0276872DE00ECD502 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6A597CD2785488600954ABF /* TTBeautyGroup.h */,
+				A6A597CE2785488600954ABF /* TTBeautyGroup.m */,
+				A6A597D02785496600954ABF /* TTFilterModel.h */,
+				A6A597D12785496600954ABF /* TTFilterModel.m */,
+				A6A597DC2786922A00954ABF /* TTBeautyItem.h */,
+				A6A597DD2786922A00954ABF /* TTBeautyItem.m */,
+				A6A1E9E42791154E00D70EF4 /* TTFacePlasticModel.h */,
+				A6A1E9E52791154E00D70EF4 /* TTFacePlasticModel.m */,
+				A6CCB951279550B20046D0D3 /* TTBeautyModel.h */,
+				A6CCB952279550B20046D0D3 /* TTBeautyModel.m */,
+				A6C82DD927C7744600A66F98 /* TTFaceSkinModel.h */,
+				A6C82DDA27C7744600A66F98 /* TTFaceSkinModel.m */,
+				A6C82DE527C8BD3D00A66F98 /* TTCosmeticGroup.h */,
+				A6C82DE627C8BD3D00A66F98 /* TTCosmeticGroup.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7C9B775825ECCBA4003D39AD /* FocusView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1134,16 +1250,71 @@
 			path = FocusView;
 			sourceTree = "<group>";
 		};
-		A69A9FF326C0D1D0002A8CD9 /* TuSDK */ = {
+		A68EAC9927D20BE1007E3E4D /* TuSDK */ = {
 			isa = PBXGroup;
 			children = (
-				A69A9FF426C0D1D0002A8CD9 /* TuViews.framework */,
-				A69A9FF526C0D1D0002A8CD9 /* TuCamera.framework */,
-				A69A9FF626C0D1D0002A8CD9 /* TuSDKPulseFilter.framework */,
-				A69A9FF726C0D1D0002A8CD9 /* TuSDKPulse.framework */,
-				A69A9FF826C0D1D0002A8CD9 /* TuSDKPulseCore.framework */,
+				A68EAC9A27D20BE1007E3E4D /* TuViews.framework */,
+				A68EAC9B27D20BE1007E3E4D /* TuCamera.framework */,
+				A68EAC9C27D20BE1007E3E4D /* TuSDKPulseFilter.framework */,
+				A68EAC9D27D20BE1007E3E4D /* TuSDKPulse.framework */,
+				A68EAC9E27D20BE1007E3E4D /* TuSDKPulseCore.framework */,
 			);
 			path = TuSDK;
+			sourceTree = "<group>";
+		};
+		A6A597CC2785424300954ABF /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				A6A597D6278594B800954ABF /* TTFilterPanelView.h */,
+				A6A597D7278594B800954ABF /* TTFilterPanelView.m */,
+				A6A597D92785A7D600954ABF /* TTFilterPanelViewCell.h */,
+				A6A597DA2785A7D600954ABF /* TTFilterPanelViewCell.m */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		A6C82DD227C7252100A66F98 /* Sticker */ = {
+			isa = PBXGroup;
+			children = (
+				B8CAA0C925C2950A00797416 /* TuMonsterDatasets.h */,
+				B8CAA0C225C2950A00797416 /* TuMonsterDatasets.m */,
+				B8CAA0C725C2950A00797416 /* TuOnlineSticker.h */,
+				B8CAA0C125C2950A00797416 /* TuOnlineSticker.m */,
+				B8CAA0C425C2950A00797416 /* TuStickerBaseDatasets.h */,
+				B8CAA0CA25C2950A00797416 /* TuStickerBaseDatasets.m */,
+				B8CAA0C525C2950A00797416 /* TuStickerBasePanelView.h */,
+				B8CAA0BE25C2950A00797416 /* TuStickerBasePanelView.m */,
+				B8CAA0BF25C2950A00797416 /* TuStickerDatasets.h */,
+				B8CAA0C625C2950A00797416 /* TuStickerDatasets.m */,
+				B8CAA0C825C2950A00797416 /* TuStickerDownloader.h */,
+				B8CAA0C025C2950A00797416 /* TuStickerDownloader.m */,
+				A6C82DD327C7253F00A66F98 /* TTStickerPanelView.h */,
+				A6C82DD427C7253F00A66F98 /* TTStickerPanelView.m */,
+			);
+			path = Sticker;
+			sourceTree = "<group>";
+		};
+		A6D6F847279020FD007E4FC6 /* Beauty */ = {
+			isa = PBXGroup;
+			children = (
+				B8CAA12E25C2AA1500797416 /* TuBeautyPanelConfig.h */,
+				B8CAA12B25C2AA1500797416 /* TuBeautyPanelConfig.m */,
+				B8CAA12F25C2AA1500797416 /* TuCosmeticPanelViewCell.h */,
+				B8CAA12A25C2AA1500797416 /* TuCosmeticPanelViewCell.m */,
+				A6D6F84427901878007E4FC6 /* TTBeautyPanelView.h */,
+				A6D6F84527901878007E4FC6 /* TTBeautyPanelView.m */,
+				A6D6F84827902646007E4FC6 /* TTFacePlasticPanelView.h */,
+				A6D6F84927902646007E4FC6 /* TTFacePlasticPanelView.m */,
+				A6A1E9E12791121800D70EF4 /* TTFacePlasticPanelViewCell.h */,
+				A6A1E9E22791121800D70EF4 /* TTFacePlasticPanelViewCell.m */,
+				A6C82DD627C7732000A66F98 /* TTFaceSkinPanelView.h */,
+				A6C82DD727C7732000A66F98 /* TTFaceSkinPanelView.m */,
+				A6C82DDC27C7823F00A66F98 /* TTFaceSkinPanelViewCell.h */,
+				A6C82DDD27C7823F00A66F98 /* TTFaceSkinPanelViewCell.m */,
+				A6C82DDF27C8886700A66F98 /* TTCosmeticPanelView.h */,
+				A6C82DE027C8886700A66F98 /* TTCosmeticPanelView.m */,
+			);
+			path = Beauty;
 			sourceTree = "<group>";
 		};
 		B8210F7E253FE75D00E17525 /* TuCosmetic */ = {
@@ -1653,37 +1824,6 @@
 			path = Fog;
 			sourceTree = "<group>";
 		};
-		B8CAA0BB25C2950A00797416 /* PanelViews */ = {
-			isa = PBXGroup;
-			children = (
-				B8CAA13525C2AB1900797416 /* TuBeautyPanel */,
-				B8CAA0BD25C2950A00797416 /* TuStickerPanel */,
-				B8CAA0FA25C2950A00797416 /* TuFilterPanel */,
-			);
-			path = PanelViews;
-			sourceTree = "<group>";
-		};
-		B8CAA0BD25C2950A00797416 /* TuStickerPanel */ = {
-			isa = PBXGroup;
-			children = (
-				B8CAA0C925C2950A00797416 /* TuMonsterDatasets.h */,
-				B8CAA0C225C2950A00797416 /* TuMonsterDatasets.m */,
-				B8CAA0C725C2950A00797416 /* TuOnlineSticker.h */,
-				B8CAA0C125C2950A00797416 /* TuOnlineSticker.m */,
-				B8CAA0C425C2950A00797416 /* TuStickerBaseDatasets.h */,
-				B8CAA0CA25C2950A00797416 /* TuStickerBaseDatasets.m */,
-				B8CAA0C525C2950A00797416 /* TuStickerBasePanelView.h */,
-				B8CAA0BE25C2950A00797416 /* TuStickerBasePanelView.m */,
-				B8CAA0BF25C2950A00797416 /* TuStickerDatasets.h */,
-				B8CAA0C625C2950A00797416 /* TuStickerDatasets.m */,
-				B8CAA0C825C2950A00797416 /* TuStickerDownloader.h */,
-				B8CAA0C025C2950A00797416 /* TuStickerDownloader.m */,
-				B8CAA0C325C2950A00797416 /* TuStickerPanelView.h */,
-				B8CAA0CB25C2950A00797416 /* TuStickerPanelView.m */,
-			);
-			path = TuStickerPanel;
-			sourceTree = "<group>";
-		};
 		B8CAA0D325C2950A00797416 /* BaseViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1719,40 +1859,6 @@
 				FBD1BEF320FF2A3800A92722 /* VerticalMenuView.m */,
 			);
 			path = BaseViews;
-			sourceTree = "<group>";
-		};
-		B8CAA0FA25C2950A00797416 /* TuFilterPanel */ = {
-			isa = PBXGroup;
-			children = (
-				B8CAA0FB25C2950A00797416 /* TuFilterPanelViewCell.h */,
-				B8CAA10125C2950A00797416 /* TuFilterPanelViewCell.m */,
-				B8CAA0FC25C2950A00797416 /* TuFilterPanelView.h */,
-				B8CAA10025C2950A00797416 /* TuFilterPanelView.m */,
-			);
-			path = TuFilterPanel;
-			sourceTree = "<group>";
-		};
-		B8CAA13525C2AB1900797416 /* TuBeautyPanel */ = {
-			isa = PBXGroup;
-			children = (
-				B8CAA12E25C2AA1500797416 /* TuBeautyPanelConfig.h */,
-				B8CAA12B25C2AA1500797416 /* TuBeautyPanelConfig.m */,
-				B8CAA13E25C2AB1900797416 /* TuBeautyPanelView.h */,
-				B8CAA13625C2AB1900797416 /* TuBeautyPanelView.m */,
-				B8CAA12D25C2AA1500797416 /* TuCosmeticPanelView.h */,
-				B8CAA12925C2AA1500797416 /* TuCosmeticPanelView.m */,
-				B8CAA12F25C2AA1500797416 /* TuCosmeticPanelViewCell.h */,
-				B8CAA12A25C2AA1500797416 /* TuCosmeticPanelViewCell.m */,
-				B8CAA14125C2AB1900797416 /* TuFacePlasticPanelView.h */,
-				B8CAA13725C2AB1900797416 /* TuFacePlasticPanelView.m */,
-				B8CAA13B25C2AB1900797416 /* TuFacePlasticPanelViewCell.h */,
-				B8CAA14425C2AB1900797416 /* TuFacePlasticPanelViewCell.m */,
-				B8CAA13A25C2AB1900797416 /* TuFaceSkinPanelView.h */,
-				B8CAA14525C2AB1900797416 /* TuFaceSkinPanelView.m */,
-				B8CAA13925C2AB1900797416 /* TuFaceSkinPanelViewCell.h */,
-				B8CAA13F25C2AB1900797416 /* TuFaceSkinPanelViewCell.m */,
-			);
-			path = TuBeautyPanel;
 			sourceTree = "<group>";
 		};
 		B8DDE83425918FCF00A5701D /* TuShadingPowder */ = {
@@ -1817,6 +1923,7 @@
 				FBC6F51B20D3CF7B00F2FBB7 /* TuSDKFramework.h */,
 				FBF3A89B20D3CCC0008466D0 /* Resources */,
 				FB6EBAE420D39AE900FA24F2 /* Classes */,
+				2AF609BD2766FB1A00ECD502 /* Pro */,
 			);
 			path = TuSDKVideoDemo;
 			sourceTree = "<group>";
@@ -1824,20 +1931,12 @@
 		FB6EBAE420D39AE900FA24F2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2A9B8CFD26831BD5007AA868 /* common */,
 				2AEFCEC226705B6A00E629A7 /* Music */,
 				B8CAA0D325C2950A00797416 /* BaseViews */,
 				7C9B775825ECCBA4003D39AD /* FocusView */,
-				B8CAA0BB25C2950A00797416 /* PanelViews */,
-				FB76498320FD8A4200A6DFA2 /* CameraViewController.h */,
-				FB76498420FD8A4200A6DFA2 /* CameraViewController.m */,
 				2AC82147267B34FD00FC62D0 /* PrefixHeader.pch */,
-				FB49D6E420FF248F00184905 /* CameraViewController.xib */,
 				FB203D7B20E47F89001A7939 /* Constants.h */,
 				FB85C65E219A66CC00D23716 /* LaunchScreen.storyboard */,
-				FB88F058219930A100BE021F /* Main.storyboard */,
-				7C8621B125C2F1B5009A234C /* VideoCameraShower.h */,
-				7C8621B225C2F1B5009A234C /* VideoCameraShower.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1905,7 +2004,7 @@
 		FBF3A89B20D3CCC0008466D0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A69A9FF326C0D1D0002A8CD9 /* TuSDK */,
+				A68EAC9927D20BE1007E3E4D /* TuSDK */,
 				2AEFCEC6267067A000E629A7 /* city_sunshine.mp3 */,
 				2AEFCEC82671B2EB00E629A7 /* eye_of_forgiveness.mp3 */,
 				2AEA9C0226787F1000865D07 /* lovely_piano_song.mp3 */,
@@ -1956,7 +2055,7 @@
 				FB6EBABA20D399E000FA24F2 /* Resources */,
 				2A152F6826350AFE0013C9BB /* ShellScript */,
 				1A217053036A1519DD808995 /* [CP] Copy Pods Resources */,
-				A69AA00826C0D1F2002A8CD9 /* Embed Frameworks */,
+				A68EACAE27D20C37007E3E4D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2121,7 +2220,6 @@
 				B8831D40257A13940032E2AE /* plastic_cheekBoneNarrow@2x.png in Resources */,
 				B8DDE8472591911C00A5701D /* face_g.jpg in Resources */,
 				B8831D60257A13940032E2AE /* plastic_eyeDis_sel@3x.png in Resources */,
-				FB49D6E520FF249000184905 /* CameraViewController.xib in Resources */,
 				B8831D4E257A13940032E2AE /* plastic_eyeDis@2x.png in Resources */,
 				B8DDE84B2591911C00A5701D /* face_a.jpg in Resources */,
 				B8B2BDC425417BEF0017611E /* 峰眉黑b.jpg in Resources */,
@@ -2209,7 +2307,6 @@
 				B8B2BCDC2540B8B60017611E /* eyelash_B.jpg in Resources */,
 				B8B2BD8625417BD80017611E /* 叶细黑a.jpg in Resources */,
 				B8831D18257A13940032E2AE /* plastic_forehead_sel@2x.png in Resources */,
-				FB88F05A219930A100BE021F /* Main.storyboard in Resources */,
 				B8A72B0624C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Past_1.jpg in Resources */,
 				B8831D44257A13940032E2AE /* plastic_cheekLowBoneNarrow_sel@2x.png in Resources */,
 				B8831D2E257A13940032E2AE /* plastic_smallFace@3x.png in Resources */,
@@ -2460,14 +2557,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TuSDKVideoDemo/Pods-TuSDKVideoDemo-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/DoraemonKit-iOS9.0/DoraemonKit.bundle",
-				"${PODS_ROOT}/GCDWebServer/GCDWebUploader/GCDWebUploader.bundle",
 				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DoraemonKit.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GCDWebUploader.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2524,44 +2617,61 @@
 				FB6EBACF20D399E200FA24F2 /* main.m in Sources */,
 				B8CAA11125C2950B00797416 /* TuCameraFilterPackage.m in Sources */,
 				B8CAA10A25C2950B00797416 /* TuStickerBaseDatasets.m in Sources */,
+				2A6D37E42786C35D0013ED83 /* TTRenderDef.m in Sources */,
+				A6A597CB2783F83C00954ABF /* TTCameraView.m in Sources */,
 				FB76498A20FDC04800A6DFA2 /* TextPageControl.m in Sources */,
 				FB7469CF2106F9130008EF73 /* SpeedSegmentView.m in Sources */,
 				FB526E9121081A85005A377F /* PhotoCaptureConfirmView.m in Sources */,
 				FBD1BEF220FF253900A92722 /* CameraMoreMenuView.m in Sources */,
 				B8CAA10725C2950B00797416 /* TuOnlineSticker.m in Sources */,
 				FBF1DED720EB1FB6009ED5EC /* MarkableProgressView.m in Sources */,
+				A6A597D8278594B800954ABF /* TTFilterPanelView.m in Sources */,
 				B8CAA10625C2950B00797416 /* TuStickerDownloader.m in Sources */,
+				A6C82DD527C7253F00A66F98 /* TTStickerPanelView.m in Sources */,
 				FBDB320220DA2FC4005DE82B /* TopNavigationBar.m in Sources */,
 				2AEFCEC526705B9900E629A7 /* MusicListController.m in Sources */,
 				FBEE598B20EA2FDE003D8453 /* RecordButton.m in Sources */,
 				FB6EBAC120D399E000FA24F2 /* AppDelegate.m in Sources */,
+				2AF609F32768730D00ECD502 /* TTBeautyView.m in Sources */,
+				A6A1E9E62791154E00D70EF4 /* TTFacePlasticModel.m in Sources */,
 				FBD1BEF520FF2A3A00A92722 /* VerticalMenuView.m in Sources */,
-				B8CAA12325C2950B00797416 /* TuFilterPanelViewCell.m in Sources */,
 				B8CAA11225C2950B00797416 /* TuPanelBar.m in Sources */,
+				A6C82DE727C8BD3D00A66F98 /* TTCosmeticGroup.m in Sources */,
 				B8CAA13325C2AA1500797416 /* TuBeautyPanelConfig.m in Sources */,
-				B8CAA10B25C2950B00797416 /* TuStickerPanelView.m in Sources */,
-				B8CAA12225C2950B00797416 /* TuFilterPanelView.m in Sources */,
-				7C8621B325C2F1B6009A234C /* VideoCameraShower.mm in Sources */,
-				B8CAA14625C2AB1900797416 /* TuBeautyPanelView.m in Sources */,
+				2A3CF3E127708BCE00CB80EB /* TTPreviewManager.m in Sources */,
+				A6CCB953279550B20046D0D3 /* TTBeautyModel.m in Sources */,
+				A6A1E9E32791121800D70EF4 /* TTFacePlasticPanelViewCell.m in Sources */,
 				B8CAA10F25C2950B00797416 /* TuViewSlider.m in Sources */,
-				B8CAA14C25C2AB1900797416 /* TuFacePlasticPanelViewCell.m in Sources */,
+				A6A597DE2786922A00954ABF /* TTBeautyItem.m in Sources */,
 				7C9B775D25ECCBA4003D39AD /* TuVideoFocusRangeView.m in Sources */,
 				B8CAA10525C2950B00797416 /* TuStickerBasePanelView.m in Sources */,
 				B8CAA13225C2AA1500797416 /* TuCosmeticPanelViewCell.m in Sources */,
 				2AC82151267C7BF000FC62D0 /* TTAudioQueuePlayer.m in Sources */,
 				B8CAA10825C2950B00797416 /* TuMonsterDatasets.m in Sources */,
+				A6C82DE127C8886700A66F98 /* TTCosmeticPanelView.m in Sources */,
+				2A3CF3E42772CB3D00CB80EB /* TTEffectFactory.m in Sources */,
 				B8CAA11325C2950B00797416 /* TuParametersAdjustView.m in Sources */,
-				B8CAA13125C2AA1500797416 /* TuCosmeticPanelView.m in Sources */,
 				7C9B775E25ECCBA4003D39AD /* TuVideoFocusTouchView.m in Sources */,
-				B8CAA14D25C2AB1900797416 /* TuFaceSkinPanelView.m in Sources */,
+				A6D6F84627901878007E4FC6 /* TTBeautyPanelView.m in Sources */,
+				2A6024E927799A10008DDF18 /* TTImageConvert.m in Sources */,
+				2AF609EB27686FEF00ECD502 /* TTBeautyManager.m in Sources */,
 				B8CAA10925C2950B00797416 /* TuStickerDatasets.m in Sources */,
-				FB76498520FD8A4200A6DFA2 /* CameraViewController.m in Sources */,
+				A6C82DDE27C7823F00A66F98 /* TTFaceSkinPanelViewCell.m in Sources */,
 				FBDB321120DA66C3005DE82B /* SegmentButton.m in Sources */,
+				A6C82DDB27C7744600A66F98 /* TTFaceSkinModel.m in Sources */,
+				2A6024E627799A02008DDF18 /* TTPipeMediator.m in Sources */,
+				A6D6F84A27902646007E4FC6 /* TTFacePlasticPanelView.m in Sources */,
+				A6A597DB2785A7D600954ABF /* TTFilterPanelViewCell.m in Sources */,
 				2AC8214E267C43C500FC62D0 /* MusicItem.m in Sources */,
 				B8CAA11525C2950B00797416 /* TuCustomSlider.m in Sources */,
+				2AF609E827686F6300ECD502 /* TTRecordManager.m in Sources */,
 				FB25C05321114E6B004718D9 /* DemoAppearance.m in Sources */,
-				B8CAA14725C2AB1900797416 /* TuFacePlasticPanelView.m in Sources */,
-				B8CAA14B25C2AB1900797416 /* TuFaceSkinPanelViewCell.m in Sources */,
+				2A6024EC27799A1F008DDF18 /* TTAudioConvert.m in Sources */,
+				2AF609FC2768807C00ECD502 /* TTBeautyProxy.m in Sources */,
+				A6A597D22785496600954ABF /* TTFilterModel.m in Sources */,
+				A6C82DD827C7732000A66F98 /* TTFaceSkinPanelView.m in Sources */,
+				2AF609EE2768713B00ECD502 /* TTViewController.m in Sources */,
+				A6A597CF2785488600954ABF /* TTBeautyGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2604,14 +2714,6 @@
 				FB88F04421992E1400BE021F /* zh-Hant */,
 			);
 			name = TuSDKConstants.strings;
-			sourceTree = "<group>";
-		};
-		FB88F058219930A100BE021F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB80D47C21B0CF3100B3C465 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2734,7 +2836,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuSDKVideoDemo/TuSDKVideoDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210806;
+				CURRENT_PROJECT_VERSION = 20220304;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				ENABLE_BITCODE = NO;
@@ -2747,8 +2849,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TuSDKVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2766,7 +2871,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TuSDKVideoDemo/TuSDKVideoDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210806;
+				CURRENT_PROJECT_VERSION = 20220304;
 				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=*]" = armv7;
@@ -2781,8 +2886,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TuSDKVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.6;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

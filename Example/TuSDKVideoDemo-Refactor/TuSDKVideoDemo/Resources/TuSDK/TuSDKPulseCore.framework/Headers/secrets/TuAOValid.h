@@ -49,6 +49,11 @@
 - (NSTimeInterval) nextUpdate:(NSTimeInterval)expire succeed:(BOOL)succeed;
 /** 请求配置信息 */
 - (void)checkAppAuth;
+/**
+ * 检查权限是否到期
+ * @return 返回权限是否到期值
+ */
+- (BOOL)checkServiceExpire;
 /** 打印权限列表 */
 - (void)logAuthors;
 

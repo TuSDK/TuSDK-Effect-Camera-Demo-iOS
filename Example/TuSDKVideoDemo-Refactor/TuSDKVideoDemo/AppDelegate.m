@@ -10,10 +10,11 @@
 #import "TuSDKFramework.h"
 #import <Bugly/Bugly.h>
 #import <TuSDKPulse/TUPEngine.h>
-#import "CameraViewController.h"
-//#ifdef DEBUG
+
+#ifdef DEBUG
 //#import <DoraemonKit/DoraemonManager.h>
-//#endif
+#endif
+#import "TTViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -55,17 +56,21 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
     
+    self.window.rootViewController = [[TTViewController alloc] init];
     
-    CameraViewController *record = [CameraViewController recordController];
-    self.window.rootViewController = record;
     [self.window makeKeyAndVisible];
     
+    // 添加文件引入
+    //#import <TuSDK/TuSDK.h>
+    //#import <TuSDKVideo/TuSDKVideo.h>
+    //#import <TuSDKFace/TuSDKFace.h>
     // 版本号输出
     NSLog(@"TuSDK.framework 的版本号 : %@",lsqPulseSDKVersion);
-
-//#ifdef DEBUG
+    //NSLog(@"TuSDKVideo.framework 的版本号 : %@",lsqVideoVersion);
+    //NSLog(@"TuSDKFace.framework 的版本号 : %@",lsqFaceVersion);
+#ifdef DEBUG
 //    [[DoraemonManager shareInstance] install];
-//#endif
+#endif
     return YES;
 }
 

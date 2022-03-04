@@ -4,17 +4,9 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		3os4zjt82/ZcpTOZmxSo7zcEH1s=
-		</data>
-		<key>Headers/.DS_Store</key>
-		<data>
-		QREiqj7UfOgHax9nYP0muXnvqPM=
-		</data>
 		<key>Headers/TUCCore.h</key>
 		<data>
-		rQ4Pqwnz+O5GwxXzr6Pe02StpS0=
+		VfOkzcslv/QJk2tRmKIpyybET/E=
 		</data>
 		<key>Headers/TUCEnum.h</key>
 		<data>
@@ -34,7 +26,7 @@
 		</data>
 		<key>Headers/TuSDKPulseCore.h</key>
 		<data>
-		zynRSVJsXY8A9BFarHSIgMk6NLw=
+		+uTZb3EUsdtbTCzLezsVyppdYMU=
 		</data>
 		<key>Headers/UIKit/TuAOCellGridViewAlgorithmic.h</key>
 		<data>
@@ -102,7 +94,7 @@
 		</data>
 		<key>Headers/category/TuTSDevice+Extend.h</key>
 		<data>
-		X8t22CAP7+JugLV/8lvZzlMMzBQ=
+		MtG85IQrI+7AjQ/k6RbwGll6ia8=
 		</data>
 		<key>Headers/category/TuTSImage+Extend.h</key>
 		<data>
@@ -128,17 +120,13 @@
 		<data>
 		Al47UcEbM1QN0JcZXCeqJJhdtko=
 		</data>
-		<key>Headers/category/TuTSNSUserDefaults+Extend.h</key>
-		<data>
-		WzKUP3c8wOsZnFiknD+R4yj115A=
-		</data>
 		<key>Headers/category/TuTSPHAssets+Extend.h</key>
 		<data>
 		EysgypJdL+lzfIlKOxNKTHTCZgM=
 		</data>
 		<key>Headers/category/TuTSScreen+Extend.h</key>
 		<data>
-		cUiNnP5dzsnHaxNY9tK1m0bhFpU=
+		B9VvvxZ/+NmQ2Clb9uqO1jUAiYs=
 		</data>
 		<key>Headers/category/TuTSString+Extend.h</key>
 		<data>
@@ -154,7 +142,7 @@
 		</data>
 		<key>Headers/cx/SelesParameters.h</key>
 		<data>
-		9X/Qx0P/pIi9ByTwaR7k/ooKvcI=
+		triXLby9gr6j1b/j+VldmuUXJDw=
 		</data>
 		<key>Headers/cx/TMacUtils.h</key>
 		<data>
@@ -230,7 +218,7 @@
 		</data>
 		<key>Headers/secrets/TuAOValid.h</key>
 		<data>
-		Qs4e3L6GFEXkf72ZHbqDddr8+og=
+		5thx6eCxaTpcwo79Fehq4124Evk=
 		</data>
 		<key>Headers/secrets/TuAuth.h</key>
 		<data>
@@ -239,10 +227,6 @@
 		<key>Headers/secrets/TuStatistics.h</key>
 		<data>
 		8WINyzjzRPib1FR2b1lMNfmarSI=
-		</data>
-		<key>Headers/source/.DS_Store</key>
-		<data>
-		mm7ZV9BVfQvqhNMjsjihG4dQ1Gc=
 		</data>
 		<key>Headers/source/brush/TuBrush.h</key>
 		<data>
@@ -358,7 +342,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		N3n5Aq19nZzkPoL7MLxkObaoiS4=
+		Hsag/TPKa9kUh9phT0cXwrYbnTs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -371,11 +355,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rQ4Pqwnz+O5GwxXzr6Pe02StpS0=
+			VfOkzcslv/QJk2tRmKIpyybET/E=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZZXPATOxmOuIoK4kxQ3pBL37/XWDq6M+uGoCZZCiCs0=
+			CbiuL+kPszQb9YslVEjBapgZuAEzcxNTXF2s7hXgYC8=
 			</data>
 		</dict>
 		<key>Headers/TUCEnum.h</key>
@@ -426,11 +410,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zynRSVJsXY8A9BFarHSIgMk6NLw=
+			+uTZb3EUsdtbTCzLezsVyppdYMU=
 			</data>
 			<key>hash2</key>
 			<data>
-			FpevglwzfQ7dwPuo3QyjrDvDSbvxlhuBmo4tQNrvC2A=
+			UoXfulJ0Z+2yvHS8eRxb1ALJU2wjC4r+whMJBs8t96c=
 			</data>
 		</dict>
 		<key>Headers/UIKit/TuAOCellGridViewAlgorithmic.h</key>
@@ -613,11 +597,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			X8t22CAP7+JugLV/8lvZzlMMzBQ=
+			MtG85IQrI+7AjQ/k6RbwGll6ia8=
 			</data>
 			<key>hash2</key>
 			<data>
-			F58iaqOToXTVTTrjr8Nz7f39vFNuuJvZ6ILktmoCWSo=
+			y6Fj0+lYSfBJDqoMJ1a2xjiW+SPzU9c5d5P5v+Tpykc=
 			</data>
 		</dict>
 		<key>Headers/category/TuTSImage+Extend.h</key>
@@ -686,17 +670,6 @@
 			e28UCfplmF2iCo54D4bunNbtKVAGVDnAousOjhLgJ8Q=
 			</data>
 		</dict>
-		<key>Headers/category/TuTSNSUserDefaults+Extend.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WzKUP3c8wOsZnFiknD+R4yj115A=
-			</data>
-			<key>hash2</key>
-			<data>
-			vdSPuyd6w15KyNCD3pyhUvK/mgKg0dwjyjRLkrcWOW4=
-			</data>
-		</dict>
 		<key>Headers/category/TuTSPHAssets+Extend.h</key>
 		<dict>
 			<key>hash</key>
@@ -712,11 +685,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cUiNnP5dzsnHaxNY9tK1m0bhFpU=
+			B9VvvxZ/+NmQ2Clb9uqO1jUAiYs=
 			</data>
 			<key>hash2</key>
 			<data>
-			0MlGi1wKE2Ug1d2kJppGrU7mVA1vMcL7ng+I4fkYPeo=
+			9uwMoHuEMCUA7bVbs4nndN1APmR+7x5gnt1N9NNUqd4=
 			</data>
 		</dict>
 		<key>Headers/category/TuTSString+Extend.h</key>
@@ -756,11 +729,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9X/Qx0P/pIi9ByTwaR7k/ooKvcI=
+			triXLby9gr6j1b/j+VldmuUXJDw=
 			</data>
 			<key>hash2</key>
 			<data>
-			7A4+entGWta46vwZIodk/V/awHU4WWqutP1DzuluPL8=
+			2zzEOMu/TdTZH/7ITuGyYEPCyBVLlL8z63LgCAw4J4A=
 			</data>
 		</dict>
 		<key>Headers/cx/TMacUtils.h</key>
@@ -965,11 +938,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Qs4e3L6GFEXkf72ZHbqDddr8+og=
+			5thx6eCxaTpcwo79Fehq4124Evk=
 			</data>
 			<key>hash2</key>
 			<data>
-			o98/bGgxg4LjghdU45VkbKE13N5168uW8WOVqXL2oP8=
+			eTglZtIyykhRAdPFkJ20PMqCmSbMsgxTKpag+0YD/Ns=
 			</data>
 		</dict>
 		<key>Headers/secrets/TuAuth.h</key>

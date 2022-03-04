@@ -4,17 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		Dkfa41bRS/vev1pCPHbcS2ctPQQ=
-		</data>
 		<key>Headers/TuCamera.h</key>
 		<data>
-		qOwo4qUcsV98AnKGIx/cOsP50X8=
+		4hDjfK+LpeydOva6/qWKdFtA+5c=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		NmRwiSmBm5dO5Cp1JbJDByratsQ=
+		D3munUr4s0W/qoXQh8dSOAdllMo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -27,11 +23,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qOwo4qUcsV98AnKGIx/cOsP50X8=
+			4hDjfK+LpeydOva6/qWKdFtA+5c=
 			</data>
 			<key>hash2</key>
 			<data>
-			cn4+eXlP8MLzZTnIJ2ruZrPWJs72yT+Yv2YqPZ+EQ5Q=
+			U0oE36Vyr9xRpBABvTlx+K08II147uKDqK0iF/tWLRU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
