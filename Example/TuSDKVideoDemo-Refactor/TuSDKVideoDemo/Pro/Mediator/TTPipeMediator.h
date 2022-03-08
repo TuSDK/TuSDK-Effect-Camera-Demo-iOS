@@ -37,6 +37,13 @@ TT_INIT_UNAVAILABLE;
 - (TUPFPImage *)sendVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
 /**
+ * 向 SDK 发送采集的视频数据 并返回处理过图像
+ * @param pixelBuffer 视频样本 yuv/bgra
+ * @return 返回处理过的图像
+ */
+- (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+
+/**
  * 向 SDK 发送采集的音频数据
  * @param sampleBuffer 音频样本 pcm
  */

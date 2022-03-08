@@ -185,7 +185,10 @@
  */
 - (void)onTuCameraDidOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     //将相机采集到的Buffer传入meditor进行特效处理
-    [self.mediator sendVideoSampleBuffer:sampleBuffer];
+//    [self.mediator sendVideoSampleBuffer:sampleBuffer];
+    
+    CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    [self.mediator sendVideoPixelBuffer:pixelBuffer];
 }
 /**
  * 麦克风采集音频回调

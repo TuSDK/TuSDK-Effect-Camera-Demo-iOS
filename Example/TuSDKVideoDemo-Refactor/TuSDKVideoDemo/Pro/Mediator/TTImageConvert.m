@@ -65,6 +65,11 @@
     return [self.bufferConvert convert:pixelBuffer withTimestamp:timestamp];
 }
 
+- (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer withTimestamp:(int64_t)timestamp;
+{
+    return [self.bufferConvert convert:pixelBuffer withTimestamp:timestamp];
+}
+
 - (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer withTimestamp:(int64_t)timestamp rotation:(int)rotation flip:(BOOL)flip mirror:(BOOL)mirror {
     return [self.bufferConvert convert:pixelBuffer withTimestamp:timestamp orientaion:rotation flip:flip mirror:mirror];
 }

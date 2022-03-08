@@ -57,6 +57,25 @@
     return self.outputFPImage;
 }
 
+- (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    
+    [_queue runSync:^{
+        
+        int64_t timestamp = (int64_t)([[NSDate date]timeIntervalSince1970] * 1000);
+        TUPFPImage *fpImage = [self.imageConvert sendVideoPixelBuffer:pixelBuffer withTimestamp:timestamp];
+        // 前后处理: 美颜、滤镜等
+        TUPFPImage *processFPImage = [self.beautyManager sendFPImage:fpImage];
+        
+        self.outputFPImage = processFPImage;
+        // 预览
+        [self.previewManager update:self.outputFPImage];
+        // 录制
+        [self.recordManager sendFPImage:self.outputFPImage timestamp:timestamp];
+        
+    }];
+    return self.outputFPImage;
+}
+
 - (void)sendAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     // 前后处理：变速、混音等
     [self.audioConvert sendAudioSampleBuffer:sampleBuffer];

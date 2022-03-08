@@ -26,7 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
  * 向 SDK 发送采集的视频数据 返回图像
  * @param pixelBuffer 视频样本
  */
-- (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+- (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer ;
+/**
+ * 向 SDK 发送采集的视频数据 返回图像
+ * @param pixelBuffer 视频样本
+ * @param timestamp 连续时间戳
+ */
+- (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer withTimestamp:(int64_t)timestamp;
 /**
  * 向 SDK 发送采集的视频数据 返回图像
  * @param pixelBuffer 视频样本
