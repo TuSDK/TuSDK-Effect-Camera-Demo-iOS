@@ -8,7 +8,6 @@
 
 #import "TTFaceSkinPanelView.h"
 #import "TTFaceSkinPanelViewCell.h"
-#import "Constants.h"
 #import "TTRenderDef.h"
 #import "TTFaceSkinModel.h"
 #define itemHeight 90
@@ -97,7 +96,7 @@
                 return CGSizeMake(0, itemHeight);
             }
         }
-        return CGSizeMake((lsqScreenWidth - 40) / 5, itemHeight);
+        return CGSizeMake(([UIScreen mainScreen].bounds.size.width - 40) / 5, itemHeight);
     }
 }
 

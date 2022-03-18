@@ -221,6 +221,7 @@ typedef NS_ENUM(NSInteger, TTAudioMixerType) {
     if (!self.mixerConfig.path) {// 未设置混音
         return;
     }
+    [self setBGM:self.mixerConfig.path];
     self.mixerConfig.startPos = startTime;
     [self.audioMixer open:self.mixerConfig];
     

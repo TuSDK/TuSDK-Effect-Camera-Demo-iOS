@@ -7,7 +7,6 @@
 *********************************************************/
 
 #import "TuCosmeticPanelViewCell.h"
-#import "TuSDKFramework.h"
 #import "TuBeautyPanelConfig.h"
 //大分类Category模型
 @implementation TuCosmeticHeaderData

@@ -39,13 +39,15 @@
 /// 拍照显示图片
 @property(nonatomic) UIImage *capturedPhoto;
 
-@property(nonatomic, strong) id<TTBeautyProtocol> beautyTarget;
 /// 混音类型
 @property(nonatomic, assign) TTAudioMixerMode audioMixMode;
 /// 录制速率
 @property(nonatomic, assign) TTVideoRecordSpeed recordSpeed;
 /// 相机焦距数值
 @property(nonatomic, assign) CGFloat zoomBeganVal;
+
+
+
 
 @end
 
@@ -55,8 +57,6 @@
     [super viewDidLoad];
     
     _mediator = [[TTPipeMediator alloc] initWithContainer:self.view];
-    
-    _beautyTarget = [TTBeautyProxy transformObjc:_mediator];
     //相机相关UI
     _cameraView = [[TTCameraView alloc] initWithFrame:self.view.bounds beautyTarget:[TTBeautyProxy transformObjc:_mediator]];    
     [_mediator setRecordDelegate:self];
@@ -93,8 +93,8 @@
     //捏合手势
     UIPinchGestureRecognizer *zoomPinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchAction:)];
     [self.view addGestureRecognizer:zoomPinch];
-    
 }
+
 
 - (void)setupCapture {
 
@@ -185,10 +185,7 @@
  */
 - (void)onTuCameraDidOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     //将相机采集到的Buffer传入meditor进行特效处理
-//    [self.mediator sendVideoSampleBuffer:sampleBuffer];
-    
-    CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    [self.mediator sendVideoPixelBuffer:pixelBuffer];
+    [self.mediator sendVideoSampleBuffer:sampleBuffer];
 }
 /**
  * 麦克风采集音频回调
@@ -218,6 +215,7 @@
     if (_cameraView) {
         CGFloat progress = 1.0 * milliSecond / recordManager.maxDuration;
         [_cameraView recordProgressChanged:progress];
+        
     }
 }
 
@@ -230,6 +228,9 @@
 {
     if (_cameraView) {
         [_cameraView recordStateChanged:state];
+    }
+    if (state == TTRecordStateTimeout) {
+        [self.mediator pauseRecord];
     }
 }
 
@@ -295,9 +296,7 @@
         case TTMethodRemoveJoiner:
         {
             //移除合拍
-            if (self.beautyTarget) {
-                [self->_beautyTarget removeEffect:TTEffectTypeJoiner];
-            }
+            [[self.mediator getBeautyManager] removeEffect:TTEffectTypeJoiner];
         }
             break;
         case TTMethodRemoveLastRecordPart:
@@ -372,33 +371,25 @@
 - (void)addAudioMixer:(NSString *)musicName {
     if ([musicName isEqualToString:NSLocalizedStringFromTable(@"tu_选择音乐", @"VideoDemo", @"选择音乐")]) {
         
-        [self addAudioMixerMode:TTAudioMixerMode_None filePath:@""];
-
+        self.audioMixMode = TTAudioMixerMode_None;
+        //停止播放
+        //stopBGM
     } else {
         //设置背景音乐
         NSString *path = [[NSBundle mainBundle] pathForResource:musicName ofType:@"mp3"];
 
-        [self addAudioMixerMode:TTAudioMixerMode_Music filePath:path];
+        self.audioMixMode = TTAudioMixerMode_Music;
+        
+        [_mediator setBGM:path];
     }
 }
 
-/// 根据类型和音频路径设置
-/// @param audioMixerMode 混音类型
-/// @param filePath 音频路径
-- (void)addAudioMixerMode:(TTAudioMixerMode)audioMixerMode filePath:(NSString *)filePath;
+- (void)setAudioMixMode:(TTAudioMixerMode)audioMixMode
 {
-    self.audioMixMode = audioMixerMode;
-    [self.capture audioUnitRecord:(audioMixerMode != TTAudioMixerMode_None)];
-    //更新合拍开始时间
-    if (audioMixerMode == TTAudioMixerMode_Joiner) {
-        [_beautyTarget setJoinerStartTime:0];
-    }
-    if (audioMixerMode != TTAudioMixerMode_None) {
-        if (_mediator) {
-            [_mediator setBGM:filePath];
-        }
-    }
+    _audioMixMode = audioMixMode;
+    [self.capture audioUnitRecord:(audioMixMode != TTAudioMixerMode_None)];
 }
+
 /// 调节相机焦距
 - (void)pinchAction:(UIPinchGestureRecognizer *)sender
 {
@@ -432,10 +423,12 @@
                 BOOL isSelected = sender.selected;
                 if (!isSelected) {
                     //开始录制
-                    [_mediator startRecording];
+                    
                     if (_audioMixMode != TTAudioMixerMode_None) {
                         [_capture startAudioUnit];
                     }
+                    [_mediator startRecording];
+                    
                     [_cameraView hideViewsWhenRecording];
                     [_cameraView moreJoinerDisable:YES];
                 } else {
@@ -592,11 +585,9 @@
     
     TTJoinerDirection direction = _cameraView.moreMenuView.currentJoinerDirection;
     
-    if (self.beautyTarget) {
-        [self.beautyTarget updateJoinerDirection:direction];
-        CGRect videoRect = [self.beautyTarget getJoinerVideoRect];
-        [_cameraView refreshJoinerRect:videoRect];
-    }
+    [[self.mediator getBeautyManager] updateJoinerDirection:direction];
+    CGRect videoRect = [[self.mediator getBeautyManager] getJoinerVideoRect];
+    [_cameraView refreshJoinerRect:videoRect];
 }
 
 //是否开启麦克风
@@ -691,6 +682,7 @@
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(PHAsset *)asset
 {
     [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:nil resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+#warning 视频URL路径为null
         AVURLAsset *urlAsset = (AVURLAsset *)asset;
         NSInteger duration = CMTimeGetSeconds(urlAsset.duration);
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -701,18 +693,14 @@
         });
         //默认左右布局
         TTJoinerDirection joinerDirection = self->_cameraView.moreMenuView.currentJoinerDirection;
-        
+        self.audioMixMode = TTAudioMixerMode_Joiner;
         //设置合拍
-        if (self.beautyTarget) {
-            [self.beautyTarget setJoiner:joinerDirection videoPath:urlAsset.URL.absoluteString];
-            
-            [self addAudioMixerMode:TTAudioMixerMode_Joiner filePath:urlAsset.URL.absoluteString];
-            
-            CGRect videoRect = [self.beautyTarget getJoinerVideoRect];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self->_cameraView refreshJoinerRect:videoRect];
-            });
-        }
+        [self.mediator setJoiner:joinerDirection videoPath:urlAsset.URL.absoluteString];
+        
+        CGRect videoRect = [[self.mediator getBeautyManager] getJoinerVideoRect];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self->_cameraView refreshJoinerRect:videoRect];
+        });
         
     }];
 }

@@ -165,6 +165,7 @@
 
 - (void)stopRecord {
     [self.recordManager stopRecord];
+    [self.beautyManager setJoinerStartTime:0];
 }
 
 - (void)deleteLastRecordPart {
@@ -202,8 +203,7 @@
     NSLog(@"%@ dealloc", [self classForCoder]);
 }
 
-+ (NSInteger)
-timestampWithSampleBuffer:(CMSampleBufferRef)sampleBuffer {
++ (NSInteger)timestampWithSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     CMTime presentationTimeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
     return (1000 * presentationTimeStamp.value) / presentationTimeStamp.timescale;
 }

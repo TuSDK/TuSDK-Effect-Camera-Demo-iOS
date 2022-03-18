@@ -8,8 +8,6 @@
 
 #import "TTCosmeticPanelView.h"
 #import "TuCosmeticPanelViewCell.h"
-#import "Constants.h"
-#import "TuSDKFramework.h"
 #import "TuBeautyPanelConfig.h"
 
 #import "TTRenderDef.h"
@@ -130,6 +128,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    
     TuCosmeticHeaderData *data = self.cosmeticDataSet[indexPath.section];
     if (indexPath.item == 0)
     {
@@ -140,21 +140,21 @@
             {
                 return CGSizeMake(20, itemHeight);
             }
-            if (self.lsqGetSizeWidth / dataSet.count < 60)
+            if (screenWidth / dataSet.count < 60)
             {
                 return CGSizeMake(60, itemHeight);
             }
-            return CGSizeMake(self.lsqGetSizeWidth / dataSet.count, itemHeight);
+            return CGSizeMake(screenWidth / dataSet.count, itemHeight);
         }
         else
         {
             if (data.cosmeticSelectType == TuCosmeticSelectTypeUnselected)
             {
-                if (self.lsqGetSizeWidth / dataSet.count < 60)
+                if (screenWidth / dataSet.count < 60)
                 {
                     return CGSizeMake(60, itemHeight);
                 }
-                return CGSizeMake(self.lsqGetSizeWidth / dataSet.count, itemHeight);
+                return CGSizeMake(screenWidth / dataSet.count, itemHeight);
             }
             else
             {

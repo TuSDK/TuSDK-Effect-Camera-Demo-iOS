@@ -7,7 +7,6 @@
 //
 
 #import "TTFaceSkinPanelViewCell.h"
-#import <TuViews/TuViews.h>
 
 @interface TTFaceSkinPanelViewCell()
 {
@@ -35,7 +34,7 @@
 - (void)initWithSubViews
 {
     _normalColor = [UIColor colorWithWhite:1 alpha:0.35];
-    _selectColor = [UIColor lsqClorWithHex:@"#FFDE00"];
+    _selectColor = [UIColor colorWithRed:255.f/255 green:222.f/255 blue:0 alpha:1];
     
     _thumbnailView = [[UIImageView alloc] init];
     _thumbnailView.contentMode = UIViewContentModeScaleAspectFit;

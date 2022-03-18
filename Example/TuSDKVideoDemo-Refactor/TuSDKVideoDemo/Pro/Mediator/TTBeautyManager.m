@@ -79,6 +79,8 @@ static NSInteger const kFilterIndex = 100;
     // 设置默认参数
     [self defaultParams:TTEffectTypePlastic];
     [self defaultParams:TTEffectTypeSkin];
+    [self defaultParams:TTEffectTypeCosmetic];
+    [self defaultParams:TTEffectTypeFilter];
     
     // 添加默认特效
     [self addEffect:TTEffectTypePlastic];
@@ -107,6 +109,16 @@ static NSInteger const kFilterIndex = 100;
             self.beautyBuilder.smoothing = 0.8;
             self.beautyBuilder.whiten = 0.3;
             self.beautyBuilder.sharpen = 0.6;
+        }
+            break;
+        case TTEffectTypeCosmetic: {
+            self.cosmeticBuilder.browOpacity = 0.4;
+            self.cosmeticBuilder.lipOpacity = 0.4;
+            self.cosmeticBuilder.blushOpacity = 0.5;
+            self.cosmeticBuilder.eyeshadowOpacity = 0.5;
+            self.cosmeticBuilder.eyeshadowOpacity = 0.5;
+            self.cosmeticBuilder.eyelashOpacity = 0.5;
+            self.cosmeticBuilder.facialOpacity = 0.5;
         }
             break;
         case TTEffectTypeFilter: {
@@ -521,6 +533,7 @@ static NSInteger const kFilterIndex = 100;
     self.cosmeticBuilder.browEnable = enable;
     [self updateEffect:TTEffectTypeCosmetic];
 }
+
 
 - (void)setBrowOpacity:(float)opacity {
     if (!self.cosmeticBuilder.browEnable) {

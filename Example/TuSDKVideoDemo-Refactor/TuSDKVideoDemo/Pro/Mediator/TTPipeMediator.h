@@ -15,8 +15,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-
 @interface TTPipeMediator : NSObject
 TT_INIT_UNAVAILABLE;
 

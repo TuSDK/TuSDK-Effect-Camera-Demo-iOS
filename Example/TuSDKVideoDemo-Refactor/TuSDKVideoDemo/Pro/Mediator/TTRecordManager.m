@@ -72,14 +72,14 @@
         _speed = 1;
         _isMute = false;
         _fragments = [NSMutableArray array];
-        _state = TTRecordStateStopped;
+        _state = TTRecordStateNone;
         _videoRecordSpeed = TTVideoRecordSpeed_NOMAL;
     }
     return self;
 }
 
 - (void)sendFPImage:(TUPFPImage *)fpImage timestamp:(NSInteger)timestamp {
-    if (self.state == TTRecordStateStopped) {
+    if (self.state == TTRecordStateNone) {
         return;
     }
     
@@ -95,7 +95,7 @@
         NSInteger totalDuration = [fragment getTime];
         NSLog(@"TTRecordManager recording total: %ld duration: %ld", (long)totalDuration, fragment.duration);
         if (totalDuration >= self.maxDuration) {
-            [self pauseRecord];
+            self.state = TTRecordStateTimeout;
         } else {
             if ([self.delegate respondsToSelector:@selector(recordManager:progress:)]) {
                 [self.delegate recordManager:self progress:totalDuration];
@@ -106,7 +106,7 @@
 }
 
 - (void)sendPCMData:(void *)pcm len:(size_t)len {
-    if (self.state == TTRecordStateStopped || self.isMute) {
+    if (self.state == TTRecordStateNone || self.isMute) {
         return;
     }
     if (self.state == TTRecordStateRecording) {
@@ -127,11 +127,6 @@
 
 - (void)setMute:(BOOL)isMute {
     _isMute = isMute;
-}
-
-- (void)setMaxDuration:(NSInteger)maxDuration
-{
-    _maxDuration = maxDuration;
 }
 
 - (BOOL)record {
@@ -170,7 +165,6 @@
         [self fetchErrorMessage:@"不能低于最小时间"];
         return;
     }
-    self.state = TTRecordStateStopped;
     
     NSArray *paths = [self getVideoPathList];
     if (paths.count == 1) {
@@ -199,8 +193,9 @@
     });
     [self deleteAllParts];
 }
+
 - (void)cancleRecording {
-    self.state = TTRecordStateStopped;
+    self.state = TTRecordStateNone;
     [self deleteAllParts];
 }
 
@@ -232,6 +227,9 @@
         return;
     }
     [self.fragments removeLastObject];
+    if (self.fragments.count == 0) {
+        self.state = TTRecordStateNone;
+    }
 }
 
 - (void)deleteAllParts {
@@ -239,6 +237,7 @@
         return;
     }
     [self.fragments removeAllObjects];
+    self.state = TTRecordStateNone;
 }
 
 - (void)setState:(TTRecordState)state {

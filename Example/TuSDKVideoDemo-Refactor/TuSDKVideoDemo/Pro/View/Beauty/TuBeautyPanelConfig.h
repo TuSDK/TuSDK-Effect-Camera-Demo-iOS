@@ -7,20 +7,13 @@
 *********************************************************/
 
 #import <Foundation/Foundation.h>
-#import "TuSDKFramework.h"
-#import "Constants.h"
+#import <TuSDKPulseCore/TuSDKPulseCore.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TuBeautyPanelConfig : NSObject
 
-+ (SelesParameters *)defaultPlasticParameters;
-+ (SelesParameters *)defaultPlasticExtraParameters;
-+ (SelesParameters *)defaultSkinParameters:(TuSkinFaceType)mode;
 + (SelesParameters *)defaultCosmeticParameters;
-
-
-
 
 
 /**设置默认的微整形参数值*/

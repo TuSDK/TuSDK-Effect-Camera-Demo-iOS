@@ -20,6 +20,7 @@
 #import "TTBeautyModel.h"
 #import <TuSDKPulseCore/TuSDKPulseCore.h>
 #import <TuSDKPulseFilter/TuSDKPulseFilter.h>
+#import <TuViews/TuViews.h>
 
 // 美颜列表高度
 static const CGFloat kBeautyListHeight = 120;
@@ -484,25 +485,24 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
     [_beautyModel setCosmeticEnable:@"lipstick" enable:YES];
     [_beautyModel setCosmeticParamsArgKeyWithCode:@"lipstick" precent:1];
     
-    CosmeticLipType lipType = COSMETIC_SHUIRUN_TYPE;
-    switch (lipStickType)
-    {
-    case 1:  // 滋润
-        lipType = COSMETIC_ZIRUN_TYPE;
-        break;
-    case 2:  // 雾面
-        lipType = COSMETIC_WUMIAN_TYPE;
-        break;
-    default: // 水润
-        lipType = COSMETIC_SHUIRUN_TYPE;
-        break;
-    }
+//    switch (lipStickType)
+//    {
+//    case 1:  // 滋润
+//        lipType = TTBeautyLipstickStyleMoist;
+//        break;
+//    case 2:  // 雾面
+//        lipType = TTBeautyLipstickStyleMatte;
+//        break;
+//    default: // 水润
+//        lipType = TTBeautyLipstickStyleWaterWet;
+//        break;
+//    }
     int lipColor = [TuBeautyPanelConfig stickLipParamByStickerName:stickerName];
-    [_beautyModel setCosmeticParamsArgKeyWithCode:@"lipStyle" stickerId:lipType];
+    [_beautyModel setCosmeticParamsArgKeyWithCode:@"lipStyle" stickerId:lipStickType];
     [_beautyModel setCosmeticParamsArgKeyWithCode:@"lipColor" stickerId:lipColor];
     
     //设置
-    [_beautyModel setCosmeticIDWithStyle:@"lipStyle" stickerID:lipType];
+    [_beautyModel setCosmeticIDWithStyle:@"lipStyle" stickerID:lipStickType];
     [_beautyModel setCosmeticIDWithStyle:@"lipColor" stickerID:lipColor];
     
     _curCosmeticCode = @"lipOpacity";

@@ -597,20 +597,20 @@
 {
     if ([style isEqualToString:@"lipStyle"]) {
         //口红类型
-        TTBeautyLipstickStyle lipStyle = TTBeautyLipstickStyleWaterWet;
-        switch (stickerId) {
-            case COSMETIC_SHUIRUN_TYPE:  //水润
-                lipStyle = TTBeautyLipstickStyleWaterWet;
-                break;
-            case COSMETIC_ZIRUN_TYPE:    //滋润
-                lipStyle = TTBeautyLipstickStyleMoist;
-                break;
-            case COSMETIC_WUMIAN_TYPE:   //雾面
-                lipStyle = TTBeautyLipstickStyleMatte;
-                break;
-            default:
-                break;
-        }
+        TTBeautyLipstickStyle lipStyle = stickerId;
+//        switch (stickerId) {
+//            case COSMETIC_SHUIRUN_TYPE:  //水润
+//                lipStyle = TTBeautyLipstickStyleWaterWet;
+//                break;
+//            case COSMETIC_ZIRUN_TYPE:    //滋润
+//                lipStyle = TTBeautyLipstickStyleMoist;
+//                break;
+//            case COSMETIC_WUMIAN_TYPE:   //雾面
+//                lipStyle = TTBeautyLipstickStyleMatte;
+//                break;
+//            default:
+//                break;
+//        }
         
         if ([self.beautyTarget respondsToSelector:@selector(setLipStyle:)]) {
             [self.beautyTarget setLipStyle:lipStyle];

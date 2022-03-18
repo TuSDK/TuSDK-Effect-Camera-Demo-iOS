@@ -172,10 +172,11 @@ typedef NS_ENUM(NSInteger, TTJoinerDirection) {
 };
 
 typedef NS_ENUM(NSUInteger, TTRecordState) {
-    TTRecordStateStopped,
+    TTRecordStateNone,
     TTRecordStatePrepare,
     TTRecordStateRecording,
     TTRecordStatePaused,
+    TTRecordStateTimeout,
     TTRecordStateComplete,
 };
 
@@ -321,10 +322,6 @@ FOUNDATION_EXPORT NSString *TTEffectTypeDescription(TTEffectType type);
 
 /// 设置眉毛开关
 - (void)setBrowEnable:(BOOL)enable;
-
-/// 设置眉毛样式
-/// @param style 雾眉 雾根眉
-- (void)setBrowStyle:(TTBeautyEyebrowStyle)style;
 
 /// 设置眉毛不透明度
 - (void)setBrowOpacity:(float)opacity;
