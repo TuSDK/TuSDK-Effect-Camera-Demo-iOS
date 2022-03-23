@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //#import "TuSDKPulseCore/components/widgets/smudge/TuBrush.h"
-//#import "TuSDKPulseCore.h"
+//#import <TuSDKPulseCore/TuSDKPulseCore.h>
 #import "TuSimpleProcessor.h"
 #import "TuSDKPulseCore.h"
 /**

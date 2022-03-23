@@ -35,7 +35,7 @@ static NSInteger const kPitchProcessorIndex = 100;
 // Camera 接口相机渲染
 @interface VideoCameraShower()<TuCameraVideoDataOutputDelegate,
                                 TuCameraAudioDataOutputDelegate,
-                                TuSDKTSMotionDelegate,
+                                TuTSMotionDelegate,
                                 SelesParametersListener>
 {
     __weak TUPFPDisplayView *_displayView;
@@ -220,34 +220,34 @@ static NSInteger const kPitchProcessorIndex = 100;
     return filterIndex;
 }
 
-- (CGFloat)getRatioByType:(lsqRatioType)ratioType
+- (CGFloat)getRatioByType:(TTRatioType)ratioType
 {
     CGFloat ratio = 1.0f;
     switch (ratioType)
     {
-        case lsqRatio_1_1:
+        case TTRatio_1_1:
             ratio = 1.0f / 1.0f;
             break;
-        case lsqRatio_2_3:
+        case TTRatio_2_3:
             ratio = 2.0f / 3.0f;
             break;
-        case lsqRatio_3_4:
+        case TTRatio_3_4:
             ratio = 3.0f / 4.0f;
             break;
-        case lsqRatio_9_16:
+        case TTRatio_9_16:
             ratio = 9.0f / 16.0f;
             break;
-        case lsqRatio_3_2:
+        case TTRatio_3_2:
             ratio = 3.0f / 2.0f;
             break;
-        case lsqRatio_4_3:
+        case TTRatio_4_3:
             ratio = 4.0f / 3.0f;
             break;
-         case lsqRatio_16_9:
+        case TTRatio_16_9:
             ratio = 16.0f / 9.0f;
             break;
 
-        case lsqRatioOrgin:
+        case TTRatioOrgin:
         default:
             ratio = [[UIScreen mainScreen] bounds].size.width / [[UIScreen mainScreen] bounds].size.height;
             break;
@@ -256,13 +256,13 @@ static NSInteger const kPitchProcessorIndex = 100;
     return ratio;
 }
 
-- (void)setRatioType:(lsqRatioType)ratioType
+- (void)setRatioType:(TTRatioType)ratioType
 {
     CGFloat ratio = [self getRatioByType:ratioType];
     
     if (_camera)
     {
-        CGFloat fullScreenRatio = [self getRatioByType:lsqRatioOrgin];
+        CGFloat fullScreenRatio = [self getRatioByType:TTRatioOrgin];
         CGSize fullScreenSize = _camera.outputResolution;
         {
             CGSize cameraResolution = _camera.outputResolution;

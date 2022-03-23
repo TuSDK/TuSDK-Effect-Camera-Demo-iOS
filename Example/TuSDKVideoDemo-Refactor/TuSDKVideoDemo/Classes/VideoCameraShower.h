@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, TTAudioMixerMode) {
 @property(nonatomic, strong,readonly) TuCamera *camera; // 相机接口
 @property(nonatomic) CGRect displayRect; // 显示选区百分比
 @property(nonatomic, strong) UIColor *backgroundColor; // 视频背景区域颜色
-@property(nonatomic) lsqRatioType ratioType;
+@property(nonatomic) TTRatioType ratioType;
 
 @property(nonatomic) CGFloat minRecordingTime; // 最小录制时长 单位秒
 @property(nonatomic) CGFloat maxRecordingTime; // 最大录制时长 单位秒

@@ -13,7 +13,7 @@ FOUNDATION_EXPORT double TuSDKPulseFilterPipeVersionNumber;
 //! Project version string for TuSDKPulseFilterPipe.
 FOUNDATION_EXPORT const unsigned char TuSDKPulseFilterPipeVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <TuSDKPulseFilterPipe/PublicHeader.h"
+// In this header, you should import all the public headers of your framework using statements like #import <TuSDKPulseFilterPipe/PublicHeader.h>
 
 
 #import "TUPFilterCtx.h"
@@ -51,5 +51,4 @@ FOUNDATION_EXPORT const unsigned char TuSDKPulseFilterPipeVersionString[];
 #import "TUPAudioProcessor.h"
 #import "TUPAudioPitchProcessor.h"
 #import "TUPAudioStretchProcessor.h"
-
 

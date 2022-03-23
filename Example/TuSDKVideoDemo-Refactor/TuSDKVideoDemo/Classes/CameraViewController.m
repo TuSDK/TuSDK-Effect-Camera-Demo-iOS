@@ -75,7 +75,7 @@
     BOOL _isOpenSetting;
     CGFloat _zoomBeganVal;
     
-    lsqRatioType _ratioType;
+    TTRatioType _ratioType;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
@@ -733,8 +733,8 @@
         }
     }];
     if (style == RecordButtonStyle_JoinerRecord) {
-        if (_cameraShower.ratioType != lsqRatioOrgin) {
-            [_cameraShower setRatioType:lsqRatioOrgin];
+        if (_cameraShower.ratioType != TTRatioOrgin) {
+            [_cameraShower setRatioType:TTRatioOrgin];
         }
         
         [self showImagePicker];
@@ -876,7 +876,7 @@
     
     _focusTouchView.camera = _cameraShower.camera;
      
-    _ratioType = lsqRatioOrgin;
+    _ratioType = TTRatioOrgin;
 }
 
 - (void)startRecording
@@ -931,9 +931,9 @@
             NSLog(@"TuSDKRecordVideoCamera state: 相机启动完成");
             _exposureSlider.value = 0.5;
 
-            if (_ratioType == lsqRatioOrgin)
+            if (_ratioType == TTRatioOrgin)
             {
-                [_cameraShower setRatioType:lsqRatioOrgin];
+                [_cameraShower setRatioType:TTRatioOrgin];
             }
 
             // 添加默认特效， 必须在相机开始预览之后。
@@ -1054,18 +1054,18 @@
 // --------------------------------------------------
 - (void)moreMenu:(CameraMoreMenuView *)moreMenu didSelectedRatio:(CGFloat)ratio
 {
-    lsqRatioType ratioType = lsqRatioOrgin;
+    TTRatioType ratioType = TTRatioOrgin;
     if (ratio == 0.0f)
     {
-        ratioType = lsqRatioOrgin;
+        ratioType = TTRatioOrgin;
     }
     else if (ratio == 0.75f)
     {
-        ratioType = lsqRatio_3_4;
+        ratioType = TTRatio_3_4;
     }
     else if (ratio == 1.0f)
     {
-        ratioType = lsqRatio_1_1;
+        ratioType = TTRatio_1_1;
     }
     
     _ratioType = ratioType;

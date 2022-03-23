@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 tusdk.com. All rights reserved.
 //
 
-#import "TUCEnum.h"
+#import <TuSDKPulseCore/TUCEnum.h>
 
 @class TuNKDownloadManger;
 @class TuNKDownloadItem;

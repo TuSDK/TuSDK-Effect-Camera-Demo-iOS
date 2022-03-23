@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "TuPopupProgress.h"
-//#import "TuSDKPulseCore/tools/TuTSCATransition+Extend.h"
 #import "TuSDKPulseCore.h"
 
 /**
@@ -30,7 +29,7 @@
 /**
  *  转场动画
  */
-@property (nonatomic,retain) TuSDKTSCControllerTrans *transAnim;
+@property (nonatomic,retain) TuTSCControllerTrans *transAnim;
 
 /**
  *  设置导航栏左边按钮

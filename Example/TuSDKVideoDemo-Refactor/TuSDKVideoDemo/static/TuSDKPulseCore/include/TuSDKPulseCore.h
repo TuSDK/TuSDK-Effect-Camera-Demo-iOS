@@ -8,7 +8,7 @@
 //
 #import <Foundation/Foundation.h>
 
-// In this header, you should import all the public headers of your framework using statements like #import "PublicHeader.h"
+// In this header, you should import all the public headers of your framework using statements like #import <TuSDKPulseCore/PublicHeader.h>
 #import "TUCCore.h"
 #import "TUCEnum.h"
 #import "TUCProtocol.h"
@@ -29,7 +29,6 @@
 #import "TuTSNSData+ImageExtend.h"
 #import "TuTSNSDictionary+Extend.h"
 #import "TuTSNSMutableDictionary+ImageMetadata.h"
-#import "TuTSNSUserDefaults+Extend.h"
 #import "TuTSPHAssets+Extend.h"
 #import "TuTSScreen+Extend.h"
 #import "TuTSString+Extend.h"

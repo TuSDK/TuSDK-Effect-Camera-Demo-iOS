@@ -13,7 +13,7 @@ FOUNDATION_EXPORT double TuViewsVersionNumber;
 //! Project version string for TuViews.
 FOUNDATION_EXPORT const unsigned char TuViewsVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import "PublicHeader.h"
+// In this header, you should import all the public headers of your framework using statements like #import <TuViews/PublicHeader.h>
 
 
 #import "TuStickerOnlineControllerBase.h"

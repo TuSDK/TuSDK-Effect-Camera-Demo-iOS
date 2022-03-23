@@ -36,7 +36,7 @@
  *
  *  @return BOOL 是否通过验证
  */
-- (BOOL)sdkValidWithKey:(NSString *)key devType:(NSString *)devType;
+- (BOOL)sdkValidWithKey:(NSString *)key devType:(NSString *)devType specialKey:(NSString *)specialKey;
 /** 是否通过验证开发者ID */
 - (BOOL)sdkValid;
 /** 是否过期 allTypes:是否所有过期*/

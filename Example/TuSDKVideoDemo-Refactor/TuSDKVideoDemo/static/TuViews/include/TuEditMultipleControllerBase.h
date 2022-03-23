@@ -33,9 +33,9 @@
 @property (nonatomic) BOOL limitForScreen;
 
 /**
- *  视频视图显示比例类型 (默认:lsqRatioDefault, 如果设置cameraViewRatio > 0, 将忽略ratioType)
+ *  视频视图显示比例类型 (默认:TTRatioDefault, 如果设置cameraViewRatio > 0, 将忽略ratioType)
  */
-@property (nonatomic) lsqRatioType ratioType;
+@property (nonatomic) TTRatioType ratioType;
 
 /**
  *  视图显示比例类型列表 ( 优先级 ratioTypeList > ratioType, 默认：lsqTuSDKRatioDefaultTypes)
