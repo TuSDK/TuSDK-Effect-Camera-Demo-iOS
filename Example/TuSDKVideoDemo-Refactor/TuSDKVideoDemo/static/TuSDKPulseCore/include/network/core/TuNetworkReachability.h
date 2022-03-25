@@ -65,7 +65,7 @@
 
 #endif
 
-extern NSString *const kTuSDKNetworkReachabilityChangedNotification;
+extern NSString *const kTTNetworkReachabilityChangedNotification;
 
 
 

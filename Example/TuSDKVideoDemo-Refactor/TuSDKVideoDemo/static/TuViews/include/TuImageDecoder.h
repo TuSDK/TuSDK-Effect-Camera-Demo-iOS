@@ -11,9 +11,9 @@
 
 #pragma mark - image functions
 
-CG_EXTERN CGColorSpaceRef lasqueCGColorSpaceGetDeviceRGB();
+CG_EXTERN CGColorSpaceRef TTCGColorSpaceGetDeviceRGB();
 
-CG_EXTERN CGImageRef lasqueCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeForDisplay);
+CG_EXTERN CGImageRef TTCGImageCreateDecodedCopy(CGImageRef imageRef, BOOL decodeForDisplay);
 
 #pragma mark - UIImage extend
 

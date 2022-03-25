@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TUCEnum.h"
 #import "TuBrush.h"
+#import "TUCEnum.h"
 @class TuNKDownloadItem;
 
 /**
  *  橡皮擦笔刷代号
  */
-extern NSString * const lsqEraserBrushCode;
+extern NSString * const TTEraserBrushCode;
 
 
 @class TuBrushLocalPackage;

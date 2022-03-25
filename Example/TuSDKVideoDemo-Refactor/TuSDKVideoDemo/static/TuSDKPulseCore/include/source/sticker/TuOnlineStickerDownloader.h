@@ -7,7 +7,6 @@
 //
 
 #import "TUCEnum.h"
-
 @class TuStickerGroup;
 // 贴纸下载委托
 @protocol TuOnlineStickerDownloaderDelegate <NSObject>

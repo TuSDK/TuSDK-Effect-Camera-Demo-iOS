@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "gpuimage/SLGPUImage.h"
 #import "TuDataJson.h"
 
 //#pragma mark - RuntimeTextureDelegate

@@ -25,6 +25,7 @@ FOUNDATION_EXPORT const unsigned char TuSDKPulseFilterPipeVersionString[];
 #import "TUPFPImage.h"
 #import "TUPFPImageCvt.h"
 #import "TUPFPAudioMixer.h"
+#import "TUPFPSVGImage.h"
 
 #import "TUPFPAspectRatioFilter.h"
 #import "TUPFPBubbleTextFilter.h"
@@ -48,7 +49,9 @@ FOUNDATION_EXPORT const unsigned char TuSDKPulseFilterPipeVersionString[];
 
 #import "TUPAudioCtx.h"
 #import "TUPAudioPipe.h"
+#import "TUPFPAudioBuffer.h"
 #import "TUPAudioProcessor.h"
 #import "TUPAudioPitchProcessor.h"
 #import "TUPAudioStretchProcessor.h"
+
 

@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const lsqHttpHeader_Content_Disposition;
-extern NSString * const lsqHttpHeader_Accept_Length;
-extern NSString * const lsqHttpHeader_Content_Type;
+extern NSString * const TTHttpHeader_Content_Disposition;
+extern NSString * const TTHttpHeader_Accept_Length;
+extern NSString * const TTHttpHeader_Content_Type;
 
 /**
  *  HTTP头解析

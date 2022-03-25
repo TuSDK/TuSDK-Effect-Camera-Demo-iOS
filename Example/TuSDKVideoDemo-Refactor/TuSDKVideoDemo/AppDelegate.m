@@ -49,7 +49,7 @@
 
     
     // 设置弹框时，背景按钮不可点击
-    [TuPopupProgress setDefaultMaskType:TuSDKProgressHUDMaskTypeClear];
+    [TuPopupProgress setDefaultMaskType:TTProgressHUDMaskTypeClear];
     
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

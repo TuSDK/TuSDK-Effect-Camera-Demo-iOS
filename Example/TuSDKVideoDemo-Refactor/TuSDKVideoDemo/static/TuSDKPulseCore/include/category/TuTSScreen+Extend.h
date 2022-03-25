@@ -12,21 +12,21 @@
 /**
  *  状态栏高度
  */
-extern CGFloat const lsq_STATES_BAR_HEIGHT;
+extern CGFloat const TT_STATES_BAR_HEIGHT;
 /**
  *  iPhoneX系列状态栏高度
  */
-extern CGFloat const lsq_STATES_BAR_HEIGHT_iPhoneX;
+extern CGFloat const TT_STATES_BAR_HEIGHT_iPhoneX;
 
 /**
  *  导航栏高度
  */
-extern CGFloat const lsq_NAV_BAR_HEIGHT;
+extern CGFloat const TT_NAV_BAR_HEIGHT;
 
 /**
  *  TAB栏高度
  */
-extern CGFloat const lsq_TAB_BAR_HEIGHT;
+extern CGFloat const TT_TAB_BAR_HEIGHT;
 
 
 #pragma mark - TuSDKTSScreenExtend

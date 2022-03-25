@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TUPProperty.h"
+#import "TUPBase.h"
 #import "TUPConfig.h"
 
 @class TUPAudioProcessor;

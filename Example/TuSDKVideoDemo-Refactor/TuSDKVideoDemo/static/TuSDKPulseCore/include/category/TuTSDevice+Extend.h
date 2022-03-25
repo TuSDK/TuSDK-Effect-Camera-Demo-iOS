@@ -11,46 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Hardware
-extern NSString * const kDevice;
-// iPhone
-extern NSString * const kDeviceiPhone;
-// iPhone 1G
-extern NSString * const kDeviceiPhone1G;
-// iPhone 3G
-extern NSString * const kDeviceiPhone3G;
-// iPhone 3GS
-extern NSString * const kDeviceiPhone3GS;
-// iPhone 4
-extern NSString * const kDeviceiPhone4;
-// iPhone 4S
-extern NSString * const kDeviceiPhone4S;
-// iPhone 5
-extern NSString * const kDeviceiPhone5;
-// iPhone 5S
-extern NSString * const kDeviceiPhone5S;
-
-// iPod
-extern NSString * const kDeviceiPod;
-// iPod touch 1G, N45
-extern NSString * const kDeviceiPod1G;
-// iPod touch 2G, N72
-extern NSString * const kDeviceiPod2G;
-// iPod touch 3G, N18
-extern NSString * const kDeviceiPod3G;
-// iPod touch 4G, N80
-extern NSString * const kDeviceiPod4G;
-
-// iPad
-extern NSString * const kDeviceiPad;
-// iPad 1G
-extern NSString * const kDeviceiPad1G;
-// iPad 2G
-extern NSString * const kDeviceiPad2G;
-// iPad 3G
-extern NSString * const kDeviceiPad3G;
-// iPad 4G
-extern NSString * const kDeviceiPad4G;
-
 
 /*
  手机型号枚举

@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 #import "TUCProtocol.h"
-#pragma mark - TuSDKTSPHCachingImageManager
+#pragma mark - TuTSPHCachingImageManager
 /**
  *  相册图片缓存管理器
  */
-@interface TuSDKTSPHCachingImageManager : PHCachingImageManager
+@interface TuTSPHCachingImageManager : PHCachingImageManager
 /**
  *  相册图片缓存管理器单例对象
  *
@@ -133,11 +133,11 @@ typedef void (^TuSDKTSPHPhotoLibrarySaveWithImageCompletionBlock)(PHAsset *asset
        completionBlock:(TuSDKTSPHPhotoLibrarySaveWithImageCompletionBlock)completionBlock;
 
 @end
-#pragma mark - TuSDKTSPHAsset
+#pragma mark - TuTSPHAsset
 /**
  *  媒体资源对象
  */
-@interface TuSDKTSPHAsset : NSObject<TuTSAssetInterface>
+@interface TuTSPHAsset : NSObject<TuTSAssetInterface>
 /**
  *  初始化媒体资源对象
  *
@@ -154,11 +154,11 @@ typedef void (^TuSDKTSPHPhotoLibrarySaveWithImageCompletionBlock)(PHAsset *asset
 
 @end
 
-#pragma mark - TuSDKTSPHAssetsGroup
+#pragma mark - TuTSPHAssetsGroup
 /**
  *  媒体资源组对象
  */
-@interface TuSDKTSPHAssetsGroup : NSObject<TuTSAssetsGroupInterface>
+@interface TuTSPHAssetsGroup : NSObject<TuTSAssetsGroupInterface>
 /**
  *  初始化媒体资源组对象
  *

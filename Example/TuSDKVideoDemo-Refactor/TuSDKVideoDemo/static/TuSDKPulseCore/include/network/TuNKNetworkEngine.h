@@ -11,12 +11,12 @@
 /**
  *  是否为调试模式
  */
-extern BOOL const lsqTuSDKNKNetworkEngineDebug;
+extern BOOL const lsqTTNKNetworkEngineDebug;
 
-extern NSString* const lsqTuSDKNKNetworkEngineHeadrSDKTypeImage;
-extern NSString* const lsqTuSDKNKNetworkEngineHeadrSDKTypeVideo;
-extern NSString* const lsqTuSDKNKNetworkEngineHeadrSDKTypeEva;
-extern NSString* const lsqTuSDKNKNetworkEngineHeadrSDKTypeFaceFuse;
+extern NSString* const lsqTTNKNetworkEngineHeadrSDKTypeImage;
+extern NSString* const lsqTTNKNetworkEngineHeadrSDKTypeVideo;
+extern NSString* const lsqTTNKNetworkEngineHeadrSDKTypeEva;
+extern NSString* const lsqTTNKNetworkEngineHeadrSDKTypeFaceFuse;
 
 
 /**

@@ -7,14 +7,14 @@
 //
 
 #import "TuFilterOption.h"
-#import "TUCEnum.h"
 #import "TuFilterGroup.h"
+#import "TUCEnum.h"
 @class TuNKDownloadItem;
 
 /**
  *  默认滤镜代号
  */
-extern NSString * const lsqNormalFilterCode;
+extern NSString * const TTNormalFilterCode;
 
 #pragma mark - TuFilterLocalPackageDelegate
 @class TuFilterLocalPackage;

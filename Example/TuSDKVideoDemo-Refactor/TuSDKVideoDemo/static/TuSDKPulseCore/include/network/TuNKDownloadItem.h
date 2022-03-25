@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 tusdk.com. All rights reserved.
 //
 
-#import "TuDataJson.h"
 #import "TUCEnum.h"
+#import "TuDataJson.h"
 
 /**
  *  在线命令动作

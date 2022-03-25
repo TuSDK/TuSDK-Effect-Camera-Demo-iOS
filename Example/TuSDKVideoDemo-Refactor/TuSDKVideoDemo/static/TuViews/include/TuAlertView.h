@@ -13,33 +13,33 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  提示信息动作样式
  */
-typedef NS_ENUM(NSInteger, TuSDKICAlertActionStyle){
+typedef NS_ENUM(NSInteger, TuICAlertActionStyle){
     /**
      *  默认
      */
-    TuSDKICAlertActionStyleDefault = 0,
+    TuICAlertActionStyleDefault = 0,
     /**
      *  取消
      */
-    TuSDKICAlertActionStyleCancel,
+    TuICAlertActionStyleCancel,
     /**
      *  强调
      */
-    TuSDKICAlertActionStyleDestructive
+    TuICAlertActionStyleDestructive
 };
 
 /**
  *  提示信息样式
  */
-typedef NS_ENUM(NSInteger, TuSDKICAlertStyle){
+typedef NS_ENUM(NSInteger, TuICAlertStyle){
     /**
      *  下拉样式
      */
-    TuSDKICAlertStyleActionSheet = 0,
+    TuICAlertStyleActionSheet = 0,
     /**
      *  对话框样式
      */
-    TuSDKICAlertStyleAlert
+    TuICAlertStyleAlert
 };
 
 #pragma mark - TuAlertAction
@@ -98,7 +98,7 @@ typedef void(^TuAlertActionHandler)(TuAlertAction *action);
  *  @return action 提示信息动作
  */
 + (instancetype)actionWithTitle:(nullable NSString *)title
-                          style:(TuSDKICAlertActionStyle)style
+                          style:(TuICAlertActionStyle)style
                         handler:(nullable TuAlertActionHandler)handler;
 
 /**
@@ -108,7 +108,7 @@ typedef void(^TuAlertActionHandler)(TuAlertAction *action);
 /**
  *  提示信息动作样式
  */
-@property (nonatomic, readonly) TuSDKICAlertActionStyle style;
+@property (nonatomic, readonly) TuICAlertActionStyle style;
 @end
 
 
@@ -228,7 +228,7 @@ typedef void(^TuAlertActionHandler)(TuAlertAction *action);
 /**
  *  提示信息样式
  */
-@property (nonatomic, readonly) TuSDKICAlertStyle preferredStyle;
+@property (nonatomic, readonly) TuICAlertStyle preferredStyle;
 @end
 
 NS_ASSUME_NONNULL_END
