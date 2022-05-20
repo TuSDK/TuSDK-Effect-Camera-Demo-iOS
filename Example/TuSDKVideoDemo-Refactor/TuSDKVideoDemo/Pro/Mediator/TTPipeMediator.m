@@ -12,6 +12,7 @@
 #import "TTAudioConvert.h"
 #import "TTBeautyManager.h"
 #import "TTPreviewManager.h"
+#import <TuSDKPulseCore/TuSDKPulseCore.h>
 
 @interface TTPipeMediator () <TTAudioConvertDelegate, TTRecordListener>
 @property(nonatomic, strong) TUPDispatchQueue *queue;
@@ -33,7 +34,9 @@
         _imageConvert = [[TTImageConvert alloc] init];
         _audioConvert = [[TTAudioConvert alloc] initWithDelegate:self delegateQueue:_queue];
         _beautyManager = [[TTBeautyManager alloc] initWithQueue:_queue];
-        _previewManager = [[TTPreviewManager alloc] initWithContainer:containerView];
+        if (containerView) {
+//            _previewManager = [[TTPreviewManager alloc] initWithContainer:containerView];
+        }
         _recordManager = [[TTRecordManager alloc] init];
         _recordManager.delegate = self;
     }
@@ -49,7 +52,7 @@
         
         self.outputFPImage = processFPImage;
         // 预览
-        [self.previewManager update:self.outputFPImage];
+//        [self.previewManager update:self.outputFPImage];
         // 录制
         [self.recordManager sendFPImage:self.outputFPImage timestamp:timestamp];
         
@@ -57,10 +60,37 @@
     return self.outputFPImage;
 }
 
-- (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer {
-    
+- (CVPixelBufferRef)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     [_queue runSync:^{
+        CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+        NSInteger timestamp = [TTPipeMediator timestampWithSampleBuffer:sampleBuffer];
+
+//        TUPFPImage *fpImage = [self.imageConvert sendVideoPixelBuffer:pixelBuffer withTimestamp:timestamp rotation:0 flip:YES mirror:NO];
+        TUPFPImage *fpImage = [self.imageConvert sendVideoSampleBuffer:sampleBuffer];
         
+        // 前后处理: 美颜、滤镜等
+        TUPFPImage *processFPImage = [self.beautyManager sendFPImage:fpImage];
+        TUPFPImage *image = [self.imageConvert flip:processFPImage];
+        
+        [self.recordManager sendFPImage:image timestamp:timestamp];
+        self.outputFPImage = processFPImage;
+        
+    }];
+    return [self.outputFPImage getCVPixelBuffer];
+}
+
+- (void)recordVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    NSInteger timestamp = [TTPipeMediator timestampWithSampleBuffer:sampleBuffer];
+    [_queue runSync:^{
+        TUPFPImage *fpImage = [self.imageConvert sendVideoSampleBuffer:sampleBuffer];
+        // 录制
+        [self.recordManager sendFPImage:fpImage timestamp:timestamp];
+        
+    }];
+}
+
+- (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    [_queue runSync:^{
         int64_t timestamp = (int64_t)([[NSDate date]timeIntervalSince1970] * 1000);
         TUPFPImage *fpImage = [self.imageConvert sendVideoPixelBuffer:pixelBuffer withTimestamp:timestamp];
         // 前后处理: 美颜、滤镜等
@@ -95,11 +125,6 @@
     [self.imageConvert setPixelFormat:pixelFormat];
 }
 
-- (void)setOutputSize:(CGSize)outputSize {
-    [self.previewManager setOutputResolution:outputSize];
-    [self.imageConvert setOutputSize:outputSize];
-}
-
 - (void)setOutputResolution:(CGSize)outPutResolution
 {
     [self.previewManager setOutputResolution:outPutResolution];
@@ -128,8 +153,11 @@
 
 
 - (void)setAspectRatio:(TTVideoAspectRatio)aspectRatio {
-    CGRect rect = [self.previewManager setAspectRatio:aspectRatio];
-    [self.imageConvert setOutputSize:rect.size];
+    CGSize size = CGSizeMake(1, 1);
+    if (self.previewManager) {
+        size = [self.previewManager setAspectRatio:aspectRatio].size;
+    }
+    [self.imageConvert setOutputSize:size];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
@@ -137,7 +165,12 @@
 }
 
 - (UIImage *)snapshot {
-    return [self.previewManager snapshot];
+    UIImage *ret = [self.outputFPImage getUIImage];
+    if (self.beautyManager.pbout) {
+        ret = [[self.imageConvert flip:self.outputFPImage] getUIImage];
+    }
+    UIImage *outPutImage = [TTPipeMediator drawWaterMarkToCaptureImage:ret];
+    return outPutImage;
 }
 
 - (void)setRecordDelegate:(id<TTRecordListener>)recordDelegate {
@@ -190,7 +223,9 @@
 
 - (void)destory {
     [_audioConvert destory];
-    [_previewManager destory];
+    if (_previewManager) {
+        [_previewManager destory];
+    }
     [_beautyManager destory];
     [_imageConvert destory];
     _beautyManager = nil;
@@ -208,4 +243,21 @@
     return (1000 * presentationTimeStamp.value) / presentationTimeStamp.timescale;
 }
 
++ (UIImage *)drawWaterMarkToCaptureImage:(UIImage *)captureImage {
+    CGFloat safeBottom = 0;
+    if ([UIDevice lsqIsDeviceiPhoneX])
+    {
+        safeBottom = 44;
+    }
+    UIGraphicsBeginImageContext(captureImage.size);
+    [captureImage drawInRect:CGRectMake(0, 0, captureImage.size.width, captureImage.size.height)];
+    
+    UIImage *waterMarkImage = [UIImage imageNamed:@"sample_watermark"];
+    [waterMarkImage drawInRect:CGRectMake(captureImage.size.width - 220, safeBottom + 20, 200, 88)];
+    
+    UIImage *outPutImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+     
+    return outPutImage;
+}
 @end

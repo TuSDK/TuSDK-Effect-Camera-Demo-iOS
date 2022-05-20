@@ -7,7 +7,7 @@
 *********************************************************/
 #import "TuMonsterDatasets.h"
 #import "TuSDKFramework.h"
-
+#import "TTRenderDef.h"
 /** TuMonsterData************************************************/
 @implementation TuMonsterData
 - (BOOL)online
@@ -70,19 +70,19 @@
     [NSMutableDictionary dictionaryWithObjectsAndKeys:
                     /** 图片缩略图 ： 哈哈镜类型  */
                     // 哈哈镜 - 大鼻子
-                    @"bignose",@(TuSDKMonsterFaceTypeBigNose),
+                    @"bignose",@(TTMonsterStyleBigNose),
                     // 哈哈镜 - 木瓜脸
-                    @"papaya",@(TuSDKMonsterFaceTypePapayaFace),
+                    @"papaya",@(TTMonsterStylePapayaFace),
                     // 哈哈镜 - 大饼脸
-                    @"pie",@(TuSDKMonsterFaceTypePieFace),
+                    @"pie",@(TTMonsterStylePieFace),
                     // 哈哈镜 - 眯眯眼
-                    @"smalleyes",@(TuSDKMonsterFaceTypeSmallEyes),
+                    @"smalleyes",@(TTMonsterStyleSmallEyes),
                     // 哈哈镜 - 蛇精脸
-                    @"snake",@(TuSDKMonsterFaceTypeSnakeFace),
+                    @"snake",@(TTMonsterStyleSnakeFace),
                     // 哈哈镜 - 国字脸
-                    @"square",@(TuSDKMonsterFaceTypeSquareFace),
+                    @"square",@(TTMonsterStyleSquareFace),
                     // 哈哈镜 - 厚嘴唇
-                    @"thicklips",@(TuSDKMonsterFaceTypeThickLips),
+                    @"thicklips",@(TTMonsterStyleThickLips),
      nil];
 
     [monsterFaceTypeDic.allKeys enumerateObjectsUsingBlock:^(NSNumber* _Nonnull monsterFaceType, NSUInteger idx, BOOL * _Nonnull stop)

@@ -121,9 +121,9 @@
     /**
      *   iOS15 后，当使用UITableViewStylePlain初始化tableView时，会默认给 section header 增加22px高度
      */
-//    if (@available(iOS 15.0, *)) {
-//        _tableView.sectionHeaderTopPadding = 0;
-//    }
+    if (@available(iOS 15.0, *)) {
+        _tableView.sectionHeaderTopPadding = 0;
+    }
     
     _cells = [NSMutableArray array];
     _hiddenRows = [NSMutableArray array];

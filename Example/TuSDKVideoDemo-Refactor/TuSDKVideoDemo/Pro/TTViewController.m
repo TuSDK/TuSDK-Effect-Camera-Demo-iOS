@@ -19,6 +19,8 @@
 #import "MusicListController.h"
 #import <TZImagePickerController.h>
 
+#import <DeepAR/DeepAR.h>
+
 @interface TTViewController () <TuCameraAudioDataOutputDelegate,
                                 TuCameraVideoDataOutputDelegate,
                                 TTCameraViewListener,
@@ -26,7 +28,8 @@
                                 RecordButtonDelegate,
                                 MusicListDelegate,
                                 TZImagePickerControllerDelegate,
-                                CameraMoreMenuViewDelegate>
+                                CameraMoreMenuViewDelegate,
+                                DeepARDelegate>
 
 @property(nonatomic, strong) TuCamera *capture;
 @property(nonatomic, strong) TTPipeMediator *mediator;
@@ -39,6 +42,7 @@
 /// 拍照显示图片
 @property(nonatomic) UIImage *capturedPhoto;
 
+@property(nonatomic, strong) id<TTBeautyProtocol> beautyTarget;
 /// 混音类型
 @property(nonatomic, assign) TTAudioMixerMode audioMixMode;
 /// 录制速率
@@ -46,19 +50,31 @@
 /// 相机焦距数值
 @property(nonatomic, assign) CGFloat zoomBeganVal;
 
-
-
-
+/// AR引擎
+@property (nonatomic, strong) DeepAR *deepar;
+@property (nonatomic, strong) ARView *arview;
+@property (nonatomic, strong) AVSampleBufferDisplayLayer *sampleDisplayLayer;
 @end
 
 @implementation TTViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIView *contentView = [[UIView alloc] initWithFrame:self.view.bounds];
+    contentView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:contentView];
+    AVSampleBufferDisplayLayer * layer = [[AVSampleBufferDisplayLayer alloc] init];
+    layer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [layer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     
-    _mediator = [[TTPipeMediator alloc] initWithContainer:self.view];
+    self.sampleDisplayLayer = layer;
+    [contentView.layer insertSublayer:layer atIndex:0];
+    
+    _mediator = [[TTPipeMediator alloc] initWithContainer:nil];
+    
+    _beautyTarget = [TTBeautyProxy transformObjc:_mediator];
     //相机相关UI
-    _cameraView = [[TTCameraView alloc] initWithFrame:self.view.bounds beautyTarget:[TTBeautyProxy transformObjc:_mediator]];    
+    _cameraView = [[TTCameraView alloc] initWithFrame:self.view.bounds beautyTarget:[TTBeautyProxy transformObjc:_mediator]];
     [_mediator setRecordDelegate:self];
     
     TTRecordManager *recordManager = [self.mediator getRecordManager];
@@ -93,9 +109,33 @@
     //捏合手势
     UIPinchGestureRecognizer *zoomPinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchAction:)];
     [self.view addGestureRecognizer:zoomPinch];
+    
+    //初始化AR引擎
+    self.deepar = [[DeepAR alloc] init];
+
+    //请自行去DeepAr申请 https://www.deepar.ai
+    [self.deepar setLicenseKey:];
+    
+    self.deepar.delegate = self;
+    
+    [self.deepar changeLiveMode:NO];
+    
+    CGFloat height = CGRectGetHeight([UIScreen mainScreen].bounds);
+    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds);
+    
+    [self.deepar initializeOffscreenWithWidth:[@(width) integerValue] height:[@(height) integerValue]];
+    
+//    self.arview = (ARView*)[self.deepar createARViewWithFrame:[UIScreen mainScreen].bounds];
+//    self.arview.backgroundColor = UIColor.greenColor;
+//    [self.view insertSubview:self.arview atIndex:0];
+//    [self.view addSubview:self.arview];
+    
 }
 
-
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.arview.frame = self.view.bounds;//CGRectMake(100, 400, 200, 200);
+}
 - (void)setupCapture {
 
     // 获取相册的权限
@@ -117,7 +157,7 @@
 
     // 设置相机输出画面的方向和镜像设置
     _capture.frontCameraOrientation = AVCaptureVideoOrientationPortrait;
-    _capture.frontCameraMirrored = YES;
+    _capture.frontCameraMirrored = NO;
     _capture.backCameraOrientation = AVCaptureVideoOrientationPortrait;
     _capture.backCameraMirrored = NO;
     // 摄像头采集分辨率模式
@@ -126,7 +166,7 @@
     _capture.fps = 30;
     // 是否支持双指缩放来调节焦距
     _capture.enableZoom = YES;
-    
+    _capture.captureAsYUV = NO;
     _capture.audioDataOutputDelegate = self;
     _capture.videoDataOutputDelegate = self;
     
@@ -179,13 +219,57 @@
     // 相机停止预览
     [self.capture pausePreview];
 }
+
+
 /**
  * 相机采集视频回调
  * @param sampleBuffer 相机采集返回的视频数据
  */
 - (void)onTuCameraDidOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    CMTime pts = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+    CMTime duration = CMSampleBufferGetDuration(sampleBuffer);
     //将相机采集到的Buffer传入meditor进行特效处理
-    [self.mediator sendVideoSampleBuffer:sampleBuffer];
+
+
+    
+    [self.deepar enqueueCameraFrame:sampleBuffer mirror:_capture.devicePosition == AVCaptureDevicePositionFront];
+    
+}
+
+#pragma DeepARDelegate
+- (void)didInitialize{
+    NSLog(@"didInitialize");
+}
+
+- (void)frameAvailable:(CMSampleBufferRef)sampleBuffer{
+//    CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    
+    CMTime pts = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+    CMTime duration = CMSampleBufferGetDuration(sampleBuffer);
+    
+    CVPixelBufferRef ttPb = [self.mediator processVideoSampleBuffer:sampleBuffer];
+    OSStatus ret = 0;
+    CMSampleBufferRef sample = NULL;
+    CMVideoFormatDescriptionRef videoInfo = NULL;
+    CMSampleTimingInfo timingInfo = kCMTimingInfoInvalid;
+    timingInfo.presentationTimeStamp = pts;
+    timingInfo.duration = duration;
+    ret = CMVideoFormatDescriptionCreateForImageBuffer(NULL, ttPb, &videoInfo);
+    if (ret != 0) {
+        NSLog(@"CMVideoFormatDescriptionCreateForImageBuffer failed! %d", (int)ret);
+    }
+    ret = CMSampleBufferCreateForImageBuffer(kCFAllocatorDefault, ttPb, true, NULL, NULL,videoInfo, &timingInfo, &sample);
+    if (ret != 0) {
+        NSLog(@"CMSampleBufferCreateForImageBuffer failed! %d", (int)ret);
+    }
+    
+    
+    [self.sampleDisplayLayer enqueueSampleBuffer:sample];
+//    [self.mediator recordVideoSampleBuffer:sample];
+    
+    CMSampleBufferInvalidate(sample);
+    CFRelease(sample);
+    sample = NULL;
 }
 /**
  * 麦克风采集音频回调
@@ -215,7 +299,6 @@
     if (_cameraView) {
         CGFloat progress = 1.0 * milliSecond / recordManager.maxDuration;
         [_cameraView recordProgressChanged:progress];
-        
     }
 }
 
@@ -228,9 +311,6 @@
 {
     if (_cameraView) {
         [_cameraView recordStateChanged:state];
-    }
-    if (state == TTRecordStateTimeout) {
-        [self.mediator pauseRecord];
     }
 }
 
@@ -296,7 +376,9 @@
         case TTMethodRemoveJoiner:
         {
             //移除合拍
-            [[self.mediator getBeautyManager] removeEffect:TTEffectTypeJoiner];
+            if (self.beautyTarget) {
+                [self->_beautyTarget removeEffect:TTEffectTypeJoiner];
+            }
         }
             break;
         case TTMethodRemoveLastRecordPart:
@@ -310,7 +392,10 @@
         case TTMethodRotateCamera:
         {
             //切换摄像头
-            [self.capture rotateCamera];
+//            [self.capture rotateCamera];
+            NSString *path = [[NSBundle mainBundle]  pathForResource:@"aviators" ofType:@""];
+            [self.deepar switchEffectWithSlot:@"mask" path:path];
+            
         }
             break;
         default:
@@ -371,25 +456,33 @@
 - (void)addAudioMixer:(NSString *)musicName {
     if ([musicName isEqualToString:NSLocalizedStringFromTable(@"tu_选择音乐", @"VideoDemo", @"选择音乐")]) {
         
-        self.audioMixMode = TTAudioMixerMode_None;
-        //停止播放
-        //stopBGM
+        [self addAudioMixerMode:TTAudioMixerMode_None filePath:@""];
+
     } else {
         //设置背景音乐
         NSString *path = [[NSBundle mainBundle] pathForResource:musicName ofType:@"mp3"];
 
-        self.audioMixMode = TTAudioMixerMode_Music;
-        
-        [_mediator setBGM:path];
+        [self addAudioMixerMode:TTAudioMixerMode_Music filePath:path];
     }
 }
 
-- (void)setAudioMixMode:(TTAudioMixerMode)audioMixMode
+/// 根据类型和音频路径设置
+/// @param audioMixerMode 混音类型
+/// @param filePath 音频路径
+- (void)addAudioMixerMode:(TTAudioMixerMode)audioMixerMode filePath:(NSString *)filePath;
 {
-    _audioMixMode = audioMixMode;
-    [self.capture audioUnitRecord:(audioMixMode != TTAudioMixerMode_None)];
+    self.audioMixMode = audioMixerMode;
+    [self.capture audioUnitRecord:(audioMixerMode != TTAudioMixerMode_None)];
+    //更新合拍开始时间
+    if (audioMixerMode == TTAudioMixerMode_Joiner) {
+        [_beautyTarget setJoinerStartTime:0];
+    }
+    if (audioMixerMode != TTAudioMixerMode_None) {
+        if (_mediator) {
+            [_mediator setBGM:filePath];
+        }
+    }
 }
-
 /// 调节相机焦距
 - (void)pinchAction:(UIPinchGestureRecognizer *)sender
 {
@@ -423,12 +516,10 @@
                 BOOL isSelected = sender.selected;
                 if (!isSelected) {
                     //开始录制
-                    
+                    [_mediator startRecording];
                     if (_audioMixMode != TTAudioMixerMode_None) {
                         [_capture startAudioUnit];
                     }
-                    [_mediator startRecording];
-                    
                     [_cameraView hideViewsWhenRecording];
                     [_cameraView moreJoinerDisable:YES];
                 } else {
@@ -462,24 +553,41 @@
         case RecordButtonStyle_PhotoCapture:
         {
             sender.selected = NO;
+            [_deepar takeScreenshot];
+
             //获取拍照图像
-            _capturedPhoto = [_mediator snapshot];
+//            _capturedPhoto = [_mediator snapshot];
             
-            if (_capturedPhoto) {
-                //弹出展示视图
-                self.photoCaptureView = [[PhotoCaptureConfirmView alloc] initWithFrame:self.view.bounds];
-                self.photoCaptureView.photoView.image = _capturedPhoto;
-                self.photoCaptureView.photoRatio = 1.0;
-                [self.photoCaptureView.doneButton addTarget:self action:@selector(photoCaptureViewSaveButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-                [self.photoCaptureView.backButton addTarget:self action:@selector(photoCaptureViewCancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-                [self.view addSubview:self.photoCaptureView];
-                [self.photoCaptureView show];
-            }
+//            if (_capturedPhoto) {
+//                //弹出展示视图
+//                self.photoCaptureView = [[PhotoCaptureConfirmView alloc] initWithFrame:self.view.bounds];
+//                self.photoCaptureView.photoView.image = _capturedPhoto;
+//                self.photoCaptureView.photoRatio = 1.0;
+//                [self.photoCaptureView.doneButton addTarget:self action:@selector(photoCaptureViewSaveButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+//                [self.photoCaptureView.backButton addTarget:self action:@selector(photoCaptureViewCancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+//                [self.view addSubview:self.photoCaptureView];
+//                [self.photoCaptureView show];
+//            }
         }
             break;
             
         default:
             break;
+    }
+}
+
+- (void)didTakeScreenshot:(UIImage*)screenshot;
+{
+    _capturedPhoto = screenshot;
+    if (_capturedPhoto) {
+        //弹出展示视图
+        self.photoCaptureView = [[PhotoCaptureConfirmView alloc] initWithFrame:self.view.bounds];
+        self.photoCaptureView.photoView.image = _capturedPhoto;
+        self.photoCaptureView.photoRatio = 1.0;
+        [self.photoCaptureView.doneButton addTarget:self action:@selector(photoCaptureViewSaveButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.photoCaptureView.backButton addTarget:self action:@selector(photoCaptureViewCancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.photoCaptureView];
+        [self.photoCaptureView show];
     }
 }
 
@@ -585,9 +693,11 @@
     
     TTJoinerDirection direction = _cameraView.moreMenuView.currentJoinerDirection;
     
-    [[self.mediator getBeautyManager] updateJoinerDirection:direction];
-    CGRect videoRect = [[self.mediator getBeautyManager] getJoinerVideoRect];
-    [_cameraView refreshJoinerRect:videoRect];
+    if (self.beautyTarget) {
+        [self.beautyTarget updateJoinerDirection:direction];
+        CGRect videoRect = [self.beautyTarget getJoinerVideoRect];
+        [_cameraView refreshJoinerRect:videoRect];
+    }
 }
 
 //是否开启麦克风
@@ -682,7 +792,6 @@
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(PHAsset *)asset
 {
     [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:nil resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
-#warning 视频URL路径为null
         AVURLAsset *urlAsset = (AVURLAsset *)asset;
         NSInteger duration = CMTimeGetSeconds(urlAsset.duration);
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -693,14 +802,18 @@
         });
         //默认左右布局
         TTJoinerDirection joinerDirection = self->_cameraView.moreMenuView.currentJoinerDirection;
-        self.audioMixMode = TTAudioMixerMode_Joiner;
-        //设置合拍
-        [self.mediator setJoiner:joinerDirection videoPath:urlAsset.URL.absoluteString];
         
-        CGRect videoRect = [[self.mediator getBeautyManager] getJoinerVideoRect];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self->_cameraView refreshJoinerRect:videoRect];
-        });
+        //设置合拍
+        if (self.beautyTarget) {
+            [self.beautyTarget setJoiner:joinerDirection videoPath:urlAsset.URL.absoluteString];
+            
+            [self addAudioMixerMode:TTAudioMixerMode_Joiner filePath:urlAsset.URL.absoluteString];
+            
+            CGRect videoRect = [self.beautyTarget getJoinerVideoRect];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self->_cameraView refreshJoinerRect:videoRect];
+            });
+        }
         
     }];
 }

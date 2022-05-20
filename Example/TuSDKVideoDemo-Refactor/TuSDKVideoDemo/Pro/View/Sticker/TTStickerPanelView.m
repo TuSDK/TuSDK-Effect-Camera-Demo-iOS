@@ -363,33 +363,9 @@
             }
             //添加哈哈镜
             TuMonsterData *monsterData = (TuMonsterData *)categoryItem;
-            TuSDKMonsterFaceType faceType = (TuSDKMonsterFaceType)[((NSNumber *)monsterData.item) unsignedIntValue];
-            TTMonsterStyle monsterStyle = TTMonsterStyleEmpty;
-            switch (faceType) {
-                case TuSDKMonsterFaceTypeBigNose:        //大鼻子
-                    monsterStyle = TTMonsterStyleBigNose;
-                    break;
-                case TuSDKMonsterFaceTypePieFace:        //大饼脸
-                    monsterStyle = TTMonsterStylePieFace;
-                    break;
-                case TuSDKMonsterFaceTypeSquareFace:     //国字脸
-                    monsterStyle = TTMonsterStyleSquareFace;
-                    break;
-                case TuSDKMonsterFaceTypeThickLips:      //厚嘴唇
-                    monsterStyle = TTMonsterStyleThickLips;
-                    break;
-                case TuSDKMonsterFaceTypeSmallEyes:      //眯眯眼
-                    monsterStyle = TTMonsterStyleSmallEyes;
-                    break;
-                case TuSDKMonsterFaceTypePapayaFace:     //木瓜脸
-                    monsterStyle = TTMonsterStylePapayaFace;
-                    break;
-                case TuSDKMonsterFaceTypeSnakeFace:      //蛇精脸
-                    monsterStyle = TTMonsterStyleSnakeFace;
-                    break;
-                default:
-                    break;
-            }
+
+            TTMonsterStyle monsterStyle = (TTMonsterStyle)[((NSNumber *)monsterData.item) unsignedIntValue];;
+
             if ([self.beautyTarget respondsToSelector:@selector(setMonsterStyle:)]) {
                 [self.beautyTarget setMonsterStyle:monsterStyle];
             }

@@ -17,12 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TTPipeMediator : NSObject
 TT_INIT_UNAVAILABLE;
-
 /**
  * 初始化预览画面
  * @param containerView 容器视图
  */
-- (instancetype)initWithContainer:(UIView *)containerView NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithContainer:(nullable UIView *)containerView NS_DESIGNATED_INITIALIZER;
 
 // MARK: - Convert
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,16 +51,12 @@ TT_INIT_UNAVAILABLE;
  * @param bufferList 需要赋值音频数据
  */
 - (void)sendAudioPlayBufferList:(AudioBufferList)bufferList;
+
 /**
  * 设置视频像素格式
  * @param pixelFormat yuv bgra
  */
 - (void)setPixelFormat:(TTVideoPixelFormat)pixelFormat;
-
-/**
- * 设置样本输出分辨率(size 归一化)
- */
-- (void)setOutputSize:(CGSize)outputSize;
 
 /**
  * 设置分辨率，默认1080*1920
@@ -162,6 +157,11 @@ TT_INIT_UNAVAILABLE;
  */
 - (void)setMute:(BOOL)isMute;
 
+
+/// 向 SDK 发送采集的视频数据 并返回处理过图像（不包含预览和录制）
+/// @param sampleBuffer 视频数据
+- (CVPixelBufferRef)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+- (void)recordVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 /// 销毁
 - (void)destory;
 

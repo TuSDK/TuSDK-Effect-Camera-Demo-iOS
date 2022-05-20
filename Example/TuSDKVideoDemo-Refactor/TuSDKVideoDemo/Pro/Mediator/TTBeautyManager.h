@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class TUPDispatchQueue;
 @class TUPFPImage;
 @interface TTBeautyManager : NSObject
+@property(nonatomic, assign) BOOL pbout;
+
 TT_INIT_UNAVAILABLE;
 /**
  * 初始化美颜会话

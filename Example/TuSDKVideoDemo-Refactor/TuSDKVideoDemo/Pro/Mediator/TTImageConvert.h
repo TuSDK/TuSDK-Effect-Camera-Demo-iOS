@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置分辨率，默认1080P
 - (void)setOutputResolution:(CGSize)outputResolution;
 
-
+- (TUPFPImage *)flip:(TUPFPImage *)fpImage;
 //对象销毁
 - (void)destory;
 @end

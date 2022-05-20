@@ -17,7 +17,6 @@ static NSInteger const kFilterIndex = 100;
 @property(nonatomic, strong) TUPDispatchQueue *queue;
 /// 编辑
 @property(nonatomic, strong) TUPFilterPipe *pipe;
-@property(nonatomic, assign) BOOL pbout;
 @property(nonatomic, assign) BOOL markSenceEnable;
 @property(nonatomic, strong) TUPFPImage *inFPImage;
 @property(nonatomic, strong) TTEffectFactory *effectFactory;
@@ -49,7 +48,7 @@ static NSInteger const kFilterIndex = 100;
     if (self) {
         _queue = queue;
         _markSenceEnable = NO;
-        _pbout = NO;
+        _pbout = YES;
         [_queue runSync:^{
             self.pipe = [[TUPFilterPipe alloc] init];
             if (self.pbout) {
@@ -371,6 +370,7 @@ static NSInteger const kFilterIndex = 100;
     self.plasticBuilder.philterumThickness = level;
     [self updateEffect:TTEffectTypePlastic];
 }
+
 
 /// 设置细眉级别
 - (void)setBrowThicknessLevel:(float)level {

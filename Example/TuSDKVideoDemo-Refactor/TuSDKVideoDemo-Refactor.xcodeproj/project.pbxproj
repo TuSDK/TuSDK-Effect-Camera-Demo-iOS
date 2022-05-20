@@ -3,16 +3,44 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2A3CF3E127708BCE00CB80EB /* TTPreviewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3CF3E027708BCE00CB80EB /* TTPreviewManager.m */; };
 		2A3CF3E42772CB3D00CB80EB /* TTEffectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3CF3E32772CB3D00CB80EB /* TTEffectFactory.m */; };
+		2A3CF3EA27741D7600CB80EB /* test.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 2A3CF3E927741D7600CB80EB /* test.MP4 */; };
 		2A6024E627799A02008DDF18 /* TTPipeMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6024E527799A02008DDF18 /* TTPipeMediator.m */; };
 		2A6024E927799A10008DDF18 /* TTImageConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6024E827799A10008DDF18 /* TTImageConvert.m */; };
 		2A6024EC27799A1F008DDF18 /* TTAudioConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6024EB27799A1F008DDF18 /* TTAudioConvert.m */; };
 		2A6D37E42786C35D0013ED83 /* TTRenderDef.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D37E32786C35D0013ED83 /* TTRenderDef.m */; };
+		2A9B1A6F27D88A5B00A4BB6A /* twistedFace in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5427D88A5B00A4BB6A /* twistedFace */; };
+		2A9B1A7027D88A5B00A4BB6A /* sleepingmask in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5527D88A5B00A4BB6A /* sleepingmask */; };
+		2A9B1A7127D88A5B00A4BB6A /* dalmatian in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5627D88A5B00A4BB6A /* dalmatian */; };
+		2A9B1A7227D88A5B00A4BB6A /* rain in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5727D88A5B00A4BB6A /* rain */; };
+		2A9B1A7327D88A5B00A4BB6A /* drawingmanga in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5827D88A5B00A4BB6A /* drawingmanga */; };
+		2A9B1A7427D88A5B00A4BB6A /* grumpycat in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5927D88A5B00A4BB6A /* grumpycat */; };
+		2A9B1A7527D88A5B00A4BB6A /* tv80 in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5A27D88A5B00A4BB6A /* tv80 */; };
+		2A9B1A7627D88A5B00A4BB6A /* heart in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5B27D88A5B00A4BB6A /* heart */; };
+		2A9B1A7727D88A5B00A4BB6A /* bleachbypass in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5C27D88A5B00A4BB6A /* bleachbypass */; };
+		2A9B1A7827D88A5B00A4BB6A /* flowers in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5D27D88A5B00A4BB6A /* flowers */; };
+		2A9B1A7927D88A5B00A4BB6A /* pug in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5E27D88A5B00A4BB6A /* pug */; };
+		2A9B1A7A27D88A5B00A4BB6A /* blizzard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A5F27D88A5B00A4BB6A /* blizzard */; };
+		2A9B1A7B27D88A5B00A4BB6A /* realvhs in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6027D88A5B00A4BB6A /* realvhs */; };
+		2A9B1A7C27D88A5B00A4BB6A /* fatify in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6127D88A5B00A4BB6A /* fatify */; };
+		2A9B1A7D27D88A5B00A4BB6A /* Helmet_PBR_V1 in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6227D88A5B00A4BB6A /* Helmet_PBR_V1 */; };
+		2A9B1A7E27D88A5B00A4BB6A /* tripleface in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6327D88A5B00A4BB6A /* tripleface */; };
+		2A9B1A7F27D88A5B00A4BB6A /* sepia in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6427D88A5B00A4BB6A /* sepia */; };
+		2A9B1A8027D88A5B00A4BB6A /* slash in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6527D88A5B00A4BB6A /* slash */; };
+		2A9B1A8127D88A5B00A4BB6A /* teddycigar in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6627D88A5B00A4BB6A /* teddycigar */; };
+		2A9B1A8227D88A5B00A4BB6A /* smallface in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6727D88A5B00A4BB6A /* smallface */; };
+		2A9B1A8327D88A5B00A4BB6A /* fire in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6827D88A5B00A4BB6A /* fire */; };
+		2A9B1A8427D88A5B00A4BB6A /* mudMask in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6927D88A5B00A4BB6A /* mudMask */; };
+		2A9B1A8527D88A5B00A4BB6A /* aviators in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6A27D88A5B00A4BB6A /* aviators */; };
+		2A9B1A8627D88A5B00A4BB6A /* filmcolorperfection in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6B27D88A5B00A4BB6A /* filmcolorperfection */; };
+		2A9B1A8727D88A5B00A4BB6A /* koala in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6C27D88A5B00A4BB6A /* koala */; };
+		2A9B1A8827D88A5B00A4BB6A /* bigmouth in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6D27D88A5B00A4BB6A /* bigmouth */; };
+		2A9B1A8927D88A5B00A4BB6A /* lion in Resources */ = {isa = PBXBuildFile; fileRef = 2A9B1A6E27D88A5B00A4BB6A /* lion */; };
 		2AC8214E267C43C500FC62D0 /* MusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8214D267C43C500FC62D0 /* MusicItem.m */; };
 		2AC82151267C7BF000FC62D0 /* TTAudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC82150267C7BF000FC62D0 /* TTAudioQueuePlayer.m */; };
 		2AEA9C0326787F1000865D07 /* lovely_piano_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AEA9C0226787F1000865D07 /* lovely_piano_song.mp3 */; };
@@ -27,16 +55,16 @@
 		746417BBABA53F2AC7E13C99 /* libPods-TuSDKVideoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FED514CC9176D7C053C08886 /* libPods-TuSDKVideoDemo.a */; };
 		7C9B775D25ECCBA4003D39AD /* TuVideoFocusRangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B775A25ECCBA4003D39AD /* TuVideoFocusRangeView.m */; };
 		7C9B775E25ECCBA4003D39AD /* TuVideoFocusTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B775B25ECCBA4003D39AD /* TuVideoFocusTouchView.m */; };
-		A68EACA427D20C37007E3E4D /* TuCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9B27D20BE1007E3E4D /* TuCamera.framework */; platformFilter = ios; };
-		A68EACA527D20C37007E3E4D /* TuCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9B27D20BE1007E3E4D /* TuCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A68EACA627D20C37007E3E4D /* TuSDKPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9D27D20BE1007E3E4D /* TuSDKPulse.framework */; platformFilter = ios; };
-		A68EACA727D20C37007E3E4D /* TuSDKPulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9D27D20BE1007E3E4D /* TuSDKPulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A68EACA827D20C37007E3E4D /* TuSDKPulseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9E27D20BE1007E3E4D /* TuSDKPulseCore.framework */; platformFilter = ios; };
-		A68EACA927D20C37007E3E4D /* TuSDKPulseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9E27D20BE1007E3E4D /* TuSDKPulseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A68EACAA27D20C37007E3E4D /* TuSDKPulseFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9C27D20BE1007E3E4D /* TuSDKPulseFilter.framework */; platformFilter = ios; };
-		A68EACAB27D20C37007E3E4D /* TuSDKPulseFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9C27D20BE1007E3E4D /* TuSDKPulseFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A68EACAC27D20C37007E3E4D /* TuViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9A27D20BE1007E3E4D /* TuViews.framework */; platformFilter = ios; };
-		A68EACAD27D20C37007E3E4D /* TuViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A68EAC9A27D20BE1007E3E4D /* TuViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6441C2E2837A553009C6ADB /* TuViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C242837A51F009C6ADB /* TuViews.framework */; };
+		A6441C2F2837A553009C6ADB /* TuViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C242837A51F009C6ADB /* TuViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6441C302837A553009C6ADB /* TuCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C252837A51F009C6ADB /* TuCamera.framework */; };
+		A6441C312837A553009C6ADB /* TuCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C252837A51F009C6ADB /* TuCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6441C322837A553009C6ADB /* TuSDKPulseFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C262837A51F009C6ADB /* TuSDKPulseFilter.framework */; };
+		A6441C332837A553009C6ADB /* TuSDKPulseFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C262837A51F009C6ADB /* TuSDKPulseFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6441C342837A553009C6ADB /* TuSDKPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C272837A51F009C6ADB /* TuSDKPulse.framework */; };
+		A6441C352837A553009C6ADB /* TuSDKPulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C272837A51F009C6ADB /* TuSDKPulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6441C362837A553009C6ADB /* TuSDKPulseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C282837A51F009C6ADB /* TuSDKPulseCore.framework */; };
+		A6441C372837A553009C6ADB /* TuSDKPulseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6441C282837A51F009C6ADB /* TuSDKPulseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A694B7A526146883006FB99C /* CameraHomepage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A694B7A426146883006FB99C /* CameraHomepage.jpg */; };
 		A6A1E9E32791121800D70EF4 /* TTFacePlasticPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A1E9E22791121800D70EF4 /* TTFacePlasticPanelViewCell.m */; };
 		A6A1E9E62791154E00D70EF4 /* TTFacePlasticModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A1E9E52791154E00D70EF4 /* TTFacePlasticModel.m */; };
@@ -46,6 +74,8 @@
 		A6A597D8278594B800954ABF /* TTFilterPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597D7278594B800954ABF /* TTFilterPanelView.m */; };
 		A6A597DB2785A7D600954ABF /* TTFilterPanelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597DA2785A7D600954ABF /* TTFilterPanelViewCell.m */; };
 		A6A597DE2786922A00954ABF /* TTBeautyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A597DD2786922A00954ABF /* TTBeautyItem.m */; };
+		A6C4A08B283796D2007F912E /* DeepAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C4A08928379617007F912E /* DeepAR.framework */; };
+		A6C4A08C283796D2007F912E /* DeepAR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6C4A08928379617007F912E /* DeepAR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6C82DD527C7253F00A66F98 /* TTStickerPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DD427C7253F00A66F98 /* TTStickerPanelView.m */; };
 		A6C82DD827C7732000A66F98 /* TTFaceSkinPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DD727C7732000A66F98 /* TTFaceSkinPanelView.m */; };
 		A6C82DDB27C7744600A66F98 /* TTFaceSkinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C82DDA27C7744600A66F98 /* TTFaceSkinModel.m */; };
@@ -518,17 +548,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A68EACAE27D20C37007E3E4D /* Embed Frameworks */ = {
+		7C8621B725C2F4EF009A234C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A68EACAB27D20C37007E3E4D /* TuSDKPulseFilter.framework in Embed Frameworks */,
-				A68EACA727D20C37007E3E4D /* TuSDKPulse.framework in Embed Frameworks */,
-				A68EACA527D20C37007E3E4D /* TuCamera.framework in Embed Frameworks */,
-				A68EACAD27D20C37007E3E4D /* TuViews.framework in Embed Frameworks */,
-				A68EACA927D20C37007E3E4D /* TuSDKPulseCore.framework in Embed Frameworks */,
+				A6441C332837A553009C6ADB /* TuSDKPulseFilter.framework in Embed Frameworks */,
+				A6441C352837A553009C6ADB /* TuSDKPulse.framework in Embed Frameworks */,
+				A6441C2F2837A553009C6ADB /* TuViews.framework in Embed Frameworks */,
+				A6441C312837A553009C6ADB /* TuCamera.framework in Embed Frameworks */,
+				A6C4A08C283796D2007F912E /* DeepAR.framework in Embed Frameworks */,
+				A6441C372837A553009C6ADB /* TuSDKPulseCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +572,7 @@
 		2A3CF3E027708BCE00CB80EB /* TTPreviewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPreviewManager.m; sourceTree = "<group>"; };
 		2A3CF3E22772CB3D00CB80EB /* TTEffectFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTEffectFactory.h; sourceTree = "<group>"; };
 		2A3CF3E32772CB3D00CB80EB /* TTEffectFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTEffectFactory.m; sourceTree = "<group>"; };
+		2A3CF3E927741D7600CB80EB /* test.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.MP4; sourceTree = "<group>"; };
 		2A6024E427799A02008DDF18 /* TTPipeMediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTPipeMediator.h; sourceTree = "<group>"; };
 		2A6024E527799A02008DDF18 /* TTPipeMediator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPipeMediator.m; sourceTree = "<group>"; };
 		2A6024E727799A10008DDF18 /* TTImageConvert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTImageConvert.h; sourceTree = "<group>"; };
@@ -549,6 +581,33 @@
 		2A6024EB27799A1F008DDF18 /* TTAudioConvert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAudioConvert.m; sourceTree = "<group>"; };
 		2A6D37E22786C35D0013ED83 /* TTRenderDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTRenderDef.h; sourceTree = "<group>"; };
 		2A6D37E32786C35D0013ED83 /* TTRenderDef.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTRenderDef.m; sourceTree = "<group>"; };
+		2A9B1A5427D88A5B00A4BB6A /* twistedFace */ = {isa = PBXFileReference; lastKnownFileType = file; path = twistedFace; sourceTree = "<group>"; };
+		2A9B1A5527D88A5B00A4BB6A /* sleepingmask */ = {isa = PBXFileReference; lastKnownFileType = file; path = sleepingmask; sourceTree = "<group>"; };
+		2A9B1A5627D88A5B00A4BB6A /* dalmatian */ = {isa = PBXFileReference; lastKnownFileType = file; path = dalmatian; sourceTree = "<group>"; };
+		2A9B1A5727D88A5B00A4BB6A /* rain */ = {isa = PBXFileReference; lastKnownFileType = file; path = rain; sourceTree = "<group>"; };
+		2A9B1A5827D88A5B00A4BB6A /* drawingmanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = drawingmanga; sourceTree = "<group>"; };
+		2A9B1A5927D88A5B00A4BB6A /* grumpycat */ = {isa = PBXFileReference; lastKnownFileType = file; path = grumpycat; sourceTree = "<group>"; };
+		2A9B1A5A27D88A5B00A4BB6A /* tv80 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tv80; sourceTree = "<group>"; };
+		2A9B1A5B27D88A5B00A4BB6A /* heart */ = {isa = PBXFileReference; lastKnownFileType = file; path = heart; sourceTree = "<group>"; };
+		2A9B1A5C27D88A5B00A4BB6A /* bleachbypass */ = {isa = PBXFileReference; lastKnownFileType = file; path = bleachbypass; sourceTree = "<group>"; };
+		2A9B1A5D27D88A5B00A4BB6A /* flowers */ = {isa = PBXFileReference; lastKnownFileType = file; path = flowers; sourceTree = "<group>"; };
+		2A9B1A5E27D88A5B00A4BB6A /* pug */ = {isa = PBXFileReference; lastKnownFileType = file; path = pug; sourceTree = "<group>"; };
+		2A9B1A5F27D88A5B00A4BB6A /* blizzard */ = {isa = PBXFileReference; lastKnownFileType = file; path = blizzard; sourceTree = "<group>"; };
+		2A9B1A6027D88A5B00A4BB6A /* realvhs */ = {isa = PBXFileReference; lastKnownFileType = file; path = realvhs; sourceTree = "<group>"; };
+		2A9B1A6127D88A5B00A4BB6A /* fatify */ = {isa = PBXFileReference; lastKnownFileType = file; path = fatify; sourceTree = "<group>"; };
+		2A9B1A6227D88A5B00A4BB6A /* Helmet_PBR_V1 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Helmet_PBR_V1; sourceTree = "<group>"; };
+		2A9B1A6327D88A5B00A4BB6A /* tripleface */ = {isa = PBXFileReference; lastKnownFileType = file; path = tripleface; sourceTree = "<group>"; };
+		2A9B1A6427D88A5B00A4BB6A /* sepia */ = {isa = PBXFileReference; lastKnownFileType = file; path = sepia; sourceTree = "<group>"; };
+		2A9B1A6527D88A5B00A4BB6A /* slash */ = {isa = PBXFileReference; lastKnownFileType = file; path = slash; sourceTree = "<group>"; };
+		2A9B1A6627D88A5B00A4BB6A /* teddycigar */ = {isa = PBXFileReference; lastKnownFileType = file; path = teddycigar; sourceTree = "<group>"; };
+		2A9B1A6727D88A5B00A4BB6A /* smallface */ = {isa = PBXFileReference; lastKnownFileType = file; path = smallface; sourceTree = "<group>"; };
+		2A9B1A6827D88A5B00A4BB6A /* fire */ = {isa = PBXFileReference; lastKnownFileType = file; path = fire; sourceTree = "<group>"; };
+		2A9B1A6927D88A5B00A4BB6A /* mudMask */ = {isa = PBXFileReference; lastKnownFileType = file; path = mudMask; sourceTree = "<group>"; };
+		2A9B1A6A27D88A5B00A4BB6A /* aviators */ = {isa = PBXFileReference; lastKnownFileType = file; path = aviators; sourceTree = "<group>"; };
+		2A9B1A6B27D88A5B00A4BB6A /* filmcolorperfection */ = {isa = PBXFileReference; lastKnownFileType = file; path = filmcolorperfection; sourceTree = "<group>"; };
+		2A9B1A6C27D88A5B00A4BB6A /* koala */ = {isa = PBXFileReference; lastKnownFileType = file; path = koala; sourceTree = "<group>"; };
+		2A9B1A6D27D88A5B00A4BB6A /* bigmouth */ = {isa = PBXFileReference; lastKnownFileType = file; path = bigmouth; sourceTree = "<group>"; };
+		2A9B1A6E27D88A5B00A4BB6A /* lion */ = {isa = PBXFileReference; lastKnownFileType = file; path = lion; sourceTree = "<group>"; };
 		2AA75CE9262E6CBA005469C8 /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AC82145267B26BE00FC62D0 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		2AC82147267B34FD00FC62D0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -580,11 +639,11 @@
 		7C9B775A25ECCBA4003D39AD /* TuVideoFocusRangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuVideoFocusRangeView.m; sourceTree = "<group>"; };
 		7C9B775B25ECCBA4003D39AD /* TuVideoFocusTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuVideoFocusTouchView.m; sourceTree = "<group>"; };
 		7C9B775C25ECCBA4003D39AD /* TuVideoFocusRangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuVideoFocusRangeView.h; sourceTree = "<group>"; };
-		A68EAC9A27D20BE1007E3E4D /* TuViews.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuViews.framework; sourceTree = "<group>"; };
-		A68EAC9B27D20BE1007E3E4D /* TuCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuCamera.framework; sourceTree = "<group>"; };
-		A68EAC9C27D20BE1007E3E4D /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = "<group>"; };
-		A68EAC9D27D20BE1007E3E4D /* TuSDKPulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = "<group>"; };
-		A68EAC9E27D20BE1007E3E4D /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = "<group>"; };
+		A6441C242837A51F009C6ADB /* TuViews.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuViews.framework; sourceTree = "<group>"; };
+		A6441C252837A51F009C6ADB /* TuCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuCamera.framework; sourceTree = "<group>"; };
+		A6441C262837A51F009C6ADB /* TuSDKPulseFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseFilter.framework; sourceTree = "<group>"; };
+		A6441C272837A51F009C6ADB /* TuSDKPulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulse.framework; sourceTree = "<group>"; };
+		A6441C282837A51F009C6ADB /* TuSDKPulseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKPulseCore.framework; sourceTree = "<group>"; };
 		A694B7A426146883006FB99C /* CameraHomepage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CameraHomepage.jpg; sourceTree = "<group>"; };
 		A6A1E9E12791121800D70EF4 /* TTFacePlasticPanelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFacePlasticPanelViewCell.h; sourceTree = "<group>"; };
 		A6A1E9E22791121800D70EF4 /* TTFacePlasticPanelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFacePlasticPanelViewCell.m; sourceTree = "<group>"; };
@@ -602,6 +661,7 @@
 		A6A597DA2785A7D600954ABF /* TTFilterPanelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTFilterPanelViewCell.m; sourceTree = "<group>"; };
 		A6A597DC2786922A00954ABF /* TTBeautyItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTBeautyItem.h; sourceTree = "<group>"; };
 		A6A597DD2786922A00954ABF /* TTBeautyItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTBeautyItem.m; sourceTree = "<group>"; };
+		A6C4A08928379617007F912E /* DeepAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DeepAR.framework; sourceTree = "<group>"; };
 		A6C82DD327C7253F00A66F98 /* TTStickerPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTStickerPanelView.h; sourceTree = "<group>"; };
 		A6C82DD427C7253F00A66F98 /* TTStickerPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTStickerPanelView.m; sourceTree = "<group>"; };
 		A6C82DD627C7732000A66F98 /* TTFaceSkinPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTFaceSkinPanelView.h; sourceTree = "<group>"; };
@@ -1127,17 +1187,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A68EACA427D20C37007E3E4D /* TuCamera.framework in Frameworks */,
-				A68EACA827D20C37007E3E4D /* TuSDKPulseCore.framework in Frameworks */,
+				A6441C302837A553009C6ADB /* TuCamera.framework in Frameworks */,
+				A6C4A08B283796D2007F912E /* DeepAR.framework in Frameworks */,
 				B8B787472559321E00B82F76 /* libresolv.tbd in Frameworks */,
+				A6441C2E2837A553009C6ADB /* TuViews.framework in Frameworks */,
+				A6441C342837A553009C6ADB /* TuSDKPulse.framework in Frameworks */,
 				FBC6F51020D3CE6400F2FBB7 /* Accelerate.framework in Frameworks */,
 				FBC6F50E20D3CE5D00F2FBB7 /* Security.framework in Frameworks */,
+				A6441C362837A553009C6ADB /* TuSDKPulseCore.framework in Frameworks */,
 				FBC6F50C20D3CE5600F2FBB7 /* SystemConfiguration.framework in Frameworks */,
 				FBF3A8C020D3CD24008466D0 /* Bugly.framework in Frameworks */,
+				A6441C322837A553009C6ADB /* TuSDKPulseFilter.framework in Frameworks */,
 				B85C249023CEFB3500C9BD96 /* AudioToolbox.framework in Frameworks */,
-				A68EACAC27D20C37007E3E4D /* TuViews.framework in Frameworks */,
-				A68EACAA27D20C37007E3E4D /* TuSDKPulseFilter.framework in Frameworks */,
-				A68EACA627D20C37007E3E4D /* TuSDKPulse.framework in Frameworks */,
 				746417BBABA53F2AC7E13C99 /* libPods-TuSDKVideoDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1154,6 +1215,49 @@
 				2A3CF3E32772CB3D00CB80EB /* TTEffectFactory.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		2A9B1A5227D88A4A00A4BB6A /* DeepAR */ = {
+			isa = PBXGroup;
+			children = (
+				A6C4A08928379617007F912E /* DeepAR.framework */,
+				2A9B1A5327D88A5B00A4BB6A /* Effects */,
+			);
+			path = DeepAR;
+			sourceTree = "<group>";
+		};
+		2A9B1A5327D88A5B00A4BB6A /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				2A9B1A6A27D88A5B00A4BB6A /* aviators */,
+				2A9B1A6D27D88A5B00A4BB6A /* bigmouth */,
+				2A9B1A5C27D88A5B00A4BB6A /* bleachbypass */,
+				2A9B1A5F27D88A5B00A4BB6A /* blizzard */,
+				2A9B1A5627D88A5B00A4BB6A /* dalmatian */,
+				2A9B1A5827D88A5B00A4BB6A /* drawingmanga */,
+				2A9B1A6127D88A5B00A4BB6A /* fatify */,
+				2A9B1A6B27D88A5B00A4BB6A /* filmcolorperfection */,
+				2A9B1A6827D88A5B00A4BB6A /* fire */,
+				2A9B1A5D27D88A5B00A4BB6A /* flowers */,
+				2A9B1A5927D88A5B00A4BB6A /* grumpycat */,
+				2A9B1A5B27D88A5B00A4BB6A /* heart */,
+				2A9B1A6227D88A5B00A4BB6A /* Helmet_PBR_V1 */,
+				2A9B1A6C27D88A5B00A4BB6A /* koala */,
+				2A9B1A6E27D88A5B00A4BB6A /* lion */,
+				2A9B1A6927D88A5B00A4BB6A /* mudMask */,
+				2A9B1A5E27D88A5B00A4BB6A /* pug */,
+				2A9B1A5727D88A5B00A4BB6A /* rain */,
+				2A9B1A6027D88A5B00A4BB6A /* realvhs */,
+				2A9B1A6427D88A5B00A4BB6A /* sepia */,
+				2A9B1A6527D88A5B00A4BB6A /* slash */,
+				2A9B1A5527D88A5B00A4BB6A /* sleepingmask */,
+				2A9B1A6727D88A5B00A4BB6A /* smallface */,
+				2A9B1A6627D88A5B00A4BB6A /* teddycigar */,
+				2A9B1A6327D88A5B00A4BB6A /* tripleface */,
+				2A9B1A5A27D88A5B00A4BB6A /* tv80 */,
+				2A9B1A5427D88A5B00A4BB6A /* twistedFace */,
+			);
+			path = Effects;
 			sourceTree = "<group>";
 		};
 		2AEFCEC226705B6A00E629A7 /* Music */ = {
@@ -1250,14 +1354,14 @@
 			path = FocusView;
 			sourceTree = "<group>";
 		};
-		A68EAC9927D20BE1007E3E4D /* TuSDK */ = {
+		A6441C232837A51F009C6ADB /* TuSDK */ = {
 			isa = PBXGroup;
 			children = (
-				A68EAC9A27D20BE1007E3E4D /* TuViews.framework */,
-				A68EAC9B27D20BE1007E3E4D /* TuCamera.framework */,
-				A68EAC9C27D20BE1007E3E4D /* TuSDKPulseFilter.framework */,
-				A68EAC9D27D20BE1007E3E4D /* TuSDKPulse.framework */,
-				A68EAC9E27D20BE1007E3E4D /* TuSDKPulseCore.framework */,
+				A6441C242837A51F009C6ADB /* TuViews.framework */,
+				A6441C252837A51F009C6ADB /* TuCamera.framework */,
+				A6441C262837A51F009C6ADB /* TuSDKPulseFilter.framework */,
+				A6441C272837A51F009C6ADB /* TuSDKPulse.framework */,
+				A6441C282837A51F009C6ADB /* TuSDKPulseCore.framework */,
 			);
 			path = TuSDK;
 			sourceTree = "<group>";
@@ -1921,6 +2025,7 @@
 				FB6EBACD20D399E200FA24F2 /* Info.plist */,
 				FB6EBACE20D399E200FA24F2 /* main.m */,
 				FBC6F51B20D3CF7B00F2FBB7 /* TuSDKFramework.h */,
+				2A3CF3E927741D7600CB80EB /* test.MP4 */,
 				FBF3A89B20D3CCC0008466D0 /* Resources */,
 				FB6EBAE420D39AE900FA24F2 /* Classes */,
 				2AF609BD2766FB1A00ECD502 /* Pro */,
@@ -2004,7 +2109,8 @@
 		FBF3A89B20D3CCC0008466D0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A68EAC9927D20BE1007E3E4D /* TuSDK */,
+				A6441C232837A51F009C6ADB /* TuSDK */,
+				2A9B1A5227D88A4A00A4BB6A /* DeepAR */,
 				2AEFCEC6267067A000E629A7 /* city_sunshine.mp3 */,
 				2AEFCEC82671B2EB00E629A7 /* eye_of_forgiveness.mp3 */,
 				2AEA9C0226787F1000865D07 /* lovely_piano_song.mp3 */,
@@ -2053,9 +2159,9 @@
 				FB6EBAB820D399E000FA24F2 /* Sources */,
 				FB6EBAB920D399E000FA24F2 /* Frameworks */,
 				FB6EBABA20D399E000FA24F2 /* Resources */,
+				7C8621B725C2F4EF009A234C /* Embed Frameworks */,
 				2A152F6826350AFE0013C9BB /* ShellScript */,
 				1A217053036A1519DD808995 /* [CP] Copy Pods Resources */,
-				A68EACAE27D20C37007E3E4D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2118,8 +2224,10 @@
 				B8B2BDB725417BEF0017611E /* 弯线灰b.jpg in Resources */,
 				B8B2BDDC25417BEF0017611E /* 断眉黑b.jpg in Resources */,
 				B8852D1F25C1F342007D4896 /* home_filter_ic@3x.png in Resources */,
+				2A9B1A8927D88A5B00A4BB6A /* lion in Resources */,
 				B8B2BCE12540B8B60017611E /* eyelash_E.jpg in Resources */,
 				B8B2BDC925417BEF0017611E /* 欧线灰b.jpg in Resources */,
+				2A9B1A7C27D88A5B00A4BB6A /* fatify in Resources */,
 				B8B2BD8425417BD80017611E /* 标准灰a.jpg in Resources */,
 				B8B2BCE52540B8B60017611E /* eyelash_L.jpg in Resources */,
 				B8B2BDC025417BEF0017611E /* 野生棕b.jpg in Resources */,
@@ -2161,6 +2269,8 @@
 				B8988CB4258C9A3D00F276FE /* plastic_whitenTeeth@2x.png in Resources */,
 				B86AA217255335A600428B72 /* Shadow_U.jpg in Resources */,
 				B8B2BDCE25417BEF0017611E /* 粗平黑b.jpg in Resources */,
+				2A9B1A8727D88A5B00A4BB6A /* koala in Resources */,
+				2A9B1A7E27D88A5B00A4BB6A /* tripleface in Resources */,
 				B8831D1A257A13940032E2AE /* plastic_philterum@3x.png in Resources */,
 				B8852D2025C1F342007D4896 /* home_filter_ic@2x.png in Resources */,
 				B8A72AF824C92A6C00CD5183 /* lsq_filter_thumb_Portrait_Rosy_1.jpg in Resources */,
@@ -2175,6 +2285,8 @@
 				B8A72B1324C92A6C00CD5183 /* lsq_filter_thumb_Portrait_Clear_1.jpg in Resources */,
 				F820851421FAA7D900D398E8 /* face_monster_ic_thicklips@3x.png in Resources */,
 				B8988CA0258C9A2100F276FE /* plastic_removeWrinkles_sel@2x.png in Resources */,
+				2A9B1A8827D88A5B00A4BB6A /* bigmouth in Resources */,
+				2A9B1A7127D88A5B00A4BB6A /* dalmatian in Resources */,
 				B8852DA725C261A9007D4896 /* sticker_delete_ic@3x.png in Resources */,
 				B8B2BDD325417BEF0017611E /* 圆眉黑b.jpg in Resources */,
 				B8A72B4124C92B4F00CD5183 /* lsq_filter_thumb_Food_Caramel_1.jpg in Resources */,
@@ -2189,6 +2301,7 @@
 				B8210F9B253FE78D00E17525 /* line_M.jpg in Resources */,
 				B8210F9C253FE78D00E17525 /* line_I.jpg in Resources */,
 				FBA2755721AFD75D00D1B170 /* lsq_filter_thumb_Monochrome_Video.jpg in Resources */,
+				2A9B1A6F27D88A5B00A4BB6A /* twistedFace in Resources */,
 				B8B2BDBC25417BEF0017611E /* 新月棕b.jpg in Resources */,
 				B8B2BDD425417BEF0017611E /* 小桃灰b.jpg in Resources */,
 				B8B2BDBA25417BEF0017611E /* 小桃黑b.jpg in Resources */,
@@ -2206,6 +2319,7 @@
 				B8831D51257A13940032E2AE /* plastic_eyeAngle@2x.png in Resources */,
 				B8C7F38825405C08001B8849 /* blush_H_01.jpg in Resources */,
 				FBF3A8BC20D3CD24008466D0 /* TuSDKPulse.bundle in Resources */,
+				2A9B1A7627D88A5B00A4BB6A /* heart in Resources */,
 				B8A72AFA24C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Silent_1.jpg in Resources */,
 				B8BF04B525FFFC420019980E /* sticker_ic_update@2x.png in Resources */,
 				FB85C65C219A66CC00D23716 /* LaunchScreen.storyboard in Resources */,
@@ -2221,6 +2335,7 @@
 				B8DDE8472591911C00A5701D /* face_g.jpg in Resources */,
 				B8831D60257A13940032E2AE /* plastic_eyeDis_sel@3x.png in Resources */,
 				B8831D4E257A13940032E2AE /* plastic_eyeDis@2x.png in Resources */,
+				2A9B1A8327D88A5B00A4BB6A /* fire in Resources */,
 				B8DDE84B2591911C00A5701D /* face_a.jpg in Resources */,
 				B8B2BDC425417BEF0017611E /* 峰眉黑b.jpg in Resources */,
 				B8988C94258C9A1600F276FE /* plastic_eyelid_sel@2x.png in Resources */,
@@ -2256,12 +2371,14 @@
 				B8831D39257A13940032E2AE /* plastic_cheekNarrow_sel@3x.png in Resources */,
 				B8BD5BDD257F6DA400F83259 /* plastic_eyeHeight_sel@2x.png in Resources */,
 				B8A72B1424C92A6C00CD5183 /* lsq_filter_thumb_Portrait_Pale_1.jpg in Resources */,
+				2A9B1A7A27D88A5B00A4BB6A /* blizzard in Resources */,
 				B8B2BD1E25415CD70017611E /* lipStick_1.jpg in Resources */,
 				B8B2BDDA25417BEF0017611E /* 叶细黑b.jpg in Resources */,
 				B8831D3C257A13940032E2AE /* plastic_eyeInnerConer@2x.png in Resources */,
 				B8831D5A257A13940032E2AE /* plastic_mouthWidth@2x.png in Resources */,
 				B8B2BD6425417BD80017611E /* 芭比灰a.jpg in Resources */,
 				B8831D17257A13940032E2AE /* plastic_archEyebrow@2x.png in Resources */,
+				2A9B1A8227D88A5B00A4BB6A /* smallface in Resources */,
 				B8BF04B825FFFE550019980E /* sticker_ic_download@3x.png in Resources */,
 				B8831D31257A13940032E2AE /* plastic_noseSize_sel@2x.png in Resources */,
 				B8B2BD8825417BD80017611E /* 断眉灰a.jpg in Resources */,
@@ -2304,6 +2421,7 @@
 				B8A72B2824C92A6C00CD5183 /* lsq_filter_thumb_Portrait_Milk_1.jpg in Resources */,
 				B8852D1E25C1F342007D4896 /* home_voice_ic@3x.png in Resources */,
 				B8831D38257A13940032E2AE /* plastic_jawSize_sel@2x.png in Resources */,
+				2A9B1A7727D88A5B00A4BB6A /* bleachbypass in Resources */,
 				B8B2BCDC2540B8B60017611E /* eyelash_B.jpg in Resources */,
 				B8B2BD8625417BD80017611E /* 叶细黑a.jpg in Resources */,
 				B8831D18257A13940032E2AE /* plastic_forehead_sel@2x.png in Resources */,
@@ -2313,15 +2431,18 @@
 				B86AA222255335A600428B72 /* Shadow_S.jpg in Resources */,
 				B8A72B0524C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Sunrise_1.jpg in Resources */,
 				B8C7F38F25405C08001B8849 /* blush_O_01.jpg in Resources */,
+				2A9B1A7927D88A5B00A4BB6A /* pug in Resources */,
 				B8831D2C257A13940032E2AE /* plastic_eyeOuterConer@3x.png in Resources */,
 				B8988C8F258C9A1600F276FE /* plastic_eyelid@2x.png in Resources */,
 				B8A72AFC24C92A6C00CD5183 /* lsq_filter_thumb_Portrait_Cherry_1.jpg in Resources */,
 				B8A72B1224C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Innocence_1.jpg in Resources */,
 				B8B2BDD525417BEF0017611E /* 延禧棕b.jpg in Resources */,
 				B8B2BCDA2540B8B60017611E /* eyelash_D.jpg in Resources */,
+				2A9B1A7227D88A5B00A4BB6A /* rain in Resources */,
 				B8852DA425C261A9007D4896 /* sticker_delete_ic@2x.png in Resources */,
 				B8A72B1C24C92A6C00CD5183 /* lsq_filter_thumb_Sharp_History_1.jpg in Resources */,
 				B8B2BD6E25417BD80017611E /* 柳弯灰a.jpg in Resources */,
+				2A9B1A7F27D88A5B00A4BB6A /* sepia in Resources */,
 				B8A72B2524C92A6C00CD5183 /* lsq_filter_thumb_Portrait_Natural_1.jpg in Resources */,
 				B8988CA5258C9A2100F276FE /* plastic_removePouch_sel@2x.png in Resources */,
 				B8B2BD6A25417BD80017611E /* 叶细灰a.jpg in Resources */,
@@ -2330,6 +2451,7 @@
 				B8831D4D257A13940032E2AE /* plastic_lips_sel@2x.png in Resources */,
 				B8A72B1D24C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Neon_1.jpg in Resources */,
 				B8852DA525C261A9007D4896 /* sticker_download_ic@2x.png in Resources */,
+				2A9B1A7527D88A5B00A4BB6A /* tv80 in Resources */,
 				B8988C93258C9A1600F276FE /* plastic_eyemazing_sel@3x.png in Resources */,
 				B8988CAB258C9A3300F276FE /* plastic_eyeDetail@2x.png in Resources */,
 				B8B2BCEB2540B8B60017611E /* eyelash_S.jpg in Resources */,
@@ -2347,6 +2469,7 @@
 				B8831D58257A13940032E2AE /* plastic_philterum_sel@3x.png in Resources */,
 				B8831D53257A13940032E2AE /* plastic_lips@2x.png in Resources */,
 				FB88F04521992E1500BE021F /* VideoDemo.strings in Resources */,
+				2A9B1A8427D88A5B00A4BB6A /* mudMask in Resources */,
 				B8A72B3E24C92B4F00CD5183 /* lsq_filter_thumb_Food_Mangosteen_1.jpg in Resources */,
 				B86AA22B255335A600428B72 /* Shadow_C.jpg in Resources */,
 				B8831D45257A13940032E2AE /* plastic_mouthWidth@3x.png in Resources */,
@@ -2354,13 +2477,16 @@
 				B8B2BDB825417BEF0017611E /* 弯线棕b.jpg in Resources */,
 				B8B2BD7C25417BD80017611E /* 野生灰a.jpg in Resources */,
 				B8B2BD6D25417BD80017611E /* 断眉棕a.jpg in Resources */,
+				2A9B1A7827D88A5B00A4BB6A /* flowers in Resources */,
 				B86AA229255335A600428B72 /* Shadow_K.jpg in Resources */,
 				B8C7F38B25405C08001B8849 /* blush_M_01.jpg in Resources */,
 				B8B2BD8925417BD80017611E /* 小桃棕a.jpg in Resources */,
 				B86AA219255335A600428B72 /* Shadow_L.jpg in Resources */,
 				F820851621FAA7D900D398E8 /* face_monster_ic_papaya@3x.png in Resources */,
 				B8B2BCDB2540B8B60017611E /* eyelash_H.jpg in Resources */,
+				2A9B1A7B27D88A5B00A4BB6A /* realvhs in Resources */,
 				B8852D1C25C1F342007D4896 /* home_skin_ic@2x.png in Resources */,
+				2A9B1A7427D88A5B00A4BB6A /* grumpycat in Resources */,
 				B8B2BD8025417BD80017611E /* 峰眉灰a.jpg in Resources */,
 				B8831D1D257A13940032E2AE /* plastic_lips_sel@3x.png in Resources */,
 				B8210F9A253FE78D00E17525 /* line_L.jpg in Resources */,
@@ -2369,6 +2495,7 @@
 				B8831D65257A13940032E2AE /* plastic_philterum@2x.png in Resources */,
 				B8B2BCEC2540B8B60017611E /* eyelash_O.jpg in Resources */,
 				B86AA221255335A600428B72 /* Shadow_R.jpg in Resources */,
+				2A9B1A7027D88A5B00A4BB6A /* sleepingmask in Resources */,
 				B8988C95258C9A1600F276FE /* plastic_eyemazing_sel@2x.png in Resources */,
 				B8B2BD1925415CD70017611E /* lipStick_10.jpg in Resources */,
 				B8A72AF924C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Rain_1.jpg in Resources */,
@@ -2377,6 +2504,7 @@
 				B8831D35257A13940032E2AE /* plastic_browPosition@3x.png in Resources */,
 				B8831D43257A13940032E2AE /* plastic_chinSize_sel@2x.png in Resources */,
 				F820851521FAA7D900D398E8 /* face_monster_ic_smalleyes@3x.png in Resources */,
+				2A9B1A8527D88A5B00A4BB6A /* aviators in Resources */,
 				B8B2BD8225417BD80017611E /* 小桃黑a.jpg in Resources */,
 				B8831D3A257A13940032E2AE /* plastic_chinSize@3x.png in Resources */,
 				B8988CAD258C9A3300F276FE /* plastic_eyeDetail_sel@3x.png in Resources */,
@@ -2432,6 +2560,7 @@
 				B8B2BD7525417BD80017611E /* 圆眉黑a.jpg in Resources */,
 				B86AA220255335A600428B72 /* Shadow_P.jpg in Resources */,
 				B8B2BD7925417BD80017611E /* 标准黑a.jpg in Resources */,
+				2A9B1A8027D88A5B00A4BB6A /* slash in Resources */,
 				B8B2BCE92540B8B60017611E /* eyelash_A.jpg in Resources */,
 				B86AA22A255335A600428B72 /* Shadow_F.jpg in Resources */,
 				B8A72B3C24C92B4F00CD5183 /* lsq_filter_thumb_Food_Lime_1.jpg in Resources */,
@@ -2452,6 +2581,7 @@
 				B8A72AF724C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Ash_1.jpg in Resources */,
 				B8852D9E25C261A9007D4896 /* backup_ic_white@2x.png in Resources */,
 				B86AA218255335A600428B72 /* Shadow_N.jpg in Resources */,
+				2A3CF3EA27741D7600CB80EB /* test.MP4 in Resources */,
 				B8A72B0C24C92A6C00CD5183 /* lsq_filter_thumb_Portrait_Icream_1.jpg in Resources */,
 				B8B2BDB925417BEF0017611E /* 标准黑b.jpg in Resources */,
 				B8B2BDCF25417BEF0017611E /* 欧线棕b.jpg in Resources */,
@@ -2469,6 +2599,7 @@
 				B8831D42257A13940032E2AE /* plastic_eyeSize_sel@3x.png in Resources */,
 				B8A72AFB24C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Tale_1.jpg in Resources */,
 				B8A72B0324C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Lautumn_1.jpg in Resources */,
+				2A9B1A8127D88A5B00A4BB6A /* teddycigar in Resources */,
 				B86AA224255335A600428B72 /* Shadow_M.jpg in Resources */,
 				B8A72AF324C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Izu_1.jpg in Resources */,
 				B8A72B1E24C92A6C00CD5183 /* lsq_filter_thumb_Scenery_Birch_1.jpg in Resources */,
@@ -2504,10 +2635,12 @@
 				B8831D5E257A13940032E2AE /* plastic_philterum_sel@2x.png in Resources */,
 				B8B2BDC325417BEF0017611E /* 柳弯黑b.jpg in Resources */,
 				B8831D4F257A13940032E2AE /* plastic_jawSize_sel@3x.png in Resources */,
+				2A9B1A7D27D88A5B00A4BB6A /* Helmet_PBR_V1 in Resources */,
 				B8852D1425C1F342007D4896 /* filter_adjust_ic@2x.png in Resources */,
 				B8B2BD1F25415CD70017611E /* lipStick_2.jpg in Resources */,
 				B8988CA3258C9A2100F276FE /* plastic_removePouch@3x.png in Resources */,
 				B8A72AFF24C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Orange_1.jpg in Resources */,
+				2A9B1A7327D88A5B00A4BB6A /* drawingmanga in Resources */,
 				B8B2BDB525417BEF0017611E /* 柳弯灰b.jpg in Resources */,
 				B8A72B0D24C92A6C00CD5183 /* lsq_filter_thumb_Portrait_Bright_1.jpg in Resources */,
 				B8A72B2D24C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Dark_1.jpg in Resources */,
@@ -2528,6 +2661,7 @@
 				B86AA226255335A600428B72 /* Shadow_E.jpg in Resources */,
 				B8988C8E258C9A1600F276FE /* plastic_eyemazing@2x.png in Resources */,
 				B8B2BDCA25417BEF0017611E /* 新月黑b.jpg in Resources */,
+				2A9B1A8627D88A5B00A4BB6A /* filmcolorperfection in Resources */,
 				B8A72B0724C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Quiet_1.jpg in Resources */,
 				B8A72AFE24C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Red_1.jpg in Resources */,
 				B8A72B1624C92A6C00CD5183 /* lsq_filter_thumb_Sharp_Nostalgia_1.jpg in Resources */,
@@ -2843,16 +2977,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/**",
+					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources",
+					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/DeepAR",
 					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/TuSDK",
 				);
 				GCC_PREFIX_HEADER = TuSDKVideoDemo/Classes/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TuSDKVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2878,6 +3011,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/**",
+					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources",
+					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/DeepAR",
 					"$(PROJECT_DIR)/TuSDKVideoDemo/Resources/TuSDK",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -2886,10 +3021,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TuSDKVideoDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.6;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
