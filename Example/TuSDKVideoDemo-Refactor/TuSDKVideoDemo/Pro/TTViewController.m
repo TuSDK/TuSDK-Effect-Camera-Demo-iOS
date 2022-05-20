@@ -125,10 +125,9 @@
     
     [self.deepar initializeOffscreenWithWidth:[@(width) integerValue] height:[@(height) integerValue]];
     
-//    self.arview = (ARView*)[self.deepar createARViewWithFrame:[UIScreen mainScreen].bounds];
-//    self.arview.backgroundColor = UIColor.greenColor;
-//    [self.view insertSubview:self.arview atIndex:0];
-//    [self.view addSubview:self.arview];
+//MARK: - DeepAr特效添加方法
+//    NSString *path = [[NSBundle mainBundle]  pathForResource:@"aviators" ofType:@""];
+//    [self.deepar switchEffectWithSlot:@"mask" path:path];
     
 }
 
@@ -392,10 +391,7 @@
         case TTMethodRotateCamera:
         {
             //切换摄像头
-//            [self.capture rotateCamera];
-            NSString *path = [[NSBundle mainBundle]  pathForResource:@"aviators" ofType:@""];
-            [self.deepar switchEffectWithSlot:@"mask" path:path];
-            
+            [self.capture rotateCamera];
         }
             break;
         default:
