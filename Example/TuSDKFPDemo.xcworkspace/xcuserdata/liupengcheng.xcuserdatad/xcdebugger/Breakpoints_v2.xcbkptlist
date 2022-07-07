@@ -19,102 +19,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "11EBB622-F17A-4CA9-8546-9E5857D06045"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TuViews/TuViews/widgets/filters/TuEditFilterGroupViewBase.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-setFilterParams:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FB4869A8-912C-4428-851A-DA0283257D82"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TuSDKGeeV1/framework/Source/Components/TuSDKPFEditFilterGroupView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "-onTuSDKCPParameterConfig:valueWithIndex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C8AB1C1C-6838-452F-8EE0-46B95B83531F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TuSDKGeeV1/framework/Source/Components/TuSDKPFEditFilterGroupView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "-onTuSDKCPParameterConfig:resetWithIndex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "03FD61A4-A552-4557-A340-E6769106D053"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TuViews/TuViews/shower/TuImageShowerImpl.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1469"
-            endingLineNumber = "1469"
-            landmarkName = "+filterImage:code:params:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FEF040D0-992D-4905-8B37-B1E6D01E8796"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TuViews/TuViews/widgets/TuFilterResultController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
-            landmarkName = "-onTuSDKCPParameterConfig:valueWithKey:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E69F3CDA-C14D-468B-9E08-DEAA54D288C9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TuViews/TuViews/widgets/TuFilterResultController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-onTuSDKCPParameterConfig:changeWithIndex:progress:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "BDEEEB75-A9EC-4CA6-92AF-DE88747050DE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -122,8 +26,8 @@
             filePath = "TuSDKVideoDemo-Refactor/TuSDKVideoDemo/Pro/View/Beauty/TTBeautyPanelView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
             landmarkName = "-cosmeticPanelView:code:value:"
             landmarkType = "7">
          </BreakpointContent>
@@ -141,6 +45,310 @@
             startingLineNumber = "1388"
             endingLineNumber = "1388"
             landmarkName = "-addAudioMixer:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "439107F3-2D09-49C4-BE6D-8E5514320778"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuSDKDemo/TuSDKDemo/Source/GeeV1/CustomUI/CustomizedCameraComponent.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "-onTuSDKPFCamera:captureResult:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86F7B81A-2296-4422-A8F1-7DE9CE4211B0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../pulse-av/module/srv-evanimation/business/scm/struct/AppBundle.cc"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "AppBundle::internalFilters()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "19338FB3-DA96-4381-AEE1-5804BCCB9697"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "828"
+            endingLineNumber = "828"
+            landmarkName = "TFile::parserHeader(file)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "19338FB3-DA96-4381-AEE1-5804BCCB9697 - 92f58cba8e990489"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tutu::TFile::parserHeader(std::__1::shared_ptr&lt;tutu::TFileReader&gt;)"
+                  moduleName = "TuSDKPulseCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liupengcheng/Documents/TuSDKWorkSpace/ios_sdk_lasque/pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "828"
+                  endingLineNumber = "828"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "19338FB3-DA96-4381-AEE1-5804BCCB9697 - 92f58cba8e990489"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tutu::TFile::parserHeader(std::__1::shared_ptr&lt;tutu::TFileReader&gt;)"
+                  moduleName = "TuSDKPulseCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liupengcheng/Documents/TuSDKWorkSpace/ios_sdk_lasque/pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "828"
+                  endingLineNumber = "828"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C575B0B-68DE-4B97-A444-925554C9BE2C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "799"
+            endingLineNumber = "799"
+            landmarkName = "TFile::init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8C575B0B-68DE-4B97-A444-925554C9BE2C - e7b744b0decf866f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tutu::TFile::init()"
+                  moduleName = "TuSDKPulseCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liupengcheng/Documents/TuSDKWorkSpace/ios_sdk_lasque/pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "800"
+                  endingLineNumber = "800"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "8C575B0B-68DE-4B97-A444-925554C9BE2C - e7b744b0decf868c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tutu::TFile::init()"
+                  moduleName = "TuSDKPulseCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liupengcheng/Documents/TuSDKWorkSpace/ios_sdk_lasque/pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BBC2931-B354-4C2F-AD04-CA38B46C512F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "810"
+            endingLineNumber = "810"
+            landmarkName = "TFile::init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3BBC2931-B354-4C2F-AD04-CA38B46C512F - e7b744b0decf8500"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tutu::TFile::init()"
+                  moduleName = "TuSDKPulseCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liupengcheng/Documents/TuSDKWorkSpace/ios_sdk_lasque/pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "811"
+                  endingLineNumber = "811"
+                  offsetFromSymbolStart = "212">
+               </Location>
+               <Location
+                  uuid = "3BBC2931-B354-4C2F-AD04-CA38B46C512F - e7b744b0decf8521"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tutu::TFile::init()"
+                  moduleName = "TuSDKPulseCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liupengcheng/Documents/TuSDKWorkSpace/ios_sdk_lasque/pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "810"
+                  endingLineNumber = "810"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "90F89E46-56FD-4E74-9A32-7005B4ACB553"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "793"
+            endingLineNumber = "793"
+            landmarkName = "TFile::openReadFile()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "90F89E46-56FD-4E74-9A32-7005B4ACB553 - 25554f93ad992178"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tutu::TFile::openReadFile()"
+                  moduleName = "TuSDKPulseCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liupengcheng/Documents/TuSDKWorkSpace/ios_sdk_lasque/pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "793"
+                  endingLineNumber = "793"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "90F89E46-56FD-4E74-9A32-7005B4ACB553 - 25554f93ad992178"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tutu::TFile::openReadFile()"
+                  moduleName = "TuSDKPulseCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liupengcheng/Documents/TuSDKWorkSpace/ios_sdk_lasque/pulse-av/module/srv-evanimation/tusdkcore/utils/TFile.cc"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "793"
+                  endingLineNumber = "793"
+                  offsetFromSymbolStart = "184">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DE54B20-77DD-4FBA-A6A8-49600AA09EF0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuViews/TuViews/filter/TuFilterOnlineControllerBase.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-onResourceDownloadWithIdt:key:fileId:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47C7372F-E819-4C99-9448-CB5810673C36"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../pulse-av/module/srv-evanimation/tusdkcore/utils/TAes.cc"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1456"
+            endingLineNumber = "1456"
+            landmarkName = "TAes::decodeBuffer(szDataIn, size, key)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8396923C-5B83-4759-84E3-62E0F1D31A86"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../pulse-av/src/filter/detectors/Source/TFaceManager.cc"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "542"
+            endingLineNumber = "542"
+            landmarkName = "TFaceManager::TrackFree(grayBuffer, width, height, angle, isMarkSence, facesRect, facesPose, facesMarks, facesEyeMarks, facesMouthMarks)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93189231-C0A5-4C4B-B00E-9160626A9597"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../pulse-av/src/filter/detectors/Source/TFaceManager.cc"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "TFaceManager::InitFaceNet(modelBuffer, len)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91317149-233E-42B3-9966-8EBDB8596DDA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TuSDKVideoDemo-Refactor/TuSDKVideoDemo/Pro/Mediator/TTRecordManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-setRecordSpeed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
