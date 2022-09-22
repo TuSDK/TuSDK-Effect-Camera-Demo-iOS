@@ -76,11 +76,18 @@ FOUNDATION_EXPORT const unsigned char TuViewsVersionString[];
 #import <TuViews/TuViewsConfigs.h>
 #import <TuViews/TuCameraShower.h>
 #import <TuViews/TuCameraShowerImpl.h>
+#import <TuViews/TuComponentsViewController.h>
 
+#import <TuViews/TuImageShower.h>
+#import <TuViews/TuImageShowerImpl.h>
 /**
  *  SDK版本
  */
 extern NSString * const lsqViewsVersion;
+/**
+ *  SDK版本代号
+ */
+extern NSInteger const lsqViewsCode;
 
 /**
  *  SDK打包时间

@@ -6,10 +6,8 @@
 //  Copyright (c) 2014年 tusdk.com. All rights reserved.
 //
 
-#import "TuComponentsViewController.h"
+#import <TuViews/TuComponentsViewController.h>
 #import <TuSDKPulseCore/TuSDKPulseCore.h>
-//#import "TuSDKPulseCore/core/TuResult.h"
-//#import "TuSDKPulseCore/core/TuWaterMarkOption.h"
 #import <TuSDKPulse/TuSDKPulse.h>
 
 /**
@@ -31,6 +29,10 @@
  *  保存到系统相册 (默认不保存, 当设置为YES时, TuResult.asset, 处理完成后将自动清理原始图片)
  */
 @property (nonatomic) BOOL saveToAlbum;
+/**
+ *  是否移除处理完成后图片。默认为YES
+ */
+@property (nonatomic) BOOL removeResultImage;
 
 /**
  *  保存到系统相册的相册名称

@@ -59,6 +59,8 @@
 @property (nonatomic, strong) Class viewClazz;
 // 滤镜参数
 @property (nonatomic, strong) SelesParameters *filterParams;
+//是否开启滤镜渲染效果，默认为YES
+@property (nonatomic, assign) BOOL enableFilter;
 // 显示背景区域颜色
 @property (nonatomic, strong) UIColor* displayBackgroundColor;
 // 显示图片
@@ -73,5 +75,6 @@
 - (void)setSkinFilterParams:(SelesParameters *)filterParams;
 - (void)enableSkinFilter;
 
+- (NSUInteger)getFaceCount;
 
 @end

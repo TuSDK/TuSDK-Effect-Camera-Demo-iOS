@@ -6,15 +6,15 @@
 	<dict>
 		<key>Frameworks/TuSDKPulseCore.framework/Info.plist</key>
 		<data>
-		Hsag/TPKa9kUh9phT0cXwrYbnTs=
+		i8F13HxZoeEpe4Ry4OqGURF11dY=
 		</data>
 		<key>Frameworks/TuSDKPulseCore.framework/TuSDKPulseCore</key>
 		<data>
-		bx0wG2sWO7PiH0zE6x84GVK4Z98=
+		CEYJl602YQhAkAcMDt6Q222V+Zs=
 		</data>
 		<key>Frameworks/TuSDKPulseCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		UEDvaWxl1FuAq1E8DhAbqYBJLIk=
+		xcDuLnmsnleVmgczbqcyqDOwR/Q=
 		</data>
 		<key>Headers/TUPBase.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/TUPPlayer.h</key>
 		<data>
-		yfHpPFMeCbbSeYqXo84EBm5bBoE=
+		b4476PiGxliqlvQPV5OKdcghnw0=
 		</data>
 		<key>Headers/TUPProducer.h</key>
 		<data>
@@ -92,9 +92,13 @@
 		<data>
 		ha1KHcreOZD/1VqxnSAR7GoiPmc=
 		</data>
+		<key>Headers/transform_effect.hh</key>
+		<data>
+		/bqaBRXl4ctdmfsF7VpbILEwmFY=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		RDppn8i1Swxg5irLkqa4ess0n08=
+		EtG4BXSUlhYbMgkDLz++gzEwUzA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -107,33 +111,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Hsag/TPKa9kUh9phT0cXwrYbnTs=
+			i8F13HxZoeEpe4Ry4OqGURF11dY=
 			</data>
 			<key>hash2</key>
 			<data>
-			9K/oiqYowxsyC1Ui/ysP2Z/73kC99UyzSXDIli3nva0=
+			D5ktDDtDP1VbAA/0C/YsIDlot7PZE+hCSrARrxt9FTo=
 			</data>
 		</dict>
 		<key>Frameworks/TuSDKPulseCore.framework/TuSDKPulseCore</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bx0wG2sWO7PiH0zE6x84GVK4Z98=
+			CEYJl602YQhAkAcMDt6Q222V+Zs=
 			</data>
 			<key>hash2</key>
 			<data>
-			brRP7CM2EBSJefVyDoTxaM3QlC5pnwsVVBzxO3g9Fps=
+			d4R3uxfzwUbv01Pl8rfaXkWpJNe7VTPkjTRA0rPX31M=
 			</data>
 		</dict>
 		<key>Frameworks/TuSDKPulseCore.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UEDvaWxl1FuAq1E8DhAbqYBJLIk=
+			xcDuLnmsnleVmgczbqcyqDOwR/Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			qHenq8Mw8hBErX+noCbMqceVSPc2Cb8NPetn76ieyBY=
+			G1y1hTepCVM2k1C7g3Fz5NbRfcws76w23Zg4RGLfMXM=
 			</data>
 		</dict>
 		<key>Headers/TUPBase.h</key>
@@ -228,11 +232,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yfHpPFMeCbbSeYqXo84EBm5bBoE=
+			b4476PiGxliqlvQPV5OKdcghnw0=
 			</data>
 			<key>hash2</key>
 			<data>
-			WK8zX2YgXev9/5EmocOafO/rbzuM3n//2v3bpeP/EVU=
+			iRk1p5th+EUfyf0BIhtPvNascgIMUmrK0VOi8fHKTNk=
 			</data>
 		</dict>
 		<key>Headers/TUPProducer.h</key>
@@ -343,6 +347,17 @@
 			<key>hash2</key>
 			<data>
 			WPdn3DPAvOuYzzJQGtFfzlX1Fk+F4q2gTIqg6fX3A38=
+			</data>
+		</dict>
+		<key>Headers/transform_effect.hh</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/bqaBRXl4ctdmfsF7VpbILEwmFY=
+			</data>
+			<key>hash2</key>
+			<data>
+			xfqBxkGGZtm6daNkeAQLaISwHnz1loTKZwHfLnNsM88=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

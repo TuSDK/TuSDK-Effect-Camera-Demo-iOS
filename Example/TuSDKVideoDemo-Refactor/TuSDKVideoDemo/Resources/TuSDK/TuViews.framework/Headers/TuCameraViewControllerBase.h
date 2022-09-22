@@ -42,14 +42,16 @@
 @property (nonatomic) AVCaptureDevicePosition avPostion;
 // 设置闪光灯模式
 @property (nonatomic) AVCaptureFlashMode flashMode;
-// 视频视图显示比例类型 (默认:lsqRatioDefault, 如果设置cameraViewRatio > 0, 将忽略ratioType)
-@property (nonatomic) lsqRatioType ratioType;
+// 视频视图显示比例类型 (默认:TTRatioDefault, 如果设置cameraViewRatio > 0, 将忽略ratioType)
+@property (nonatomic) TTRatioType ratioType;
 // 当前比例类型
-@property (nonatomic) lsqRatioType currentRatioType;
+@property (nonatomic) TTRatioType currentRatioType;
 // 获取当前比例
 @property (nonatomic, readonly) CGFloat currentRatio;
 // 是否开启音量键拍摄
 @property (nonatomic) BOOL enableCaptureWithVolumeKeys;
+// 禁用麦克风 (默认:false)
+@property (nonatomic) BOOL disableMicrophone;
 // 视频视图显示比例 (默认：0， 0 <= mRegionRatio, 当设置为0时全屏显示)
 @property (nonatomic) CGFloat cameraViewRatio;
 // 相机对象
@@ -60,6 +62,8 @@
 //@property (nonatomic, readonly) UIView<TuCAEAGLViewInterface>* surfaceView;
 // 聚焦触摸视图
 @property (nonatomic, readonly) TuFocusTouchViewBase* focusTouchView;
+//是否开启滤镜渲染效果，默认为YES
+@property (nonatomic, assign) BOOL enableFilter;
 // 选区范围算法
 @property (nonatomic, strong) id<TuRegionHandler> regionHandler;
 // 处理相机焦距变化
