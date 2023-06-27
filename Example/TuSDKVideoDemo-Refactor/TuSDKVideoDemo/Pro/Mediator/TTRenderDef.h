@@ -194,6 +194,9 @@ FOUNDATION_EXPORT NSString *TTEffectTypeDescription(TTEffectType type);
 /// 重置特效
 - (void)resetEffect:(TTEffectType)effectType;
 
+/// 重置参数默认值
+- (void)resetEffectParams:(TTEffectType)effectType;
+
 // MARK: - 美肤
 
 /// 设置美肤（磨皮）算法

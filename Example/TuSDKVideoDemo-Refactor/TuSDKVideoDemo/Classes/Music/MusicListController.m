@@ -31,7 +31,8 @@
     [self.view addSubview:backButton];
     self.items = @[[MusicItem itemWithName:@"无" time:@""],
                    [MusicItem itemWithName:@"city_sunshine" time:@"03:04"],
-                   [MusicItem itemWithName:@"eye_of_forgiveness" time:@"01:38"]];
+                   [MusicItem itemWithName:@"eye_of_forgiveness" time:@"01:38"],
+                   [MusicItem itemWithName:@"sound_cat" time:@"00:10"]];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(backButton.frame), UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height - CGRectGetMaxY(backButton.frame))];
     tableView.backgroundColor = UIColor.clearColor;

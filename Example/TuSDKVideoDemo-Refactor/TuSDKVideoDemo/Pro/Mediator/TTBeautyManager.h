@@ -42,6 +42,12 @@ TT_INIT_UNAVAILABLE;
  */
 - (void)resetEffect:(TTEffectType)effectType;
 
+/**
+ * 重置参数默认值
+ * @param effectType 特效类型
+ */
+- (void)resetEffectParams:(TTEffectType)effectType;
+
 /// 销毁
 - (void)destory;
 // MARK: - 美肤

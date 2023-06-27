@@ -56,6 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _recordSpeed = TTVideoRecordSpeed_NOMAL;
     _mediator = [[TTPipeMediator alloc] initWithContainer:self.view];
     //相机相关UI
     _cameraView = [[TTCameraView alloc] initWithFrame:self.view.bounds beautyTarget:[TTBeautyProxy transformObjc:_mediator]];    
@@ -89,7 +90,7 @@
     // 添加后台、前台切换的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackFromFront) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterFrontFromBack) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willTerminateAction) name:@"ApplicationwillTerminateAction" object:nil];
     //捏合手势
     UIPinchGestureRecognizer *zoomPinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchAction:)];
     [self.view addGestureRecognizer:zoomPinch];
@@ -166,6 +167,10 @@
     }
     //重置页面
     [_cameraView resetCameraView];
+}
+
+- (void)willTerminateAction {
+    [self.mediator destory];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

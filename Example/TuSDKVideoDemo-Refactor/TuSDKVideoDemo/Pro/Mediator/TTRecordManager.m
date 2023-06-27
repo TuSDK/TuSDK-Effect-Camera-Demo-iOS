@@ -17,6 +17,7 @@
 /// 时长
 @property(nonatomic, assign) NSInteger duration;
 @property(nonatomic, assign) NSInteger ts;
+@property(nonatomic, assign) BOOL isClosed;
 @end
 @implementation TTVideoFragment
 - (instancetype)initWithIndex:(NSInteger)index beginTime:(NSInteger)beginTime {
@@ -44,6 +45,15 @@
 - (NSInteger)getTime {
     return self.beginTime + self.duration * self.config.stretch;
 }
+
+- (void)close {
+    if (self.isClosed) {
+        return;
+    }
+    [self.exporter close];
+    self.isClosed = true;
+}
+
 @end
 
 @interface TTRecordManager ()
@@ -156,7 +166,8 @@
     if (!fragment) {
         return;
     }
-    [fragment.exporter close];
+    
+    [fragment close];
 }
 
 - (void)stopRecord {

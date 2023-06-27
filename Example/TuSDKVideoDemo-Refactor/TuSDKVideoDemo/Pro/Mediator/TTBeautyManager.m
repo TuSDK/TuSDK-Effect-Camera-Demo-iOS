@@ -246,6 +246,12 @@ static NSInteger const kFilterIndex = 100;
     [self removeEffect:effectType];
 }
 
+/// 重置参数默认值
+- (void)resetEffectParams:(TTEffectType)effectType
+{
+    [self defaultParams:effectType];
+}
+
 - (void)destory {
     [self.queue runSync:^{
         [self.pipe clearFilters];

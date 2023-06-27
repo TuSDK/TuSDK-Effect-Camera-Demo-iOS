@@ -19,7 +19,7 @@
 @implementation TuVideoFocusTouchView
 
 //@synthesize rangeView = _rangeView;
-@synthesize displayGuideLine;
+//@synthesize displayGuideLine;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

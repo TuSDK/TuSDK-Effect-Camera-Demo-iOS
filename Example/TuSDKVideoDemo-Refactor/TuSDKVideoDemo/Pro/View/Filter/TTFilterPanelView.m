@@ -440,6 +440,10 @@
     NSMutableArray *params = [_filterModel changeFilterWithCode:code];
 
     [_paramtersAdjustView setParams:params];
+    
+    CGFloat strength = [params[0][@"defaultVal"] floatValue];
+    
+    [self.beautyTarget setFilterStrength:strength];
 }
 
 - (void)ParameterAdjustView:(TuParametersAdjustView *)paramAdjustView index:(NSInteger)index val:(float)val

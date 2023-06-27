@@ -277,6 +277,8 @@ static const CGFloat kBeautyListParamtersViewSpacing = 24;
         {
             if (self.beautyTarget && [self.beautyTarget respondsToSelector:@selector(removeEffect:)]) {
                 self->_paramtersAdjustView.hidden = YES;
+                [self.beautyTarget resetEffectParams:TTEffectTypePlastic];
+                [self.beautyTarget resetEffectParams:TTEffectTypeReshape];
                 [self.beautyTarget removeEffect:TTEffectTypePlastic];
                 [self.beautyTarget removeEffect:TTEffectTypeReshape];
                 //重置微整形数据
