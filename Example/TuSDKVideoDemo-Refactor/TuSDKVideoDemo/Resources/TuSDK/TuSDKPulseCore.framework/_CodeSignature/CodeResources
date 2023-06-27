@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		DxosaQDCSIeEcJqY2zhG96QsP6g=
+		</data>
+		<key>Headers/.DS_Store</key>
+		<data>
+		nxRS0Z+Rxvvf+OCTTE5pnWnmE5M=
+		</data>
 		<key>Headers/TUCCore.h</key>
 		<data>
 		pObYC6Kz5QZBeIsqAfvLTN4Viko=
@@ -231,6 +239,10 @@
 		<key>Headers/secrets/TuStatistics.h</key>
 		<data>
 		owDYTrWZU1AUV/f79JUVqSGSRpg=
+		</data>
+		<key>Headers/source/.DS_Store</key>
+		<data>
+		jjL1MGcAN8lC5h10zLd/1CA0UQA=
 		</data>
 		<key>Headers/source/brush/TuBrush.h</key>
 		<data>
