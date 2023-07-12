@@ -438,7 +438,8 @@
 - (void)adjustFilterParamters:(NSString *)code
 {
     NSMutableArray *params = [_filterModel changeFilterWithCode:code];
-
+    if (params.count == 0) return;
+    
     [_paramtersAdjustView setParams:params];
     
     CGFloat strength = [params[0][@"defaultVal"] floatValue];
