@@ -7,6 +7,7 @@
 #import "TUPFilterCtx.h"
 #import "TUPFPFilter.h"
 #import "TUPFPImage.h"
+#import "TUPFPBuffer.h"
 #import "TUPFPDetectResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -43,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (TUPFPImage*) process:(TUPFPImage*) image;
+
+- (TUPFPImage*) process:(TUPFPImage*) image buffer:(TUPFPDetectResult *)buffer;
 
 - (TUPFPDetectResult*) getCurrentDetectResult:(NSString*) key;
 
