@@ -13,6 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class TUPFPImage;
+@class TUPFPBuffer;
 
 @interface TTImageConvert : NSObject
 
@@ -21,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param sampleBuffer 视频样本
  */
 - (TUPFPImage *)sendVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+- (TUPFPBuffer *)sendSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
 /**
  * 向 SDK 发送采集的视频数据 返回图像
@@ -33,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param timestamp 连续时间戳
  */
 - (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer withTimestamp:(int64_t)timestamp;
+- (TUPFPBuffer *)sendPixelBuffer:(CVPixelBufferRef)pixelBuffer withTimestamp:(int64_t)timestamp;
 /**
  * 向 SDK 发送采集的视频数据 返回图像
  * @param pixelBuffer 视频样本

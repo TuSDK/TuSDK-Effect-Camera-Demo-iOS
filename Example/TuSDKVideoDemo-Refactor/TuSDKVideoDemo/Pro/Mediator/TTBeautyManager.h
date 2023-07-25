@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class TUPDispatchQueue;
 @class TUPFPImage;
+@class TUPFPBuffer;
 @interface TTBeautyManager : NSObject
 TT_INIT_UNAVAILABLE;
 /**
@@ -25,7 +26,7 @@ TT_INIT_UNAVAILABLE;
  * 向 美颜 发送图像 并返回编辑处理后的图像
  * @param fpImage 图像
  */
-- (TUPFPImage *)sendFPImage:(TUPFPImage *)fpImage;
+- (TUPFPImage *)sendFPImage:(TUPFPImage *)fpImage buffer:(TUPFPBuffer *)fpBuffer;
 /**
  * 添加特效
  * @param effectType 特效类型

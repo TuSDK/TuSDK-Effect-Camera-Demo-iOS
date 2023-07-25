@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 //初始化
 - (instancetype)initWithImpl:(void *)impl;
 
+- (void)setMarkSenceEnable:(bool)isEnable;
+- (bool)getMarkSenceEnable;
+
 //销毁
 - (void)destory;
 

@@ -20,6 +20,7 @@ static NSInteger const kFilterIndex = 100;
 @property(nonatomic, assign) BOOL pbout;
 @property(nonatomic, assign) BOOL markSenceEnable;
 @property(nonatomic, strong) TUPFPImage *inFPImage;
+@property(nonatomic, strong) TUPFPDetector *detector;
 @property(nonatomic, strong) TTEffectFactory *effectFactory;
 /// 微整形
 @property(nonatomic, strong) TUPFPTusdkFacePlasticFilter_PropertyBuilder *plasticBuilder;
@@ -44,12 +45,18 @@ static NSInteger const kFilterIndex = 100;
 
 @implementation TTBeautyManager
 
+- (void)dealloc
+{
+    [_detector destory];
+}
+
 - (instancetype)initWithQueue:(TUPDispatchQueue *)queue {
     self = [super init];
     if (self) {
         _queue = queue;
         _markSenceEnable = NO;
         _pbout = NO;
+        self.detector = [[TUPFPDetector alloc] initWithType:1];
         [_queue runSync:^{
             self.pipe = [[TUPFilterPipe alloc] init];
             if (self.pbout) {
@@ -185,14 +192,20 @@ static NSInteger const kFilterIndex = 100;
     [filter setProperty:property forKey:TUPFPTusdkImageFilter_PROP_PARAM];
 }
 
-- (TUPFPImage *)sendFPImage:(TUPFPImage *)fpImage {
+- (TUPFPImage *)sendFPImage:(TUPFPImage *)fpImage buffer:(TUPFPBuffer *)fpBuffer;
+{
     _inFPImage = fpImage;
     self.markSenceEnable = NO;
     if ([self filterWithEffect:TTEffectTypeReshape] || [self filterWithEffect:TTEffectTypeCosmetic]) {
         self.markSenceEnable = YES;
     }
     [fpImage setMarkSenceEnable:self.markSenceEnable];
-    return [self.pipe process:fpImage];
+    [fpBuffer setMarkSenceEnable:self.markSenceEnable];
+    
+    if (!_detector) return nil;
+    TUPFPDetectResult *result = [_detector do_detect:fpBuffer];
+    [fpBuffer destory];
+    return [self.pipe process:fpImage buffer:result];
 }
 
 /// 添加特效

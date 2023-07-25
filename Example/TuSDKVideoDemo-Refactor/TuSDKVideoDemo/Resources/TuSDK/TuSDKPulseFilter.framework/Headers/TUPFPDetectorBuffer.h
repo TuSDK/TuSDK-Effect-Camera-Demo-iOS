@@ -24,11 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * convert 转换
  */
-- (TUPFPDetectResult *)convert:(CMSampleBufferRef)sb;
+- (TUPFPBuffer *)convert:(CMSampleBufferRef)sb;
 
-- (TUPFPDetectResult *)convert:(CVPixelBufferRef)pb withTimestamp:(int64_t)ts;
+- (TUPFPBuffer *)convert:(CVPixelBufferRef)pb withTimestamp:(int64_t)ts;
 
-- (TUPFPDetectResult *)convertWithUIImage:(UIImage *)image;
+- (TUPFPBuffer *)convertWithUIImage:(UIImage *)image;
 
 - (void)destory;
 
