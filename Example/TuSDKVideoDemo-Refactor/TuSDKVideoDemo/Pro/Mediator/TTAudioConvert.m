@@ -78,9 +78,6 @@ typedef NS_ENUM(NSInteger, TTAudioMixerType) {
         } else {
             // SDK 对每次传入的 PCM buffer 大小有严格要求，每一个采样点要求是16位宽。如果是单声道，传入的 PCM 长度为2048；如果是双声道，传入的 PCM 长度为4096。
             size_t nc = audioBuffer.mDataByteSize / 1 / sizeof(int16_t);
-            if (self.sampleMuted) {
-                memset(audioBuffer.mData, 0, audioBuffer.mDataByteSize);
-            }
             [self.pipe enqueue:audioBuffer.mData andLength:nc];
             while ([self.pipe getSize] >= kSampleCount) {
                 [self.pipe dequeue:self->_queueData andLength:kSampleCount];
@@ -209,7 +206,6 @@ typedef NS_ENUM(NSInteger, TTAudioMixerType) {
     _mixerConfig = [[TUPFPAudioMixer_Config alloc] init];
     _mixerConfig.fileMixWeight = 0.3;
     _mixerConfig.path = path;
-    _mixerConfig.repeatDuration = 15000;
     if (!_mixerQueue) {
         _mixerQueue = dispatch_queue_create("TTAudioConvert.audioMixerQueue", DISPATCH_QUEUE_CONCURRENT);
     }

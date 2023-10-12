@@ -63,7 +63,7 @@
     
     for (TuFilterGroup *filterGroup in filterGroups)
     {
-        if (filterGroup.groupFilterType == 0 && [filterGroup canUseForAtionScenType:TuAtionScenSDKTypeShortVideo])
+        if (filterGroup.groupFilterType == 0)
         {
             [list addObject:filterGroup];
         }

@@ -6,15 +6,15 @@
 	<dict>
 		<key>Frameworks/TuSDKPulseCore.framework/Info.plist</key>
 		<data>
-		gozUCavN5axQviZ6BGbJjnUHsyY=
+		i8F13HxZoeEpe4Ry4OqGURF11dY=
 		</data>
 		<key>Frameworks/TuSDKPulseCore.framework/TuSDKPulseCore</key>
 		<data>
-		BNBkwZAlKuNZjK2aox8scSxndA8=
+		CEYJl602YQhAkAcMDt6Q222V+Zs=
 		</data>
 		<key>Frameworks/TuSDKPulseCore.framework/_CodeSignature/CodeResources</key>
 		<data>
-		OtBu+5rP7dpRJhwAWmPvqfOmUQo=
+		xcDuLnmsnleVmgczbqcyqDOwR/Q=
 		</data>
 		<key>Headers/TUPBase.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/TUPDisplayView.h</key>
 		<data>
-		BcZsugyujYjFEoQ+M/ua5E10phg=
+		OJ3puYvH0NU1u1yKD+33dEONfS0=
 		</data>
 		<key>Headers/TUPEngine.h</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9jr4IcNRxQ0hL5rTErp3dAOBQTE=
+		EtG4BXSUlhYbMgkDLz++gzEwUzA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -111,33 +111,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gozUCavN5axQviZ6BGbJjnUHsyY=
+			i8F13HxZoeEpe4Ry4OqGURF11dY=
 			</data>
 			<key>hash2</key>
 			<data>
-			hl7Ric+VKU28d9W9yANAUjY2j+VvZl3u4WOYWfmg6y0=
+			D5ktDDtDP1VbAA/0C/YsIDlot7PZE+hCSrARrxt9FTo=
 			</data>
 		</dict>
 		<key>Frameworks/TuSDKPulseCore.framework/TuSDKPulseCore</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BNBkwZAlKuNZjK2aox8scSxndA8=
+			CEYJl602YQhAkAcMDt6Q222V+Zs=
 			</data>
 			<key>hash2</key>
 			<data>
-			jo/V+gFWHN2fy6AJW1iP3tm/JktG/uyaeMAeX2jTr7E=
+			d4R3uxfzwUbv01Pl8rfaXkWpJNe7VTPkjTRA0rPX31M=
 			</data>
 		</dict>
 		<key>Frameworks/TuSDKPulseCore.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OtBu+5rP7dpRJhwAWmPvqfOmUQo=
+			xcDuLnmsnleVmgczbqcyqDOwR/Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			1Sqg8UY0pQH/kweZiDg8AQwqw0MnIBgyQcmzoWeRL8k=
+			G1y1hTepCVM2k1C7g3Fz5NbRfcws76w23Zg4RGLfMXM=
 			</data>
 		</dict>
 		<key>Headers/TUPBase.h</key>
@@ -177,11 +177,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BcZsugyujYjFEoQ+M/ua5E10phg=
+			OJ3puYvH0NU1u1yKD+33dEONfS0=
 			</data>
 			<key>hash2</key>
 			<data>
-			lVDYdF2grr2+UNIJ5ksUjpcYBZ+kuIqW0hL1N7cBlGE=
+			9noPrN5+M92o5ZE6EKlV98eyAPQhn5u8CsSxIEOD2Mg=
 			</data>
 		</dict>
 		<key>Headers/TUPEngine.h</key>

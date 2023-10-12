@@ -360,13 +360,6 @@
         return;
     }
     [self dismissDeleteButtons];
-    
-    // 避免因重复点击引起的加载
-    if ([self.selectedIndexPath isEqual:touchIndexPath]) return;
-    // 将上次选中的item 选中状态取消
-    TuStickerBasePanelViewItem *lastCell = (TuStickerBasePanelViewItem *)[_itemCollectionView cellForItemAtIndexPath:self.selectedIndexPath];
-    lastCell.selectedView.hidden = YES;
-    
     self.selectedIndexPath = touchIndexPath;
     TuStickerBasePanelViewItem *cell = (TuStickerBasePanelViewItem *)[_itemCollectionView cellForItemAtIndexPath:touchIndexPath];
     if ([self.delegate respondsToSelector:@selector(categoryView:didSelectCell:atIndex:)])
@@ -438,7 +431,9 @@
     
     //cell.thumbnailView.image = [UIImage imageNamed:@"default"];
     [self.dataSource categoryView:self cellForItemAtIndex:cell atIndex:indexPath.item];
-    cell.selectedView.hidden = ![self.selectedIndexPath isEqual:indexPath];
+
+    // 选中当前项
+    cell.selected = [_selectedIndexPath isEqual:indexPath];
     
     cell.deleteButton.hidden = cell.selected || ![indexPath isEqual:_shouldShowDeleteButtonIndexPath] || cell.online;
     __weak typeof(self) weakSelf = self;

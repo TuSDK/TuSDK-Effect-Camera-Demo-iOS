@@ -113,7 +113,7 @@ typedef enum : NSUInteger {
 /**
  *  硬件设备扩展
  */
-@interface UIDevice(TuTSDeviceExtend)
+@interface UIDevice(TuSDKTSDeviceExtend)
 /**
  *  设备名称
  *

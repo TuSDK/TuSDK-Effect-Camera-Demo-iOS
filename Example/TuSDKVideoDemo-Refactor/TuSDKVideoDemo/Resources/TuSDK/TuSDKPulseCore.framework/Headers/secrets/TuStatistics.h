@@ -109,6 +109,8 @@ typedef NS_ENUM(NSInteger, TuTKComponentType) {
  *  数据统计
  *
  *  @param path 数据位置
+ *
+ *  @return path
  */
 + (void)initWithDataPath:(NSString *)path;
 

@@ -61,10 +61,13 @@
     [self.window makeKeyAndVisible];
     
     // 添加文件引入
-    //#import <TuSDKPulseCore/TuSDKPulseCore.h>
-    //#import <TuSDKPulse/TUPEngine.h>
+    //#import <TuSDK/TuSDK.h>
+    //#import <TuSDKVideo/TuSDKVideo.h>
+    //#import <TuSDKFace/TuSDKFace.h>
     // 版本号输出
     NSLog(@"TuSDK.framework 的版本号 : %@",lsqPulseSDKVersion);
+    //NSLog(@"TuSDKVideo.framework 的版本号 : %@",lsqVideoVersion);
+    //NSLog(@"TuSDKFace.framework 的版本号 : %@",lsqFaceVersion);
 #ifdef DEBUG
 //    [[DoraemonManager shareInstance] install];
 #endif
@@ -91,9 +94,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ApplicationwillTerminateAction" object:nil];
     [TUPEngine Terminate];
 }
-
 
 @end

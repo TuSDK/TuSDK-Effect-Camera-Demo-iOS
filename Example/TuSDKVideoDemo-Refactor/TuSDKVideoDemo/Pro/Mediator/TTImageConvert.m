@@ -13,7 +13,6 @@
 @interface TTImageConvert ()
 /// 视频样本转换
 @property(nonatomic, strong) TUPFPImage_CMSampleBufferCvt *bufferConvert;
-@property(nonatomic, strong) TUPFPDetectorBuffer *detectBuffer;
 /// 像素格式
 @property(nonatomic, assign) TTVideoPixelFormat pixelFormat;
 /// 分辨率
@@ -25,7 +24,6 @@
     self = [super init];
     if (self) {
         self.bufferConvert = [[TUPFPImage_CMSampleBufferCvt alloc] init];
-        self.detectBuffer = [[TUPFPDetectorBuffer alloc] init];
         _pixelFormat = TTVideoPixelFormat_YUV;
         _outputResolution = CGSizeMake(1080, 1920);
     }
@@ -47,7 +45,6 @@
 - (void)setOutputSize:(CGSize)outputSize {
     CGSize size = CGSizeMake(self.outputResolution.width * outputSize.width, self.outputResolution.height * outputSize.height);
     [self.bufferConvert setOutputSize:size];
-    [self.detectBuffer setOutputSize:size];
     NSLog(@"TTImageConvert ouputSize: %@", NSStringFromCGSize(size));
 }
 
@@ -62,11 +59,6 @@
     return [self.bufferConvert convert:sampleBuffer];
 }
 
-- (TUPFPBuffer *)sendSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-{
-    return [self.detectBuffer convert:sampleBuffer];
-}
-
 - (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     // 如果没有timestamp，则可以直接使用当前的系统时间
     int64_t timestamp = (int64_t)[[NSDate date]timeIntervalSince1970] * 1000;
@@ -78,17 +70,11 @@
     return [self.bufferConvert convert:pixelBuffer withTimestamp:timestamp];
 }
 
-- (TUPFPBuffer *)sendPixelBuffer:(CVPixelBufferRef)pixelBuffer withTimestamp:(int64_t)timestamp;
-{
-    return [self.detectBuffer convert:pixelBuffer withTimestamp:timestamp];
-}
-
 - (TUPFPImage *)sendVideoPixelBuffer:(CVPixelBufferRef)pixelBuffer withTimestamp:(int64_t)timestamp rotation:(int)rotation flip:(BOOL)flip mirror:(BOOL)mirror {
     return [self.bufferConvert convert:pixelBuffer withTimestamp:timestamp orientaion:rotation flip:flip mirror:mirror];
 }
 
 - (void)destory {
     _bufferConvert = nil;
-    [_detectBuffer destory];
 }
 @end

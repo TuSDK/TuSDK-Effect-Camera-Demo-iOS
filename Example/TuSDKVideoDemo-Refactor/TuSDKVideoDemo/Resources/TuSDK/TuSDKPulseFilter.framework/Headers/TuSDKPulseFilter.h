@@ -23,9 +23,7 @@ FOUNDATION_EXPORT const unsigned char TuSDKPulseFilterPipeVersionString[];
 #import <TuSDKPulseFilter/TUPFPFileExporter.h>
 #import <TuSDKPulseFilter/TUPFPFilter.h>
 #import <TuSDKPulseFilter/TUPFPImage.h>
-#import <TuSDKPulseFilter/TUPFPBuffer.h>
 #import <TuSDKPulseFilter/TUPFPImageCvt.h>
-#import <TuSDKPulseFilter/TUPFPDetectorBuffer.h>
 #import <TuSDKPulseFilter/TUPFPAudioMixer.h>
 #import <TuSDKPulseFilter/TUPFPSVGImage.h>
 

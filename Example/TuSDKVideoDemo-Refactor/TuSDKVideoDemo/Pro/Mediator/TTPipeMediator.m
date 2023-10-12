@@ -44,10 +44,8 @@
     NSInteger timestamp = [TTPipeMediator timestampWithSampleBuffer:sampleBuffer];
     [_queue runSync:^{
         TUPFPImage *fpImage = [self.imageConvert sendVideoSampleBuffer:sampleBuffer];
-        
-        TUPFPBuffer *fpBuffer = [self.imageConvert sendSampleBuffer:sampleBuffer];
         // 前后处理: 美颜、滤镜等
-        TUPFPImage *processFPImage = [self.beautyManager sendFPImage:fpImage buffer:fpBuffer];
+        TUPFPImage *processFPImage = [self.beautyManager sendFPImage:fpImage];
         
         self.outputFPImage = processFPImage;
         // 预览
@@ -65,9 +63,8 @@
         
         int64_t timestamp = (int64_t)([[NSDate date]timeIntervalSince1970] * 1000);
         TUPFPImage *fpImage = [self.imageConvert sendVideoPixelBuffer:pixelBuffer withTimestamp:timestamp];
-        TUPFPBuffer *fpBuffer = [self.imageConvert sendPixelBuffer:pixelBuffer withTimestamp:timestamp];
         // 前后处理: 美颜、滤镜等
-        TUPFPImage *processFPImage = [self.beautyManager sendFPImage:fpImage buffer:fpBuffer];
+        TUPFPImage *processFPImage = [self.beautyManager sendFPImage:fpImage];
         
         self.outputFPImage = processFPImage;
         // 预览

@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class TUPDispatchQueue;
 @class TUPFPImage;
-@class TUPFPBuffer;
 @interface TTBeautyManager : NSObject
 TT_INIT_UNAVAILABLE;
 /**
@@ -26,7 +25,7 @@ TT_INIT_UNAVAILABLE;
  * 向 美颜 发送图像 并返回编辑处理后的图像
  * @param fpImage 图像
  */
-- (TUPFPImage *)sendFPImage:(TUPFPImage *)fpImage buffer:(TUPFPBuffer *)fpBuffer;
+- (TUPFPImage *)sendFPImage:(TUPFPImage *)fpImage;
 /**
  * 添加特效
  * @param effectType 特效类型
@@ -42,12 +41,6 @@ TT_INIT_UNAVAILABLE;
  * @param effectType 特效类型
  */
 - (void)resetEffect:(TTEffectType)effectType;
-
-/**
- * 重置参数默认值
- * @param effectType 特效类型
- */
-- (void)resetEffectParams:(TTEffectType)effectType;
 
 /// 销毁
 - (void)destory;

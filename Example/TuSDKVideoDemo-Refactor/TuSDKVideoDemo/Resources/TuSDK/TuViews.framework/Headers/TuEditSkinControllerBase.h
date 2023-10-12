@@ -19,6 +19,7 @@
 
 /**
  * 一键美颜是否开启，默认为YES
+ * @return
  */
 @property (nonatomic, assign) BOOL enableAutoSkin;
 

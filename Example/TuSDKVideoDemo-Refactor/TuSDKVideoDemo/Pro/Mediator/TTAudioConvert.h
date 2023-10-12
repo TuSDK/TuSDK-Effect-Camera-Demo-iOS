@@ -26,9 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface TTAudioConvert : NSObject
-
-/// 混音下 采集音频数据静音
-@property(nonatomic, assign) BOOL sampleMuted;
 TT_INIT_UNAVAILABLE;
 /**
  * 初始化转换会话
