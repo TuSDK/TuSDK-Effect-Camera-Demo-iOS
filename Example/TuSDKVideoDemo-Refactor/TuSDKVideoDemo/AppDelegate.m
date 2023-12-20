@@ -52,6 +52,7 @@
     // 设置弹框时，背景按钮不可点击
     [TuPopupProgress setDefaultMaskType:TuSDKProgressHUDMaskTypeClear];
     
+    [NSThread sleepForTimeInterval:2.0];//设置启动页面时间
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];

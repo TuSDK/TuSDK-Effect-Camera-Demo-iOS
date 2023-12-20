@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,13 +25,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© TUTUCLOUD.COM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHF-vm-kFi">
                                 <rect key="frame" x="137" y="610" width="101.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TuSDKFilter 1.1.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDN-s9-WX6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TuSDKFilter 1.1.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDN-s9-WX6">
                                 <rect key="frame" x="147" y="630" width="81" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUSDK  VIDEO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTE-38-68f">
@@ -46,6 +44,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浙ICP备14040447号-3A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cC1-27-gKf">
+                                <rect key="frame" x="16" y="586.5" width="343" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -57,7 +60,11 @@
                             <constraint firstAttribute="trailing" secondItem="TKP-Q1-QeT" secondAttribute="trailing" id="LHM-fR-kot"/>
                             <constraint firstItem="TKP-Q1-QeT" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="M1M-Bi-rF7"/>
                             <constraint firstItem="uTE-38-68f" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="106" id="TXo-bj-k7k"/>
+                            <constraint firstItem="cC1-27-gKf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VFe-kt-O2v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cC1-27-gKf" secondAttribute="trailing" id="fBG-hB-DMZ"/>
+                            <constraint firstItem="VHF-vm-kFi" firstAttribute="top" secondItem="cC1-27-gKf" secondAttribute="bottom" constant="10" id="hpQ-qr-mfH"/>
                             <constraint firstItem="x91-9v-p5z" firstAttribute="top" secondItem="fDN-s9-WX6" secondAttribute="bottom" constant="25" id="lpC-Ie-eTw"/>
+                            <constraint firstItem="cC1-27-gKf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="nkI-fI-kpZ"/>
                             <constraint firstItem="VHF-vm-kFi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rCR-uI-xgp"/>
                             <constraint firstItem="UDx-bC-pph" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rEE-27-a8b"/>
                             <constraint firstAttribute="bottom" secondItem="TKP-Q1-QeT" secondAttribute="bottom" id="xpt-pa-z2j"/>
